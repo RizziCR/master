@@ -1,0 +1,179 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd" -->
+
+<html>
+
+<!--  HTML Kopf -->
+	<head
+  		tal:comment="html head requires page title"
+  		metal:use-macro="lib/htmlHead.html/htmlHead"
+	/>
+<!--  // HTML Kopf -->	
+
+	<body>
+		<div id="page-container">
+            <div id="header">
+                <div class="inside">
+                    <span tal:comment="header template"
+                          metal:use-macro="lib/header.html/header">
+                    </span>
+                </div><!-- inside -->
+            </div><!-- header -->
+		
+			<div id="outer-column-container">
+				<div id="inner-column-container">
+					<div id="source-order-container">
+						<div id="middle-column">
+							<div class="inside">
+
+<!-- mittlere Spalte -->
+								
+<h1>Technik-Übersicht</h1>
+<br />
+<br />    
+<br />
+<br />
+
+<font style="color: #00FF00">grün: Gebäude/Technologie vorhanden, Verteidigung/Flugzeug
+  kann gebaut werden</font>
+<br />
+<font style="color: #FFFF00">gelb: Gebäude kann gebaut, Technologie erforscht werden</font>
+<br />
+<font style="color: #FF0000">rot: nicht verfügbar</font>
+<br />
+<br />
+<br />
+
+<table border="0" cellpadding="3" cellspacing="3">
+	<tr>
+		<td align="center" class="table_head">Gebäude</td>
+	</tr>
+	<tr tal:repeat="category b_categories">
+		<td>
+		<table width="100%">
+			<tr>
+				<td colspan="2"><b tal:content="category/name">Category Name</b></td>
+			</tr>
+			<tr tal:repeat="building category/items">
+				<td width="40%"><a
+					tal:attributes="style string:color:${building/color}; href string:description.php?show=${building/id}&t=b&step=${building/stufe}"
+					tal:content="building/name">Building Name</a> (<span tal:replace="building/stufe">12</span>)</td>
+				<td tal:content="structure building/premise"></td>
+			</tr>
+		</table>
+		</td>
+	</tr>
+	<tr>
+		<td><br /><br /></td>
+	</tr>
+	<tr>
+		<td align="center" class="table_head">Technologien</td>
+	</tr>
+	<tr tal:repeat="category t_categories">
+		<td>
+		<table width="100%">
+			<tr>
+				<td colspan="2"><b tal:content="category/name">Category Name</b></td>
+			</tr>
+			<tr tal:repeat="tech category/items">
+				<td width="40%"><a
+					tal:attributes="style string:color:${tech/color}; href string:description.php?show=${tech/id}&t=t&step=${tech/stufe}"
+					tal:content="tech/name">Technology Name</a> (<span tal:replace="tech/stufe">12</span>)</td>
+				<td tal:content="structure tech/premise"></td>
+			</tr>
+		</table>
+		</td>
+	</tr>
+	<tr>
+		<td><br /><br /></td>
+	</tr>
+	<tr>
+		<td align="center" class="table_head">Defensivanlagen</td>
+	</tr>
+	<tr valign="top">
+		<td>
+		<table width="100%">
+			<tr tal:repeat="def defense">
+				<td width="40%"><a
+					tal:attributes="style string:color:${def/color}; href string:description.php?show=${def/id}&t=d"
+					tal:content="def/name">Defense Name</a></td>
+				<td tal:content="structure def/premise"></td>
+			</tr>
+		</table>
+		</td>
+	</tr>
+	<tr>
+		<td><br /><br /></td>
+	</tr>
+	<tr>
+		<td align="center" class="table_head">Flugzeuge</td>
+	</tr>
+	<tr tal:repeat="category planes">
+		<td>
+		<table width="100%">
+			<tr>
+				<td colspan="2"><b tal:content="category/name">Category Name</b></td>
+			</tr>
+			<tr tal:repeat="plane category/items">
+				<td width="40%"><a
+					tal:attributes="style string:color:${plane/color}; href string:description.php?show=${plane/id}&t=p"
+					tal:content="plane/name">Plane Name</a></td>
+				<td tal:content="structure plane/premise"></td>
+			</tr>
+		</table>
+		</td>
+	</tr>
+</table>
+<!-- // mittlere Spalte -->
+
+							</div>
+						</div>
+						<div id="left-column">
+							<div class="inside">
+
+<!-- linke Spalte -->
+								<span
+					  				tal:comment="left column template"
+					  				metal:use-macro="lib/leftColumn.html/leftColumn"
+								/>	
+<!-- // linke Spalte -->
+
+							</div>
+						</div>
+						<div class="clear-columns"><!-- do not delete --></div>
+					</div>
+					<div id="right-column">
+						<div class="inside">
+
+<!-- rechte Spalte -->
+							<span
+				  				tal:comment="right column template"
+				  				metal:use-macro="lib/rightColumn.html/rightColumn"
+							/>
+<!-- // rechte Spalte -->
+
+						</div>
+					</div>
+					<div class="clear-columns"><!-- do not delete --></div>
+				</div>
+			</div>
+			<div id="footer">
+				<div class="inside">
+
+<!-- Fusszeile -->				
+					<span
+		  				tal:comment="footer template"
+		  				metal:use-macro="lib/footer.html/footer"
+					/>
+<!-- // Fusszeile -->
+					
+				</div>
+			</div>
+		</div>
+
+      <span tal:replace="structure clockJSCode"></span>
+      <span tal:replace="structure resourceCounter"></span>
+      <span tal:condition="exists: sessionTimeout" tal:replace="structure sessionTimeoutCode"></span>		
+		
+	</body>
+</html>

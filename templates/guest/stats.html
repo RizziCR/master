@@ -1,0 +1,148 @@
+<div tal:comment=" === Seitenstruktur ==================================================="
+     id="contentStats"
+     metal:define-macro="content">
+
+    <p
+        tal:comment="error content if there is any"
+        tal:condition="exists: errorMessage"
+        tal:replace="structure errorMessage">
+    </p>
+
+    <div tal:omit-tag="" tal:condition="not: exists: errorMessage">
+
+<h1>Statistik</h1>
+
+<h2>Serverstatus</h2>
+
+<table id="serverStatus">
+    <tr>
+        <td id="spielerOnline">
+            <span class="kopf">Siedler online</span>
+            <span class="wert" tal:content="online">10</span>
+            <span class="titel">jetzt</span>
+            <span class="wert"tal:content="online60">40</span>
+            <span class="titel">letzte Stunde</span>
+            <span class="wert"tal:content="online24">80</span>
+            <span class="titel">letzten Tag</span>
+        </td>
+        <td id="serverOnline">
+            <span class="kopf">Server online</span>
+            <span class="titel">Anwendung</span>
+            <span class="wert">online</span>
+            <span class="titel">Datenbank</span>
+            <span class="wert">online</span>
+        </td>
+    </tr>
+</table>
+
+<h2>Weltstatus</h2>
+
+<table id="weltStatus">
+    <tr>
+        <td id="siedlerStatus">
+            <span class="kopf">Weltzahlen</span>
+            <span class="wert"tal:content="userCount">1000</span>
+            <span class="titel">Siedler</span>
+            <span class="wert"tal:content="cityCount">4000</span>
+            <span class="titel">St&auml;dte</span>
+            <span class="wert"tal:content="allyCount">60</span>
+            <span class="titel">Allianzen</span>
+        </td>
+        <td id="aufbauStatus">
+            <span class="kopf">Aufbauzahlen</span>
+            <span class="wert"tal:content="cityPoints">4000000</span>
+            <span class="titel">Geb&auml;udestufen</span>
+            <span class="wert"tal:content="techPoints">1000000</span>
+            <span class="titel">Technologiestufen</span>
+            <span class="wert"tal:content="allPoints">3000000</span>
+            <span class="titel">Ausbaustufen insgesamt</span>
+        </td>
+    </tr>
+</table>
+
+
+<h2>Archiv</h2>
+
+<table id="statistikArchiv">
+    <tr><th class="name">Name der Runde</th>
+        <th class="zeit">Start</th>
+        <th class="link">Statistik</th></tr>
+    <tr><td class="name cebra">Beta 1</td>
+        <td class="zeit cebra">Januar 2002</td>
+        <td class="link cebra">-</td></tr>
+    <tr><td class="name">Beta 2</td>
+        <td class="zeit">M&auml;rz 2002</td>
+        <td class="link">-</td></tr>
+    <tr><td class="name cebra">ETS 1</td>
+        <td class="zeit cebra">14.07.2002</td>
+        <td class="link cebra">-</td></tr>
+    <tr><td class="name">ETS 2</td>
+        <td class="zeit">29.12.2002</td>
+        <td class="link">-</td></tr>
+    <tr><td class="name cebra">ETS Testrunde</td>
+        <td class="zeit cebra">Ostern 2003</td>
+        <td class="link cebra">-</td></tr>
+    <tr><td class="name">ETS 3</td>
+        <td class="zeit">21.09.2003</td>
+        <td class="link">-</td></tr>
+    <tr><td class="name cebra">ETS 4</td>
+        <td class="zeit cebra">05.09.2004</td>
+        <td class="link cebra"><a href="../stats/pdf/rndst_ets4.pdf">PDF</a></td></tr>
+    <tr><td class="name">ETS Speed</td>
+        <td class="zeit">15.05.2005</td>
+        <td class="link"><a href="../stats/pdf/rndst_etss.pdf">PDF</a></td></tr>
+    <tr><td class="name cebra">ETS 5</td>
+        <td class="zeit cebra">10.07.2005</td>
+        <td class="link cebra"><a href="../stats/pdf/rndst_ets5.pdf">PDF</a></td></tr>
+    <tr><td class="name">ETS 6</td>
+        <td class="zeit">06.06.2006</td>
+        <td class="link"><a href="../stats/pdf/rndst_ets6.pdf">PDF</a></td></tr>
+    <tr><td class="name cebra">ETS 7</td>
+        <td class="zeit cebra">28.12.2006</td>
+        <td class="link cebra"><a href="../stats/pdf/rndst_ets7.pdf">PDF</a></td></tr>
+    <tr><td class="name">Revision 7b</td>
+        <td class="zeit">27.11.2007</td>
+        <td class="link">-</td></tr>
+    <tr><td class="name cebra">Revision 8 - Die Rache des Hastator</td>
+        <td class="zeit cebra">29.02.2008</td>
+        <td class="link cebra"><a href="stats_ets8.php">HTML</a></td></tr>
+    <tr><td class="name">Revision 9 - Das Trapsen der Nachtigall</td>
+        <td class="zeit">16.01.2009</td>
+        <td class="link"><a href="stats_ets9.php">HTML</a></td></tr>
+    <tr><td class="name cebra">Revision 9.5 - Reaktor im Rausch</td>
+        <td class="zeit cebra">20.09.2009</td>
+        <td class="link cebra"><a href="stats_ets95.php">HTML</a></td></tr>
+    <tr><td class="name">Revision 10a - Grenzland (Alpha-Test)</td>
+        <td class="zeit">04.10.2009</td>
+        <td class="link">-</td></tr>
+    <tr><td class="name cebra">Revision 9.7 - F&uuml;r eine Handvoll Iridium</td>
+        <td class="zeit cebra">14.02.2010</td>
+        <td class="link cebra"><a href="stats_ets97.php">HTML</a></td></tr>
+    <tr><td class="name">Revision 9.8 - W&uuml;rfel des Schicksals</td>
+        <td class="zeit">07.01.2011</td>
+        <td class="link"><a href="stats_ets98.php">HTML</a></td></tr>
+    <tr><td class="name cebra">Revision 9.S - Die Wiege der Zukunft</td>
+        <td class="zeit cebra">17.07.2011</td>
+        <td class="link cebra"><a href="stats_ets9S.php">HTML</a></td></tr>
+    <tr><td class="name">Revision 9.9 - Schwarze Himmel</td>
+        <td class="zeit">29.09.2011</td>
+        <td class="link"><a href="stats_ets99.php">HTML</a></td></tr>
+    <tr><td class="name cebra">Revision 10 - Eine Welt am Scheideweg</td>
+        <td class="zeit cebra">06.05.2012</td>
+        <td class="link cebra"><a href="stats_ets10.php">HTML</a></td></tr>
+    <tr><td class="name">Revision 11 - Aufbruch Richtung Unendlichkeit</td>
+        <td class="zeit">19.01.2013</td>
+        <td class="link"><a href="stats_ets11.php">HTML</a></td></tr>
+    <tr><td class="name cebra">Revision 12 - Eine neue Zeitrechnung</td>
+    	<td class="zeit cebra">29.07.2013</td>
+    	<td class="link cebra"><a href="stats_ets12.php">HTML</a></td></tr>
+    <tr><td class="name">Revision 13 - Tanz in den Mai</td>
+    	<td class="zeit">08.01.2014</td>
+    	<td class="link aktuell"><a href="stats_ets13.php">HTML</a></td></tr>
+    <tr><td class="name">Revision 14 - Neue Herausforderungen</td>
+    	<td class="zeit">13.05.2014</td>
+    	<td class="link aktuell">l&auml;uft</td></tr>
+</table>
+
+    </div>
+</div>

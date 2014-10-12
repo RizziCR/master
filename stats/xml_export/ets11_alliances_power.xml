@@ -1,0 +1,304 @@
+<?xml version="1.0"?>
+
+
+<ETS11>
+  <alliances>
+	<tag>BM</tag>
+	<members>27</members>
+	<power>70705</power>
+  </alliances>
+
+  <alliances>
+	<tag>AYBABTU</tag>
+	<members>22</members>
+	<power>66349</power>
+  </alliances>
+
+  <alliances>
+	<tag>DAFG</tag>
+	<members>27</members>
+	<power>45295</power>
+  </alliances>
+
+  <alliances>
+	<tag>-OAB-</tag>
+	<members>13</members>
+	<power>34955</power>
+  </alliances>
+
+  <alliances>
+	<tag>-MoeP-</tag>
+	<members>11</members>
+	<power>33482</power>
+  </alliances>
+
+  <alliances>
+	<tag>EGAL</tag>
+	<members>12</members>
+	<power>26321</power>
+  </alliances>
+
+  <alliances>
+	<tag>lordalkohol_ist_der_beste</tag>
+	<members>21</members>
+	<power>25248</power>
+  </alliances>
+
+  <alliances>
+	<tag>Medaron</tag>
+	<members>14</members>
+	<power>25181</power>
+  </alliances>
+
+  <alliances>
+	<tag>-TBBT-</tag>
+	<members>13</members>
+	<power>24363</power>
+  </alliances>
+
+  <alliances>
+	<tag>Mehandor</tag>
+	<members>12</members>
+	<power>18081</power>
+  </alliances>
+
+  <alliances>
+	<tag>SG33K</tag>
+	<members>10</members>
+	<power>15576</power>
+  </alliances>
+
+  <alliances>
+	<tag>VisioN</tag>
+	<members>14</members>
+	<power>13712</power>
+  </alliances>
+
+  <alliances>
+	<tag>AYBABT3</tag>
+	<members>7</members>
+	<power>13027</power>
+  </alliances>
+
+  <alliances>
+	<tag>BuG</tag>
+	<members>6</members>
+	<power>12039</power>
+  </alliances>
+
+  <alliances>
+	<tag>SoA</tag>
+	<members>4</members>
+	<power>10433</power>
+  </alliances>
+
+  <alliances>
+	<tag>SchiffAhoi</tag>
+	<members>6</members>
+	<power>8618</power>
+  </alliances>
+
+  <alliances>
+	<tag>GdS</tag>
+	<members>6</members>
+	<power>7400</power>
+  </alliances>
+
+  <alliances>
+	<tag>CoIS</tag>
+	<members>3</members>
+	<power>5401</power>
+  </alliances>
+
+  <alliances>
+	<tag>-GR-</tag>
+	<members>2</members>
+	<power>4060</power>
+  </alliances>
+
+  <alliances>
+	<tag>DF</tag>
+	<members>2</members>
+	<power>3997</power>
+  </alliances>
+
+  <alliances>
+	<tag>KoC</tag>
+	<members>3</members>
+	<power>3771</power>
+  </alliances>
+
+  <alliances>
+	<tag>Vinxeler</tag>
+	<members>3</members>
+	<power>3338</power>
+  </alliances>
+
+  <alliances>
+	<tag>MotU</tag>
+	<members>3</members>
+	<power>3329</power>
+  </alliances>
+
+  <alliances>
+	<tag>Bluna</tag>
+	<members>3</members>
+	<power>2780</power>
+  </alliances>
+
+  <alliances>
+	<tag>Lichtblick</tag>
+	<members>1</members>
+	<power>2606</power>
+  </alliances>
+
+  <alliances>
+	<tag>BRB</tag>
+	<members>1</members>
+	<power>2484</power>
+  </alliances>
+
+  <alliances>
+	<tag>XE</tag>
+	<members>1</members>
+	<power>2104</power>
+  </alliances>
+
+  <alliances>
+	<tag>-AK-</tag>
+	<members>3</members>
+	<power>1862</power>
+  </alliances>
+
+  <alliances>
+	<tag>kb</tag>
+	<members>1</members>
+	<power>1834</power>
+  </alliances>
+
+  <alliances>
+	<tag>VL</tag>
+	<members>1</members>
+	<power>1405</power>
+  </alliances>
+
+  <alliances>
+	<tag>ICH-AG</tag>
+	<members>1</members>
+	<power>1263</power>
+  </alliances>
+
+  <alliances>
+	<tag>FdN</tag>
+	<members>1</members>
+	<power>1181</power>
+  </alliances>
+
+  <alliances>
+	<tag>-TMNT-</tag>
+	<members>1</members>
+	<power>1076</power>
+  </alliances>
+
+  <alliances>
+	<tag>TAPOUT</tag>
+	<members>1</members>
+	<power>1053</power>
+  </alliances>
+
+  <alliances>
+	<tag>AUK</tag>
+	<members>1</members>
+	<power>880</power>
+  </alliances>
+
+  <alliances>
+	<tag>in_Schweden</tag>
+	<members>1</members>
+	<power>839</power>
+  </alliances>
+
+  <alliances>
+	<tag>bLuB</tag>
+	<members>1</members>
+	<power>756</power>
+  </alliances>
+
+  <alliances>
+	<tag>Old-Boys</tag>
+	<members>1</members>
+	<power>737</power>
+  </alliances>
+
+  <alliances>
+	<tag>-BF-</tag>
+	<members>1</members>
+	<power>736</power>
+  </alliances>
+
+  <alliances>
+	<tag>-G-A-</tag>
+	<members>1</members>
+	<power>699</power>
+  </alliances>
+
+  <alliances>
+	<tag>KGS</tag>
+	<members>1</members>
+	<power>647</power>
+  </alliances>
+
+  <alliances>
+	<tag>-TRF-</tag>
+	<members>1</members>
+	<power>639</power>
+  </alliances>
+
+  <alliances>
+	<tag>CO</tag>
+	<members>1</members>
+	<power>586</power>
+  </alliances>
+
+  <alliances>
+	<tag>dsd</tag>
+	<members>1</members>
+	<power>577</power>
+  </alliances>
+
+  <alliances>
+	<tag>SITH</tag>
+	<members>2</members>
+	<power>560</power>
+  </alliances>
+
+  <alliances>
+	<tag>GoG</tag>
+	<members>1</members>
+	<power>436</power>
+  </alliances>
+
+  <alliances>
+	<tag>Mt2</tag>
+	<members>1</members>
+	<power>382</power>
+  </alliances>
+
+  <alliances>
+	<tag>-MAAN-</tag>
+	<members>1</members>
+	<power>368</power>
+  </alliances>
+
+  <alliances>
+	<tag>-ets4-</tag>
+	<members>1</members>
+	<power>287</power>
+  </alliances>
+
+  <alliances>
+	<tag>Troja</tag>
+	<members>1</members>
+	<power>204</power>
+  </alliances>
+</ETS11>

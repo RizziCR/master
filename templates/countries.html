@@ -1,0 +1,101 @@
+<div tal:comment="country overview content"
+     id="contentCountries"
+     metal:define-macro="content">
+
+    <span
+        tal:condition="exists: errorMessage"
+        tal:comment="error content if there is any"
+        tal:replace="structure errorMessage">
+    </span>
+
+    <tal:block tal:omit-tag="" tal:condition="not: exists: errorMessage">
+    <h1>Weltkarte</h1>
+
+    <span tal:condition="exists: pfuschOutput" tal:replace="structure pfuschOutput">
+    </span>
+    <form action="./countries.php" method="GET">
+        <div class="left">
+            <label id="contiLabel" for="continentInput">Kontinent</label>
+            <a tal:attributes="href string:./countries.php?continent=${curConti}&country=${curCountry}&con=prev" title="einen Kontinent nach links">&lt;</a>
+            <input type="text" name="continent" id="continent" size="2" maxlength="2" tabindex="150"
+                   tal:attributes="value curConti" />
+            <a tal:attributes="href string:./countries.php?continent=${curConti}&country=${curCountry}&con=next" title="einen Kontinent nach rechts">&gt;</a>
+        </div>
+        <div class="right">
+            <label id="countryLabel" for="countryInput">Land</label>
+            <a tal:attributes="href string:./countries.php?continent=${curConti}&country=${curCountry}&cou=prev" title="ein Land nach links">&lt;</a>
+            <input type="text" name="country" id="country" size="3" maxlength="3" tabindex="151"
+                   tal:attributes="value curCountry" />
+            <a tal:attributes="href string:./countries.php?continent=${curConti}&country=${curCountry}&cou=next" title="ein Land nach rechts">&gt;</a>
+        </div>
+    <br />
+    <input type="submit" class="button" value="anzeigen" tabindex="152" /></form>
+    
+    <h2>bersicht</h2>
+    <table tal:attributes="summary string:Eine Liste der Stdte auf Kontinent ${curConti}, Land ${curCountry}">
+            <thead>
+                <tr>
+                    <th class="pos">#</th>
+                    <th class="city">Stadt</th>
+                    <th class="user">Siedler</th>
+                    <th class="ally">Allianz</th>
+                    <th class="pts">Punkte</th>
+                    <th class="actions"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tal:block tal:repeat="city cities" tal:omit-tag="">
+                    <tal:block tal:condition="exists: city/user" tal:omit-tag="">
+                    <tr tal:condition="php: city['isCapital'] && city['isKeeper']" class="capital keeper">
+                        <td metal:use-macro="table_row">eine Zeile pro Stadt</td>
+                    </tr>
+                    <tr tal:condition="php: city['isCapital'] && city['isPlayer']" class="capital player">
+                        <td metal:use-macro="table_row">eine Zeile pro Stadt</td>
+                    </tr>
+                    <tr tal:condition="php: city['isCapital'] && !city['isKeeper'] && !city['isPlayer']" class="capital">
+                        <td metal:use-macro="table_row">eine Zeile pro Stadt</td>
+                    </tr>
+                    <tr tal:condition="php: !city['isCapital'] && city['isKeeper']" class="keeper">
+                        <td metal:use-macro="table_row">eine Zeile pro Stadt</td>
+                    </tr>
+                    <tr tal:condition="php: !city['isCapital'] && city['isPlayer']" class="player">
+                        <td metal:use-macro="table_row">eine Zeile pro Stadt</td>
+                    </tr>
+                    <tr tal:condition="php: !city['isCapital'] && !city['isKeeper'] && !city['isPlayer']">
+                        <td metal:use-macro="table_row">eine Zeile pro Stadt</td>
+                    </tr>
+                    </tal:block>
+                    <tal:block tal:condition="not: exists: city/user" tal:omit-tag="">
+                    <tr>
+                        <td class="pos" tal:content="repeat/city/number">0</td>
+                        <td class="city">-</td>
+                        <td class="user">-</td>
+                        <td class="ally">-</td>
+                        <td class="pts">-</td>
+                        <td class="actions"></td>
+                    </tr>
+                    </tal:block>
+                </tal:block>
+            </tbody>
+    </table>
+
+    </tal:block>
+</div>
+
+
+<tal:block tal:comment="Tabellenzeile fr einzelne Stadt"
+         tal:omit-tag=""
+         metal:define-macro="table_row">
+    <td class="pos" tal:content="repeat/city/number">0</td>
+    <td class="city"><a tal:attributes="href string:./information.php?type=c&name=${curConti}:${curCountry}:${repeat/city/number}" tal:content="city/name">Stadtname</a></td>
+    <td class="user"><a tal:attributes="href string:./information.php?type=u&name=${city/user}" tal:content="string:${city/user} ${city/user_affix}">Username</a></td>
+    <td class="ally"><a tal:attributes="href string:./information.php?type=a&name=${city/ally}" tal:content="city/ally">Allyname</a></td>
+    <td class="pts" tal:content="city/points">Punktezahl</td>
+    <td class="actions">
+        <a tal:condition="city/isAttackable"
+           tal:attributes="href string:./attack.php?continent=${curConti}&country=${curCountry}&city=${repeat/city/number}&id=${id}"
+           title="Diese Stadt ausspionieren">S</a>
+        <a tal:attributes="href string:./airport.php?x=${curConti}&y=${curCountry}&z=${repeat/city/number}"
+           title="Die Koordinaten dieser Stadt in den Flughafen bernehmen">K</a>
+    </td>
+</tal:block>

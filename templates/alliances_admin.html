@@ -1,0 +1,615 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd" -->
+
+<html>
+
+<!--  HTML Kopf -->
+    <head
+          tal:comment="html head requires page title"
+          metal:use-macro="lib/htmlHead.html/htmlHead"
+    />
+<!--  // HTML Kopf -->
+
+    <body>
+        <style>
+            ul.indent  { list-style: none; margin: 0; padding-left:  0; }
+            ul.indent2 { list-style: none; margin: 0; padding-left: 2em; }
+        </style>
+        <div id="page-container">
+            <div id="header">
+                <div class="inside">
+                    <span tal:comment="header template"
+                          metal:use-macro="lib/header.html/header">
+                    </span>
+                </div><!-- inside -->
+            </div><!-- header -->
+
+            <div id="outer-column-container">
+                <div id="inner-column-container">
+                    <div id="source-order-container">
+                        <div id="middle-column">
+                            <div class="inside">
+
+<!-- mittlere Spalte -->
+                                <span
+                                    tal:condition="exists: errorMessage"
+                                    tal:comment="error content if there is any"
+                                    tal:replace="structure errorMessage"
+                                />
+
+<div tal:comment="first some pfusch content - todo: phptal integration" tal:condition="not: exists: errorMessage">
+<script type="text/javascript" src="javascript/tiny_mce/tiny_mce_gzip.js"></script>
+<script type="text/javascript" src="javascript/tinymce_init.js"></script>
+
+        <h1 class="headline">Allianzverwaltung</h1>
+
+        <div id="tabContainer">
+            <ul>
+                <li tal:condition="php: is_admin AND isset(has_applications)"><a href="#section-application">Bewerbungen</a></li>
+                <li tal:condition="is_admin"><a href="#section-memberstatus">Mitglied</a></li>
+                <li tal:condition="is_admin"><a href="#section-allyadmin">Allianz</a></li>
+                <li tal:condition="is_admin"><a href="#section-createvote">Umfrage</a></li>
+                <li tal:condition="is_admin"><a href="#section-ranks">Ränge</a></li>
+                <li tal:condition="is_admin"><a href="#section-promotion">Werbung</a></li>
+            </ul>
+
+        <div id="section-application" tal:condition="php: is_admin AND isset(has_applications)">
+            <block metal:use-macro="applications"></block>
+        </div>
+
+        <div id="section-memberstatus" tal:condition="is_admin">
+            <block metal:use-macro="status"></block>
+        </div>
+
+        <div id="section-allyadmin" tal:condition="is_admin">
+                <block metal:use-macro="administrate2"></block>
+        </div>
+
+        <div id="section-createvote" tal:condition="is_admin">
+            <block metal:use-macro="create_vote"></block>
+        </div>
+
+        <div id="section-ranks" tal:condition="is_admin">
+            <block metal:use-macro="ranks"></block>
+        </div>
+
+        <div id="section-promotion" tal:condition="is_admin">
+            <block metal:use-macro="werbung"></block>
+        </div>
+
+    </div>
+
+
+<block tal:omit-tag="" metal:define-macro="applications">
+
+<block tal:omit-tag="" tal:repeat="a applications">
+<table width="100%">
+    <tr tal:condition="war_warning_noappl">
+        <td colspan="2" class="important">Deine Allianz befindet sich in einem Krieg,
+        in dem die Aufnahme von neuen Mitgliedern nicht gestattet ist. Solltest du trotzdem neue
+        Mitglieder aufnehmen, führt das zum Verlust des Krieges.</td>
+    </tr>
+    <tr>
+        <td>User</td>
+        <td tal:content="a/username">Username</td>
+    </tr>
+    <tr>
+        <td>Zeit</td>
+        <td tal:content="php: date('H:i:s d.m.Y', a['time'])">Uhrzeit</td>
+    </tr>
+    <tr valign="top">
+        <td>Bewerbungs-Text</td>
+        <td tal:content="structure a/text">Text</td>
+    </tr>
+    <tr valign="top">
+        <td>Aktionen</td>
+        <td>
+        <form action="./alliances_admin.php" method="post">
+        <table border="0" cellpadding="0" cellspacing="0">
+            <tr valign="top">
+                <td>
+                    <input type="hidden" name="name" tal:attributes="value information/name" />
+                    <input type="hidden" name="apply_user" tal:attributes="value a/user" />
+                    <input type="hidden" name="action" value="assume" />
+                    <input type="submit" class="button" value="Annehmen" />
+                </td>
+            </tr>
+        </table>
+        </form>
+        <form action="./alliances_admin.php" method="post">
+        <table border="0" cellpadding="0" cellspacing="0">
+            <tr valign="top">
+                <td>
+                    <input type="hidden" name="name" tal:attributes="value information/name" />
+                    <input type="hidden" name="apply_user" tal:attributes="value a/user" />
+                    <input type="hidden" name="action" value="reject" />
+                    <input type="submit" class="button" value="Ablehnen" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><textarea style="overflow: hidden; width: 30em; height: 10em" name="reason"
+                    class="button">Begr&uuml;ndung (optional): </textarea></td>
+            </tr>
+        </table>
+        </form>
+        </td>
+    </tr>
+</table>
+</block>
+
+</block>
+
+
+
+
+
+
+
+
+
+
+
+
+<block tal:omit-tag="" metal:define-macro="ranks">
+<table width="100%">
+    <tr>
+        <td>
+        <form action="./alliances_admin.php" method="post">
+        <table width="100%">
+            <tr valign="top">
+                <td>Vorhandene R&auml;nge</td>
+            </tr>
+            <tr>
+                <td>
+
+                <block tal:omit-tag="" tal:repeat="r ranks" tal:condition="exists: has_ranks">
+                    <input type="checkbox" name="del_rank[]" tal:attributes="value r/id" /> <span tal:replace="r/rank">Rang</span> <br />
+                </block>
+
+                </td>
+            </tr>
+            <tr>
+                <td align="left"><input type="hidden" name="show" value="ranks" /> <input
+                    type="submit" value="L&ouml;schen" class="button" /></td>
+            </tr>
+        </table>
+        </form>
+        </td>
+    </tr>
+    <tr><td>
+        <hr width="100%" />
+    </td></tr>
+    <tr>
+        <td>
+        <form action="./alliances_admin.php" method="post">
+        <table width="100%">
+            <tr valign="top">
+                <td>Neuen Rang definieren</td>
+                <td><input class="button" name="new_rank" /></td>
+                <td>
+                    <input type="hidden" name="show" value="ranks" />
+                    <input type="submit" value="Hinzuf&uuml;gen" class="button" />
+                </td>
+            </tr>
+        </table>
+        </form>
+        </td>
+    </tr>
+</table>
+</block>
+
+
+
+
+
+
+
+
+
+
+
+
+<block tal:omit-tag="" metal:define-macro="create_vote">
+<form action="./alliances_admin.php" method="post" tal:condition="exists: has_voting">
+<table width="100%">
+    <tr>
+        <td>Laufende Umfrage löschen: </td>
+        <td align="right" tal:condition="is_admin">
+            <input type="hidden" name="action" value="kill_vote" />
+            <input type="submit" value="L&ouml;schen" class="button" />
+        </td>
+    </tr>
+</table>
+</form>
+<form action="./alliances_admin.php" method="post" tal:condition="not: exists: has_voting">
+<table width="100%">
+    <tr>
+        <td>Frage</td>
+        <td><input type="text" class="button" name="question" />
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2"><br />
+        </td>
+    </tr>
+
+    <tr tal:repeat="i votes">
+        <td>Antwortm&ouml;glichkeit <span tal:replace="i" /></td>
+        <td><input type="text" class="button" tal:attributes="name string:answer$i" /></td>
+    </tr>
+
+    <tr>
+        <td colspan="2" align="center"><input type="hidden" name="action" value="create_voting" /> <input
+            type="submit" class="button" value="Erstellen" /></td>
+    </tr>
+</table>
+</form>
+</block>
+
+
+
+
+
+
+
+
+
+
+
+
+<block tal:omit-tag="" metal:define-macro="administrate2">
+<form action="./alliances_admin.php" method="post">
+<table width="100%">
+    <tr>
+        <td>TAG</td>
+        <td>
+            <input type="text" class="button" name="save_tag" tal:attributes="value information/tag" />
+        </td>
+    </tr>
+    <tr>
+        <td>Name</td>
+        <td>
+            <input type="text" class="button" name="name" tal:attributes="value information/name" />
+        </td>
+    </tr>
+    <tr>
+        <td>Bild</td>
+        <td>
+            <input type="text" class="button" name="apic" tal:attributes="value information/pic" />
+        </td>
+    </tr>
+    <tr>
+        <td>Homepage</td>
+        <td>
+            <input type="text" class="button" name="link" tal:attributes="value information/link" />
+        </td>
+    </tr>
+    <tr>
+        <td>Milit&auml;r-B&uuml;ndnisse</td>
+        <td>
+            <input type="text" class="button" name="military_alliances" tal:attributes="value information/military_alliances" />
+        </td>
+    </tr>
+    <tr>
+        <td>Handels-B&uuml;ndnisse</td>
+        <td>
+            <input type="text" class="button" name="trade_alliances" tal:attributes="value information/trade_alliances" />
+        </td>
+    </tr>
+    <tr>
+        <td>Nichtangriffspakte</td>
+        <td>
+            <input type="text" class="button" name="naps" tal:attributes="value information/naps" />
+        </td>
+    </tr>
+    <tr>
+        <td>Feinde</td>
+        <td>
+            <input type="text" class="button" name="enemies" tal:attributes="value information/enemies" />
+        </td>
+    </tr>
+    <tr valign="top">
+        <td>Text</td>
+        <td>
+            <textarea class="button" style="width: 30em height: 10em; overflow: auto" name="atext" tal:content="information/text">Text</textarea>
+        </td>
+    </tr>
+    <tr valign="top">
+        <td>Board-Nachrichten ausschlie&szlig;lich von Administratoren?</td>
+        <td>
+            <input type="checkbox" name="admin_msgs" value="Y" checked="checked" tal:condition="php: information['admin_msgs'] == 'Y'" />
+            <input type="checkbox" name="admin_msgs" value="Y" tal:condition="php: information['admin_msgs'] != 'Y'" />
+        </td>
+    </tr>
+    <tr valign="top">
+        <td>Allianz-Rundmails ausschlie&szlig;lich von Administratoren?</td>
+        <td>
+            <input type="checkbox" name="admin_mails" value="Y" checked="checked" tal:condition="php: information['admin_mails'] == 'Y'" />
+            <input type="checkbox" name="admin_mails" value="Y" tal:condition="php: information['admin_mails'] != 'Y'" />
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2" align="center">
+        <table border="0" cellpadding="1" cellspacing="0">
+            <tr>
+                <td>
+                    <input type="hidden" name="action" value="save" />
+                    <input type="hidden" name="show" value="adminstrate" />
+                    <input type="submit" class="button" value="Speichern" />
+                </td>
+            </tr>
+        </table>
+        </td>
+    </tr>
+</table>
+</form>
+<hr width="100%" />
+<form action="./alliances_admin.php" method="post">
+<table width="100%">
+    <tr tal:condition="war_warning">
+        <td colspan="2" class="important">Deine Allianz befindet sich in einem Krieg. Solltest du trotzdem
+        die Allianz auflösen, führt das zum Verlust des Krieges.</td>
+    </tr>
+    <tr>
+        <td>Allianz aufl&ouml;sen</td>
+        <td>
+            <input type="hidden" name="action" value="delete_alliance" />
+            <input onclick="if (!confirm('M&ouml;chten Sie wirklich die Allianz aufl&ouml;sen?')) return false;" type="submit" class="button" value="Ja" />
+        </td>
+    </tr>
+</table>
+</form>
+</block>
+
+
+
+
+
+
+
+
+
+
+
+<block tal:omit-tag="" metal:define-macro="status">
+<table width="100%">
+    <tr>
+        <td>
+        <form action="./alliances_admin.php" method="post">
+        <table width="100%">
+            <tr>
+                <td>User</td>
+                <td>
+                    <select name="change_user" class="button">
+                        <option tal:repeat="m get_members" tal:attributes="value m/user" tal:content="m/user">Nutzer</option>
+                    </select>
+                    <input type="hidden" name="load" value="1" />
+                    <input type="submit" value="Laden" class="button" />
+                </td>
+            </tr>
+        </table>
+        </form>
+        </td>
+    </tr>
+    <tr>
+        <td><hr width="100%" /></td>
+    </tr>
+    <tr tal:condition="war_warning_noleave">
+        <td colspan="2" class="important">Deine Allianz befindet sich in einem Krieg,
+        in dem es Mitgliedern nicht gestattet ist, die Allianz zu verlassen. Solltest du trotzdem
+        Mitglieder rauswerfen, führt das zum Verlust des Krieges.</td>
+    </tr>
+    <tr tal:condition="war_warning_noleave">
+        <td><hr width="100%" /></td>
+    </tr>
+    <tr tal:condition="exists: members">
+        <td>
+        <form action="./alliances_admin.php" method="post">
+        <table width="100%">
+            <tr>
+                <td>gewählter Nutzer</td>
+                <td tal:content="members/user"></td>
+            </tr>
+            <tr valign="top">
+                <td>Status</td>
+                <td>
+                    <select name="change_status" class="button" tal:condition="php: members['alliance_status'] != 'founder'">
+                        <option value="admin" selected="selected" tal:condition="php: members['alliance_status']=='admin'">Administrator</option>
+                        <option value="admin" tal:condition="php: members['alliance_status']!='admin'">Administrator</option>
+                        <option value="member" selected="selected" tal:condition="php: members['alliance_status']=='member'">Mitglied</option>
+                        <option value="member" tal:condition="php: members['alliance_status']!='member'">Mitglied</option>
+                    </select>
+                    <p tal:condition="php: members['alliance_status'] == 'founder'">Gründer</p>
+                </td>
+            </tr>
+            <tr valign="top" tal:condition="php: members['alliance_status'] == 'founder' && count(possible_founders) > 0">
+                <td>Status &uuml;bertragen:</td>
+                <td>
+                    <input type="hidden" name="change_status" value="founder" />
+                    <select name="give_founder_status" class="button">
+                        <option value=""></option>
+                        <option tal:repeat="pf possible_founders" tal:condition="php: count(possible_founders)" tal:attributes="value pf/user" tal:content="pf/user">Founder</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Rang</td>
+                <td><select name="change_rank" class="button" tal:condition="exists: has_ranks">
+                    <block tal:omit-tag="" tal:repeat="r ranks">
+                    <option tal:attributes="value r/rank" tal:condition="php: r['rank'] != members['alliance_rank']" tal:content="r/rank">Rang</option>
+                    <option tal:attributes="value r/rank" tal:condition="php: r['rank'] == members['alliance_rank']" selected="selected" tal:content="r/rank">Rang</option>
+                    </block>
+                </select>
+                <p tal:condition="not: exists: has_ranks">Keine R&auml;nge definiert</p>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="hidden" name="sec" value="status" />
+                    <input type="submit" class="button" value="Speichern" name="action" />
+                    <input type="hidden" name="show" value="list" />
+                    <input type="hidden" name="change_user" tal:attributes="value members/user" />
+                </td>
+            </tr>
+            <tr valign="top" tal:condition="php: members['alliance_status'] != 'founder'">
+                <td>Aus Allianz hinauswerfen</td>
+                <td>Begr&uuml;ndung:<br />
+                    <input type="hidden" name="ex_user" tal:attributes="value members/user" />
+                    <input type="hidden" name="show" value="list" />
+                    <input name="reason" class="button" size="50" maxlength="255" />
+                    <input type="submit" value="Hinauswerfen" class="button" name="action" />
+                </td>
+            </tr>
+        </table>
+        </form>
+        </td>
+    </tr>
+</table>
+</block>
+
+
+
+
+
+
+
+
+
+
+
+
+<block tal:omit-tag="" metal:define-macro="werbung">
+<table width="100%">
+    <tr>
+        <td colspan="2">
+            Views werden der Allianz gutgeschrieben, sobald ein Allianzmitglied
+            für den Erhalt von ETS Geld spendet. Wie das funktioniert steht auf
+            der Seite <a tal:attributes="href string:$etsAddress/advertise.php"
+            title="Zum Spendenformular">Werde ein Bewahrer</a>. Für einen Euro
+            erhält die Allianz <span tal:content="viewFactor">5.000</span> Views.
+        </td>
+    </tr>
+    <tr><td colspan="2"><hr /></td></tr>
+    <tr valign="top">
+        <td>Guthaben der Allianz</td><td tal:content="ally_credit">100 Views</td>
+    </tr>
+    <tr><td colspan="2"><hr /></td></tr>
+    <tr valign="top" tal:repeat="ad ads_banner_admin">
+        <td colspan="2">
+        <table width="100%">
+            <tr>
+                <td rowspan="2" width="120"><img tal:attributes="src ad/thumb" /></td>
+                <td align="left">
+                    Restguthaben: <span tal:content="ad/credit">500</span> Views<br />
+                    Freigegeben: <span tal:content="ad/approved">Nein</span><br />
+                    Abgelehnt: <span tal:content="ad/denied">Nein</span><br />
+                </td>
+            </tr>
+            <tr>
+                <td align="right" valign="bottom">
+                    <form action="./alliances_admin.php" method="post">
+                        <input type="hidden" name="action" value="banner" />
+                        <input type="hidden" name="id" tal:attributes="value ad/id" />
+                        <input type="text" name="amount" size="6" maxlength="6" /><input type="submit" name="submit" value="Aufladen" /><br />
+                        <input type="submit" name="submit" value="Löschen" />
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                <hr />
+                </td>
+            </tr>
+        </table>
+        </td>
+    </tr>
+    <tr valign="top" tal:condition="ads_enable_create">
+        <td colspan="2">
+        <form enctype="multipart/form-data" action="./alliances_admin.php" method="post">
+            <input type="hidden" name="action" value="banner_add" />
+            <input type="hidden" name="MAX_FILE_SIZE" value="250000" />
+            Diese Datei <input name="picfile" type="file" /><input type="submit" value="Hochladen!" /><br />
+            <br />
+            Erlaubte Bilder: maximal 140x450px JPEG. Maximale Größe: 250kB.
+        </form>
+        </td>
+    </tr>
+    <tr><td colspan="2">
+        ACHTUNG: Bei Löschung eines Banners mit Restguthaben wird dieses der Allianz nicht
+        zurückübertragen!
+    </td></tr>
+</table>
+</block>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+<!--
+$(document).ready(function()
+    {
+        $("#show_list").tablesorter();
+    }
+);
+//-->
+</script>
+
+</div>
+<!-- // mittlere Spalte -->
+
+                            </div>
+                        </div>
+                        <div id="left-column">
+                            <div class="inside">
+
+<!-- linke Spalte -->
+                                <span
+                                      tal:comment="left column template"
+                                      metal:use-macro="lib/leftColumn.html/leftColumn"
+                                />
+<!-- // linke Spalte -->
+
+                            </div>
+                        </div>
+                        <div class="clear-columns"><!-- do not delete --></div>
+                    </div>
+                    <div id="right-column">
+                        <div class="inside">
+
+<!-- rechte Spalte -->
+                            <span
+                                  tal:comment="right column template"
+                                  metal:use-macro="lib/rightColumn.html/rightColumn"
+                            />
+<!-- // rechte Spalte -->
+
+                        </div>
+                    </div>
+                    <div class="clear-columns"><!-- do not delete --></div>
+                </div>
+            </div>
+            <div id="footer">
+                <div class="inside">
+
+<!-- Fusszeile -->
+                    <span
+                          tal:comment="footer template"
+                          metal:use-macro="lib/footer.html/footer"
+                    />
+<!-- // Fusszeile -->
+
+                </div>
+            </div>
+        </div>
+
+      <span tal:replace="structure clockJSCode"></span>
+      <span tal:replace="structure resourceCounter"></span>
+      <span tal:condition="exists: sessionTimeout" tal:replace="structure sessionTimeoutCode"></span>
+
+    </body>
+</html>

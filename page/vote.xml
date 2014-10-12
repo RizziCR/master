@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<charts date="1295376301">
+
+    <portal>
+        <name>Galaxy News</name>
+        <homepageurl title="Zur Homepage">http://www.galaxy-news.de</homepageurl>
+        <votelinkurl title="Jetzt abstimmen">http://www.galaxy-news.de/charts/?op=vote&amp;game_id=19</votelinkurl>
+        <toplisturl title="Zur Rangliste">http://www.galaxy-news.de/charts/</toplisturl>
+        <toparseurl title="Zur Quelldatei">http://galaxynews.de/games/?order=votes&amp;pos=4</toparseurl>
+        <votebutton alt="Abstimmknopf">vote_galaxynews.gif</votebutton>
+        <rang>81</rang>
+        <oldrang>81</oldrang>
+        <updated>1295302034</updated>
+    </portal>
+
+    <portal>
+        <name>Games Sphere</name>
+        <homepageurl title="Zur Homepage">http://www.gamessphere.de</homepageurl>
+        <votelinkurl title="Jetzt abstimmen">http://www.gamessphere.de/vote/vote_609.html</votelinkurl>
+        <toplisturl title="Zur Rangliste">http://www.gamessphere.de/charts.html</toplisturl>
+        <toparseurl title="Zur Quelldatei">http://www.gamessphere.de/charts.html?page=2</toparseurl>
+        <votebutton alt="Abstimmknopf">vote_gamessphere.gif</votebutton>
+        <rang>54</rang>
+        <oldrang>54</oldrang>
+        <updated>1295376307</updated>
+    </portal>
+
+    <portal>
+        <name>Games Dynamite</name>
+        <homepageurl title="Zur Homepage">http://www.gdynamite.de</homepageurl>
+        <votelinkurl title="Jetzt abstimmen">http://bgs.gdynamite.de/charts_vote_204.html</votelinkurl>
+        <toplisturl title="Zur Rangliste">http://bgs.gdynamite.de/charts.html</toplisturl>
+        <toparseurl title="Zur Quelldatei">http://bgs.gdynamite.de/charts_site_3.html</toparseurl>
+        <votebutton alt="Abstimmknopf">vote_gdynamite.gif</votebutton>
+        <rang>58</rang>
+        <oldrang>59</oldrang>
+        <updated>1295376308</updated>
+    </portal>
+
+    <portal>
+        <name>Gaming Facts</name>
+        <homepageurl title="Zur Homepage">http://www.gamingfacts.de</homepageurl>
+        <votelinkurl title="Jetzt abstimmen">http://www.gamingfacts.de/charts_vote_204.html</votelinkurl>
+        <toplisturl title="Zur Rangliste">http://www.gamingfacts.de/charts.html</toplisturl>
+        <toparseurl title="Zur Quelldatei">http://www.gamingfacts.de/charts.html</toparseurl>
+        <votebutton alt="Abstimmknopf">vote_gamingfacts.gif</votebutton>
+        <rang>18</rang>
+        <oldrang>18</oldrang>
+        <updated>1295376308</updated>
+    </portal>
+
+    <portal>
+        <name>Gamaxx</name>
+        <homepageurl title="Zur Homepage">http://bgs.gamaxx.de</homepageurl>
+        <votelinkurl title="Jetzt abstimmen">http://bgs.gamaxx.de/games/charts_vote_116.html</votelinkurl>
+        <toplisturl title="Zur Rangliste">http://bgs.gamaxx.de/games/charts.html</toplisturl>
+        <toparseurl title="Zur Quelldatei">http://bgs.gamaxx.de/games/charts_site_1.html</toparseurl>
+        <votebutton alt="Abstimmknopf">vote_gamaxx.gif</votebutton>
+        <rang>6</rang>
+        <oldrang>6</oldrang>
+        <updated>1295376308</updated>
+    </portal>
+
+    <portal>
+        <name>Browser Games</name>
+        <homepageurl title="Zur Homepage">http://browsergames.de/</homepageurl>
+        <votelinkurl title="Jetzt abstimmen">http://browsergames.de/user-charts/abgabe/5585/</votelinkurl>
+        <toplisturl title="Zur Rangliste">http://browsergames.de/user-charts/</toplisturl>
+        <toparseurl title="Zur Quelldatei">http://browsergames.de/user-charts/e/</toparseurl>
+        <votebutton alt="Abstimmknopf">vote_browsergames.gif</votebutton>
+        <rang>11</rang>
+        <oldrang>11</oldrang>
+        <updated>1295376313</updated>
+    </portal>
+
+    <error></error>
+
+    <history>1295359213</history>
+</charts>

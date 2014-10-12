@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <META HTTP-EQUIV="expires" CONTENT="0" />
+    <META HTTP-EQUIV="Cache-Control" CONTENT="no-cache" />
+    <META HTTP-EQUIV="Pragma" CONTENT="no-cache" />
+
+    <title tal:content="title">Insert title here</title>
+
+    <link rel="stylesheet" type="text/css" href="css/css.css" />
+    <script type="text/javascript" src="javascript/jquery.js"></script>
+    <script type="text/javascript" src="javascript/jquery.ui/jquery.dimensions.js"></script>
+    <script type="text/javascript" src="javascript/jquery.cluetip.js"></script>
+
+    <script type="text/javascript" language="javascript">
+    <!--
+        $(document).ready(function(){
+          $(".tooltip").cluetip({ showTitle: false, local: true, hideLocal: true });
+        });
+
+        function toggle_checkboxes()
+        {
+            $('input[name="id[]"]').click();
+        }
+
+    function open_url(w, url) {
+        w.location.href=url;
+        w.focus();
+        return false;
+    }
+    // -->
+    </script>
+</head>
+<body>
+
+<table width="770" border="0" cellpadding="2" cellspacing="0">
+    <tr>
+        <td colspan="2">
+            <div class="headline" style="text-align:center" tal:content="title">Title</div>
+        </td>
+    </tr>
+    <tr valign="top">
+        <td width="150">
+        <table border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td align="center" class="table_head" i18n:translate="string: MESSAGES[MSG_MSGCTR][m013]">Überschrift</td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <block tal:omit-tag="" metal:use-macro="menu" />
+                </td>
+            </tr>
+        </table>
+        </td>
+        <td width="620">
+        <div tal:condition="php: count(all_mesg)==0">
+            <table width="620" border="0" cellspacing="0" cellpadding="2">
+                <tr valign="top" class="table_head">
+                    <td colspan="4" align="right">&nbsp; &nbsp;</td>
+                </tr>
+                <tr valign="top">
+                    <td colspan="4" ><span i18n:translate="string: MESSAGES[MSG_MSGCTR][m019]">MESSAGES[MSG_MSGCTR][m019]</span></td>
+                </tr>
+            </table>
+        </div>
+        <form tal:condition="php: count(all_mesg)>0" action="./msgctr.php?action=manage" method="post" name="formular">
+        <table width="620" border="0" cellspacing="0" cellpadding="2">
+            <tr valign="top" class="table_head">
+                <td width="15">&nbsp;</td>
+                <td width="110" tal:condition="php: mode==1"><a href="./msgctr.php?ord=1" i18n:translate="string: MESSAGES[MSG_MSGCTR][m022]">{$MESSAGES[MSG_MSGCTR][m022]}</a></td>
+                <td width="110" tal:condition="php: mode==2"><a href="./msgctr.php?ord=1" i18n:translate="string: MESSAGES[MSG_MSGCTR][m010]">{$MESSAGES[MSG_MSGCTR][m010]}</a></td>
+                <td width="110" tal:condition="php: mode GT 2">Von/An</td>
+                <td width="365"><a href="./msgctr.php?ord=2" i18n:translate="string: MESSAGES[MSG_MSGCTR][m011]">{$MESSAGES[MSG_MSGCTR][m011]}</a></td>
+                <td width="130"><a href="./msgctr.php?ord=3" i18n:translate="string: MESSAGES[MSG_MSGCTR][m024]">{$MESSAGES[MSG_MSGCTR][m024]}</a></td>
+            </tr>
+
+            <tr valign="top" tal:attributes="bgcolor php: repeat.ranking.odd ? '#222' : '#000'" tal:repeat="msg all_mesg">
+                <td align="left"><input type="checkbox" name="id[]" tal:attributes="value msg/id" class="chkbx" /></td>
+                <td align="left" tal:condition="php: mode==1"><a
+                    tal:attributes="onclick string:open_url(window.opener,'./information.php?type=u&name=${msg/sender}');"
+                    tal:content="msg/sendername">$msgs[sender]</a></td>
+                <td align="left" tal:condition="php: mode==2 AND msg['linkrecipient']"><a
+                    tal:attributes="onclick string:open_url(window.opener,'./information.php?type=u&name=${msg/recipient}');"
+                    tal:content="msg/recipientname">$msgs[recipient]</a></td>
+                <td align="left" tal:condition="php: mode==2 AND !msg['linkrecipient']">
+                    <a href="#" class="tooltip" tal:attributes="rel string:#empf${msg/id}">Mehrere Empfänger</a><div tal:attributes="id string:empf${msg/id}" tal:content="structure msg/recipientname">Empfaenger</div>
+                </td>
+                <td align="left" tal:condition="php: mode GT 2"><a
+                    tal:attributes="onclick string:javascript:open_url(window.opener,'./information.php?type=u&name=${msg/sender}');"
+                    tal:content="msg/sendername">$msgs[sender]</a></td>
+                <td align="left"><a tal:attributes="href string:./msgctr.php?action=show&id=${msg/id}" tal:content="structure msg/topic">$msgs[topic]</a></td>
+                <td align="left" tal:content="structure msg/time">Zeit</td>
+            </tr>
+
+            <tr>
+                <td style="border-top:1px solid white">
+                    <input type="checkbox" onclick="toggle_checkboxes();" />
+                </td>
+                <td style="border-top:1px solid white" colspan="3"></td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <span i18n:translate="string: MESSAGES[MSG_MSGCTR][m049]" tal:omit-tag="" tal:content="php: ' '.count(all_mesg)">Anzahl</span> <br />
+                    <!-- span i18n:translate="string:MESSAGES[MSG_MSGCTR][m051]" tal:omit-tag="">{$MESSAGES[MSG_MSGCTR][m051]}</span --><!-- doesn't work now -->
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4" align="right">
+                <input type="submit" name="submit" tal:attributes="value string:MESSAGES[MSG_MSGCTR][m041]" i18n:attributes="value" class="button" />
+                <input type="submit" name="submit" tal:attributes="value string:MESSAGES[MSG_MSGCTR][m042]" i18n:attributes="value" class="button" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4" align="right">
+                <select class="button" name="directory">
+                    <option tal:repeat="ud free_user_directories" tal:attributes="value ud/id" tal:content="ud/name">Value</option>
+                </select>
+                <input type="submit" name="submit" tal:attributes="value string:MESSAGES[MSG_MSGCTR][m043]" i18n:attributes="value" class="button" />
+                <input type="submit" name="submit" tal:attributes="value string:MESSAGES[MSG_MSGCTR][m029]" i18n:attributes="value" class="button" />
+                </td>
+            </tr>
+        </table>
+        </form>
+        <form tal:condition="php: count(all_mesg)>0 && title=='Posteingang'" action="./msgctr.php?action=manage" method="post" name="formular">
+        <table width="620" border="0" cellspacing="0" cellpadding="2">
+            <tr valign="top">
+                <td colspan="4" align="right">
+                <input type="submit" name="submit" tal:attributes="value string:MESSAGES[MSG_MSGCTR][m084]" i18n:attributes="value" class="button" />
+                </td>
+            </tr>
+        </table>
+        </form>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
+
+
+<block metal:define-macro="menu" tal:omit-tag="">
+    <ul>
+        <li><a href="./msgctr.php?action=write" i18n:translate="string: MESSAGES[MSG_MSGCTR][m000]">{$MESSAGES[MSG_MSGCTR][m000]}</a></li>
+        <li>Verzeichnisse<ul>
+        <li tal:repeat="ud user_directories">
+            <a tal:attributes="href string:./msgctr.php?action=folder&folder=${ud/id}"><span tal:content="ud/name">$directories[name]</span>
+            <font color="#00FF00" tal:content="ud/anzahl" tal:condition="php: ud['anzahl'] GT 0">$directories_msgs_unseen[anzahl]</font>
+            </a>
+        </li></ul>
+        </li>
+        <li><a href="./msgctr.php?action=search" i18n:translate="string: MESSAGES[MSG_MSGCTR][m083]">{$MESSAGES[MSG_MSGCTR][m083]}</a></li>
+        <li>Nachrichtenregeln</li>
+        <li>AutoResponder</li>
+        <li><a
+            href="javascript:window.open('${etsAddress}/adressbook.php','adressbook','fullscreen=no,channelmode=no,toolbar=yes,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=280,height=700,top=5,left=830')"
+            onclick="window.open('${etsAddress}/adressbook.php','adressbook','fullscreen=no,channelmode=no,toolbar=yes,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=280,height=700,top=5,left=830')"
+            target="adressbook" i18n:translate="string: MESSAGES[MSG_MSGCTR][m008]">{$MESSAGES[MSG_MSGCTR][m008]}</a><br />
+        </li>
+        <li><a href="./msgctr.php?action=manageFolder" i18n:translate="string: MESSAGES[MSG_MSGCTR][m045]">{$MESSAGES[MSG_MSGCTR][m045]}</a><br />
+        </li>
+
+        <li><a href="./msgctr.php?action=preferences" i18n:translate="string: MESSAGES[MSG_MSGCTR][m074]">{$MESSAGES[MSG_MSGCTR][m074]}</a><br />
+        </li>
+
+        <li><a href="javascript:window.close()" i18n:translate="string: MESSAGES[MSG_MSGCTR][m052]">{$MESSAGES[MSG_MSGCTR][m052]}</a></li>
+    </ul>
+</block>

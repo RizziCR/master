@@ -1,0 +1,143 @@
+.clear-columns
+{
+    clear: both;
+}
+#outer-column-container
+{
+    border-left: solid 13em #fff;
+    border-right: solid 13em #fff;
+}
+#inner-column-container
+{
+    width: 100%;
+}
+#source-order-container
+{
+    float: left;
+    width: 100%;
+}
+#left-column
+{
+    float: left;
+    margin-left: -13em;
+    width: 13em;
+}
+#middle-column
+{
+    float: right;
+    width: 100%;
+    overflow: auto;
+}
+#right-column
+{
+    float: right;
+    margin-right: -13em;
+    width: 13em;
+}
+/*******************************************************************************
+ * BASE THEME
+ ******************************************************************************/
+body
+{
+    padding: 0;
+    margin: 14px 0;
+}
+#page-container
+{
+    border: solid 1px #000;
+    min-width: 64em;
+    margin: 0 1em;
+}
+#masthead
+{
+    padding-top: 1px;
+    border-bottom: solid 1px #000;
+}
+#inner-column-container
+{
+    border: solid 1px #000;
+    border-width: 0 1px;
+    margin: 0 -1px;
+}
+#middle-column div.rMenu-center
+{
+    border-bottom: solid 1px #000;
+}
+#footer, #footerGuest
+{
+    border-top: solid 1px #000;
+    padding-bottom: 1px;
+}
+.inside
+{
+    margin: 0px;
+}
+/*******************************************************************************
+ * HACKS
+ ******************************************************************************/
+.clear-columns
+{
+    /* hide from IE/Mac \*/
+    padding-bottom: 1px;
+    margin-bottom: -1px;
+}
+* html #page-container
+{
+    /* \*/ height: 0.1%;
+    position: relative;
+}
+* html #middle-column,
+* html #left-column,
+* html #right-column,
+* html #source-order-container
+{
+    /* hide from IE/Mac \*/
+    overflow: visible;
+    /* hide from IE/Mac \*/
+    position: relative;
+}
+* html #middle-column
+{
+    margin-right: -4px;
+    margin-right/* */: 0;
+}
+* html #middle-column .inside
+{
+    margin-right: 14px;
+    margin-right:0px;
+    /*margin/* *//*: 10px;*/
+    margin-right/* */: 0px;
+}
+* html #masthead, * html #footer, * html #footerGuest
+{
+    /* hide from IE/Mac \*/
+    height: 0.1%;
+    height/**/: auto;
+}
+* html #masthead .inside, * html #footer .inside, * html #footerGuest .inside
+{
+    margin-top: 0;
+    margin-bottom: 0;
+    /*margin/* *//*: 10px;*/   /* reset for IE 5.5 and later */
+    margin/* */: 0px;
+}
+* html .inside
+{
+    /* margin: 10px 0.75em;*/
+    margin: 0 0;
+    /*margin/* *//*: 10px;*/
+    margin/* */: 0px;
+}
+* html #inner-column-container
+{
+    display: block;
+}
+* html #source-order-container
+{
+    margin-right: -100%;
+    /* \*/ margin-right: -1px;
+}
+#left-column, #right-column
+{
+    position: relative;
+}

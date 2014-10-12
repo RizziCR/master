@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+
+
+<ETS99>
+  <alliances>
+	<tag>SG33K</tag>
+	<members>24</members>
+	<fame>431</fame>
+  </alliances>
+
+  <alliances>
+	<tag>99</tag>
+	<members>5</members>
+	<fame>365</fame>
+  </alliances>
+
+  <alliances>
+	<tag>NO</tag>
+	<members>2</members>
+	<fame>324</fame>
+  </alliances>
+
+  <alliances>
+	<tag>o-man</tag>
+	<members>1</members>
+	<fame>301</fame>
+  </alliances>
+
+  <alliances>
+	<tag>hf</tag>
+	<members>24</members>
+	<fame>297</fame>
+  </alliances>
+
+  <alliances>
+	<tag>Frauenparkplatz</tag>
+	<members>10</members>
+	<fame>80</fame>
+  </alliances>
+
+  <alliances>
+	<tag>GdS</tag>
+	<members>15</members>
+	<fame>64</fame>
+  </alliances>
+
+  <alliances>
+	<tag>SG69K</tag>
+	<members>20</members>
+	<fame>36</fame>
+  </alliances>
+</ETS99>

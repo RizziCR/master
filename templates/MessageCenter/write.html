@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <META HTTP-EQUIV="expires" CONTENT="0" />
+    <META HTTP-EQUIV="Cache-Control" CONTENT="no-cache" />
+    <META HTTP-EQUIV="Pragma" CONTENT="no-cache" />
+    <title tal:content="title">Insert title here</title>
+
+    <link rel="stylesheet" type="text/css" href="css/css.css" />
+
+    <script type="text/javascript" src="javascript/jquery.js"></script>
+    <script type="text/javascript">
+    <!--
+        function select_all() {
+            $('#ally_select > option').attr('selected', 'selected');
+        }
+    // -->
+    </script>
+</head>
+<body>
+
+<table width="770" border="0" cellpadding="2" cellspacing="0">
+    <tr>
+        <td colspan="2">
+            <div class="headline" style="text-align:center" tal:content="title">Title</div>
+        </td>
+    </tr>
+    <tr valign="top">
+        <td width="150">
+        <table border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td align="center" class="table_head" i18n:translate="string: MESSAGES[MSG_MSGCTR][m013]">Überschrift</td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <block tal:omit-tag="" metal:use-macro="index.html/menu" />
+                </td>
+            </tr>
+        </table>
+        </td>
+        <td width="620">
+        <form action="./msgctr.php?action=send" method="post" name="formular">
+        <table border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td align="center" class="table_head" i18n:translate="string:MESSAGES[MSG_MSGCTR][m009]">{$MESSAGES[MSG_MSGCTR][m009]}</td>
+            </tr>
+
+            <tr valign="top">
+                <td>
+                <table width="620" border="0" cellpadding="0" cellspacing="0">
+                    <tr valign="top">
+                        <td i18n:translate="string: MESSAGES[MSG_MSGCTR][m010]">{$MESSAGES[MSG_MSGCTR][m010]}</td>
+                        <td width="520">
+                            <input class="button" type="text" size="50" name="puser" tal:attributes="value puser" style="width:100%" /></td>
+                    </tr>
+                    <tr valign="top">
+                        <td></td>
+                        <td width="520">
+                            <select name="rec_clist_group" class="button" style="width:100%">
+                                <option value="" i18n:translate="string: MESSAGES[MSG_MSGCTR][m058]">{$MESSAGES[MSG_MSGCTR][m058]}</option>
+                                <option tal:repeat="g groups" tal:attributes="value g/id; selected php:g['selected']?'selected':false" tal:content="g/name"></option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr valign="top">
+                        <td></td>
+                        <td>
+                            <select name="rec_clist_user" class="button" style="width:100%">
+                                <option value="" i18n:translate="string: MESSAGES[MSG_MSGCTR][m059]">{$MESSAGES[MSG_MSGCTR][m059]}</option>
+                                <optgroup tal:attributes="label ug/name" tal:repeat="ug users">
+                                    <option tal:repeat="g ug/user" tal:attributes="value g/name; selected php:g['selected']?'selected':false" tal:content="g/name"></option>
+                                </optgroup>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr valign="top" tal:condition="enable_amail">
+                        <td><span i18n:translate="string: MESSAGES[MSG_MSGCTR][m081]">{$MESSAGES[MSG_MSGCTR][m081]}</span>
+                            <div style="text-align:right">(<a href="#" onclick="select_all()">Alle</a>)</div>
+                        </td>
+                        <td>
+                            <select id="ally_select" name="auser[]" class="button" multiple="multiple" size="4" style="width:100%">
+                                <option tal:repeat="m members" tal:attributes="value m/name; selected php:m['selected']?'selected':false" tal:content="m/name"></option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><hr /></td>
+                    </tr>
+                    <block tal:omit-tag="" tal:condition="exists: preview_topic">
+                    <tr>
+                        <td align="center" colspan="2" class="table_head" i18n:translate="string:MESSAGES[MSG_MSGCTR][m066]">{$MESSAGES[MSG_MSGCTR][m066]}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><span tal:content="preview_topic">Preview Topic</span><br />
+                        <hr width="100%" size="1" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" tal:content="structure preview_text">Preview Text</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                        <hr />
+                        </td>
+                    </tr>
+                    </block>
+                    <tr valign="top">
+                        <td i18n:translate="string: MESSAGES[MSG_MSGCTR][m011]">{$MESSAGES[MSG_MSGCTR][m011]}</td>
+                        <td><input style="width: 100%" class="button" type="text" name="topic"
+                            tal:attributes="value topic" /></td>
+                    </tr>
+                    <tr valign="top">
+                        <td i18n:translate="string: MESSAGES[MSG_MSGCTR][m012]">{$MESSAGES[MSG_MSGCTR][m012]}</td>
+                        <td><textarea style="width: 100%" cols="30" rows="10" class="button" name="text"
+                            tal:content="text"> TEXT </textarea></td>
+                    </tr>
+                    <tr valign="top">
+                        <td></td>
+                        <td><input type="checkbox" class="chkbx" name="rconf" value="true" tal:attributes="checked php:rconf ? 'checked' : false" />
+                        <span i18n:translate="string: MESSAGES[MSG_MSGCTR][m060]" tal:omit-tag="">{$MESSAGES[MSG_MSGCTR][m060]}</span></td>
+                    </tr>
+                    <tr valign="top">
+                        <td i18n:translate="string: MESSAGES[MSG_GENERAL][m004]">{$MESSAGES[MSG_GENERAL][m004]}</td>
+                        <td i18n:translate="string: MESSAGES[MSG_GENERAL][m005]">{$MESSAGES[MSG_GENERAL][m005]}</td>
+                    </tr>
+                </table>
+                </td>
+            </tr>
+            <tr>
+                <td align="right">
+                    <input class="button" name="subaction" type="submit" tal:attributes="value string:MESSAGES[MSG_MSGCTR][m066]" i18n:attributes="value" />
+                    <input class="button" name="subaction" type="submit" tal:attributes="value string:MESSAGES[MSG_MSGCTR][m014]" i18n:attributes="value" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    * <span tal:omit-tag="" i18n:translate="string:MESSAGES[MSG_MSGCTR][m057]">{$MESSAGES[MSG_MSGCTR][m057]}</span>
+                </td>
+            </tr>
+        </table>
+        </form>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

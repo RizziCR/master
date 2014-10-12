@@ -1,0 +1,93 @@
+<div tal:comment=" === Seitenstruktur ==================================================="
+     id="contentBuild"
+     metal:define-macro="content">
+
+    <p
+        tal:comment="error content if there is any"
+        tal:condition="exists: errorMessage"
+        tal:replace="structure errorMessage">
+    </p>
+
+    <div tal:omit-tag="" tal:condition="not: exists: errorMessage">
+    <h1>Technologiezentrum</h1>
+    <h2 tal:condition="php: sthSearching && !isStarterCity">Hinweis</h2>
+    <p tal:condition="php: sthSearching && !isStarterCity">Forschungen kannst du nur in der Stadt abbrechen, in der du sie in Auftrag gegeben hast.</p>
+    <span tal:condition="exists: pfuschOutput" tal:replace="structure pfuschOutput">
+    </span>
+	<div tal:condition="exists: jobs">
+	<h2>Bauaufträge</h2>
+	<ul class="category">
+	<block tal:repeat="auftraege jobs" tal:omit-tag="">
+	<li class="pre">	<span metal:use-macro="info_jobs" tal:omit-tag="" /> </li>
+	</block>
+	</ul>
+	</div>
+	<br />
+    <block tal:repeat="cat categories" tal:omit-tag="">
+    <h2 tal:content="cat/heading">Kategorien-Überschrift</h2>
+    <ul class="category">
+    <block tal:repeat="tech cat/techs" tal:omit-tag="">
+        <li tal:condition="not: tech/isDisabled"><span metal:use-macro="info_tech" tal:omit-tag="" /></li>
+        <li tal:condition="tech/isDisabled" tal:attributes="title tech/title" class="disabled"><span metal:use-macro="info_tech" tal:omit-tag="" /></li>
+    </block>
+    </ul>
+    </block>
+    </div>
+</div>
+
+<li tal:comment=" === Auftraegeinfo ================================================"
+       tal:omit-tag=""
+       metal:define-macro="info_jobs">
+	<p class="pre"><a tal:attributes="href string:./description.php?show=${auftraege/index}&t=t" tal:content="auftraege/name">Geb?udename</a> (<span tal:content="auftraege/level" />)</p>
+	<form class="pre" method="post" action="./tech.php">
+		<input type="hidden" value="2fkp8fnc63" name="bc" />
+		<input type="hidden" name="technologie" tal:attributes="value auftraege/time" />
+		<div metal:use-macro="jobs_button" tal:omit-tag="" />
+	</form>
+</li>
+
+<div tal:comment=" === Button-Makro ===================================================="
+     tal:omit-tag=""
+     metal:define-macro="jobs_button">
+		<span class="countdown" tal:attributes="id auftraege/countdown" tal:condition="auftraege/time_left" tal:content="auftraege/time_left">0:00:00</span>
+		<input type="submit" name="action" value="Abbrechen" onclick="return ask(1,${sthMarked});;" tal:condition="auftraege/first" />
+		<input type="submit" name="action" value="Aufheben" onclick="return ask(0,${sthMarked});;" tal:condition="not: auftraege/first" />
+</div>
+
+<li tal:comment=" === Technologieinfo ==================================================="
+       tal:omit-tag=""
+       metal:define-macro="info_tech">
+    <p class="desc"><a tal:attributes="href string:./description.php?show=${tech/index}&t=t" tal:content="tech/name">Technologiename</a> (<span metal:use-macro="info_level" />)<br />
+    <span class="details"><span class="label">Kosten:</span> <span tal:replace="tech/cost_holz" /> Holzium, <span tal:replace="tech/cost_o2" /> Sauerstoff</span><br />
+    <span class="details"><span class="label">Forschungsdauer:</span> <span tal:replace="tech/time" /></span></p>
+    <form method="post" action="./tech.php" tal:condition="not: tech/isDisabled">
+        <input type="hidden" name="technologie" tal:attributes="value tech/index" />
+        <div metal:use-macro="info_button" tal:omit-tag="" />
+    </form>
+    <form method="post" action="./tech.php" tal:condition="tech/isDisabled" onclick="window.alert('Hinweis: ' + this.parentNode.title)">
+        <input type="hidden" name="technologie" tal:attributes="value tech/index" />
+        <div metal:use-macro="info_button" tal:omit-tag="" />
+    </form>
+</li>
+
+<div tal:comment=" === Stufen-Makro ===================================================="
+     tal:omit-tag=""
+     metal:define-macro="info_level">Stufe
+<span tal:replace="tech/level" />
+<span tal:condition="php: tech['level_new'] > 0"
+	  tal:replace="string: + ${tech/level_new}" />
+</div>
+
+<div tal:comment=" === Button-Makro ===================================================="
+     tal:omit-tag=""
+     metal:define-macro="info_button">
+<span class="disabled" tal:condition="tech/isDisabled">noch nicht erforschbar</span>
+<input type="submit" name="action" value="Erforschen"
+       tal:condition="php: !sthSearching && tech['isAffordable'] && !tech['isDisabled']" />
+<input type="submit" name="action" value="Erforschen" disabled="disabled" class="disabled"
+       tal:condition="php: (!sthSearching && !tech['isAffordable']) || (tech['isDisabled'] && !sthSearching)" />
+<input type="submit" name="action" value="Vormerken"
+       tal:condition="php: sthSearching && !sthMarked && tech['isAffordable'] && !tech['isDisabled'] " />
+<input type="submit" name="action" value="Vormerken" disabled="disabled" class="disabled"
+       tal:condition="php: (sthMarked) || (sthSearching && !tech['isAffordable']) || (tech['isDisabled'] && sthSearching)" />
+</div>

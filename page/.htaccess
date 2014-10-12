@@ -1,0 +1,5 @@
+RewriteEngine on
+
+RewriteRule ^faq/(.*)/(.*)$ faqs.php?cat=$1&id=$2
+RewriteRule ^faq/(.*)$ faqs.php?cat=$1
+RewriteRule ^faq$ faqs.php

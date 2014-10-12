@@ -1,0 +1,85 @@
+<div tal:comment=" war status content"
+     id="contentChronicle"
+     metal:define-macro="content">
+
+    <span
+       tal:condition="exists: errorMessage"
+       tal:comment="error content if there is any"
+       tal:replace="structure errorMessage">
+    </span>
+
+    <div tal:omit-tag="" tal:condition="not: exists: errorMessage">
+
+<script type="text/javascript">
+    $(function() {
+        $("#chartimg").cluetip().show();
+    });
+</script>
+<!--script type="text/javascript" src="javascript/chronicle_src.js"></script-->
+<style type="text/css">
+.cluetip-default {
+  opacity: 1;
+}
+</style>
+
+    <!-- trade info -->
+        <h1 i18n:translate="string: MESSAGES[MSG_WAR_STATUS][title]"></h1>
+
+        <br />
+
+        <h2 tal:content="adversaries">adversaries</h2>
+
+        <table id="war_data">
+          <tr>
+            <td tal:content="string: Krieg erklärt">
+            </td>
+            <td tal:content="string: ${war_causer} an ${war_defenders}">
+            </td>
+            <td tal:content="string: ${declare_date} Uhr">
+            </td>
+          </tr>
+          <tr tal:condition="accept_date">
+            <td tal:content="string: Krieg angenommen">
+            </td>
+            <td>
+            </td>
+            <td tal:content="string: ${accept_date} Uhr">
+            </td>
+          </tr>
+          <tr tal:condition="start_date">
+            <td tal:content="string: Kriegsbeginn">
+            </td>
+            <td>
+            </td>
+            <td tal:content="string: ${start_date} Uhr">
+            </td>
+          </tr>
+          <tr tal:condition="expected_end_date">
+            <td tal:content="string: Kriegsende">
+            </td>
+            <td>voraussichtlich</td>
+            <td tal:content="string: ${expected_end_date} Uhr">
+            </td>
+          </tr>
+          <tr tal:condition="end_date">
+            <td tal:content="string: Kriegsende">
+            </td>
+            <td tal:condition="winner" tal:content="string: Sieg für ${winner}">
+            </td>
+            <td tal:condition="not: winner" tal:content="string: unentschieden">
+            </td>
+            <td tal:content="string: ${end_date} Uhr">
+            </td>
+          </tr>
+          <tr tal:condition="end_date">
+            <td>
+            </td>
+            <td tal:content="string: durch ${victory_cause}">
+            </td>
+            <td>
+            </td>
+          </tr>
+        </table>
+        <!-- add status information on members and colonies -->
+  </div>
+</div>

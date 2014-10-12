@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+
+	<head
+  		tal:comment="html head requires page title"
+  		metal:use-macro="lib/htmlHead.html/htmlHead"
+	/>	
+
+	<body>
+	
+	<!-- main container ============================================= -->
+		<div id="columnBasis">
+		
+			
+		<!-- left column ============================================ -->
+			<span
+  				tal:comment="left column template"
+  				metal:use-macro="lib/leftColumn.html/leftColumn"
+			/>		
+		
+		<!-- middle column ========================================== -->
+			<div id="columnCenter">
+
+			<!-- sponsor info -->
+				<span
+  					tal:comment="sponsor info template"
+  					metal:use-macro="lib/middleColumn.html/sponsorInfo"
+				/>					
+
+			<!-- resources and depots -->
+				<span
+  					tal:comment="resources and depots template"
+  					metal:use-macro="lib/middleColumn.html/resourcesDepots"
+				/>			
+				
+			<!-- main content area -->
+				<div id="content">
+				
+					<span
+  						tal:comment="first some pfusch content"
+  						tal:replace="structure pfuschOutput"
+					/>
+					
+					
+				</div><!-- main content area -->
+			</div><!-- middle column -->
+
+		<!-- right column =========================================== -->
+			<span
+  				tal:comment="right column template"
+  				metal:use-macro="lib/rightColumn.html/rightColumn"
+			/>
+
+		
+		<!-- footer ================================================= -->
+			<span
+  				tal:comment="footer template"
+  				metal:use-macro="lib/footer.html/footer"
+			/>
+						
+		</div><!-- main container -->
+
+      <span tal:replace="structure clockJSCode"></span>
+      <span tal:replace="structure resourceCounter"></span>
+      <span tal:condition="exists: sessionTimeout" tal:replace="structure sessionTimeoutCode"></span>															
+      
+	</body>
+</html>

@@ -1,0 +1,31 @@
+    <head metal:define-macro="htmlHead">
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+        <title tal:content="string:Escape to Space: $pageTitle">Title of current page</title>
+
+        <meta name="description"
+              tal:condition="exists: descriptionContent"
+              tal:attributes="content descriptionContent" />
+        <meta name="description"
+              tal:condition="not: exists: descriptionContent"
+              content="Escape to Space ist ein kostenloses Browserspiel, in welchem der Spieler alleine oder zusammen in einer Allianz um die Herrschaft auf Erde II kämpft.');" />
+
+        <meta name="keywords"
+              tal:condition="exists: keywordsContent"
+              tal:attributes="content keywordsContent" />
+        <meta name="keywords"
+              tal:condition="not: exists: keywordsContent"
+              content="ETS, kostenlos, werbefrei, Browser, Game, Spiel, Browserspiel, Browsergame, Internet, Gemeinschaft, Strategie, Escape, Space, Allianz, Herrschaft, Flugzeuge" />
+
+        <link rel="icon"          type="image/vnd.microsoft.icon" tal:attributes="href string:$etsAddress/favicon.ico" />
+        <link rel="shortcut icon" type="image/vnd.microsoft.icon" tal:attributes="href string:$etsAddress/favicon.ico" />
+
+
+        <link type="text/css" rel="StyleSheet" tal:attributes="href cssAddress" />
+
+        <script type="text/javascript" tal:attributes="src string:$etsAddress/javascript/jquery_base.js"></script>
+        <script type="text/javascript" tal:attributes="src string:$etsAddress/javascript/main.js"></script>
+        <script type="text/javascript" src="https://apis.google.com/js/plusone.js">
+		  {lang: 'de'}
+		</script>
+    </head>

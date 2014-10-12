@@ -1,0 +1,141 @@
+@charset "iso-8859-1";
+
+/*******************************************************************************
+*  visual_consistencies.css : 2005.09.07 : Ruthsarian Layouts
+* -----------------------------------------------------------------------------
+*  Font sizes on heading elements and the margin/padding applied to these
+*  same elements will vary from browser to browser. This is an attempt to pull
+*  the font sizes and spacing together for a consistent look across all
+*  browsers.
+*
+*  There are other rules included in this stylesheet (with comments on each)
+*  to handle other visual consistency issues. You do not need to use this
+*  stylesheet, nor do you need to follow it exactly. You can make changes
+*  anywhere you want to make things look the way you want to. Nothing here
+*  _should_ break a layout if modified.
+*******************************************************************************/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td
+{
+    background: transparent;
+    border: 0;
+    font-size: 100%;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+html
+{
+    background-color: black;
+    background-image: url(/pics/backgroundV8.gif);
+    color: #999;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    height: 100%; /* Scrollbalken immer anzeigen */
+    margin-bottom: 1px;
+}
+body
+{
+    /* I've seen several comments that setting the base font size to 100.1%
+     * fixes some browser bugs. Which bugs? I don't know. I believe it's
+     * to fix some rounding-error bugs that some browsers (Mozilla) are
+     * prone to. It doesn't hurt anything, so I keep it here.
+     */
+    font-size: 100.1%;
+    line-height: 1;
+    margin: 14px 0;
+}
+h1, h2
+{
+    border-bottom: 1px solid #666;
+    color: #666;
+    font-weight: normal;
+    text-align: right;
+}
+h1 /* page headline */
+{
+    font-size: 120%;
+}
+h2 /* sub-headlines */
+{
+    font-size: 100%;
+    margin-bottom: 1em;
+}
+h3 /* navigation headlines */
+{
+    border-bottom: 1px solid #555;
+    font-size: 100%;
+    font-weight: normal;
+    text-align: left;
+}
+a, a:link, a:visited, a:active
+{
+    color: #788CB3;
+    text-decoration: none;
+}
+a:hover
+{
+    color: #fff;
+    text-decoration: none;
+}
+ol, ul
+{
+    list-style: none;
+}
+code, pre
+{
+    /* Make sure we're all using the same monospaced font for CODE
+     * and PRE elements
+     */
+    font-family: "Courier New", Courier, monospace;
+}
+label
+{
+    /* It's all about the visual feedback. In this case, label
+     * elements are usually clickable which then set focus on
+     * their target. I want to show that to the user in a manner
+     * they are used to and understand.
+     */
+    cursor: pointer;
+}
+blockquote, q
+{
+    quotes: none;
+}
+blockquote:before, blockquote:after, q:before, q:after
+{
+    content: '';
+    content: none;
+}
+table
+{
+    border-collapse: collapse;
+    border-spacing: 0;
+    /* Some browsers won't carry the font size down into the
+     * browser like they're suppose to.
+     */
+    font-size: 100%;
+}
+td, th
+{
+    /* I never like or use the default vertical centering "feature"
+     * provided by tables.
+     */
+    vertical-align: top;
+}
+
+/* remember to define focus styles! */
+:focus {
+    outline: 0;
+}
+
+/******************************************************************************/

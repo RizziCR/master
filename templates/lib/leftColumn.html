@@ -1,0 +1,122 @@
+            <!-- logo -->
+            <!-- no line breaks please - ie bug fix -->
+            <div id="logo" metal:define-macro="logo"><a
+                tal:attributes="href string:$etsAddress/index.php"
+                title="Zur Startseite"><img
+                    tal:attributes="src string:$imgAddress/logoV8graycut.jpg"
+                    alt="ETS Logo" /></a></div>
+
+            <!-- change city -->
+            <div id="switchCity" metal:define-macro="changeCity">
+                <form
+                    name="cs"
+                    method="post">
+                    <select
+                        name="change_city"
+                        tal:attributes="onchange structure string:document.location.href='$currentPageUrl?change_city=' + String(document.cs.change_city.value)">
+                        <option tal:repeat="option cityListOption" tal:replace="structure option" value="9:99:9">9:99:9</option>
+                    </select>
+                </form>
+            </div>
+
+            <div id="columnLeft" metal:define-macro="leftColumn">
+
+                <!-- main menu -->
+                <div id="menu">
+
+                    <h3 tal:content="string:Stadt $currentCity">Stadt xxx</h3>
+                    <ul id="cityOptionsList">
+                        <li><a tal:attributes="href string:$etsAddress/start.php">Hauptansicht</a></li><!-- aus li entfernt: id="activeEntry" -->
+                        <li><a tal:attributes="href string:$etsAddress/build.php">Bauzentrum</a></li>
+                        <li><a tal:attributes="href string:$etsAddress/tech.php">Technologiezentrum</a></li>
+                        <li><a tal:attributes="href string:$etsAddress/defense.php">Verteidigungszentrum</a></li>
+                        <li><a tal:attributes="href string:$etsAddress/trade.php">Handelszentrum</a></li>
+                        <li><a tal:attributes="href string:$etsAddress/resources.php">Depots</a></li>
+                        <li><a tal:attributes="href string:$etsAddress/hangar.php">Hangar</a></li>
+                        <li><a tal:attributes="href string:$etsAddress/airport.php">Flughafen</a></li>
+                    </ul>
+
+                    <h3>Kommunikation</h3>
+                    <ul id="communityList">
+                        <li tal:condition="not: sitt_login"><a tal:attributes="href string:$etsAddress/alliances.php">Allianz</a>
+                            <block tal:condition="not: sitt_login" tal:omit-tag=""><span class="newMessage" tal:condition="php: anzahl_ally GT 0" tal:content="string: ($anzahl_ally)">(2)</span></block>
+                        </li>
+                        <li><a tal:attributes="href string:$etsAddress/messages.php">Nachrichten</a>
+                            <block tal:condition="not: sitt_login" tal:omit-tag="">
+                            <a tal:attributes="href string:javascript:window.open('${etsAddress}/msgctr.php','msgctr','fullscreen=no,channelmode=no,toolbar=yes,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,width=810,height=700,top=5,left=5'); onclick string:javascript:window.open('${etsAddress}/msgctr.php','msgctr','fullscreen=no,channelmode=no,toolbar=yes,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,width=810,height=700,top=5,left=5');; return false;"><span id="newMessage" tal:condition="php: anzahl_post GT 0" tal:content="string: ($anzahl_post)">(2)</span></a></block>
+                        </li>
+                        <li><a tal:attributes="href string:$forumAddress" target="_blank">Forum</a></li>
+                        <li><a tal:attributes="href string:$wikiAddress" target="_blank">Wiki</a></li>            
+                        <!-- <li><a tal:attributes="href string:$blogAddress" target="_blank">Blog</a></li>
+                        <li><a tal:attributes="href string:$youtubeAddress" target="_blank">Youtube-Kanal</a></li> -->
+                        <li><a tal:attributes="href string:$etsAddress/page/chat.php" target="_blank">Chat (IRC)</a></li>
+                        <li><a tal:attributes="href string:$etsAddress/page/support.php">Spielbetreuung</a></li>
+                    </ul>
+
+                    <h3 tal:condition="php: isset(sitterName) || isset(sitterLoginText)">Stellvertretung
+                        <a tal:condition="php: isset(sitterName) && !sitt_login"
+                           tal:attributes="href string:javascript:window.open('${etsAddress}/msgctr.php?action=write&puser=${sitterName}&msgtype=txt','msgctr','fullscreen=no,channelmode=no,toolbar=yes,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,width=810,height=700,top=5,left=5'); onclick string:javascript:window.open('${etsAddress}/msgctr.php?action=write&puser=${sitterName}&msgtype=txt','msgctr','fullscreen=no,channelmode=no,toolbar=yes,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,width=810,height=700,top=5,left=5');; return false;">
+                            <img tal:attributes="src string:$imgAddress/sittermail.gif"
+                                 style="vertical-align: bottom; margin-left: 0.25em; border: 0;"
+                                 alt="Eine Nachricht an die Stellvertretung schicken"
+                                 title="Eine Nachricht an die Stellvertretung schicken" />
+                        </a></h3>
+                    <ul tal:condition="php: isset(sitterName) || isset(sitterLoginText)" id="sittingList">
+                        <li tal:condition="exists: sitterLoginText"
+                            tal:content="structure sitterLoginText"><a href="/start.php?to_sitter=true">Frauenparkplatz</a></li>
+                    </ul>
+
+                    <h3>Konsole</h3>
+                    <ul id="sessionList">
+                        <li tal:condition="exists: sessionTimeout">
+                            <span id="sessiontimeout" tal:content="string:Besuchszeit: $sessionTimeout">(99:99)</span><br />
+                            <a tal:attributes="href string:$etsAddress/refreshsession.php">Besuch verlängern</a>
+                        </li>
+                         
+                        <li tal:condition="php: voted==true && !sitt_login"><a tal:attributes="href string:$etsAddress/vote.php" style="color:#0f0">Stimme für ETS</a></li>
+                        <li tal:condition="php: !voted && !sitt_login"><a tal:attributes="href string:$etsAddress/vote.php">Stimme für ETS</a></li>
+                        
+                        <li><a tal:attributes="href string:$etsAddress/page/login.php">Erde II verlassen</a></li>
+                    </ul>
+
+                    <h3>Übersichten</h3>
+                    <ul id="viewsList">
+                        <li><a tal:attributes="href string:$etsAddress/overview.php">Auftragsübersicht</a></li>
+                        <li><a tal:attributes="href string:$etsAddress/fleets.php">Flottenbewegungen</a></li>
+                        <li><a tal:attributes="href string:$etsAddress/accstat.php">Städte-Statistik</a></li>
+                        <li><a tal:attributes="href string:$etsAddress/premises.php">Technologiebaum</a></li><!-- Entwicklungsbaum -->
+                        <li><a tal:attributes="href string:$etsAddress/chronicle.php">Chronik von Erde II</a></li><!-- Liste globaler Ereignisse -->
+                        <li><a tal:attributes="href string:$etsAddress/countries.php">Weltkarte</a></li>
+                        <li><a tal:attributes="href string:$etsAddress/toplist.php">Ranglisten</a></li>
+                        <li><a tal:attributes="href string:$etsAddress/search.php">Suche</a></li>
+                    </ul>
+
+					<h3>Tools</h3>
+					<ul id="toolList">
+						<li><a tal:attributes="href string:$etsAddress/flugtimer.php">Flugzeitrechner</a></li>
+					</ul>
+                    <block tal:omit-tag="" tal:condition="not: sitt_login">
+                    <h3>Verwaltung</h3>
+                    <ul id="managementList">
+                        <li tal:condition="is_admin"><a tal:attributes="href string:$etsAddress/alliances_admin.php">Allianz</a></li>
+                        <li tal:condition="is_admin"><a tal:attributes="href string:$etsAddress/war_admin.php">Kriege</a></li>
+                        <li><a tal:attributes="href string:$etsAddress/preferences.php">Einstellungen</a></li>
+                        <li><a tal:attributes="href string:$etsAddress/administration.php">Städteverwaltung</a></li>
+                    </ul>
+                    </block>
+
+                    <h3>Städte</h3>
+                    <ul id="cityList">
+                        <li tal:repeat="item cityListItem" tal:replace="structure item" value="9:99:9">9:99:9</li>
+                    </ul>
+
+                    <block tal:omit-tag="" tal:condition="php: !sitt_login AND isset(acl_support)">
+                    <h3>Support</h3>
+                    <ul id="supportList">
+                        <li><a tal:attributes="href string:$etsAddress/support/banner.php">Allianz-Werbung</a></li>
+                        <li><a tal:attributes="href string:$etsAddress/support/censoring.php">Chronik-Zensur</a></li>
+                    </ul>
+                    </block>
+
+                </div><!-- main menu -->
+             </div><!-- left column -->

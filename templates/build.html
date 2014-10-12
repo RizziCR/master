@@ -1,0 +1,99 @@
+<div tal:comment=" === Seitenstruktur ==================================================="
+     id="contentBuild"
+     metal:define-macro="content">
+
+    <p
+        tal:comment="error content if there is any"
+        tal:condition="exists: errorMessage"
+        tal:replace="structure errorMessage">
+    </p>
+
+    <div tal:omit-tag="" tal:condition="not: exists: errorMessage">
+    <h1>Bauzentrum</h1>
+    
+    <h2 tal:condition="showClue">Information</h2>
+    <p tal:condition="showClue">Beim <b>Abbrechen</b> eines Gebäudes werden entsprechend der Zeit, die das Gebäude schon gebaut wurde, die Rohstoffe zurückerstattet - maximal aber 80%.<br />
+    Beim <b>Vormerken</b> werden die Rohstoffe sofort abgezogen, und werden im Falle des Abbruchs auch <u>nicht</u> zurückerstattet. Bricht man ein im Bau befindliches Gebäude ab, so wird automatisch auch die Vormerkung aufgehoben.</p>
+    <span tal:condition="exists: pfuschOutput" tal:replace="structure pfuschOutput">
+    </span>
+	<div tal:condition="exists: jobs">
+	<h2>Bauaufträge</h2>
+	<ul class="category">
+	<block tal:repeat="auftraege jobs" tal:omit-tag="">
+	<li class="pre">	<span metal:use-macro="info_jobs" tal:omit-tag="" /> </li>
+	</block>
+	</ul>
+	</div>
+	<br />
+    <block tal:repeat="cat categories" tal:omit-tag="">
+    <h2 tal:content="cat/heading">Kategorien-Überschrift</h2>
+    <ul class="category">
+    <block tal:repeat="building cat/buildings" tal:omit-tag="">
+        <li tal:condition="not: building/isDisabled"><span metal:use-macro="info_building" tal:omit-tag="" /></li>
+        <li tal:condition="building/isDisabled" tal:attributes="title building/title" class="disabled"><span metal:use-macro="info_building" tal:omit-tag="" /></li>
+    </block>
+    </ul>
+    </block>
+    </div>
+</div>
+
+<li tal:comment=" === Auftraegeinfo ================================================"
+       tal:omit-tag=""
+       metal:define-macro="info_jobs">
+	<p class="pre"><a tal:attributes="href string:./description.php?show=${auftraege/index}&t=b" tal:content="auftraege/name">Gebäudename</a> (<span tal:content="auftraege/level" />)</p>
+	<form class="pre" method="post" action="./build.php">
+		<input type="hidden" value="2fkp8fnc63" name="bc" />
+		<input type="hidden" name="building" tal:attributes="value auftraege/time" />
+		<div metal:use-macro="jobs_button" tal:omit-tag="" />
+	</form>
+</li>
+
+<div tal:comment=" === Button-Makro ===================================================="
+     tal:omit-tag=""
+     metal:define-macro="jobs_button">
+		<span class="countdown" tal:attributes="id auftraege/countdown" tal:condition="auftraege/time_left" tal:content="auftraege/time_left">0:00:00</span>
+		<input type="submit" name="action" value="Abbrechen" onclick="return ask(1,${sthMarked});;" tal:condition="auftraege/first" />
+		<input type="submit" name="action" value="Aufheben" onclick="return ask(0,${sthMarked});;" tal:condition="not: auftraege/first" />
+</div>
+
+<li tal:comment=" === Gebüudeinfo ================================================"
+       tal:omit-tag=""
+       metal:define-macro="info_building">
+    <p class="desc"><a tal:attributes="href string:./description.php?show=${building/index}&t=b" tal:content="building/name">Gebäudename</a> (<span metal:use-macro="info_level" />)<br />
+    <span class="details"><span class="label">Kosten:</span> <span tal:replace="building/cost_iri" /> Iridium, <span tal:replace="building/cost_holz" /> Holzium</span><br />
+    <span class="details"><span class="label">Bauzeit:</span> <span tal:replace="building/time" /></span></p>
+    <form method="post" action="./build.php" tal:condition="not: building/isDisabled">
+        <input type="hidden" value="2fkp8fnc63" name="bc" />
+        <input type="hidden" name="building" tal:attributes="value building/index" />
+        <div metal:use-macro="info_button" tal:omit-tag="" />
+    </form>
+    <form method="post" action="./build.php" tal:condition="building/isDisabled" onclick="window.alert('Hinweis: ' + this.parentNode.title)">
+        <input type="hidden" value="2fkp8fnc63" name="bc" />
+        <input type="hidden" name="building" tal:attributes="value building/index" />
+        <div metal:use-macro="info_button" tal:omit-tag="" />
+    </form>
+</li>
+
+
+<div tal:comment=" === Stufen-Makro ===================================================="
+     tal:omit-tag=""
+     metal:define-macro="info_level">Stufe
+<span tal:replace="building/level" />
+<span tal:condition="php: building['level_new'] > 0"
+	  tal:replace="string: + ${building/level_new}" />
+</div>
+
+
+<div tal:comment=" === Button-Makro ===================================================="
+     tal:omit-tag=""
+     metal:define-macro="info_button">
+<span class="disabled" tal:condition="building/isDisabled">noch nicht baubar</span>
+<input type="submit" name="action" value="Bauen"
+       tal:condition="php: !sthBuilding && building['isAffordable'] && !building['isDisabled']" />
+<input type="submit" name="action" value="Vormerken"
+       tal:condition="php: sthBuilding && !sthMarked && building['isAffordable'] && !building['isDisabled']" />
+<input type="submit" name="action" value="Bauen" disabled="disabled" class="disabled"
+       tal:condition="php:  (!sthBuilding && !building['isAffordable']) || (building['isDisabled']  && !sthBuilding )" />
+<input type="submit" name="action" value="Vormerken" disabled="disabled" class="disabled"
+       tal:condition="php: (sthMarked) || (sthBuilding && !building['isAffordable']) || ( building['isDisabled'] && sthBuilding )" />
+</div>

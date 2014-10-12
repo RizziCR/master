@@ -1,0 +1,52 @@
+<div tal:comment=" chronicle content"
+     id="contentChronicle"
+     metal:define-macro="content">
+
+    <span
+       tal:condition="exists: errorMessage"
+       tal:comment="error content if there is any"
+       tal:replace="structure errorMessage">
+    </span>
+
+    <div tal:omit-tag="" tal:condition="not: exists: errorMessage">
+
+<script type="text/javascript">
+    $(function() {
+        $("#chartimg").cluetip().show();
+    });
+</script>
+<!--script type="text/javascript" src="javascript/chronicle_src.js"></script-->
+<style type="text/css">
+.cluetip-default {
+  opacity: 1;
+}
+</style>
+
+    <!-- trade info -->
+        <h1 i18n:translate="string: MESSAGES[MSG_CHRONICLE][title]"></h1>
+
+        <br />
+
+        <h2 i18n:translate="string: MESSAGES[MSG_CHRONICLE][events]">Events</h2>
+
+        <table>
+          <tr tal:repeat="entry chronicle_scroll" >
+                <td tal:content="entry/marker">'graphical' event marker</td>
+                <td>
+                  <span tal:content="entry/event_text">Event</span>
+                  <span tal:condition="entry/event_add_text"><br /></span>
+                  <span tal:condition="entry/event_add_text" tal:content="structure entry/event_add_text">Additional text</span>
+                </td>
+                <td tal:content="entry/event_time">Time of event</td>
+            </tr>
+            <tr tal:omit-tag="" tal:condition="exists: show_previous">
+              <td colspan="3" align="center">
+                  <a tal:condition="exists: show_previous" tal:attributes="href string:${self}?show=${previous_entry}" tal:content="string: Zurück">hyper ref to previous page</a>
+                  <a tal:condition="exists: show_first"
+                    tal:attributes="href string:${self}?show=${first_entry}"
+                    tal:content="string: Anfang">hyper ref to first page</a>
+              </td>
+            </tr>
+      </table>
+  </div>
+</div>

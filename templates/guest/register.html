@@ -1,0 +1,429 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+       "html-dtd/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+    <head
+        tal:comment="html head requires page title"
+        metal:use-macro="lib/htmlHeadGuest.html/htmlHead"
+    />
+
+    <body>
+        <div id="page-container">
+
+            <div id="masthead">
+                <div class="inside">
+                    <span
+                        tal:comment="logo template"
+                        metal:use-macro="lib/middleColumnGuest.html/logo"
+                    />
+                </div>
+            </div>
+
+            <div id="outer-column-container">
+                <div id="inner-column-container">
+                    <div id="source-order-container">
+                        <div id="middle-column">
+                            <div class="inside">
+                                <div id="content">
+
+<!-- *** end of specific code *********************************************************** -->
+
+        <script type="text/javascript">
+        <!--
+          function set_checkboxes(check)
+          {
+              var boxes = document.kill_form.elements['id[]'];
+              var set_boxes  = boxes.length;
+
+              if (boxes.length > 1)
+              for (i=0;i<set_boxes;i++)
+                  boxes[i].checked="checked" = check;
+            else
+              boxes.checked="checked" = check;
+
+              return true;
+          }
+
+          function genpwd()
+          {
+            window.open('pwd.php','pwdwd','width=150,height=30,scrollbar=no,tollbar=no,status=no');
+          }
+        -->
+        </script>
+
+<h1 tal:content="headLine">&uuml;berschrift</h1>
+
+<div id="registerErrorList" tal:condition="exists: errorList" tal:content="structure errorList">Liste mit Fehlern</div>
+<div id="registerMessageList" tal:condition="exists: messageList" tal:content="structure messageList">Liste mit Meldungen</div>
+
+    <div id="tabContainer" tal:condition="not: success">
+        <ul>
+            <li><a href="#section-prolog">Prolog</a></li>
+            <li><a href="#section-passport">Passkontrolle</a></li>
+            <li><a href="#section-escape">Flucht</a></li>
+            <li><a href="#section-landing">Landung</a></li>
+        </ul>
+
+        <form id="registerForm" tal:attributes="href formularTarget" method="post">
+            <input type="hidden" name="action" value="register" />
+
+            <div id="section-prolog">
+                <block metal:use-macro="startStory"></block>
+            </div>
+
+            <div id="section-passport">
+                <block metal:use-macro="personData"></block>
+            </div>
+
+            <div id="section-escape">
+                <block metal:use-macro="middleStory"></block>
+            </div>
+
+            <div id="section-landing">
+                <block metal:use-macro="gameData"></block>
+            </div>
+        </form>
+    </div>
+
+<!-- *** end of specific code *********************************************************** -->
+
+                                </div><!-- content -->
+                            </div><!-- .inside -->
+                        </div><!-- middle-column -->
+                        <div id="left-column">
+                            <div class="inside">
+                                <span
+                                    tal:comment="left column template"
+                                    metal:use-macro="lib/leftColumnGuest.html/leftColumn"
+                                />
+                            </div>
+                        </div>
+                        <div class="clear-columns"><!-- do not delete --></div>
+                    </div>
+                    <div id="right-column">
+                        <div class="inside">
+                            <span
+                                tal:comment="right column template"
+                                metal:use-macro="lib/rightColumnGuest.html/rightColumn"
+                            />
+                        </div>
+                    </div>
+                    <div class="clear-columns"><!-- do not delete --></div>
+                </div>
+            </div>
+            <div id="footerGuest">
+                <div class="inside">
+                    <span
+                        tal:comment="footer template"
+                        metal:use-macro="lib/footer.html/footer"
+                    />
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+
+
+
+<!-- Macro Definitions -->
+
+<block tal:omit-tag="" metal:define-macro="startStory">
+
+    <p>Nachdem ein verheerender nuklearer Krieg im Jahre 2017 beinahe
+       die ganze Menschheit ausgel&ouml;scht hat und die Erde durch die
+       Strahlenverseuchung unbewohnbar wurde, bleibt den verzweifelten
+       &uuml;berlebenden nur noch die Flucht ins All. Du bist einer dieser
+       &uuml;berlebenden.</p>
+
+    <p>
+        <img id="earthOne" tal:attributes="src string:$imgAddress/deathEarthflat.jpg" alt="Die tote Erde" />
+    </p>
+
+    <fieldset id="fieldSetSend1">
+        <legend>Steuerung</legend>
+        <input id="toPersonData"
+               type="button"
+               onclick="$('#tabContainer > ul').tabs('select', 1);"
+               tal:attributes="value string: Weiter" />
+        <br />
+    </fieldset>
+</block>
+
+<block tal:omit-tag="" metal:define-macro="personData">
+
+    <p>Um einen Platz auf einem der gigantischen Siedlungsschiffe zu bekommen,
+       musst du zun&auml;chst folgende Angaben in die Datenbank einspeisen:
+    </p>
+
+    <fieldset id="fieldSetEarth1">
+        <legend>Erde I</legend>
+
+    <!-- E-Mail -->
+        <label for="mailInfoContent"
+               id="mailInfoLabel">Hinweis</label>
+        <span  name="mailInfoContent"
+               id="mailInfoContent"
+               class="info"
+               tal:content="mailInfo">Was ist zu beachten?</span>
+        <br />
+
+        <label for="email1"
+               id="mailLabel"
+               tal:content="mailLabel">E-Mail-Adresse</label>
+        <input name="email1"
+               id="mailInput"
+               tal:attributes="value mailValue"
+               type="text"
+               size="50"
+               maxlength="255" />
+        <br />
+
+        <label for="email2"
+               id="mailRepeatLabel"
+               tal:content="mailRepeatLabel">E-Mail Wiederholung</label>
+        <input name="email2"
+               id="mailRepeatInput"
+               tal:attributes="value mailRepeatValue"
+               type="text"
+               size="50"
+               maxlength="255" />
+        <br />
+    <!-- Newsletter -->
+        <label for="newsLetterInfoContent"
+               id="newsLetterInfoLabel">Hinweis</label>
+        <span  name="newsLetterInfoContent"
+               id="newsLetterInfoContent"
+               class="info"
+               tal:content="structure newsLetterInfoLabel">Ich m&ouml;chte einen E-Mail-Benachrichtigung.</span>
+        <br />
+        <label for="newsLetterCheck"
+               id="newsLetterCheckLabel"
+               tal:content="newsLetterCheckLabel">E-Mail f&uuml;r Benachrichtigungen auf Erde 2 verwenden</label>
+        
+        <input tal:condition="exists: newsLetterCheckLabel_"
+        	   name="newsLetterCheck"
+               id="newsLetterCheck"
+               type="checkbox"
+               value="true"/>
+               
+        <input tal:condition="not: exists: newsLetterCheckLabel_"
+        	   name="newsLetterCheck"
+               id="newsLetterCheck"
+               type="checkbox"
+               value="true"
+               checked="checked" />
+               
+        <span class="confirm">bestellen</span>
+        <br />
+
+
+    <!-- Password -->
+        <label for="passInfoContent"
+               id="passInfoLabel">Hinweis</label>
+        <span  name="passInfoContent"
+               id="passInfoContent"
+               class="info">
+               <a href="javascript:genpwd();" tal:content="passInfo2">Hinweis 2</a>
+        </span>
+        <br />
+
+        <label for="passwort1"
+               id="passLabel"
+               tal:content="passLabel">Kennwort</label>
+        <input name="password1"
+               id="passInput"
+               type="password"
+               tal:attributes="value passValue"
+               size="32"
+               maxlength="32"/>
+        <br />
+
+        <label for="password2"
+               id="passRepeatLabel"
+               tal:content="passRepeatLabel">Wiederholung</label>
+        <input name="password2"
+               id="passRepeatInput"
+               type="password"
+               tal:attributes="value passValue2"
+               size="32"
+               maxlength="32"/>
+        <br />
+
+    <!-- AGB -->
+        <label for="agbInfoContent"
+               id="agbInfoLabel">Hinweis</label>
+        <span  name="agbInfoContent"
+               id="agbInfoContent"
+               class="info"
+               tal:content="structure agbLabel">Was ist zu beachten?</span>
+        <br />
+        <label for="agb1"
+               id="agbLabel">AGB *</label>
+        <input tal:condition="exists: agb1_"
+        	   name="agb1"
+               id="agb1"
+               type="checkbox"
+               value="true" 
+               checked="checked" />
+        <input tal:condition="not: exists: agb1_"
+        	   name="agb1"
+               id="agb1"
+               type="checkbox"
+               value="true" />
+        <span class="confirm">akzeptieren</span>
+        <br />
+
+    <!-- Datenschutzerkl�rung -->
+        <label for="privacyInfoContent"
+               id="privacyInfoLabel">Hinweis</label>
+        <span  name="privacyInfoContent"
+               id="privacyInfoContent"
+               class="info"
+               tal:content="structure privacyInfoLabel">Verwendung der Daten akzeptieren.</span>
+        <br />
+        <label for="privacyCheck"
+               id="privacyCheckLabel"
+               tal:content="privacyCheckLabel">Datenschutzerkl&auml;rung best&auml;tigen</label>
+        <input tal:condition="exists: privacyCheck_"
+        	   name="privacyCheck"
+               id="privacyCheck"
+               type="checkbox"
+               value="true" 
+               checked="checked" />
+        <input tal:condition="not: exists: privacyCheck_"
+        	   name="privacyCheck"
+               id="privacyCheck"
+               type="checkbox"
+               value="true"/>
+        <span class="confirm">akzeptieren</span>
+        <br />
+        <span class="legend">* Mit einem Stern versehene Felder unbedingt ausf&uuml;llen.</span>
+    </fieldset>
+
+    <fieldset  id="fieldSetSend2">
+        <legend>Steuerung</legend>
+        <input id="toFlight"
+               type="button"
+               onclick="$('#tabContainer > ul').tabs('select', 2);"
+               tal:attributes="value string: Weiter" />
+        <br />
+    </fieldset>
+
+</block>
+
+
+<block tal:omit-tag="" metal:define-macro="middleStory">
+
+    <p>Nach Jahren des Winterschlafs erwachst du am 10. Oktober 2021,
+    als dein Raumschiff den Orbit des einzigen bekannten Planeten erreicht,
+    der f&uuml;r Menschen bewohnbar ist:
+    Erde 2, wie er von den &uuml;berlebenden genannt wird, wird nun deine neue
+    Heimat werden.</p>
+
+    <p>
+        <img id="earthTwo" tal:attributes="src string:$imgAddress/flucht.jpg" alt="Die lebende Erde" />
+    </p>
+
+    <p>Du sp&uuml;rst, wie die Aussicht auf die Erforschung des Planeten deinen
+    Puls rasen l&auml;sst und begibst dich in deine Kolonisationseinheit. Aufgeregt
+    l&auml;sst du die Sensoren einen Oberfl&auml;chen-Scan durchf&uuml;hren und bist &auml;u&szlig;erst
+    verbl&uuml;fft als du herausfindest, dass Erde 2 &uuml;ber
+    <tal:block replace="max_continents">99</tal:block> Kontinente verf&uuml;gt.
+    Welche &uuml;berraschungen dich wohl noch erwarten? Kurz entschlossen gibst du die
+    Koordinaten eines Kontinents in dein Steuerungsmodul ein und koppelst
+    deine Kolonisationseinheit vom Siedlungsschiff ab. </p>
+
+    <fieldset  id="fieldSetSend3">
+        <legend>Steuerung</legend>
+        <input id="toStart"
+               type="button"
+               onclick="$('#tabContainer > ul').tabs('select', 3);"
+               tal:attributes="value string: Weiter" />
+        <br />
+    </fieldset>
+</block>
+
+
+<block tal:omit-tag="" metal:define-macro="gameData">
+
+    <p>Als du den Orbit verl&auml;sst und der Zentralcomputer den Eintrittswinkel
+    berechnet, f&auml;llt dir ein, dass du in deiner Aufregung vergessen hast, vor
+    der Abkoppelung das Diagnoseprogramm zu starten. Du kannst nur hoffen, dass
+    keine Hitzekacheln besch&auml;digt sind, denn sonst wirst du in der Atmosph&auml;re
+    vergl&uuml;hen. </p>
+
+    <p>Um dich von dieser &auml;u&szlig;erst unangenehmen Vorstellung
+    abzulenken, &uuml;berlegst du, wie du dich selbst und deine Siedlung auf Erde 2 nennen
+    k&ouml;nntest:</p>
+
+    <fieldset  id="fieldSetEarth2">
+        <legend>Erde II</legend>
+
+        <!-- nick name -->
+        <label for="nickInfo"
+               id="nickInfoLabel">Hinweis</label>
+        <span  name="nickInfo"
+               id="nickInfoContent"
+               class="info"
+               tal:content="nickInfo">Konventionen Spielername</span>
+        <br />
+        <label for="new_user"
+               id="nickLabel"
+               tal:content="nickLabel">Benutzername</label>
+        <input name="new_user"
+               id="nickInput"
+               tal:attributes="value nickValue"
+               type="text"
+               maxlength="15"
+               size="15" />
+        <br />
+
+    <!-- Voranmeldung -->
+        <label for="precodeInfoContent"
+               id="precodeInfoLabel">Hinweis</label>
+        <span  name="precodeInfoContent"
+               id="precodeInfoContent"
+               class="info"
+               tal:content="structure precodeInfoLabel">Nur fuer Voranmeldung</span>
+        <br />
+        <label for="precode"
+               id="precodeLabel"
+               tal:content="precodeLabel">Code aus der Voranmeldung</label>
+        <input type="text"
+               name="precode"
+               id="precode"
+               size="32"
+               maxlength="32"
+               tal:attributes="value precode" />
+        <br />
+
+        <!-- Stadtname -->
+        <label for="cityInfoContent"
+               id="cityInfoLabel">Hinweis</label>
+        <span  name="cityInfoContent"
+               id="cityInfoContent"
+               class="info"
+               tal:content="cityNameInfo">Konventionen Stadtnamen</span>
+        <br />
+        <label for="city_name"
+               id="cityLabel"
+               tal:content="cityNameLabel">Stadtname</label>
+        <input name="city_name"
+               id="cityInput"
+               tal:attributes="value cityNameValue"
+               type="text"
+               maxlength="20"
+               size="20" />
+        <br />
+        <span class="legend">* Mit einem Stern versehene Felder unbedingt ausf&uuml;llen.</span>
+    </fieldset>
+
+    <fieldset  id="fieldSetSend4">
+        <legend>Senden</legend>
+        <input id="buttonSend"
+               type="submit"
+               value="Eintritt in die Atmosph&auml;re" /><!-- tal:attributes="value submitButton" -->
+        <br />
+    </fieldset>
+</block>

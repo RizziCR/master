@@ -1,0 +1,154 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" 
+                      "http://www.w3.org/TR/html4/strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" tal:condition="exists: showGuest">
+<!--  HTML Kopf -->
+    <head tal:comment="html head, requires page title"
+          metal:use-macro="lib/htmlHeadGuest.html/htmlHead">
+    </head>
+<!--  // HTML Kopf -->
+    <body>
+        <div id="page-container">
+            <div id="masthead">
+                <div class="inside">
+<!-- Kopfzeile -->
+                    <span tal:comment="logo"
+                          metal:use-macro="lib/middleColumnGuest.html/logo">
+                    </span>
+<!-- // Kopfzeile -->
+                </div><!-- inside -->
+            </div><!-- masthead -->
+            <div id="outer-column-container">
+                <div id="inner-column-container">
+                    <div id="source-order-container">
+                        <div id="middle-column">
+                            <div class="inside">
+                                <div id="content">
+<!-- mittlere Spalte -->
+                                    <span tal:comment="agb"
+                                          metal:use-macro="lib/dataSecurityContent.html/dataSecurityList">
+                                    </span>
+<!-- // mittlere Spalte -->
+                                </div><!-- content -->
+                            </div><!-- inside -->
+                        </div><!-- middle-column -->
+                        <div id="left-column">
+                            <div class="inside">
+<!-- linke Spalte -->
+                                <span tal:comment="left column template"
+                                      metal:use-macro="lib/leftColumnGuest.html/leftColumn">
+                                </span>
+<!-- // linke Spalte -->
+                            </div><!-- inside -->
+                        </div><!-- left-column -->
+                        <div class="clear-columns"><!-- do not delete --></div>
+                    </div><!-- source-oder-container -->
+                    <div id="right-column">
+                        <div class="inside">
+<!-- rechte Spalte -->
+                            <span tal:comment="right column template"
+                                  metal:use-macro="lib/rightColumnGuest.html/rightColumn">
+                            </span>
+<!-- // rechte Spalte -->
+                        </div><!-- inside -->
+                    </div><!-- right-column -->
+                    <div class="clear-columns"><!-- do not delete --></div>
+                </div><!-- inner-column-container -->
+            </div><!-- inner-column-container -->
+            <div id="footerGuest">
+                <div class="inside">
+<!-- Fusszeile -->
+                    <span tal:comment="footer template"
+                          metal:use-macro="lib/footer.html/footer">
+                    </span>
+<!-- // Fusszeile -->
+                </div><!-- inside -->
+            </div><!-- footer -->
+        </div><!-- inner-column-container -->
+    </body>
+</html>
+
+<!-- ******************************************************************************************** -->
+
+<html xmlns="http://www.w3.org/1999/xhtml" tal:condition="exists: showIntern">
+<!--  HTML Kopf -->
+    <head tal:comment="html head requires page title"
+          metal:use-macro="lib/htmlHead.html/htmlHead">
+    </head>
+<!--  // HTML Kopf -->
+    <body>
+        <div id="page-container">
+            <div id="outer-column-container">
+                <div id="inner-column-container">
+                    <div id="source-order-container">
+                        <div id="middle-column">
+                            <div class="inside">
+<!-- mittlere Spalte -->
+                                <span tal:comment="sponsor info"
+                                      metal:use-macro="lib/middleColumn.html/sponsorInfo">
+                                </span>
+                                <span tal:comment="resources and depots"
+                                      metal:use-macro="lib/middleColumn.html/resourcesDepots">
+                                </span>
+                                <!-- main content area -->
+                                <div id="content">
+                                    <span tal:comment="agb"
+                                          metal:use-macro="lib/dataSecurityContent.html/dataSecurityList">
+                                    </span>
+                                </div><!-- content -->
+<!-- // mittlere Spalte -->
+                            </div><!-- inside -->
+                        </div><!-- middle-column -->
+                        <div id="left-column">
+                            <div class="inside">
+<!-- linke Spalte -->
+                                <span tal:comment="logo template"
+                                      metal:use-macro="lib/leftColumn.html/logo">
+                                </span>
+                                <span tal:comment="changeCity template"
+                                      metal:use-macro="lib/leftColumn.html/changeCity">
+                                </span>
+                                <span tal:comment="left column template"
+                                      metal:use-macro="lib/leftColumn.html/leftColumn">
+                                </span>
+<!-- // linke Spalte -->
+                            </div><!-- inside -->
+                        </div><!-- left-column -->
+                        <div class="clear-columns"><!-- do not delete --></div>
+                    </div><!-- source-order-container -->
+                    <div id="right-column">
+                        <div class="inside">
+<!-- rechte Spalte -->
+                            <span tal:comment="sponsor link template"
+                                  metal:use-macro="lib/rightColumn.html/sponsorLink">
+                            </span>
+                            <span tal:comment="resources and depots template"
+                                  metal:use-macro="lib/rightColumn.html/showClock">
+                            </span>                    
+                            <span tal:comment="right column template"
+                                  metal:use-macro="lib/rightColumn.html/rightColumn">
+                            </span>
+<!-- // rechte Spalte -->
+                        </div><!-- inside -->
+                    </div><!-- right-column -->
+                    <div class="clear-columns"><!-- do not delete --></div>
+                </div><!-- inner-column-container -->
+            </div><!-- outer-column-container -->
+            <div id="footer">
+                <div class="inside">
+<!-- Fusszeile -->                
+                    <span tal:comment="footer template"
+                          metal:use-macro="lib/footer.html/footer">
+                    </span>
+<!-- // Fusszeile -->
+                </div><!-- inside -->
+            </div><!-- footer -->
+        </div><!-- page-container -->
+        <span tal:replace="structure clockJSCode"></span>
+        <span tal:replace="structure resourceCounter"></span>
+        <span tal:condition="exists: sessionTimeout" tal:replace="structure sessionTimeoutCode"></span>
+        <script type="text/javascript" tal:condition="exists: specificJS">
+            <span tal:replace="structure specificJS">js code</span>
+        </script>
+    </body>
+</html>

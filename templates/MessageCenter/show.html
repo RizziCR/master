@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <META HTTP-EQUIV="expires" CONTENT="0" />
+    <META HTTP-EQUIV="Cache-Control" CONTENT="no-cache" />
+    <META HTTP-EQUIV="Pragma" CONTENT="no-cache" />
+    <title tal:content="title">Insert title here</title>
+
+    <link rel="stylesheet" type="text/css" href="css/css.css" />
+    <script language="javascript" tal:content="structure string: etsAdress = '${etsAddress}';"></script>
+    <script type="text/javascript">
+    function addContact(sender) {
+        window.open(etsAdress+'/adressbook.php?nc='+sender,'adressbook',
+            'fullscreen=no,channelmode=no,toolbar=yes,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes,'+
+            'width=280,height=700,top=5,left=830');
+    }
+    function sendReadConfirm(id) {
+        read = confirm('Der Sender hat eine Lesebestätigung angefordert. Möchtest du diese senden?');
+        if (read == true)
+            window.location.href=etsAdress+'/msgctr.php?action=show&id='+id+'&rc=true';
+    }
+    function open_url(w, url) {
+        w.location.href=url;
+        w.focus();
+        return false;
+    }
+    </script>
+</head>
+<body>
+
+<table width="770" border="0" cellpadding="2" cellspacing="0">
+    <tr>
+        <td colspan="2">
+            <div class="headline" style="text-align:center" tal:content="title">Title</div>
+        </td>
+    </tr>
+    <tr valign="top">
+        <td width="150">
+        <table border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td align="center" class="table_head" i18n:translate="string: MESSAGES[MSG_MSGCTR][m013]">Überschrift</td>
+            </tr>
+            <tr>
+                <td align="left"><block tal:omit-tag="" metal:use-macro="index.html/menu" /></td>
+            </tr>
+        </table>
+        </td>
+        <td width="620">
+        <table width="620" border="0" cellspacing="0" cellpadding="0">
+            <tr valign="top" class="table_head">
+                <td colspan="2" align="center" i18n:translate="string: MESSAGES[MSG_MSGCTR][m012]">{$MESSAGES[MSG_MSGCTR][m012]}</td>
+            </tr>
+            <tr>
+                <td i18n:translate="string: MESSAGES[MSG_MSGCTR][m022]">{$MESSAGES[MSG_MSGCTR][m022]}</td>
+                <td><a tal:attributes="onclick string:open_url(window.opener,'./information.php?type=u&name=${msg/sendername}');"
+                    tal:content="msg/sendername">$msg/sendername</a> (<a href="javascript:window.open('${etsAddress}/adressbook.php?nc=${msg/sendername}','adressbook','fullscreen=no,channelmode=no,toolbar=yes,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=280,height=700,top=5,left=830')"
+            onclick="window.open('${etsAddress}/adressbook.php?nc=${msg/sendername}','adressbook','fullscreen=no,channelmode=no,toolbar=yes,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=280,height=700,top=5,left=830')"
+            target="adressbook" i18n:translate="string: MESSAGES[MSG_MSGCTR][m056]">{$MESSAGES[MSG_MSGCTR][m056]}</a>)</td>
+            </tr>
+            <tr>
+                <td i18n:translate="string: MESSAGES[MSG_MSGCTR][m010]">{$MESSAGES[MSG_MSGCTR][m010]}</td>
+                <td><ul>
+                    <li tal:repeat="r msg/recipients">
+                    <a tal:attributes="onclick string:open_url(window.opener,'./information.php?type=u&name=${r/name}');"
+            	    tal:content="r/screenname">$msg[recipient]</a> (<a href="javascript:window.open('${etsAddress}/adressbook.php?nc=${r/screenname}','adressbook','fullscreen=no,channelmode=no,toolbar=yes,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=280,height=700,top=5,left=830')"
+            onclick="window.open('${etsAddress}/adressbook.php?nc=${r/screenname}','adressbook','fullscreen=no,channelmode=no,toolbar=yes,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=280,height=700,top=5,left=830')"
+            target="adressbook" i18n:translate="string: MESSAGES[MSG_MSGCTR][m056]">{$MESSAGES[MSG_MSGCTR][m056]}</a>)
+                    </li>
+                    </ul>
+                </td>
+            </tr>
+            <tr valign="top">
+                <td width="100" i18n:translate="string: MESSAGES[MSG_MSGCTR][m024]">{$MESSAGES[MSG_MSGCTR][m024]}</td>
+                <td width="650" tal:content="structure msg/time">Zeit</td>
+            </tr>
+            <tr>
+                <td i18n:translate="string: MESSAGES[MSG_MSGCTR][m011]">{$MESSAGES[MSG_MSGCTR][m011]}</td>
+                <td tal:content="msg/topic">$msg[topic]</td>
+            </tr>
+            <tr valign="top">
+                <td i18n:translate="string: MESSAGES[MSG_MSGCTR][m012]">{$MESSAGES[MSG_MSGCTR][m012]}</td>
+                <td tal:content="structure msg/text">BBCode($msg[text])</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td align="left"><br />
+                <table border="0" cellpadding="1" cellspacing="0">
+                    <tr>
+                        <td align="left">
+                        <form action="./msgctr.php?action=write" method="post"><!-- Antworten -->
+                        <input type="submit" name="submit" tal:attributes="value string:MESSAGES[MSG_MSGCTR][m025]" i18n:attributes="value" class="button" />
+                        <input type="hidden" name="id" tal:attributes="value msg/id" />
+                        </form>
+                        </td>
+                        <td align="left">
+                        <form action="./msgctr.php?action=write" method="post"><!-- Antworten mit Zitat -->
+                        <input type="submit" name="submit" tal:attributes="value string:MESSAGES[MSG_MSGCTR][m015]" i18n:attributes="value" class="button" />
+                        <input type="hidden" name="id" tal:attributes="value msg/id" />
+                        </form>
+                        </td>
+                        <td align="left">
+                        <form action="./msgctr.php?action=write" method="post"><!-- Weiterleiten -->
+                        <input type="submit" name="submit" tal:attributes="value string:MESSAGES[MSG_MSGCTR][m032]" i18n:attributes="value" class="button" />
+                        <input type="hidden" name="id" tal:attributes="value msg/id" />
+                        </form>
+                        </td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="1" cellspacing="0">
+                    <tr>
+                        <td>
+                        <form action="./msgctr.php?action=manage" method="post"><!-- Löschen -->
+                        <input name="submit" type="submit" tal:attributes="value string:MESSAGES[MSG_MSGCTR][m029]" i18n:attributes="value" class="button" />
+                        <input type="hidden" name="id[]" tal:attributes="value msg/id" />
+                        </form>
+                        </td>
+                        <td align="left">
+                        <form action="./msgctr.php?action=email" method="post"><!-- E-Mail -->
+                        <input type="hidden" name="id" tal:attributes="value msg/id" />
+                        <input type="submit" tal:attributes="value string:MESSAGES[MSG_MSGCTR][m034]" i18n:attributes="value" class="button" />
+                        </form>
+                        </td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="1" cellspacing="0">
+                    <tr>
+                        <td tal:condition="previd" colspan="2" align="left">
+                        <form tal:attributes="action string:./msgctr.php?action=show&id=$previd" method="post">
+                        <input type="submit" tal:attributes="value string:MESSAGES[MSG_MSGCTR][m071]" i18n:attributes="value" class="button" />
+                        </form>
+                        </td>
+                        <td tal:condition="nextid" colspan="3" align="left">
+                        <form tal:attributes="action string:./msgctr.php?action=show&id=$nextid" method="post">
+                        <input type="submit" tal:attributes="value string:MESSAGES[MSG_MSGCTR][m072]" i18n:attributes="value" class="button" />
+                        </form>
+                        </td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="1" cellspacing="0">
+                    <tr>
+                        <td align="left">
+                        <form action="./msgctr.php?action=agb" method="post">
+                        <input type="hidden" name="id" tal:attributes="value msg/id" />
+                        <br />
+                        <br />
+                        <div i18n:translate="string:MESSAGES[MSG_MSGCTR][m068]">$MESSAGES[MSG_MSGCTR][m068]}</div>
+                        <br />
+                        <br />
+                        <input type="submit" i18n:attributes="value" class="button"
+                            tal:attributes="value string:MESSAGES[MSG_MSGCTR][m069]" onclick="if(!confirm('Hiermit übermitteln Sie die Daten an den Administrator')) return false;" />
+                        </form>
+                        </td>
+                    </tr>
+                </table>
+                </td>
+            </tr>
+        </table>
+        </td>
+    </tr>
+</table>
+<script language="javascript" tal:condition="exists: addConfirmJS" tal:content="string: sendReadConfirm(${msg/id});">
+</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+
+<ETS99><statistics>
+  <stat>
+	<id>Bauaufträge Defensive gesamt</id>
+	<values><value><id>dummy</id><amount>13,824,740</amount></value></values>
+  </stat>
+
+  <stat>
+	<id>Bauaufträge Flugzeuge gesamt</id>
+	<values><value><id>dummy</id><amount>12,715,266</amount></value></values>
+  </stat>
+
+  <stat>
+	<id>Berichte gesamt</id>
+	<values><value><id>dummy</id><amount>5,364,774</amount></value></values>
+  </stat>
+
+  <stat>
+	<id>Defensivanlagen gesamt</id>
+	<values><value><id>dummy</id><amount>7,844,119</amount></value></values>
+  </stat>
+
+  <stat>
+	<id>Ereignisnachrichten gesamt</id>
+	<values><value><id>dummy</id><amount>31,118,555</amount></value></values>
+  </stat>
+
+  <stat>
+	<id>Flugzeuge gesamt</id>
+	<values><value><id>dummy</id><amount>5,868,883</amount></value></values>
+  </stat>
+
+  <stat>
+	<id>Ingame Nachrichten gesamt</id>
+	<values><value><id>dummy</id><amount>522,662</amount></value></values>
+  </stat>
+
+  <stat>
+	<id>Siedler am Rundenende</id>
+	<values><value><id>dummy</id><amount>559</amount></value></values>
+  </stat>
+</statistics></ETS99>

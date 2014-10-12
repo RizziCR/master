@@ -1,0 +1,304 @@
+<?xml version="1.0"?>
+
+
+<ETS99>
+  <alliances>
+	<tag>SG33K</tag>
+	<members>24</members>
+	<power>97240</power>
+  </alliances>
+
+  <alliances>
+	<tag>hf</tag>
+	<members>24</members>
+	<power>81568</power>
+  </alliances>
+
+  <alliances>
+	<tag>VisioN</tag>
+	<members>30</members>
+	<power>62342</power>
+  </alliances>
+
+  <alliances>
+	<tag>BM</tag>
+	<members>28</members>
+	<power>61691</power>
+  </alliances>
+
+  <alliances>
+	<tag>IB</tag>
+	<members>19</members>
+	<power>48175</power>
+  </alliances>
+
+  <alliances>
+	<tag>SG69K</tag>
+	<members>20</members>
+	<power>47583</power>
+  </alliances>
+
+  <alliances>
+	<tag>WuHu</tag>
+	<members>16</members>
+	<power>42319</power>
+  </alliances>
+
+  <alliances>
+	<tag>Wing</tag>
+	<members>20</members>
+	<power>41085</power>
+  </alliances>
+
+  <alliances>
+	<tag>GdS</tag>
+	<members>15</members>
+	<power>35974</power>
+  </alliances>
+
+  <alliances>
+	<tag>EGAL</tag>
+	<members>12</members>
+	<power>32222</power>
+  </alliances>
+
+  <alliances>
+	<tag>Frauenparkplatz</tag>
+	<members>10</members>
+	<power>24174</power>
+  </alliances>
+
+  <alliances>
+	<tag>KoC</tag>
+	<members>14</members>
+	<power>22216</power>
+  </alliances>
+
+  <alliances>
+	<tag>WuH</tag>
+	<members>6</members>
+	<power>16985</power>
+  </alliances>
+
+  <alliances>
+	<tag>Medaron</tag>
+	<members>9</members>
+	<power>14750</power>
+  </alliances>
+
+  <alliances>
+	<tag>gl</tag>
+	<members>10</members>
+	<power>14264</power>
+  </alliances>
+
+  <alliances>
+	<tag>-BU-</tag>
+	<members>7</members>
+	<power>14013</power>
+  </alliances>
+
+  <alliances>
+	<tag>i-SG33K</tag>
+	<members>8</members>
+	<power>13952</power>
+  </alliances>
+
+  <alliances>
+	<tag>TGA</tag>
+	<members>8</members>
+	<power>13728</power>
+  </alliances>
+
+  <alliances>
+	<tag>TK</tag>
+	<members>9</members>
+	<power>13648</power>
+  </alliances>
+
+  <alliances>
+	<tag>DF</tag>
+	<members>8</members>
+	<power>12880</power>
+  </alliances>
+
+  <alliances>
+	<tag>NP</tag>
+	<members>8</members>
+	<power>12682</power>
+  </alliances>
+
+  <alliances>
+	<tag>99</tag>
+	<members>5</members>
+	<power>11231</power>
+  </alliances>
+
+  <alliances>
+	<tag>-HI-</tag>
+	<members>8</members>
+	<power>9469</power>
+  </alliances>
+
+  <alliances>
+	<tag>DKV</tag>
+	<members>6</members>
+	<power>8413</power>
+  </alliances>
+
+  <alliances>
+	<tag>R.I.P.</tag>
+	<members>7</members>
+	<power>8201</power>
+  </alliances>
+
+  <alliances>
+	<tag>EV</tag>
+	<members>3</members>
+	<power>7752</power>
+  </alliances>
+
+  <alliances>
+	<tag>Federation</tag>
+	<members>5</members>
+	<power>6845</power>
+  </alliances>
+
+  <alliances>
+	<tag>-WG-</tag>
+	<members>2</members>
+	<power>5733</power>
+  </alliances>
+
+  <alliances>
+	<tag>dWfB</tag>
+	<members>5</members>
+	<power>5659</power>
+  </alliances>
+
+  <alliances>
+	<tag>DR</tag>
+	<members>4</members>
+	<power>4765</power>
+  </alliances>
+
+  <alliances>
+	<tag>-DKG-</tag>
+	<members>2</members>
+	<power>4476</power>
+  </alliances>
+
+  <alliances>
+	<tag>R-H-E</tag>
+	<members>2</members>
+	<power>4230</power>
+  </alliances>
+
+  <alliances>
+	<tag>nG</tag>
+	<members>3</members>
+	<power>3933</power>
+  </alliances>
+
+  <alliances>
+	<tag>HZ</tag>
+	<members>2</members>
+	<power>3796</power>
+  </alliances>
+
+  <alliances>
+	<tag>FOX</tag>
+	<members>2</members>
+	<power>3744</power>
+  </alliances>
+
+  <alliances>
+	<tag>uuu</tag>
+	<members>1</members>
+	<power>3344</power>
+  </alliances>
+
+  <alliances>
+	<tag>Bitburger</tag>
+	<members>1</members>
+	<power>3162</power>
+  </alliances>
+
+  <alliances>
+	<tag>NO</tag>
+	<members>2</members>
+	<power>2689</power>
+  </alliances>
+
+  <alliances>
+	<tag>AdA</tag>
+	<members>1</members>
+	<power>2164</power>
+  </alliances>
+
+  <alliances>
+	<tag>-FL-</tag>
+	<members>1</members>
+	<power>2118</power>
+  </alliances>
+
+  <alliances>
+	<tag>-LoEvo-</tag>
+	<members>2</members>
+	<power>2092</power>
+  </alliances>
+
+  <alliances>
+	<tag>BD</tag>
+	<members>3</members>
+	<power>2053</power>
+  </alliances>
+
+  <alliances>
+	<tag>BRO</tag>
+	<members>1</members>
+	<power>2011</power>
+  </alliances>
+
+  <alliances>
+	<tag>Fu4ll</tag>
+	<members>1</members>
+	<power>1972</power>
+  </alliances>
+
+  <alliances>
+	<tag>SO</tag>
+	<members>1</members>
+	<power>1461</power>
+  </alliances>
+
+  <alliances>
+	<tag>DWD</tag>
+	<members>1</members>
+	<power>1390</power>
+  </alliances>
+
+  <alliances>
+	<tag>IskA</tag>
+	<members>1</members>
+	<power>1325</power>
+  </alliances>
+
+  <alliances>
+	<tag>6Pack</tag>
+	<members>1</members>
+	<power>1300</power>
+  </alliances>
+
+  <alliances>
+	<tag>LoD</tag>
+	<members>1</members>
+	<power>1293</power>
+  </alliances>
+
+  <alliances>
+	<tag>CoIS</tag>
+	<members>1</members>
+	<power>1244</power>
+  </alliances>
+</ETS99>

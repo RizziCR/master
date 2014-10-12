@@ -1,0 +1,304 @@
+<?xml version="1.0"?>
+
+
+<ETS10>
+  <usarios>
+	<user>Morpheus</user>
+	<power>5214</power>
+	<alliance>VisioN</alliance>
+  </usarios>
+
+  <usarios>
+	<user>tombombadil</user>
+	<power>4806</power>
+	<alliance>W13</alliance>
+  </usarios>
+
+  <usarios>
+	<user>AxL</user>
+	<power>4704</power>
+	<alliance>BM</alliance>
+  </usarios>
+
+  <usarios>
+	<user>Parki</user>
+	<power>4568</power>
+	<alliance>-SPE-</alliance>
+  </usarios>
+
+  <usarios>
+	<user>Chaosfreak</user>
+	<power>4490</power>
+	<alliance>Frauenparkplatz</alliance>
+  </usarios>
+
+  <usarios>
+	<user>PolluxTroy</user>
+	<power>4370</power>
+	<alliance>BM</alliance>
+  </usarios>
+
+  <usarios>
+	<user>chief</user>
+	<power>4369</power>
+	<alliance>-SPE-</alliance>
+  </usarios>
+
+  <usarios>
+	<user>lunachen</user>
+	<power>4350</power>
+	<alliance>BM</alliance>
+  </usarios>
+
+  <usarios>
+	<user>Balou</user>
+	<power>4257</power>
+	<alliance>BM</alliance>
+  </usarios>
+
+  <usarios>
+	<user>Chev</user>
+	<power>4236</power>
+	<alliance>Frauenparkplatz</alliance>
+  </usarios>
+
+  <usarios>
+	<user>Wessi</user>
+	<power>4197</power>
+	<alliance>Mehandor</alliance>
+  </usarios>
+
+  <usarios>
+	<user>CKb4u</user>
+	<power>4196</power>
+	<alliance>VisioN</alliance>
+  </usarios>
+
+  <usarios>
+	<user>Jason</user>
+	<power>4191</power>
+	<alliance>SG33K</alliance>
+  </usarios>
+
+  <usarios>
+	<user>bashdi</user>
+	<power>4164</power>
+	<alliance>Frauenparkplatz</alliance>
+  </usarios>
+
+  <usarios>
+	<user>adler</user>
+	<power>4164</power>
+	<alliance>BM</alliance>
+  </usarios>
+
+  <usarios>
+	<user>Zsadist</user>
+	<power>4123</power>
+	<alliance>Mehandor</alliance>
+  </usarios>
+
+  <usarios>
+	<user>JCC</user>
+	<power>4110</power>
+	<alliance>Frauenparkplatz</alliance>
+  </usarios>
+
+  <usarios>
+	<user>Payne</user>
+	<power>4108</power>
+	<alliance>-SPE-</alliance>
+  </usarios>
+
+  <usarios>
+	<user>Gothic</user>
+	<power>4097</power>
+	<alliance>BM</alliance>
+  </usarios>
+
+  <usarios>
+	<user>Szies</user>
+	<power>4074</power>
+	<alliance>W13</alliance>
+  </usarios>
+
+  <usarios>
+	<user>Kand</user>
+	<power>4063</power>
+	<alliance>BM</alliance>
+  </usarios>
+
+  <usarios>
+	<user>Valdez</user>
+	<power>4004</power>
+	<alliance>-SPE-</alliance>
+  </usarios>
+
+  <usarios>
+	<user>uxe</user>
+	<power>3994</power>
+	<alliance>-SPE-</alliance>
+  </usarios>
+
+  <usarios>
+	<user>lordalkohol</user>
+	<power>3973</power>
+	<alliance>-SPE-</alliance>
+  </usarios>
+
+  <usarios>
+	<user>Keule</user>
+	<power>3933</power>
+	<alliance>BM</alliance>
+  </usarios>
+
+  <usarios>
+	<user>Hellblade</user>
+	<power>3914</power>
+	<alliance>GdS</alliance>
+  </usarios>
+
+  <usarios>
+	<user>iceball</user>
+	<power>3896</power>
+	<alliance>W13</alliance>
+  </usarios>
+
+  <usarios>
+	<user>bla</user>
+	<power>3870</power>
+	<alliance>-SPE-</alliance>
+  </usarios>
+
+  <usarios>
+	<user>Joschy</user>
+	<power>3865</power>
+	<alliance>-GR-</alliance>
+  </usarios>
+
+  <usarios>
+	<user>Mephistopheles</user>
+	<power>3863</power>
+	<alliance>-SPE-</alliance>
+  </usarios>
+
+  <usarios>
+	<user>Shegoat</user>
+	<power>3858</power>
+	<alliance>i--M.B.C--</alliance>
+  </usarios>
+
+  <usarios>
+	<user>Shr3k</user>
+	<power>3819</power>
+	<alliance>-SPE-</alliance>
+  </usarios>
+
+  <usarios>
+	<user>Icehunter</user>
+	<power>3803</power>
+	<alliance>-SPE-</alliance>
+  </usarios>
+
+  <usarios>
+	<user>webworker</user>
+	<power>3795</power>
+	<alliance>Mehandor</alliance>
+  </usarios>
+
+  <usarios>
+	<user>Rumkugel</user>
+	<power>3765</power>
+	<alliance>Mehandor</alliance>
+  </usarios>
+
+  <usarios>
+	<user>Webworky</user>
+	<power>3748</power>
+	<alliance>Mehandor</alliance>
+  </usarios>
+
+  <usarios>
+	<user>touniverse</user>
+	<power>3733</power>
+	<alliance>-WG-</alliance>
+  </usarios>
+
+  <usarios>
+	<user>kottan</user>
+	<power>3731</power>
+	<alliance>BM</alliance>
+  </usarios>
+
+  <usarios>
+	<user>hawki</user>
+	<power>3703</power>
+	<alliance>GdS</alliance>
+  </usarios>
+
+  <usarios>
+	<user>blainemccracken</user>
+	<power>3678</power>
+	<alliance>-GR-</alliance>
+  </usarios>
+
+  <usarios>
+	<user>Amun</user>
+	<power>3662</power>
+	<alliance>-SPE-</alliance>
+  </usarios>
+
+  <usarios>
+	<user>SpeedFreak</user>
+	<power>3655</power>
+	<alliance>i--M.B.C--</alliance>
+  </usarios>
+
+  <usarios>
+	<user>ghostdog</user>
+	<power>3645</power>
+	<alliance>-GR-</alliance>
+  </usarios>
+
+  <usarios>
+	<user>marwei</user>
+	<power>3621</power>
+	<alliance>Mehandor</alliance>
+  </usarios>
+
+  <usarios>
+	<user>Asche85</user>
+	<power>3613</power>
+	<alliance>Mehandor</alliance>
+  </usarios>
+
+  <usarios>
+	<user>Mikel</user>
+	<power>3612</power>
+	<alliance>BM</alliance>
+  </usarios>
+
+  <usarios>
+	<user>Gotteszorn</user>
+	<power>3611</power>
+	<alliance>i--M.B.C--</alliance>
+  </usarios>
+
+  <usarios>
+	<user>Snuser</user>
+	<power>3608</power>
+	<alliance>FZT</alliance>
+  </usarios>
+
+  <usarios>
+	<user>xxhulkxx</user>
+	<power>3602</power>
+	<alliance>-GR-</alliance>
+  </usarios>
+
+  <usarios>
+	<user>runner</user>
+	<power>3575</power>
+	<alliance>EGAL</alliance>
+  </usarios>
+</ETS10>

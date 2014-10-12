@@ -1,0 +1,712 @@
+/*******************************************************************************
+ * STYLES FOR INTERNAL SITES (REGISTERED USERS)
+ ******************************************************************************/
+.inputCheck,
+.inputRadio {margin:0; padding:0;}
+.formLineBlock {margin-top:0.5em;}
+
+/***************************************
+ *   masthead
+ **************************************/
+.rowHeader
+{
+    color: white;
+    height: 4em;
+    overflow: hidden;
+    text-align: center;
+}
+#infoRow
+{
+    background-color: #36578C;
+    border: 1px solid #999;
+    border-width: 1px 0;
+    text-align: left;
+}
+
+/***************************************
+ *   left column
+ **************************************/
+#logo
+{
+    color: white;
+    float: left;
+    width: 13em;
+}
+#logo img
+{
+    height: 4em;
+    width: 13em;
+}
+#switchCity
+{
+    float: left;
+    width: 13em;
+}
+#switchCity select
+{
+    width: 10em;
+    margin: 1em 0em 0em 1em;
+}
+
+/***************************************
+ *   middle column
+ **************************************/
+#sponsor
+{
+    background-color: #111;
+    color: #999;
+    padding-top: 1em;
+    text-align: center;
+}
+#sponsor .bewahrer, #sponsor .bewahrer a
+{
+    color: #FFD480;
+}
+
+#status
+{
+    color: white;
+}
+#resourcesA, #resourcesB, #depots
+{
+    float: left;
+    margin: 0.5em 0em 0em 0em;
+}
+#iridiumLabel, #holziumLabel
+{
+    float: left;
+    width: 4.5em;
+    padding: 0em 1em 0em 0em;
+}
+#count_iridium, #count_holzium
+{
+    float: left;
+    width: 6em;
+    padding: 0em 0.5em 0em 1em;
+    text-align: right;
+}
+#waterLabel, #oxygenLabel
+{
+    float: left;
+    width: 5em;
+    padding: 0em 1em 0em 0em;
+}
+#count_water, #count_oxygen
+{
+    float: left;
+    width: 6em;
+    padding: 0em 0.5em 0em 1em;
+    text-align: right;
+}
+#depotCommonLabel, #depotOxygenLabel
+{
+    float: left;
+    width: 4.5em;
+    padding: 0em 1em 0em 0em;
+}
+#count_depot, #count_oxygen_depot
+{
+    float: left;
+    width: 4em;
+    padding: 0em 0.5em 0em 1em;
+    text-align: right;
+}
+
+ /* -------------------------------
+    Rohstoff- und Lageranzeige
+------------------------------- */
+
+/* Inhalt */
+#cityThumb
+{
+    float: right;
+    width: 10em;
+    padding: 1em 1em 0em 1em;
+}
+#currentCity,
+#forcePower,
+#account
+{
+    margin: 1em 0 0.5em 1em;
+}
+#worldTime
+{
+    padding-right: 1em;
+}
+td.label
+{
+    width: 18em;
+}
+td.value
+{
+    width: 18em;
+}
+#currentCity td.label
+{
+    width: 14em;
+}
+#currentCity td.value
+{
+    width: 10em;
+}
+
+#middle-column .inside table
+{
+    width: 100%;
+}
+
+ /* -------------------------------
+    Hauptinhalt
+------------------------------- */
+
+#content
+{
+    color: #ccc;
+}
+td.value
+{
+    text-align: right;
+}
+
+#worldTime
+{
+    text-align: right;
+    color: #555;
+}
+#danger
+{
+    color: red;
+}
+.time
+{
+    font-size: 90%;
+}
+.message
+{
+    color: yellow;
+}
+
+/***************************************
+ *   right column
+ **************************************/
+#sponsorLink
+{
+    background-color: #222;
+    border-left: 1px solid #000;
+    color: white;
+    float: right;
+    height: 2em;
+    margin: 0 -1px 0 -1px;
+    padding: 1em 0em 1em 0em;
+    text-align: center;
+    width: 13em;
+}
+#sponsorLink a
+{
+    color: #FFD480;
+}
+
+#clock
+{
+    width: 13em;
+    text-align: right;
+    float:right;
+}
+#time
+{
+    padding: 0.2em 0em 0.2em 0em;
+    margin: 0.83em 1em 0em 1.63em;
+    width: 7.32em;
+    color: black;
+    background-color: white;
+    text-align: center;
+    font-size:123%;
+}
+
+/*******************************************************************************
+ * SPECIAL ADJUSTMENTS
+ ******************************************************************************/
+
+/***************************************
+ *   alliance
+ **************************************/
+/* Übersicht */
+#contentAlliances h1.headline
+{
+    border-bottom: 1px solid #666;
+    text-align:right;
+}
+#contentAlliances h2.headline
+{
+    font-size:100%;
+    margin: 0 0 1em 0;
+    border-bottom: 1px solid #666;
+    text-align:right;
+}
+#contentAlliances #dataSheet,
+#contentAlliances #yourStatus,
+#contentAlliances #connections
+{
+    margin-bottom: 1em;
+    color:#999;
+    background-color:#111;
+}
+
+#contentAlliances #dataSheet th,
+#contentAlliances #yourStatus th,
+#contentAlliances #connections th
+{
+    padding: 0.2em 1em 0em 0em;
+    border-bottom:1px solid #222;
+    width:10em;
+    font-weight:normal;
+    text-align:right;
+}
+
+#contentAlliances #dataSheet td,
+#contentAlliances #yourStatus td,
+#contentAlliances #connections td
+{
+    padding: 0.2em 1em 0em 0em;
+    border-bottom:1px solid #222;
+    color:#ccc;
+}
+
+#contentAlliances #image
+{
+    text-align:center;
+    margin: 1em 0;
+}
+
+#contentAlliances #image img
+{
+    border:1px solid #666;
+}
+
+#contentAlliances #text p
+{
+    padding: 0.5em 0em;
+}
+
+/* Meldungen */
+
+#contentAlliances #writeMessage,
+#contentAlliances #administration
+{
+    margin-left: 1em;
+}
+#contentAlliances #writeMessage #subjectInput
+{
+    color:#999;
+    font-weight:bold;
+    background-color:#222;
+    border: 1px solid #666;
+    font-weight:bold;
+    padding: 0.2em 0 0.2em 1em;
+    margin: 0em 0 0.5em 0em;
+    width: 38em;
+}
+#contentAlliances #writeMessage input.button,
+#contentAlliances #administration input.button
+{background-color:#222; border:1px solid #666;color:#788cb3}
+#contentAlliances #writeMessage input.button:hover,
+#contentAlliances #administration input.button:hover
+{background-color:#222; border:1px solid #666;color:white;cursor:pointer;} /*removed ie only property: cursor:hand ;*/
+
+#contentAlliances #writeMessage #a_msg
+{
+    width:39em;
+    background:#222;
+color:#999;
+border:1px solid #666;
+padding:0.2em 0em 0.2em 0em;
+margin: 0 0 1em 0em;
+}
+#contentAlliances div.message {
+    border: 1px solid #333;
+    border-width: 0px 0 0 0;
+    color:#999;
+    margin-top:0.5em;
+;
+    }
+#contentAlliances div.message input{
+margin-left:1em;
+    }
+#contentAlliances div .message .content {
+    margin-left:0em; margin-right:1em;
+padding-left:1em;
+;
+    }
+#contentAlliances div.message span.date {
+display:block;
+text-align:left;
+font-size:90%;
+margin:1em 0 1em 0em;
+padding: 0 0 1em 1em;
+color:#666;
+border-bottom:1px solid #444;
+border-top:1px solid #222;
+}
+#contentAlliances div.message span.headline {
+border-top:1px solid #222;
+border-bottom:1px solid #222;
+font-weight:bold;
+display:block;
+margin: 0.5em 0 0.5em 0;
+padding-left:1em;
+}
+#contentAlliances div.message span.author{
+color:#666;
+}
+#contentAlliances #writeMessage {
+margin-bottom:2em;
+}
+
+#contentAlliances #administration {}
+#contentAlliances #writeMessage {}
+
+#contentAlliances #section-war label {width:9.5em;display:block;float:left;text-align:right;margin-right:0.5em;}
+#contentAlliances #section-war p {margin:0 2em 1em 10em;}
+#contentAlliances #section-war td.label {width:9em;}
+
+/***************************************
+ *   oldStyle css
+ **************************************/
+
+#oldStyle table,
+#oldStyle tr,
+#oldStyle td,
+#oldStyle p
+{
+    font-family : Tahoma, sans-serif;
+    font-size : 10pt;
+    color : #FFFFFF;
+}
+
+#oldStyle a:link,
+#oldStyle a:visited,
+#oldStyle a:active
+{
+    text-decoration: none;
+    color: #9F9F9F;
+    font-size: 10pt;
+}
+#oldStyle a:hover
+{
+    text-decoration: none;
+    color: #FF9F00;
+    font-size: 10pt;
+}
+
+#oldStyle b a:link,
+#oldStyle b a:visited,
+#oldStyle b a:active
+{
+    text-decoration: none;
+    color: #9F9F9F;
+    font-size: 8pt;
+}
+#oldStyle b a:hover
+{
+    text-decoration: none;
+    color: #FF9F00;
+    font-size: 8pt;
+}
+
+#oldStyle .headline
+{
+    font-family : Tahoma, sans-serif;
+    font-size : 16pt;
+    color : #FFFFFF;
+}
+#oldStyle .seconds
+{
+    font-family : Tahoma, sans-serif;
+    font-size : 8pt;
+}
+#oldStyle select
+{
+    font-family : Tahoma, sans-serif;
+    font-size : 9pt;
+    color : #FFFFFF;
+}
+#oldStyle .error
+{
+    font-family : Tahoma, sans-serif;
+    font-size : 10pt;
+    color : #FF0000;
+}
+#oldStyle .readonly
+{
+    font-family : Tahoma, sans-serif;
+    font-size : 10pt;
+    background-color : #000000;
+    color : #FFFFFF;
+    border: 1px solid #FFFFFF;
+}
+#oldStyle .button
+{
+    font-family : Tahoma, sans-serif;
+    font-size : 10pt;
+    background-color : #444444;
+    color : #FFFFFF;
+    border: 1px solid #FFFFFF;
+}
+#oldStyle .button_disabled
+{
+    font-family : Tahoma, sans-serif;
+    font-size : 10pt;
+    background-color : #777777;
+    color : #FFFFFF;
+    border: 1px solid #FFFFFF;
+}
+#oldStyle table.buildContent td
+{
+    text-align:left;
+}
+#oldStyle .table_head
+{
+    background-color : #444444;
+    padding : 3px;
+    text-align:center;
+}
+#oldStyle .chkbx
+{
+    width : 12px;
+    height : 12px;
+    border : none;
+}
+
+#oldStyle table.buildContent td
+{
+    text-align:left;
+}
+#oldStyle td.contentAll {
+    background-color: black;
+}
+/* Staedte auf der Weltkarte */
+#oldStyle tr.keeperCapital td,
+#oldStyle tr.keeperCapital td a
+{
+    background-color:#333;
+    color:#FFD480;
+}
+#oldStyle tr.keeperCity td,
+#oldStyle tr.keeperCity td a
+{
+    color:#FFD480;
+}
+#oldStyle tr.capital td
+{
+    background-color:#333;
+}
+#oldStyle .city {}
+
+/*
+(#C87E38)   gold
+(#D48C4C)   gold
+(#FFD480)   messing
+(#E0B058) */
+#hideLineHack {border:1px solid #111;position:relative;top:-1em;}
+
+/***************************************
+ *   city admin panel
+ **************************************/
+#contentCityAdmin ul { list-style: none;margin:0;padding:0;}
+#contentCityAdmin li { background: #111; border:1px solid #999; color: #999; margin-bottom:0.5em;padding: 0.2em 0.5em 0.2em 0.5em; }
+#contentCityAdmin .js_handle,
+#contentCityAdmin .close {display: none; cursor: pointer; }
+#contentCityAdmin .nojs_handle,
+#contentCityAdmin .js_handle { float: right; }
+#contentCityAdmin .title { float: left; }
+#contentCityAdmin .capital{background-color:#222;}
+
+/***************************************
+ *   trade center
+ **************************************/
+#contentTrade h1 {border-bottom: 1px solid #666; text-align:right;}
+#contentTrade h2 {font-size:100%;margin: 0 0 1em 0;border-bottom: 1px solid #666;text-align:right;}
+#contentTrade #resources,
+#contentTrade #planes {margin-bottom: 0.5em;color:#999;background-color:#111;}
+#contentTrade #resources th,
+#contentTrade #planes th {padding: 0em 1em 0em 0em;border-bottom:1px solid #222;width:15em;font-weight:normal;text-align:right;}
+#contentTrade #resources td,
+#contentTrade #planes td {padding: 0em 1em 0em 0em; border-bottom:1px solid #222; color:#ccc;}
+#contentTrade #planeID3 td,
+#contentTrade #planeID3 th,
+#contentTrade #planeID6 td,
+#contentTrade #planeID6 th,
+#contentTrade #planeID8 td,
+#contentTrade #planeID8 th,
+#contentTrade #planeID12 td,
+#contentTrade #planeID12 th  {padding-top: 0.5em;}
+#contentTrade .even {}
+#contentTrade .getCol,
+#contentTrade .giveCol,
+#contentTrade #getColHeader,
+#contentTrade #giveColHeader  {width:13em; text-align:left;}
+#contentTrade .open  {}
+#contentTrade .js_handle,
+#contentTrade .close {display: none;}
+#contentTrade .priceLeft   {width:6em; text-align:right;}
+#contentTrade .priceMiddle {width:1em;}
+#contentTrade .priceRight  {width:6em; text-align:left;}
+#contentTrade #prices td {border-bottom:1px solid #222;}
+#contentTrade #prices th {border-bottom:1px solid #999;}
+
+#contentTrade #tradeSet {border: 1px solid #444;color:#999;background-color:#222;margin: 0em 0em 2em 0em;padding: 1em 0em 1em 1em;}
+#contentTrade #tradeSet label {display:block;float:left;width:13em;padding-right:0.5em;text-align:right;margin-bottom:0.2em;}
+#contentTrade #tradeSet .input,
+#contentTrade #tradeSet .readonly {display:block;float:left;background-color:#ccc;border:1px solid #666;padding:0 0.5em;margin-bottom:0.2em;text-align:right;}
+#contentTrade #tradeSet br {clear:both;}
+#contentTrade #show_between {float:left;}
+#contentTrade #getType,
+#contentTrade #offerType {width:16em;margin-left:0.5em;background-color:#ccc;border:1px solid #666;}
+#contentTrade #rateLabel,
+#contentTrade #show_up,
+#contentTrade #show_between,
+#contentTrade #show_down {margin-top:0.5em;}
+#contentTrade #tradeSet #show_down {text-align:left;}
+#contentTrade .planeUnit,
+#contentTrade #timeUnit,
+#contentTrade #usageUnit,
+#contentTrade #spaceUnit {display:block; float:left; margin-left:0.5em;}
+#contentTrade #spaceLabel,
+#contentTrade #show_max_content,
+#contentTrade #spaceUnit {margin-top:1em;}
+#contentTrade #finishTrade {margin:2em 0 0em 13.5em;}
+#contentTrade #tradeSet .readonly{background-color:#222;color:#ccc;border:1px solid #222;border-bottom:1px solid #444;}
+#contentTrade p {margin:0.5em;}
+#contentTrade #errorMessage {color:red;}
+#contentTrade #transportBlock {width:35em;}
+
+/***************************************
+ *   war negotiation
+ **************************************/
+#contentWarAdmin label {width:10em;display:block;float:left;text-align:right;margin-right:1em;}
+#contentWarAdmin h3 {border-bottom:1px solid #333;text-align:right;margin:1em 0 1em 0;padding:0 0 0.2em 0;}
+#contentWarAdmin p {margin:0 2em 1em 11em;}
+
+/* Übersicht */
+#contentWarAdmin h1.headline
+{
+    border-bottom: 1px solid #666;
+    text-align:right;
+}
+#contentWarAdmin h2
+{
+    font-size:100%;
+    margin: 0 0 1em 0;
+    border-bottom: 1px solid #666;
+    text-align:right;
+}/***************************************
+ *   alliance
+ **************************************/
+#warErrorList {border:solid 1px #999; padding:0.5em 0em 0.5em 0.5em; background-color:#222;margin:1em 0 1em 0em;color:orange;}
+#warErrorList li {padding-bottom:0.2em; color: orange}
+
+/***************************************
+ *   toplists
+ **************************************/
+#contentToplist h1 {border-bottom: 1px solid #666; text-align:right;}
+#contentToplist h2 {font-size:100%;margin: 0 0 1em 0;border-bottom: 1px solid #666;text-align:right;}
+#contentToplist #ranklists {margin-bottom: 0.5em;color:#999;background-color:#111;}
+#contentToplist #ranklists th {padding: 0em 1em 0em 0em;border-bottom:1px solid #222;width:15em;font-weight:normal;text-align:right;}
+#contentToplist #ranklists td {padding: 0em 1em 0em 0em; border-bottom:1px solid #222; color:#ccc;}
+#contentToplist #ranks .rank {padding: 0em 1em 0em 0em; text-align: right; width: 3em}
+#contentToplist #ranks .name {padding: 0em 1em 0em 0em; text-align: center;}
+#contentToplist #ranks .users {padding: 0em 2em 0em 0em; text-align: right;}
+#contentToplist #ranks .points {padding: 0em 1em 0em 0em; text-align: right; width: 4em}
+#contentToplist #ranks .avarage {padding: 0em 2em 0em 0em; text-align: right;}
+#contentToplist #own_alliance_ranks .rank,
+#contentToplist #own_ranks .rank {padding: 0em 1em 0em 0em; text-align: right; width: 3em}
+#contentToplist #own_alliance_ranks .category,
+#contentToplist #own_ranks .category {padding: 0em 1em 0em 0em; text-align: center;}
+#contentToplist #own_alliance_ranks .points,
+#contentToplist #own_ranks .points {padding: 0em 1em 0em 0em; text-align: right; width: 4em}
+
+/***************************************
+ *   work board
+ **************************************/
+#contentBuild h1 {border-bottom: 1px solid #666; text-align:right;}
+#contentBuild h2 {font-size:100%;margin: 0.5em 0 0em 0;border-bottom: 1px solid #666;text-align:center;}
+#contentBuild ul.category {list-style:none; padding:0; margin:0; margin-bottom:0em; clear:both;}
+#contentBuild ul.category li {padding:0.5em 0; height:4.4em; line-height:1.5; border-bottom:1px solid #222; clear:both; text-align:right;}
+#contentBuild ul.category li.disabled {background-color:#200; color:#444;}
+#contentBuild ul.category li.disabled form {color:#800; cursor:help;}
+#contentBuild p.desc {margin-top:-0.1em; float:left; text-align:left;}
+#contentBuild p.buttons {text-align:right; padding:0; margin:0;}
+#contentBuild form {margin:0; padding:0.3em 0;}
+#contentBuild span.details {padding-left:2em;}
+#contentBuild span.label {color:#999;}
+#contentBuild span.countdown {padding-right:0.5em;}
+#contentBuild span.disabled {padding-right:0.5em;}
+#contentBuild span.disabled span {padding-right:8em;}
+#contentBuild input {width:8em;margin:1px 0;background-color:#444; color:#ccc; border:1px solid #999; vertical-align:middle;}
+#contentBuild input.disabled {background-color:#777; color:#999;border:1px solid #444;}
+
+/***************************************
+ *   account statistics
+ **************************************/
+#contentAccstat h1 {border-bottom: 1px solid #666; text-align:right;}
+#contentAccstat h2 {font-size:100%;margin: 0.5em 0 0em 0;border-bottom: 1px solid #666;text-align:right;}
+#contentAccstat table {font-size:12px; text-align:right; margin-bottom:1em;}
+#contentAccstat table thead tr th {background:#444; color:#ccc; text-align:center; font-size:10px; padding:3px 0; border-left:1px solid #222;}
+#contentAccstat table tbody tr th {text-align:center; border-bottom:1px solid #222; vertical-align:middle;}
+#contentAccstat table tbody tr td {padding:0.2em 2px; font-size:12px; line-height:1.5em; border-bottom:1px solid #222; border-left:1px solid #444; vertical-align:middle;}
+#contentAccstat table tbody tr.sum td {border-left:1px solid #444;}
+#contentAccstat .city {text-align:left; border-left:0; padding-left:2px;}
+#contentAccstat table tbody tr.sum {background:#222;}
+#contentAccstat .sum {font-weight:bold;}
+#contentAccstat table tbody tr td span, #contentAccstat tr.avg th, #contentAccstat tr.avg td {font-size:11px; font-weight:normal;}
+#contentAccstat table.tech_left {width:49%; float:left;}
+#contentAccstat table.tech_left td {border-left:0;}
+#contentAccstat table.tech_right {width:49%; float:right;}
+#contentAccstat table.tech_right td {border-left:0;}
+#contentAccstat .tech_left tr th, #contentAccstat .tech_right tr th {background:#444; color:#ccc; text-align:center; font-size:10px; padding:3px 0;}
+#contentAccstat td.label {text-align:left;}
+#contentAccstat table#ress .city {width:7.5em;}
+#contentAccstat table#ress .depot {width:7.5em;}
+#contentAccstat table#ress .depot span {padding-left:3em;}
+/* Sonderklassen für verstecken der Seitenspalten in der Städtestatistik */
+#outer-column-container.hide { border-left:0; border-right:0; }
+#left-column.hide, #right-column.hide { display:none; }
+
+/***************************************
+ *   country overview
+ **************************************/
+#contentCountries {text-align:center;}
+#contentCountries h1 {border-bottom: 1px solid #666; text-align:right;}
+#contentCountries h2 {font-size:100%;margin: 0.5em 0 0.5em 0;border-bottom: 1px solid #666;text-align:right;}
+#contentCountries div.left {float:left; width:20%; margin-left:28%; margin-top:0.5em;}
+#contentCountries div.right {float:right; width:20%; margin-right:28%; margin-top:0.5em;}
+#contentCountries label {display:block; text-align:center;}
+#contentCountries input {text-align:right; background-color:#ccc; border:1px solid #666; padding:0 0.3em; width:2.1em;}
+#contentCountries table {border:0px; border-collapse:collapse; margin:0; text-align:center;}
+#contentCountries table tbody tr td {padding:0.2em 0em; border-bottom:1px solid #222;}
+#contentCountries tr.capital {background-color:#333;}
+#contentCountries tr.keeper, tr.keeper a {color:#ffd480;}
+#contentCountries td.actions a, #contentCountries form a {background-color:#666; color:#ccc; padding:0 0.3em; border:1px solid #ccc;}
+#contentCountries td.actions a:hover, #contentCountries form a:hover {background-color:#111;}
+#contentCountries .pos {width:1.25em; text-align:right; color:#ccc;}
+#contentCountries .city {width:12em;}
+#contentCountries .ally {width:10em;}
+#contentCountries .pts {width:3em;}
+#contentCountries .actions {width:3.25em; text-align:right;}
+#contentCountries td.actions button a {background-color:#666; color:#ccc; padding:0 0.3em; border:1px solid #ccc;}
+#contentCountries td.actions button a:hover {background-color:#111;}
+#contentCountries input.button {width:8em;margin:0.3em 0;background-color:#666; color:#ccc; border:1px solid #ccc; text-align:center; vertical-align:middle; cursor:pointer; clear:both;}
+#contentCountries input.button:hover {background-color:#111;}
+
+
+#contentInformation h1 {border-bottom: 1px solid #666; text-align:right;}
+#contentInformation h2 {font-size:100%;margin: 0.5em 0 0.5em 0;border-bottom: 1px solid #666;text-align:right;}
+#contentInformation table {margin-bottom: 1em; color:#999; background-color:#111;}
+#contentInformation table th {padding: 0.2em 1em 0em 0em; border-bottom:1px solid #222; width:10em; font-weight:normal; text-align:right;}
+#contentInformation table td {padding: 0.2em 1em 0em 0em; border-bottom:1px solid #222; color:#ccc;}
+#contentInformation table td.actions {width:16em;}
+#contentInformation p.bewahrerInfo {text-align:center; color:#ffd480; margin:0.5em 0;}
+#contentInformation #image {text-align:center; margin: 1em 0;}
+#contentInformation #image img {border:1px solid #666;}
+#contentInformation #text p {padding: 0.5em 0em;}
+#contentInformation table td ul {padding-left:0;}

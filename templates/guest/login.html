@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+
+	<head
+  		tal:comment="html head requires page title"
+  		metal:use-macro="lib/htmlHeadGuest.html/htmlHead"
+	/>	
+
+	<body>
+	
+	<!-- main container ============================================= -->
+		<div id="columnBasis">
+		
+			
+		<!-- left column ============================================ -->
+			<span
+  				tal:comment="left column template"
+  				metal:use-macro="lib/leftColumnGuest.html/leftColumn"
+			/>		
+		
+		<!-- middle column ========================================== -->
+			<div id="columnCenter">
+
+		<!-- main content area -->
+				<div id="content">
+				
+			        <!-- sponsor info -->
+				    <span
+  					    tal:comment="sponsor info template"
+  					    metal:use-macro="lib/middleColumn.html/sponsorInfo"
+				    />
+				    						
+					<span
+  						tal:comment="first some pfusch content"
+  						tal:replace="structure pfuschOutput"
+					/>
+					
+				</div><!-- main content area -->
+			</div><!-- middle column -->
+
+		<!-- right column =========================================== -->
+			<span
+  				tal:comment="right column template"
+  				metal:use-macro="lib/rightColumnGuest.html/rightColumn"
+			/>
+
+		
+		<!-- footer ================================================= -->
+			<span
+  				tal:comment="footer template"
+  				metal:use-macro="lib/footer.html/footer"
+			/>
+						
+		</div><!-- main container -->															
+      
+	</body>
+</html>

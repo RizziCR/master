@@ -1,0 +1,34 @@
+<html>
+    <head></head>
+
+    <body>
+        <span tal:omit-tag=""  i18n:translate="string:MESSAGES[MSG_MSGCTR][m035]">{$MESSAGES[MSG_MSGCTR][m035]}</span>
+        <br />
+        <br />
+        <br />
+
+        <table width="100%" border="0" cellspacing="0" cellpadding="2">
+            <tr>
+                <td i18n:translate="string:MESSAGES[MSG_MSGCTR][m022]">{$MESSAGES[MSG_MSGCTR][m022]}</td>
+                <td tal:content="msg/sender">$msg[sender]</td>
+            </tr>
+            <tr>
+                <td i18n:translate="string:MESSAGES[MSG_MSGCTR][m010]">{$MESSAGES[MSG_MSGCTR][m010]}</td>
+                <td tal:content="msg/recipient">$msg[recipient]</td>
+            </tr>
+            <tr valign="top">
+                <td width="250" i18n:translate="string:MESSAGES[MSG_MSGCTR][m024]">{$MESSAGES[MSG_MSGCTR][m024]}</td>
+                <td width="500" tal:content="msg/time">$msg[time]</td>
+            </tr>
+            <tr>
+                <td i18n:translate="string:MESSAGES[MSG_MSGCTR][m011]">{$MESSAGES[MSG_MSGCTR][m011]}</td>
+                <td tal:content="msg/topic">$msg[topic]</td>
+            </tr>
+            <tr valign="top">
+                <td i18n:translate="string:MESSAGES[MSG_MSGCTR][m012]">{$MESSAGES[MSG_MSGCTR][m012]}</td>
+                <td tal:content="structure msg/text">$msg[text]</td>
+            </tr>
+        </table>
+
+    </body>
+</html>

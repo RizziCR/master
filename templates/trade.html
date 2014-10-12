@@ -1,0 +1,353 @@
+<div tal:comment=" trade center content"
+     id="contentTrade"
+     metal:define-macro="content">
+
+    <span
+       tal:condition="exists: errorMessage"
+       tal:comment="error content if there is any"
+       tal:replace="structure errorMessage">
+    </span>
+
+    <div tal:omit-tag="" tal:condition="not: exists: errorMessage">
+
+<script type="text/javascript">
+    var p_speed = ${plane_values_speed};
+    var p_tech = ${plane_values_tech};
+    var user_techs = ${user_techs};
+    var p_consumption = ${plane_values_cons};
+    var p_capacity = ${plane_values_capa};
+    var prices_x = ${plane_prices_x};
+    var prices_y = ${plane_prices_y};
+
+    var slimTrade = ${slimTrade};
+
+    var small_trans_index = ${small_trans_index};
+    var big_trans_index = ${big_trans_index};
+    var tc_distance = ${tc_distance};
+    var plane_size = ${plane_size};
+    var consumption = ${consumption};
+    var array_size = ${array_size};
+	var remainder = ${remainder};
+
+    user_techs[-1] = 0;
+
+    var p_in_store = new Array();
+    var t_increase = new Array();
+	var p_in_hangar = new Array();
+	var p_hangar_free = ${plane_hangar_free}; 
+
+<block tal:omit-tag="" tal:repeat="tech_inc tech_increments">t_increase[${repeat/tech_inc/index} - 1] = ${tech_inc};</block>
+<block tal:omit-tag="" tal:repeat="plane planes_in_store">p_in_store[${plane/id}] = ${plane/number};</block>
+<block tal:omit-tag="" tal:repeat="plane planes_in_hangar">p_in_hangar[${plane/id}] = ${plane/number};</block>
+
+</script>
+<script type="text/javascript" src="javascript/trade_src.js"></script>
+<style type="text/css">
+.cluetip-default {
+  opacity: 1;
+}
+</style>
+
+    <!-- trade info -->
+        <h1 i18n:translate="string: MESSAGES[MSG_TRADE_CENTER][m000]"></h1>
+
+        <!-- max trade value -->
+        <div tal:omit-tag="" tal:condition="exists: tc_readonly">
+            <p id="tradeNote">
+                <span id="tradeNotYet"
+                      i18n:translate="string: MESSAGES[MSG_TRADE_CENTER][m017]">info prefix</span>
+            </p>
+        </div>
+        <div tal:omit-tag="" tal:condition="not: exists: tc_readonly">
+            <p id="tradeValue">
+                <span id="prefix"
+                      i18n:translate="string: MESSAGES[MSG_TRADE_CENTER][m003]">info prefix</span>
+                <span id="value"
+                      tal:content="remainder">trade value</span>
+                <span id="suffix"
+                      i18n:translate="string: MESSAGES[MSG_TRADE_CENTER][m004]">info suffix</span>
+            </p>
+        </div>
+
+    <!-- trade area -->
+        <h2 i18n:translate="string: MESSAGES[MSG_TRADE_CENTER][m015]">Trade</h2>
+
+        <form id="formular"
+              tal:attributes="action string:./trade.php"
+              method="post"
+              name="formular">
+
+        <!-- some hidden fields -->
+            <input type="hidden" name="bc" value="3fhig35z" />
+            <input type="hidden" name="action" value="trade" />
+            <input type="hidden" name="value_source" value="give" />
+            <input type="hidden" name="relation" />
+
+
+            <fieldset id="tradeSet">
+        <!-- your offer -->
+            <label id="offerLabel"
+                   for="sends"
+                   i18n:translate="string: MESSAGES[MSG_TRADE_CENTER][m006]"></label>
+            <input id="sends"
+                   class="input"
+                   name="sends"
+                   size="10"
+                   type="text"
+                   onkeyup="show_gets();"
+                   onchange="this.onkeyup();" />
+            <select id="offerType"
+                    name="up"
+                    onchange="show_relation();">
+                <option value="iridium"
+                        i18n:translate="string: MESSAGES[MSG_GENERAL][m000]" />
+                <option value="holzium"
+                        i18n:translate="string: MESSAGES[MSG_GENERAL][m001]" />
+                <option value="water"
+                        i18n:translate="string: MESSAGES[MSG_GENERAL][m002]" />
+                <option value="oxygen"
+                        i18n:translate="string: MESSAGES[MSG_GENERAL][m003]" />
+                <option tal:attributes="value plane/id"
+                        tal:content="string:${plane/name} (${plane/number})"
+                        tal:repeat="plane planes_in_hangar" />
+            </select>
+            <br />
+
+        <!-- you will get -->
+            <label id="getLabel"
+                   for="gets"
+                   i18n:translate="string: MESSAGES[MSG_TRADE_CENTER][m008]" />
+            <input id="gets"
+                   class="input"
+                   name="gets"
+                   size="10"
+                   type="text"
+                   onkeyup="show_give();"
+                   onchange="this.onkeyup();" />
+            <select id="getType"
+                    name="down"
+                    onchange="show_relation();">
+                <option value="iridium"
+                        i18n:translate="string: MESSAGES[MSG_GENERAL][m000]" />
+                <option value="holzium"
+                        i18n:translate="string: MESSAGES[MSG_GENERAL][m001]" />
+                <option value="water"
+                        i18n:translate="string: MESSAGES[MSG_GENERAL][m002]" />
+                <option value="oxygen"
+                        i18n:translate="string: MESSAGES[MSG_GENERAL][m003]" />
+                <option tal:attributes="value plane/id"
+                        tal:content="string:${plane/name} (${plane/number})"
+                        tal:repeat="plane planes_in_store" />
+            </select>
+            <br />
+
+        <!-- exchange rate -->
+            <label id="rateLabel"
+                   for="show_up"
+                   i18n:translate="string: MESSAGES[MSG_TRADE_CENTER][m010]" />
+            <input id="show_up"
+                   name="show_up"
+                   type="text"
+                   readonly="readonly"
+                   class="readonly"
+                   size="10" />
+            <span id="show_between">:</span>
+            <input id="show_down"
+                   name="show_down"
+                   type="text"
+                   readonly="readonly"
+                   class="readonly"
+                   size="10" />
+            <br />
+
+        <!-- maximum trading volume -->
+            <label id="maxButtonLabel"
+                   for="maxButton"
+                   tal:content="string: maximales Handelsvolumen" />
+
+            <button type="button"
+                   id="maxButton"
+                   disabled="true"
+                   onclick="select_max()"
+                   tal:condition="not: exists: tc_readonly">Eintragen</button>
+                <script type="text/javascript">
+                    document.formular.maxButton.disabled=false;
+                </script>
+            <br />
+
+        <!-- transport info -->
+            <p class="js_handle" />
+            <p class="nojs_handle" i18n:translate="string: MESSAGES[MSG_TRADE_CENTER][m018]" />
+
+            <div id="transportBlock" class="open" >
+        <!-- choose transporter -->
+                <block tal:repeat="plane transporters"
+                       tal:omit-tag="">
+                    <block tal:condition="php: plane['number'] GT 0"
+                           tal:omit-tag="">
+                        <label tal:attributes="id string:transIDLabel${plane/id}; for string:transID${plane/id}"
+                               tal:content="string:${plane/name}">plane type (stock)</label>
+                        <input tal:attributes="id string:transID${plane/id}; name string:p_fleet[${plane/id}]"
+                               class="input"
+                                type="text"
+                                onkeyup="calculate_max_content()"
+                                size="3" />
+                        <span class="planeUnit" tal:content="string: von ${plane/number}"></span>
+                        <br />
+                    </block>
+                </block>
+                <span tal:condition="exists: no_transports" class="warning" i18n:translate="string: MESSAGES[MSG_TRADE_CENTER][noTransports]"></span>
+
+            <!-- free space -->
+                <label id="spaceLabel"
+                       for="show_max_content"
+                       i18n:translate="string: MESSAGES[MSG_TRADE_CENTER][m012]"></label>
+                <input id="show_max_content"
+                       name="show_max_content"
+                       type="text"
+                       readonly="readonly"
+                       class="readonly open"
+                       value=""
+                       size="12" />
+                <span id="spaceUnit">Einheiten</span>
+                <br />
+          </div>
+
+        <!-- fuel consumption -->
+            <label id="usageLabel"
+                   for="show_consumption"
+                   i18n:translate="string: MESSAGES[MSG_TRADE_CENTER][m013]"></label>
+            <input id="show_consumption"
+                   name="show_consumption"
+                   type="text"
+                   readonly="readonly"
+                   class="readonly"
+                   value=""
+                   size="12">
+                <span tal:omit-tag="" i18n:translate="string: MESSAGES[MSG_GENERAL][m003]" />
+            </input>
+            <span id="usageUnit">Sauerstoff</span>
+            <br />
+
+        <!-- time for one direction -->
+            <label id="timeLabel"
+                   for="duration"
+                   i18n:translate="string: MESSAGES[MSG_TRADE_CENTER][m014]"></label>
+            <input id="duration"
+                   name="duration"
+                   type="text"
+                   readonly="readonly"
+                   class="readonly"
+                   value=""
+                   size="12" />
+                   <span id="timeUnit">Stunden</span>
+            <br />
+
+        <!-- trade button -->
+        <div tal:omit-tag="" tal:condition="not: exists: tc_readonly">
+            <button id="finishTrade"
+                   ondblclick="javascript:disabled=true"
+                   type="submit"
+                   i18n:translate="">MESSAGES[MSG_TRADE_CENTER][tradeButton]</button>
+        </div>
+        </fieldset>
+        </form>
+		
+		<br />
+		M&ouml;chtest du einen h&ouml;heren Verkaufserl&ouml;s? Im <a href='http://forum.escape-to-space.de/viewforum.php?f=29' target='_blank'>Handelsbereich</a> des Forums kannst du die Preise selbst bestimmen!
+    <!-- trade center values -->
+        <h2 i18n:translate="string: MESSAGES[MSG_TRADE_CENTER][m002]"></h2>
+
+    <!-- resource values -->
+        <table id="resources">
+           <tr id="iridium"
+               class="odd">
+               <th><span tal:omit-tag=""
+                         i18n:translate="string: MESSAGES[MSG_GENERAL][m000]"></span></th>
+               <td tal:content="iridium"></td>
+           </tr>
+           <tr id="holzium"
+               class="even">
+               <th><span tal:omit-tag=""
+                         i18n:translate="string: MESSAGES[MSG_GENERAL][m001]"></span></th>
+               <td tal:content="holzium"></td>
+          </tr>
+          <tr id="water"
+              class="odd">
+               <th><span tal:omit-tag=""
+                         i18n:translate="string: MESSAGES[MSG_GENERAL][m002]"></span></th>
+               <td tal:content="water"></td>
+          </tr>
+          <tr id="oxygen"
+              class="even">
+               <th><span tal:omit-tag=""
+                         i18n:translate="string: MESSAGES[MSG_GENERAL][m003]"></span></th>
+               <td tal:content="oxygen"></td>
+          </tr>
+        </table>
+
+    <!-- plane values -->
+        <table id="planes">
+            <tr tal:repeat="plane planes_in_store"
+                tal:attributes="class php: repeat.plane.even ? 'even' : 'odd'; id string:planeID${plane/id}">
+                <th><a tal:attributes="href string:description.php?show=${plane/id}&t=p"
+                       tal:content="plane/name">Plane Name</a></th>
+                <td tal:content="plane/number">Number of Planes</td>
+            </tr>
+        </table>
+
+    <!-- trading prices -->
+   <block tal:omit-tag=""
+          tal:condition="not: slimTrade">
+            <h2 i18n:translate="string: MESSAGES[MSG_TRADE_CENTER][m016]"></h2>
+
+            <!-- select ware to show -->
+            <form id="showOnly"
+                  tal:attributes="action string:./trade.php"
+                  method="post"
+                  name="showOnly">
+
+                <label id="giveOrGetLabel"
+                       for="giveOrGet"
+                       i18n:translate="string: MESSAGES[MSG_TRADE_CENTER][m019]" />
+                <select id="giveOrGet"
+                        name="giveOrGet"
+                        onchange="select_prices();">
+                        <option value="give" i18n:translate="string: MESSAGES[MSG_TRADE_CENTER][m006]" />
+                        <option value="get"  i18n:translate="string: MESSAGES[MSG_TRADE_CENTER][m008]" />
+                </select>
+                <select id="wareSelection"
+                        name="wareSelection"
+                        onchange="select_prices();">
+                        <block tal:omit-tag=""
+                               tal:repeat="type all_types" >
+                            <option tal:attributes="value repeat/type/index"
+                                    tal:content="string:${type/warey}"
+                                     />
+
+                        </block>
+                </select>
+                <a href="stats/graphbig.php" onclick="window.open('stats/graphbig.php?g='+document.getElementById('wareSelection').value); return false;" id="chartlink" target="_blank">
+                    <img id="chartimg" src="pics/chartlink.jpg" alt="Charts" />
+                   </a>
+                <br />
+              </form>
+            <!-- trading prices header line: give/get/price -->
+            <table id="prices">
+              <tr><th id="giveColHeader" i18n:translate="string: MESSAGES[MSG_TRADE_CENTER][m006]" />
+                  <th id="getColHeader" i18n:translate="string: MESSAGES[MSG_TRADE_CENTER][m008]" />
+                  <th colspan="3" align="center" i18n:translate="string: MESSAGES[MSG_TRADE_CENTER][m010]" />
+              </tr>
+              <block tal:omit-tag="" tal:repeat="price plane_prices">
+                <tr tal:condition="php: price['idx'] != price['idy']" tal:attributes="id php: 'x' .  price['idx'] . 'y' . price['idy']; class string: open">
+                    <td class="giveCol" tal:content="price/warex">ware to give</td>
+                    <td class="getCol" tal:content="price/warey">ware to get</td>
+                    <td class="priceLeft" tal:content="price/x">price of ware to give</td>
+                    <td class="priceMiddle" >:</td>
+                    <td class="priceRight" tal:content="price/y">price of ware to get</td>
+                  </tr>
+              </block>
+            </table>
+        </block>
+    </div>
+</div>

@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd" -->
+
+<html>
+<!-- html xmlns="http://www.w3.org/1999/xhtml"-->
+
+<!--  HTML Kopf -->
+    <head tal:comment="html head requires page title"
+          metal:use-macro="lib/htmlHead.html/htmlHead">
+    </head>
+<!--  // HTML Kopf -->
+    <body>
+        <div id="page-container">
+            <div id="header">
+                <div class="inside">
+                    <span tal:comment="header template"
+                          metal:use-macro="lib/header.html/header">
+                    </span>
+                </div><!-- inside -->
+            </div><!-- header -->
+            <div id="outer-column-container">
+                <div id="inner-column-container">
+                    <div id="source-order-container">
+                        <div id="middle-column">
+                            <div class="inside">
+<!-- mittlere Spalte -->
+                                <!-- main content area -->
+                                <div id="content">
+                                <div  id="contentToplist">
+                                    <span tal:comment="error content if there is any"
+                                          tal:condition="exists: errorMessage"
+                                          tal:replace="structure errorMessage">
+                                    </span>
+                                    <span tal:comment="first some pfusch content - todo: phptal integration"
+                                          tal:condition="not: exists: errorMessage"
+                                          tal:replace="structure pfuschOutput">
+                                    </span>
+                                </div>
+                                </div><!-- content -->
+<!-- // mittlere Spalte -->
+                            </div><!-- inside -->
+                        </div><!-- middle-column -->
+                        <div id="left-column">
+                            <div class="inside">
+<!-- linke Spalte -->
+                                <span tal:comment="left column template"
+                                      metal:use-macro="lib/leftColumn.html/leftColumn">
+                                </span>
+<!-- // linke Spalte -->
+                            </div><!-- inside -->
+                        </div><!-- left-column -->
+                        <div class="clear-columns"><!-- do not delete --></div>
+                    </div><!-- source-order-container -->
+                    <div id="right-column">
+                        <div class="inside">
+<!-- rechte Spalte -->
+                            <span tal:comment="right column template"
+                                  metal:use-macro="lib/rightColumn.html/rightColumn">
+                            </span>
+<!-- // rechte Spalte -->
+                        </div><!-- inside -->
+                    </div><!-- right-column -->
+                    <div class="clear-columns"><!-- do not delete --></div>
+                </div><!-- inner-column-container -->
+            </div><!-- outer-column-container -->
+            <div id="footer">
+                <div class="inside">
+<!-- Fusszeile -->                
+                    <span tal:comment="footer template"
+                          metal:use-macro="lib/footer.html/footer">
+                    </span>
+<!-- // Fusszeile -->
+                </div><!-- inside -->
+            </div><!-- footer -->
+        </div><!-- page-container -->
+        <span tal:replace="structure clockJSCode"></span>
+        <span tal:replace="structure resourceCounter"></span>
+        <span tal:condition="exists: sessionTimeout" tal:replace="structure sessionTimeoutCode"></span>
+        <script type="text/javascript" tal:condition="exists: specificJS">
+            <span tal:replace="structure specificJS">js code</span>
+        </script>
+    </body>
+</html>

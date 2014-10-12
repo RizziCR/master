@@ -1,0 +1,303 @@
+<div tal:comment=" === Seitenstruktur ==================================================="
+     id="contentAccstat"
+     metal:define-macro="content">
+
+    <p
+        tal:comment="error content if there is any"
+        tal:condition="exists: errorMessage"
+        tal:replace="structure errorMessage">
+    </p>
+
+    <div tal:omit-tag="" tal:condition="not: exists: errorMessage">
+
+    <script type="text/javascript">
+    <!--
+    $(document).ready(function(){
+        var elements = $("#outer-column-container,#left-column,#right-column");
+        elements.addClass("hide").end();
+        $("#toggleCols").click(
+            function() {
+                elements.toggleClass("hide");
+            }
+        ).toggle(
+            function() {
+                $(this).text("Seitenränder ausblenden");
+            },
+            function() {
+                $(this).text("Seitenränder wieder einblenden");
+            }
+        );
+    });
+    -->
+    </script>
+
+    <h1>Account-Statistik</h1>
+
+    <p><a tal:attributes="href string:./start.php">zur&uuml;ck zur Hauptansicht</a> |
+    <a href="#" id="toggleCols">Seitenr&auml;nder wieder einblenden</a></p>
+
+    <h2>Ressourcen</h2>
+    <table cellspacing="0" id="ress">
+        <thead>
+            <tr>
+                <th class="city">(#) Stadt</th>
+                <th>Iridium</th>
+                <th>Holzium</th>
+                <th>Wasser</th>
+                <th class="depot">Lagervolumen (F&uuml;llstand)</th>
+                <th>Sauerstoff</th>
+                <th class="depot">Tankvolumen (F&uuml;llstand)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr tal:repeat="city cities">
+                <td class="city"><span tal:content="string:(${repeat/city/number})" /> <span tal:replace="city/coords" /><span tal:condition="city/isCapital"> (Hauptstadt)</span></td>
+                <td tal:content="city/iridium">0</td>
+                <td tal:content="city/holzium">0</td>
+                <td tal:content="city/water">0</td>
+                <td class="depot"><span tal:replace="city/depot" /> <span tal:content="string:(${city/depot_perc}%)">(0%)</span></td>
+                <td tal:content="city/oxygen">0</td>
+                <td class="depot"><span tal:replace="city/depot_oxy" /> <span tal:content="string:(${city/depot_oxy_perc}%)">0</span></td>
+            </tr>
+            <tr class="sum">
+                <th>total</th>
+                <td tal:content="total/iridium">0</td>
+                <td tal:content="total/holzium">0</td>
+                <td tal:content="total/water">0</td>
+                <td class="depot" tal:content="total/depot">0</td>
+                <td tal:content="total/oxygen">0</td>
+                <td class="depot" tal:content="total/depot_oxy">0</td>
+            </tr>
+            <tr class="avg" tal:condition="php: nbrCities GT 1">
+                <th>Durchschnitt</th>
+                <td tal:content="avg/iridium">0</td>
+                <td tal:content="avg/holzium">0</td>
+                <td tal:content="avg/water">0</td>
+                <td class="depot"><span tal:replace="avg/depot" /><br /><span tal:content="string:(${avg/depot_perc}%)">(0%)</span></td>
+                <td tal:content="avg/oxygen">0</td>
+                <td class="depot"><span tal:replace="avg/depot_oxy" /><br /><span tal:content="string:(${avg/depot_oxy_perc}%)">(0%)</span></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Stadt-Infos</h2>
+    <table cellspacing="0">
+        <thead>
+            <tr>
+                <th class="city">(#) Stadt</th>
+                <th>Gr&uuml;ndung</th>
+                <th>Punkte</th>
+                <th>Flugzeuge</th>
+                <th>Defensive</th>
+                <th>Grundwert</th>
+                <th>Gesamt</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr tal:repeat="city cities">
+                <td class="city"><span tal:content="string:(${repeat/city/number})" /> <span tal:replace="city/coords" /></td>
+                <td tal:content="city/founded">01.01.1970</td>
+                <td tal:content="city/points">0</td>
+                <td tal:content="city/kw_plane"></td>
+                <td tal:content="city/kw_defense"></td>
+                <td tal:content="city/kw_basic"></td>
+                <td tal:content="city/kw_total"></td>
+            </tr>
+            <tr class="sum">
+                <th>total</th>
+                <td style="border-left:0;"></td>
+                <td tal:content="total/points">0</td>
+                <td tal:content="total/kw_plane">0</td>
+                <td tal:content="total/kw_defense">0</td>
+                <td tal:content="total/kw_basic">0</td>
+                <td tal:content="total/kw_total">0</td>
+            </tr>
+            <tr class="avg" tal:condition="php: nbrCities GT 1">
+                <th>Durchschnitt</th>
+                <td style="border-left:0;">&nbsp;</td>
+                <td tal:content="avg/points">0</td>
+                <td tal:content="avg/kw_plane">0</td>
+                <td tal:content="avg/kw_defense">0</td>
+                <td tal:content="avg/kw_basic">0</td>
+                <td tal:content="avg/kw_total">0</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Geb&auml;ude</h2>
+    <table cellspacing="0">
+        <thead>
+            <tr>
+                <th class="city">(#) Stadt</th>
+                <th title="Iridium-Mine">IRI</th>
+                <th title="Holzium-Plantage">HOL</th>
+                <th title="Wasser-Bohrturm">WAS</th>
+                <th title="Sauerstoff-Reaktor">SAU</th>
+                <th title="Lager">LAG</th>
+                <th title="Tank">TAN</th>
+                <th title="Hangar">HAN</th>
+                <th title="Flughafen">FLH</th>
+                <th title="Bauzentrum">BAZ</th>
+                <th title="Technologiezentrum">TEZ</th>
+                <th title="Kommunikationszentrum">KOZ</th>
+                <th title="Handelszentrum">HAZ</th>
+                <th title="Verteidigungszentrum">VEZ</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr tal:repeat="city cities">
+                <td class="city"><span tal:content="string:(${repeat/city/number})" /> <span tal:replace="city/coords" /></td>
+                <td tal:repeat="item city/buildings" tal:content="item">0</td>
+            </tr>
+            <tr class="sum">
+                <th>total</th>
+                <td tal:repeat="item total/buildings" tal:content="item">0</td>
+            </tr>
+            <tr class="avg" tal:condition="php: nbrCities GT 1">
+                <th>Durchschnitt</th>
+                <td tal:repeat="item avg/buildings" tal:content="item">0</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Flugzeuge</h2>
+    <table cellspacing="0">
+        <thead>
+            <tr>
+                <th class="city">(#) Stadt</th>
+                <th title="Sparrow">SPAR</th>
+                <th title="Blackbird">BLAB</th>
+                <th title="Raven">RAVN</th>
+                <th title="Eagle">EAGL</th>
+                <th title="Falcon">FALC</th>
+                <th title="Nightingale">NIGT</th>
+                <th title="Ravager">RAVR</th>
+                <th title="Destroyer">DEST</th>
+                <th title="Spionagesonde">SPIO</th>
+                <th title="Settler">SETT</th>
+                <th title="Scarecrow">SCAR</th>
+                <th title="Kleines Transportflugzeug">KTRP</th>
+                <th title="Mittleres Transportflugzeug">MTRP</th>
+                <th title="Grosses Transportflugzeug">GTRP</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr tal:repeat="city cities">
+                <td class="city"><span tal:content="string:(${repeat/city/number})" /> <span tal:replace="city/coords" /></td>
+                <td tal:repeat="item city/planes" tal:content="item">0</td>
+            </tr>
+            <tr class="sum">
+                <th>total</th>
+                <td tal:repeat="item total/planes" tal:content="item">0</td>
+            </tr>
+            <tr class="avg" tal:condition="php: nbrCities GT 1">
+                <th>Durchschnitt</th>
+                <td tal:repeat="item avg/planes" tal:content="item">0</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Verteidigung</h2>
+    <table cellspacing="0">
+        <thead>
+            <tr>
+                <th class="city">(#) Stadt</th>
+                <th title="Elektronenwoofer">EWOO</th>
+                <th title="Protonenwoofer">PWOO</th>
+                <th title="Neutronenwoofer">NWOO</th>
+                <th title="Elektronensequenzer">ESEQ</th>
+                <th title="Protonensequenzer">PSEQ</th>
+                <th title="Neutronensequenzer">NSEQ</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr tal:repeat="city cities">
+                <td class="city"><span tal:content="string:(${repeat/city/number})" /> <span tal:replace="city/coords" /></td>
+                <td tal:repeat="item city/defense" tal:content="item">0</td>
+            </tr>
+            <tr class="sum">
+                <th>total</th>
+                <td tal:repeat="item total/defense" tal:content="item">0</td>
+            </tr>
+            <tr class="avg" tal:condition="php: nbrCities GT 1">
+                <th>Durchschnitt</th>
+                <td tal:repeat="item avg/defense" tal:content="item">0</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Technologien</h2>
+    <table cellspacing="0" class="tech_left">
+        <tr>
+            <th colspan="2">Antriebstechnologien</th>
+        </tr>
+        <tr>
+            <td class="label">Oxidationsantrieb</td>
+            <td tal:content="techs/engine/0">0</td>
+        </tr>
+        <tr>
+            <td class="label">Hoverantrieb</td>
+            <td tal:content="techs/engine/1">0</td>
+        </tr>
+        <tr>
+            <td class="label">Antigravitationsantrieb</td>
+            <td tal:content="techs/engine/2">0</td>
+        </tr>
+    </table>
+
+    <table cellspacing="0" class="tech_right">
+        <tr>
+            <th colspan="2">Waffentechnologien</th>
+        </tr>
+        <tr>
+            <td class="label">Elektronensequenzwaffen</td>
+            <td tal:content="techs/weapon/0">0</td>
+        </tr>
+        <tr>
+            <td class="label">Protonensequenzwaffen</td>
+            <td tal:content="techs/weapon/1">0</td>
+        </tr>
+        <tr>
+            <td class="label">Neutronensequenzwaffen</td>
+            <td tal:content="techs/weapon/2">0</td>
+        </tr>
+    </table>
+
+    <table cellspacing="0" class="tech_left">
+        <tr>
+            <th colspan="2">Flugzeugtechnologien</th>
+        </tr>
+        <tr>
+            <td class="label">Treibstoffverbrauchsreduktion</td>
+            <td tal:content="techs/fleet/0">0</td>
+        </tr>
+        <tr>
+            <td class="label">Flugzeugkapazit&auml;tsverwaltung</td>
+            <td tal:content="techs/fleet/1">0</td>
+        </tr>
+        <tr>
+            <td class="label">Computermanagement</td>
+            <td tal:content="techs/fleet/2">0</td>
+        </tr>
+    </table>
+
+    <table cellspacing="0" class="tech_right">
+        <tr>
+            <th colspan="2">Geb&auml;udetechnologien</th>
+        </tr>
+        <tr>
+            <td class="label">Lagerverwaltung</td>
+            <td tal:content="techs/building/0">0</td>
+        </tr>
+        <tr>
+            <td class="label">Wasserkompression</td>
+            <td tal:content="techs/building/1">0</td>
+        </tr>
+        <tr>
+            <td class="label">Bergbautechnik</td>
+            <td tal:content="techs/building/2">0</td>
+        </tr>
+    </table>
+
+    </div>
+</div>

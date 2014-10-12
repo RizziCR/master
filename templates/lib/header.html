@@ -1,0 +1,84 @@
+<!-- header ================================================= -->
+<div metal:define-macro="header" tal:omit-tag="">
+    <div class="rowHeader">
+        <div id="logo">
+            <a tal:attributes="href string:$etsAddress/index.php"
+               title="Zur Startseite">
+            <img tal:attributes="src string:$imgAddress/logoV8graycut.jpg"
+                 alt="ETS Logo" />
+            </a>
+        </div>
+
+        <!-- div id="sponsorLink">
+            Werde ein <a tal:attributes="href string:$etsAddress/advertise.php" title="Zum Spendenformular">Bewahrer</a>
+        </div-->
+        <!-- 
+        <div id="sponsorLink"
+             tal:condition="not: exists: enable_voting"
+             >Werde ein <a tal:attributes="href string:$etsAddress/advertise.php"
+                           title="Zum Spendenformular">Bewahrer</a></div>
+         -->
+        <div id="sponsorLink"
+             tal:condition="exists: enable_voting"
+             ><a tal:attributes="href string:$etsAddress/vote.php"
+                 title="Zur Abstimmungsseite">Stimme</a> für Erde II</div>
+
+        <div id="sponsor">
+        </div>
+    </div>
+
+    <div class="rowHeader" id="infoRow">
+        <div id="switchCity">
+            <form name="cs" method="post">
+            <select
+                name="change_city"
+                tal:attributes="onchange structure string:document.location.href='$currentPageUrl?change_city=' + String(document.cs.change_city.value)">
+                <option tal:repeat="option cityListOption" tal:replace="structure option" value="9:99:9">9:99:9</option>
+            </select>
+            </form>
+        </div>
+
+        <div id="clock">
+            <div id="time" tal:content="serverTime">99:99:99</div>
+        </div>
+
+        <div id="status">
+            <!-- resources left column -->
+            <div id="resourcesA">
+                <div id="iridium">
+                    <span id="count_iridium" tal:content="string:$iridiumValue">xxx</span><span id="iridiumLabel">Iridium</span>
+                </div>
+                <div id="holzium" class="clear">
+                    <span id="count_holzium" tal:content="string:$holziumValue">xxx</span><span id="holziumLabel">Holzium</span>
+                </div>
+            </div>
+            <!-- resources middle column -->
+            <div id="resourcesB">
+                <div id="water">
+                    <span id="count_water" tal:content="string:$waterValue">xxx</span><span id="waterLabel">Wasser</span>
+                </div>
+                <div id="oxygen"  class="clear">
+                    <span id="count_oxygen" tal:content="string:$oxygenValue">xxx</span><span id="oxygenLabel">Sauerstoff</span>
+                </div>
+            </div>
+            <!-- resources right column -->
+            <div id="depots">
+                <div id="depotCommon">
+                    <span id="count_depot" tal:content="string:$depotValue %">xxx</span><span id="depotCommonLabel">Lager</span>
+                </div>
+                <div id="depotOxygen"  class="clear">
+                    <span id="count_oxygen_depot" tal:content="string:$oxygenDepotValue %">xxx</span><span id="depotOxygenLabel">Tank</span>
+                </div>
+            </div><!-- depots -->
+            <div id="space">
+            	<div>
+            		<span tal:content="string:$hangarValue">xxx</span>/<span tal:content="string:$hangarSpace">xxx</span> Flugzeuge
+            	</div>
+            	<div>
+            		<span tal:content="string:$VZValue">xxx</span>/<span tal:content="string:$VZSpace">xxx</span> Verteidigungstürme
+            	</div>
+            
+            </div>
+        </div><!-- status -->
+    </div>
+</div><!-- header -->

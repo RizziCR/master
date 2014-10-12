@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+-
+- phpMyAdmin XML Dump
+- version 2.11.8.1deb5+lenny7
+- http://www.phpmyadmin.net
+-
+- Host: localhost
+- Erstellungszeit: 06. Januar 2011 um 13:47
+- Server Version: 5.0.51
+- PHP-Version: 5.3.4-0.dotdeb.0
+-->
+
+<!--
+- Datenbank: 'ETS9'
+- SELECT user, type, amount FROM `donations` order by amount DESC LIMIT 0,50
+-->
+<ETS9>
+  <!-- Tabelle donations -->
+    <donations>
+        <user>Ano Nym (Rev.95)</user>
+        <type>u</type>
+        <amount>250.00</amount>
+    </donations>
+    <donations>
+        <user>VisioN (Rev.95)</user>
+        <type>a</type>
+        <amount>202.02</amount>
+    </donations>
+    <donations>
+        <user>advena</user>
+        <type>u</type>
+        <amount>100.00</amount>
+    </donations>
+    <donations>
+        <user>Ano Nymous</user>
+        <type>u</type>
+        <amount>80.00</amount>
+    </donations>
+    <donations>
+        <user>Pirx</user>
+        <type>u</type>
+        <amount>30.00</amount>
+    </donations>
+    <donations>
+        <user>Senfy</user>
+        <type>u</type>
+        <amount>25.00</amount>
+    </donations>
+    <donations>
+        <user>-SGK-</user>
+        <type>a</type>
+        <amount>25.00</amount>
+    </donations>
+    <donations>
+        <user>Aida</user>
+        <type>u</type>
+        <amount>25.00</amount>
+    </donations>
+    <donations>
+        <user>HeavyFaultier</user>
+        <type>u</type>
+        <amount>25.00</amount>
+    </donations>
+    <donations>
+        <user>Claudius</user>
+        <type>u</type>
+        <amount>20.00</amount>
+    </donations>
+    <donations>
+        <user>advena (Rev.95)</user>
+        <type>u</type>
+        <amount>20.00</amount>
+    </donations>
+    <donations>
+        <user>skiskipowski</user>
+        <type>u</type>
+        <amount>20.00</amount>
+    </donations>
+    <donations>
+        <user>Irons</user>
+        <type>a</type>
+        <amount>20.00</amount>
+    </donations>
+    <donations>
+        <user>Ano Nymous</user>
+        <type>u</type>
+        <amount>20.00</amount>
+    </donations>
+    <donations>
+        <user>advena</user>
+        <type>u</type>
+        <amount>20.00</amount>
+    </donations>
+    <donations>
+        <user>Romanrocks</user>
+        <type>u</type>
+        <amount>20.00</amount>
+    </donations>
+    <donations>
+        <user>mks50</user>
+        <type>u</type>
+        <amount>20.00</amount>
+    </donations>
+    <donations>
+        <user>Olafka</user>
+        <type>u</type>
+        <amount>20.00</amount>
+    </donations>
+    <donations>
+        <user>Slayer5</user>
+        <type>u</type>
+        <amount>15.00</amount>
+    </donations>
+    <donations>
+        <user>Chiquita</user>
+        <type>u</type>
+        <amount>12.34</amount>
+    </donations>
+    <donations>
+        <user>Augustiner</user>
+        <type>u</type>
+        <amount>10.42</amount>
+    </donations>
+    <donations>
+        <user>deKay</user>
+        <type>u</type>
+        <amount>10.01</amount>
+    </donations>
+    <donations>
+        <user>Rumble</user>
+        <type>u</type>
+        <amount>10.00</amount>
+    </donations>
+    <donations>
+        <user>HiHoScHi</user>
+        <type>u</type>
+        <amount>10.00</amount>
+    </donations>
+    <donations>
+        <user>atlas5</user>
+        <type>u</type>
+        <amount>10.00</amount>
+    </donations>
+    <donations>
+        <user>Baldur</user>
+        <type>u</type>
+        <amount>10.00</amount>
+    </donations>
+    <donations>
+        <user>EV</user>
+        <type>a</type>
+        <amount>10.00</amount>
+    </donations>
+    <donations>
+        <user>grumbazor</user>
+        <type>u</type>
+        <amount>10.00</amount>
+    </donations>
+    <donations>
+        <user>atlas5</user>
+        <type>u</type>
+        <amount>10.00</amount>
+    </donations>
+    <donations>
+        <user>spasti</user>
+        <type>u</type>
+        <amount>10.00</amount>
+    </donations>
+    <donations>
+        <user>LordofWar</user>
+        <type>u</type>
+        <amount>10.00</amount>
+    </donations>
+    <donations>
+        <user>Kartell</user>
+        <type>a</type>
+        <amount>10.00</amount>
+    </donations>
+    <donations>
+        <user>HerrMohn</user>
+        <type>u</type>
+        <amount>10.00</amount>
+    </donations>
+    <donations>
+        <user>Sue</user>
+        <type>u</type>
+        <amount>10.00</amount>
+    </donations>
+    <donations>
+        <user>KangarooB</user>
+        <type>u</type>
+        <amount>10.00</amount>
+    </donations>
+    <donations>
+        <user>Woermi</user>
+        <type>u</type>
+        <amount>10.00</amount>
+    </donations>
+    <donations>
+        <user>grumbazor</user>
+        <type>u</type>
+        <amount>10.00</amount>
+    </donations>
+    <donations>
+        <user>ganesch</user>
+        <type>u</type>
+        <amount>6.66</amount>
+    </donations>
+    <donations>
+        <user>das</user>
+        <type>u</type>
+        <amount>6.50</amount>
+    </donations>
+    <donations>
+        <user>sharkfin</user>
+        <type>u</type>
+        <amount>5.55</amount>
+    </donations>
+    <donations>
+        <user>MrPink</user>
+        <type>u</type>
+        <amount>5.00</amount>
+    </donations>
+    <donations>
+        <user>Snice</user>
+        <type>u</type>
+        <amount>5.00</amount>
+    </donations>
+    <donations>
+        <user>Shegoat</user>
+        <type>u</type>
+        <amount>5.00</amount>
+    </donations>
+    <donations>
+        <user>MaiTai</user>
+        <type>u</type>
+        <amount>5.00</amount>
+    </donations>
+    <donations>
+        <user>LordofWar (Rev.95)</user>
+        <type>u</type>
+        <amount>5.00</amount>
+    </donations>
+    <donations>
+        <user>HerrMohn</user>
+        <type>u</type>
+        <amount>5.00</amount>
+    </donations>
+    <donations>
+        <user>golgbuch</user>
+        <type>u</type>
+        <amount>5.00</amount>
+    </donations>
+    <donations>
+        <user>Toadwart</user>
+        <type>u</type>
+        <amount>5.00</amount>
+    </donations>
+    <donations>
+        <user>Klempe</user>
+        <type>u</type>
+        <amount>5.00</amount>
+    </donations>
+    <donations>
+        <user>-TGA-</user>
+        <type>a</type>
+        <amount>5.00</amount>
+    </donations>
+</ETS9>
+

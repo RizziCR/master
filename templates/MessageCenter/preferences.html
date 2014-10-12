@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<META HTTP-EQUIV="expires" CONTENT="0" />
+	<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache" />
+	<META HTTP-EQUIV="Pragma" CONTENT="no-cache" />
+	<title tal:content="title">Insert title here</title>
+
+	<link rel="stylesheet" type="text/css" href="css/css.css" />
+</head>
+<body>
+
+<table width="770" border="0" cellpadding="2" cellspacing="0">
+	<tr>
+		<td colspan="2">
+			<div class="headline" style="text-align:center" tal:content="title">Title</div>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="150">
+		<table border="0" cellpadding="0" cellspacing="0">
+			<tr>
+				<td align="center" class="table_head" i18n:translate="string: MESSAGES[MSG_MSGCTR][m013]">Überschrift</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<block tal:omit-tag="" metal:use-macro="index.html/menu" />
+				</td>
+			</tr>
+		</table>
+		</td>
+		<td width="620">
+		<form action="./msgctr.php?action=preferences" method="post">
+		<table width="620" border="0" cellspacing="0" cellpadding="0">
+			<tr valign="top" class="table_head">
+				<td align="center" i18n:translate="string: MESSAGES[MSG_MSGCTR][m074]">{$MESSAGES[MSG_MSGCTR][m074]}</td>
+			</tr>
+			<tr>
+				<td i18n:translate="string: MESSAGES[MSG_MSGCTR][m075]">{$MESSAGES[MSG_MSGCTR][m075]}</td>
+			</tr>
+			<tr>
+				<td><textarea
+					onkeyup="chars.innerHTML=this.value.length"
+					name="sig" class="button" style="width:400px;height:200px;overflow:auto" tal:content="signature"> Signature </textarea>
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+				<span i18n:translate="string: MESSAGES[MSG_MSGCTR][m077]" tal:omit-tag=""></span> 
+				<span id="chars" tal:content="chars"></span> 
+				<span i18n:translate="string: MESSAGES[MSG_MSGCTR][m078]" tal:omit-tag=""></span>
+				<br />
+				<input type="submit" name="submit" tal:attributes="value string:MESSAGES[MSG_MSGCTR][m076]" i18n:attributes="value" class="button" /></td>
+			</tr>
+		</table>
+		</form>
+		</td>
+	</tr>
+</table>
+</body>
+</html>

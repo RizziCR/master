@@ -1,0 +1,115 @@
+<div tal:comment=" === Seitenstruktur ==================================================="
+     id="contentStats"
+     metal:define-macro="content">
+
+    <p
+        tal:comment="error content if there is any"
+        tal:condition="exists: errorMessage"
+        tal:replace="structure errorMessage">
+    </p>
+
+    <div tal:omit-tag="" tal:condition="not: exists: errorMessage">
+
+        <h1>Revision 12</h1>
+
+          <table id="rangListe">
+          <tr>
+            <td class="titel">Städte</td>
+            <td class="wert">
+             <a tal:attributes="href string:./stats_ets12.php?action=cities" title="Top 50">Grösse</a>
+            </td>
+          </tr>
+          <tr>
+            <td class="titel">Siedler</td>
+            <td class="wert">
+            <a tal:attributes="href string:./stats_ets12.php?action=users_score" title="Top 50">Grösse</a> - <a tal:attributes="href string:./stats_ets12.php?action=users_power" title="Top 50">Stärke</a> - <a tal:attributes="href string:./stats_ets12.php?action=users_fame">Ruhm</a>
+            </td>
+          </tr>
+          <tr>
+            <td class="titel">Allianzen</td>
+            <td class="wert">
+            <a tal:attributes="href string:./stats_ets12.php?action=alliances_score" title="Top 50">Grösse</a> - <a tal:attributes="href string:./stats_ets12.php?action=alliances_power" title="Top 50">Stärke</a> - <a tal:attributes="href string:./stats_ets12.php?action=alliances_fame" title="Top 50">Ruhm</a>
+            </td>
+          </tr>
+          <tr>
+            <td class="titel">Rundenzahlen</td>
+            <td class="wert">
+             <a tal:attributes="href string:./stats_ets12.php?action=statistics">Allgemein</a> - <a
+             tal:attributes="href string:./stats_ets12.php?action=upgradings" title="Top 10">Ausbaustufen</a>
+            </td>
+          </tr>
+          <tr>
+            <td class="titel">Andere Runden</td>
+            <td class="wert">
+             <a href="stats.php">Archiv</a>
+            </td>
+          </tr>
+        </table>
+
+
+    <div tal:condition="exists: statistics" id="blockCommonStats">
+                                    <span tal:comment="first some pfusch content - todo: phptal integration"
+                                          tal:condition="not: exists: errorMessage"
+                                          tal:replace="structure pfuschOutput">
+                                    </span>
+    </div>
+
+    <div tal:condition="exists: upgradings" id="blockExpansionStats">
+                                    <span tal:comment="first some pfusch content - todo: phptal integration"
+                                          tal:condition="not: exists: errorMessage"
+                                          tal:replace="structure pfuschOutput">
+                                    </span>
+    </div>
+
+
+    <div tal:condition="exists: cities" id="blockCitiesSize">
+                                    <span tal:comment="first some pfusch content - todo: phptal integration"
+                                          tal:condition="not: exists: errorMessage"
+                                          tal:replace="structure pfuschOutput">
+                                    </span>
+    </div>
+
+    <div tal:condition="exists: users_score" id="blockUserSize">
+                                    <span tal:comment="first some pfusch content - todo: phptal integration"
+                                          tal:condition="not: exists: errorMessage"
+                                          tal:replace="structure pfuschOutput">
+                                    </span>
+    </div>
+
+    <div tal:condition="exists: users_power" id="blockUserStrength">
+                                    <span tal:comment="first some pfusch content - todo: phptal integration"
+                                          tal:condition="not: exists: errorMessage"
+                                          tal:replace="structure pfuschOutput">
+                                    </span>
+    </div>
+
+    <div tal:condition="exists: users_fame" id="blockUserFame">
+                                    <span tal:comment="first some pfusch content - todo: phptal integration"
+                                          tal:condition="not: exists: errorMessage"
+                                          tal:replace="structure pfuschOutput">
+                                    </span>
+    </div>
+
+	<div tal:condition="exists: alliances_score" id="blockAllySize">
+                                    <span tal:comment="first some pfusch content - todo: phptal integration"
+                                          tal:condition="not: exists: errorMessage"
+                                          tal:replace="structure pfuschOutput">
+                                    </span>
+    </div>
+
+    <div tal:condition="exists: alliances_power" id="blockAllyStrength">
+                                    <span tal:comment="first some pfusch content - todo: phptal integration"
+                                          tal:condition="not: exists: errorMessage"
+                                          tal:replace="structure pfuschOutput">
+                                    </span>
+    </div>
+
+    <div tal:condition="exists: alliances_fame" id="blockAllyFame">
+                                    <span tal:comment="first some pfusch content - todo: phptal integration"
+                                          tal:condition="not: exists: errorMessage"
+                                          tal:replace="structure pfuschOutput">
+                                    </span>
+    </div>
+
+    </div>
+</div>

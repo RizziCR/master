@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd" -->
+
+<html>
+
+<!--  HTML Kopf -->
+	<head
+  		tal:comment="html head requires page title"
+  		metal:use-macro="lib/htmlHead.html/htmlHead"
+	/>
+<!--  // HTML Kopf -->	
+
+	<body>
+		<div id="page-container">
+            <div id="header">
+                <div class="inside">
+                    <span tal:comment="header template"
+                          metal:use-macro="lib/header.html/header">
+                    </span>
+                </div><!-- inside -->
+            </div><!-- header -->
+		
+			<div id="outer-column-container">
+				<div id="inner-column-container">
+					<div id="source-order-container">
+						<div id="middle-column">
+							<div class="inside">
+
+<!-- mittlere Spalte -->
+								<span
+									tal:condition="exists: errorMessage"
+									tal:comment="error content if there is any"
+									tal:replace="structure errorMessage"
+								/>
+							
+<table border="0" cellpadding="3" cellspacing="3">
+<tr><td>
+<form action="./refreshsession.php" method="POST">
+	<p tal:condition="not: isHandy">
+	Bitte klicke in den geschlossenen Kreis um deine Session zu erneuern.<br/>
+	<input type="image" name="circle" id="captchacode" tal:attributes="src string:${path}/page/captcha.php?x=${time}" />
+	<br/>
+	</p>
+	<p tal:condition="isHandy">
+	Gib den Sicherheitscode ein, der angezeigt wird:<br/>
+	<img id="captchacode" tal:attributes="src string:${path}/page/captcha.php?handy=1&x=${time}" /><br/>
+	<input type="text" name="captchaString" value=""/><br/>
+	<input type="submit" name="submit" value="Absenden"/>
+	</p>
+	<a href="#" onclick="regenerateCaptcha()">Sicherheitscode nicht lesbar</a>
+</form>
+</td></tr>
+</table>
+
+<!-- // mittlere Spalte -->
+
+							</div>
+						</div>
+						<div id="left-column">
+							<div class="inside">
+
+<!-- linke Spalte -->
+								<span
+					  				tal:comment="left column template"
+					  				metal:use-macro="lib/leftColumn.html/leftColumn"
+								/>	
+<!-- // linke Spalte -->
+
+							</div>
+						</div>
+						<div class="clear-columns"><!-- do not delete --></div>
+					</div>
+					<div id="right-column">
+						<div class="inside">
+
+<!-- rechte Spalte -->
+							<span
+				  				tal:comment="right column template"
+				  				metal:use-macro="lib/rightColumn.html/rightColumn"
+							/>
+<!-- // rechte Spalte -->
+
+						</div>
+					</div>
+					<div class="clear-columns"><!-- do not delete --></div>
+				</div>
+			</div>
+			<div id="footer">
+				<div class="inside">
+
+<!-- Fusszeile -->				
+					<span
+		  				tal:comment="footer template"
+		  				metal:use-macro="lib/footer.html/footer"
+					/>
+<!-- // Fusszeile -->
+					
+				</div>
+			</div>
+		</div>
+
+      <span tal:replace="structure clockJSCode"></span>
+      <span tal:replace="structure resourceCounter"></span>
+      <span tal:condition="exists: sessionTimeout" tal:replace="structure sessionTimeoutCode"></span>		
+		
+	</body>
+</html>

@@ -1,0 +1,24 @@
+        <!-- right column =========================================== -->
+            <div id="columnRight" metal:define-macro="rightColumn">
+
+                <!-- area for commercial -->
+                <div id="banner">
+                    <div class="clear" id="googleAdd" tal:condition="exists: enable_google">
+                         <script type="text/javascript">
+                         google_ad_client = "ca-pub-8269066159594685";
+                         /* Escape to Space 2 */
+                         google_ad_slot = "2469140709";
+                         google_ad_width = 160;
+                         google_ad_height = 600;
+                        </script>
+                        <script
+                            type="text/javascript"
+                            src="https://pagead2.googlesyndication.com/pagead/show_ads.js">
+                        </script>
+                    </div>
+                    <div class="clear" id="thirdPartyAdd" tal:condition="exists: enable_thirdParty">
+                        <a tal:condition="ads_banner/link_to" tal:attributes="href ads_banner/link_to"><img tal:attributes="src string:$etsAddress/${ads_banner/filename}; height ads_banner/height; width ads_banner/width" /></a>
+                        <img tal:condition="not: ads_banner/link_to" tal:attributes="src string:$etsAddress/${ads_banner/filename}; height ads_banner/height; width ads_banner/width" />
+                    </div>
+                </div>
+            </div><!-- right column -->

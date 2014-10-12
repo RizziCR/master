@@ -1,0 +1,504 @@
+<?xml version="1.0"?>
+
+
+<ETS11>
+  <city>
+	<city>3:123:6</city>
+	<city_name>Berlin</city_name>
+	<user>golgbuch</user>
+	<points>2043</points>
+	<alliance>BM</alliance>
+	<home>YES</home>
+	<b_hangar>171</b_hangar>
+  </city>
+
+  <city>
+	<city>1:140:3</city>
+	<city_name>Pika-Berlin</city_name>
+	<user>Pikachu</user>
+	<points>2039</points>
+	<alliance>BM</alliance>
+	<home>YES</home>
+	<b_hangar>168</b_hangar>
+  </city>
+
+  <city>
+	<city>1:62:2</city>
+	<city_name>RU.HE.</city_name>
+	<user>DrGonZo</user>
+	<points>1936</points>
+	<alliance>Medaron</alliance>
+	<home>YES</home>
+	<b_hangar>203</b_hangar>
+  </city>
+
+  <city>
+	<city>3:152:3</city>
+	<city_name>Tal der Ahnungslosen</city_name>
+	<user>Rausragend</user>
+	<points>1936</points>
+	<alliance>Medaron</alliance>
+	<home>YES</home>
+	<b_hangar>203</b_hangar>
+  </city>
+
+  <city>
+	<city>1:32:3</city>
+	<city_name>THX 2 D0M</city_name>
+	<user>Raphael</user>
+	<points>1837</points>
+	<alliance>-MoeP-</alliance>
+	<home>NO</home>
+	<b_hangar>197</b_hangar>
+  </city>
+
+  <city>
+	<city>3:65:4</city>
+	<city_name>Die bewohnte Insel</city_name>
+	<user>MaximKammerer</user>
+	<points>1816</points>
+	<alliance>SG33K</alliance>
+	<home>YES</home>
+	<b_hangar>183</b_hangar>
+  </city>
+
+  <city>
+	<city>1:44:21</city>
+	<city_name>Out of nothing</city_name>
+	<user>Teutates</user>
+	<points>1814</points>
+	<alliance>BuG</alliance>
+	<home>YES</home>
+	<b_hangar>150</b_hangar>
+  </city>
+
+  <city>
+	<city>1:184:13</city>
+	<city_name></city_name>
+	<user>Raphael</user>
+	<points>1808</points>
+	<alliance>-MoeP-</alliance>
+	<home>NO</home>
+	<b_hangar>197</b_hangar>
+  </city>
+
+  <city>
+	<city>2:114:12</city>
+	<city_name>Fitze Fitze Fatze</city_name>
+	<user>Bolle</user>
+	<points>1804</points>
+	<alliance>BuG</alliance>
+	<home>YES</home>
+	<b_hangar>180</b_hangar>
+  </city>
+
+  <city>
+	<city>1:4:14</city>
+	<city_name></city_name>
+	<user>Raphael</user>
+	<points>1773</points>
+	<alliance>-MoeP-</alliance>
+	<home>NO</home>
+	<b_hangar>192</b_hangar>
+  </city>
+
+  <city>
+	<city>2:170:12</city>
+	<city_name>bordor</city_name>
+	<user>Valdez</user>
+	<points>1750</points>
+	<alliance>AYBABTU</alliance>
+	<home>NO</home>
+	<b_hangar>178</b_hangar>
+  </city>
+
+  <city>
+	<city>1:23:4</city>
+	<city_name>NachtAcht</city_name>
+	<user>webworker</user>
+	<points>1739</points>
+	<alliance>SoA</alliance>
+	<home>YES</home>
+	<b_hangar>155</b_hangar>
+  </city>
+
+  <city>
+	<city>1:162:2</city>
+	<city_name>Neue Stadt</city_name>
+	<user>Blacksheep</user>
+	<points>1723</points>
+	<alliance>-TBBT-</alliance>
+	<home>NO</home>
+	<b_hangar>165</b_hangar>
+  </city>
+
+  <city>
+	<city>1:27:16</city>
+	<city_name>...</city_name>
+	<user>Kermit</user>
+	<points>1721</points>
+	<alliance>GdS</alliance>
+	<home>YES</home>
+	<b_hangar>130</b_hangar>
+  </city>
+
+  <city>
+	<city>2:48:8</city>
+	<city_name>(¯´·.¸.-BuG &amp; -G-G-</city_name>
+	<user>EXARBY</user>
+	<points>1720</points>
+	<alliance>AYBABTU</alliance>
+	<home>NO</home>
+	<b_hangar>200</b_hangar>
+  </city>
+
+  <city>
+	<city>1:162:3</city>
+	<city_name>Neue Stadt</city_name>
+	<user>Blacksheep</user>
+	<points>1715</points>
+	<alliance>-TBBT-</alliance>
+	<home>NO</home>
+	<b_hangar>160</b_hangar>
+  </city>
+
+  <city>
+	<city>1:162:5</city>
+	<city_name>Neue Stadt</city_name>
+	<user>Blacksheep</user>
+	<points>1714</points>
+	<alliance>-TBBT-</alliance>
+	<home>NO</home>
+	<b_hangar>162</b_hangar>
+  </city>
+
+  <city>
+	<city>3:126:1</city>
+	<city_name>cloudcity</city_name>
+	<user>wOuLd</user>
+	<points>1713</points>
+	<alliance>-GR-</alliance>
+	<home>YES</home>
+	<b_hangar>175</b_hangar>
+  </city>
+
+  <city>
+	<city>1:4:10</city>
+	<city_name></city_name>
+	<user>Raphael</user>
+	<points>1710</points>
+	<alliance>-MoeP-</alliance>
+	<home>NO</home>
+	<b_hangar>183</b_hangar>
+  </city>
+
+  <city>
+	<city>2:19:3</city>
+	<city_name>Neue Stadt</city_name>
+	<user>Valdez</user>
+	<points>1710</points>
+	<alliance>AYBABTU</alliance>
+	<home>NO</home>
+	<b_hangar>182</b_hangar>
+  </city>
+
+  <city>
+	<city>1:4:15</city>
+	<city_name></city_name>
+	<user>Raphael</user>
+	<points>1710</points>
+	<alliance>-MoeP-</alliance>
+	<home>NO</home>
+	<b_hangar>183</b_hangar>
+  </city>
+
+  <city>
+	<city>1:4:16</city>
+	<city_name></city_name>
+	<user>Raphael</user>
+	<points>1710</points>
+	<alliance>-MoeP-</alliance>
+	<home>NO</home>
+	<b_hangar>183</b_hangar>
+  </city>
+
+  <city>
+	<city>1:162:6</city>
+	<city_name>Neue Stadt</city_name>
+	<user>Blacksheep</user>
+	<points>1710</points>
+	<alliance>-TBBT-</alliance>
+	<home>NO</home>
+	<b_hangar>160</b_hangar>
+  </city>
+
+  <city>
+	<city>1:4:9</city>
+	<city_name></city_name>
+	<user>Raphael</user>
+	<points>1710</points>
+	<alliance>-MoeP-</alliance>
+	<home>NO</home>
+	<b_hangar>183</b_hangar>
+  </city>
+
+  <city>
+	<city>1:162:4</city>
+	<city_name>Neue Stadt</city_name>
+	<user>Blacksheep</user>
+	<points>1709</points>
+	<alliance>-TBBT-</alliance>
+	<home>NO</home>
+	<b_hangar>163</b_hangar>
+  </city>
+
+  <city>
+	<city>1:4:11</city>
+	<city_name></city_name>
+	<user>Raphael</user>
+	<points>1708</points>
+	<alliance>-MoeP-</alliance>
+	<home>NO</home>
+	<b_hangar>183</b_hangar>
+  </city>
+
+  <city>
+	<city>1:175:9</city>
+	<city_name>Bier-City</city_name>
+	<user>mho</user>
+	<points>1699</points>
+	<alliance>-MoeP-</alliance>
+	<home>YES</home>
+	<b_hangar>178</b_hangar>
+  </city>
+
+  <city>
+	<city>3:186:3</city>
+	<city_name>Thx maddin</city_name>
+	<user>Valdez</user>
+	<points>1696</points>
+	<alliance>AYBABTU</alliance>
+	<home>NO</home>
+	<b_hangar>179</b_hangar>
+  </city>
+
+  <city>
+	<city>3:87:2</city>
+	<city_name>(¯´·.¸.-BuG &amp; -G-G-</city_name>
+	<user>EXARBY</user>
+	<points>1688</points>
+	<alliance>AYBABTU</alliance>
+	<home>NO</home>
+	<b_hangar>200</b_hangar>
+  </city>
+
+  <city>
+	<city>3:87:4</city>
+	<city_name>(¯´·.¸.-BuG &amp; -G-G-</city_name>
+	<user>EXARBY</user>
+	<points>1688</points>
+	<alliance>AYBABTU</alliance>
+	<home>NO</home>
+	<b_hangar>200</b_hangar>
+  </city>
+
+  <city>
+	<city>2:41:6</city>
+	<city_name>sancezz</city_name>
+	<user>Valdez</user>
+	<points>1686</points>
+	<alliance>AYBABTU</alliance>
+	<home>NO</home>
+	<b_hangar>161</b_hangar>
+  </city>
+
+  <city>
+	<city>2:41:7</city>
+	<city_name>mr.brightside</city_name>
+	<user>Valdez</user>
+	<points>1686</points>
+	<alliance>AYBABTU</alliance>
+	<home>NO</home>
+	<b_hangar>159</b_hangar>
+  </city>
+
+  <city>
+	<city>2:75:2</city>
+	<city_name>samurei-city</city_name>
+	<user>samurei</user>
+	<points>1681</points>
+	<alliance>-GR-</alliance>
+	<home>YES</home>
+	<b_hangar>176</b_hangar>
+  </city>
+
+  <city>
+	<city>2:41:3</city>
+	<city_name>mantix</city_name>
+	<user>Valdez</user>
+	<points>1677</points>
+	<alliance>AYBABTU</alliance>
+	<home>NO</home>
+	<b_hangar>142</b_hangar>
+  </city>
+
+  <city>
+	<city>2:41:5</city>
+	<city_name>mho</city_name>
+	<user>Valdez</user>
+	<points>1677</points>
+	<alliance>AYBABTU</alliance>
+	<home>NO</home>
+	<b_hangar>155</b_hangar>
+  </city>
+
+  <city>
+	<city>3:151:1</city>
+	<city_name>(¯´·.¸.-BuG &amp; -G-G-</city_name>
+	<user>EXARBY</user>
+	<points>1667</points>
+	<alliance>AYBABTU</alliance>
+	<home>NO</home>
+	<b_hangar>202</b_hangar>
+  </city>
+
+  <city>
+	<city>3:152:21</city>
+	<city_name>(¯´·.¸.-BuG &amp; -G-G-</city_name>
+	<user>EXARBY</user>
+	<points>1667</points>
+	<alliance>AYBABTU</alliance>
+	<home>NO</home>
+	<b_hangar>202</b_hangar>
+  </city>
+
+  <city>
+	<city>2:41:4</city>
+	<city_name>Joe</city_name>
+	<user>Valdez</user>
+	<points>1664</points>
+	<alliance>AYBABTU</alliance>
+	<home>NO</home>
+	<b_hangar>140</b_hangar>
+  </city>
+
+  <city>
+	<city>1:162:7</city>
+	<city_name>Neue Stadt</city_name>
+	<user>Blacksheep</user>
+	<points>1664</points>
+	<alliance>-TBBT-</alliance>
+	<home>NO</home>
+	<b_hangar>160</b_hangar>
+  </city>
+
+  <city>
+	<city>2:41:2</city>
+	<city_name>Pillar</city_name>
+	<user>Valdez</user>
+	<points>1663</points>
+	<alliance>AYBABTU</alliance>
+	<home>NO</home>
+	<b_hangar>126</b_hangar>
+  </city>
+
+  <city>
+	<city>2:48:7</city>
+	<city_name>(¯´·.¸.-BuG &amp; -G-G-</city_name>
+	<user>EXARBY</user>
+	<points>1662</points>
+	<alliance>AYBABTU</alliance>
+	<home>NO</home>
+	<b_hangar>200</b_hangar>
+  </city>
+
+  <city>
+	<city>3:132:5</city>
+	<city_name>(¯´·.¸.-BuG &amp; -G-G-</city_name>
+	<user>EXARBY</user>
+	<points>1658</points>
+	<alliance>AYBABTU</alliance>
+	<home>NO</home>
+	<b_hangar>204</b_hangar>
+  </city>
+
+  <city>
+	<city>3:132:7</city>
+	<city_name>(¯´·.¸.-BuG &amp; -G-G-</city_name>
+	<user>EXARBY</user>
+	<points>1658</points>
+	<alliance>AYBABTU</alliance>
+	<home>NO</home>
+	<b_hangar>204</b_hangar>
+  </city>
+
+  <city>
+	<city>2:41:8</city>
+	<city_name>Elessar</city_name>
+	<user>Valdez</user>
+	<points>1655</points>
+	<alliance>AYBABTU</alliance>
+	<home>NO</home>
+	<b_hangar>165</b_hangar>
+  </city>
+
+  <city>
+	<city>2:170:9</city>
+	<city_name>Timmel</city_name>
+	<user>Valdez</user>
+	<points>1654</points>
+	<alliance>AYBABTU</alliance>
+	<home>NO</home>
+	<b_hangar>176</b_hangar>
+  </city>
+
+  <city>
+	<city>3:132:4</city>
+	<city_name>(¯´·.¸.-BuG &amp; -G-G-</city_name>
+	<user>EXARBY</user>
+	<points>1654</points>
+	<alliance>AYBABTU</alliance>
+	<home>NO</home>
+	<b_hangar>200</b_hangar>
+  </city>
+
+  <city>
+	<city>3:132:8</city>
+	<city_name>(¯´·.¸.-BuG &amp; -G-G-</city_name>
+	<user>EXARBY</user>
+	<points>1654</points>
+	<alliance>AYBABTU</alliance>
+	<home>NO</home>
+	<b_hangar>200</b_hangar>
+  </city>
+
+  <city>
+	<city>3:132:3</city>
+	<city_name>(¯´·.¸.-BuG &amp; -G-G-</city_name>
+	<user>EXARBY</user>
+	<points>1654</points>
+	<alliance>AYBABTU</alliance>
+	<home>NO</home>
+	<b_hangar>200</b_hangar>
+  </city>
+
+  <city>
+	<city>3:128:5</city>
+	<city_name>(¯´·.¸.-BuG &amp; -G-G-</city_name>
+	<user>EXARBY</user>
+	<points>1651</points>
+	<alliance>AYBABTU</alliance>
+	<home>NO</home>
+	<b_hangar>200</b_hangar>
+  </city>
+
+  <city>
+	<city>3:132:2</city>
+	<city_name>(¯´·.¸.-BuG &amp; -G-G-</city_name>
+	<user>EXARBY</user>
+	<points>1651</points>
+	<alliance>AYBABTU</alliance>
+	<home>NO</home>
+	<b_hangar>198</b_hangar>
+  </city>
+</ETS11>

@@ -1,0 +1,337 @@
+<div tal:comment=" === Seitenstruktur ==================================================="
+     id="contentInformation"
+     metal:define-macro="content">
+
+    <span
+        tal:comment="error content if there is any"
+        tal:condition="exists: errorMessage"
+        tal:replace="structure errorMessage">
+    </span>
+
+    <div tal:omit-tag="" tal:condition="not: exists: errorMessage">
+    <block tal:comment="Stadt-Information"
+           tal:condition="city"
+           metal:use-macro="module_city">
+         Modul für die Stadt-Information
+    </block>
+    <block tal:comment="User-Information"
+           tal:condition="user"
+           metal:use-macro="module_user">
+         Modul für die User-Information
+    </block>
+    <block tal:comment="Allianz-Information"
+           tal:condition="alliance"
+           metal:use-macro="module_alliance">
+         Modul für die Allianz-Information
+    </block>
+    </div>
+</div>
+
+
+<block tal:comment=" === Stadt-Information =============================================="
+       tal:omit-tag=""
+       metal:define-macro="module_city">
+
+<h1>Stadt-Informationen</h1>
+<p tal:condition="city/image" id="image">
+	<img tal:attributes="src city/image; alt string:Stadtbild von Siedler ${city/owner} an der Position ${city/coords}"
+	     id="citypic" title="Stadtbild" />
+</p>
+
+<h2>Details</h2>
+<table summary="Details zur gewählten Stadt: Name, Position, Punktezahl, Besitzer der Stadt und dessen Allianz">
+	<tr>
+		<th>Stadtname</th>
+		<td tal:content="city/name">Stadtname</td>
+		<td class="actions"></td>
+	</tr>
+	<tr>
+		<th>Position</th>
+		<td tal:content="city/coords">0:0:0</td>
+		<td class="actions">&#187; <a tal:attributes="href string:./countries.php?continent=${city/continent}&country=${city/country}; title string: Länderübersicht bei Position ${city/coords} anzeigen">Länderübersicht anzeigen</a></td>
+	</tr>
+	<tr>
+		<th>Punkte</th>
+		<td tal:content="city/points">0</td>
+		<td class="actions"></td>
+	</tr>
+	<tr>
+		<th>Besitzer</th>
+		<td><a tal:attributes="href string:./information.php?type=u&name=${city/owner}; title string:mehr über Siedler ${city/owner} erfahren" tal:content="string:${city/owner} ${city/owner_affix}">Username</a></td>
+		<td class="actions">&#187; <a tal:attributes="href string:javascript:window.open('${etsAddress}/msgctr.php?action=write&puser=${city/owner}&msgtype=txt','msgctr','fullscreen=no,channelmode=no,toolbar=yes,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,width=810,height=700,top=5,left=5'); onclick string:javascript:window.open('${etsAddress}/msgctr.php?action=write&puser=${city/owner}&msgtype=txt','msgctr','fullscreen=no,channelmode=no,toolbar=yes,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,width=810,height=700,top=5,left=5');; return false; title string:Siedler ${city/owner} eine Nachricht schreiben">Nachricht schreiben</a></td>
+	</tr>
+	<tr>
+		<th>Allianz</th>
+		<td>
+			<a tal:attributes="href string:./information.php?type=a&name=${city/alliance}; title string:mehr über die Allianz ${city/alliance} erfahren" tal:content="city/alliance">Allianztag</a>
+			<span tal:condition="not: city/alliance" style="font-style:italic">(keine)</span> 
+		</td>
+		<td class="actions"><span tal:condition="city/alliance" tal:omit-tag="">&#187; <a tal:attributes="href string:./alliancelist.php?action=list&tag=${city/alliance}; title string:Mitgliederliste der Allianz ${city/alliance} anzeigen">Mitgliederliste anzeigen</a></span></td>
+	</tr>
+</table>
+
+<h2>Geschichte</h2>
+<table summary="Details zur Geschichte der Stadt: Gründung und Besitzerwechsel">
+	<tr tal:repeat="change city/history">
+		<th tal:condition="repeat/change/start">Gründung</th>
+		<th tal:condition="not: repeat/change/start">Eroberung</th>
+		<td>am <span tal:replace="change/date">01.01.1970</span> durch
+		    <a tal:attributes="href string:./information.php?type=u&name=${change/owner}; title string:mehr über Siedler ${change/owner} erfahren"
+		       tal:content="change/owner">USERNAME</a></td>
+	</tr>
+</table>
+
+<h2 tal:condition="city/text">Stadttext</h2>
+<div tal:condition="city/text"
+     tal:content="structure city/text"
+     id="text">Hier steht der Stadttext.</div>
+
+</block>
+
+
+<block tal:comment=" === User-Information ==============================================="
+       tal:omit-tag=""
+       metal:define-macro="module_user">
+                <h1>Siedler-Informationen</h1>
+                <p tal:condition="user/isKeeper"
+                   class="bewahrerInfo">
+                <span tal:replace="string:${user/name} ${user/name_affix}">T??feli</span> ist ein Bewahrer von Erde II.
+                </p>
+                <div id="tabContainer">
+                                <ul>
+                                                <li><a href="#section-details">User details</a></li>
+                                                <li><a href="#section-towns">Städte</a></li>
+                                                <li><a href="#section-stats">Flugstatistik</a></li>
+                                                <li><a href="#section-text">Usertext</a></li>
+                                                <li><a href="#section-medals">Medaillen</a></li>
+                                </ul>
+                                <div id= "section-details">
+                                <block metal:use-macro="udetails"></block>
+                        </div>
+                                <div id= "section-towns">
+                                <block metal:use-macro="utowns"></block>
+                        </div>
+                                <div id= "section-stats">
+                                <block metal:use-macro="ustats"></block>
+                        </div>
+                                <div id= "section-text">
+                                <block metal:use-macro="utext"></block>
+                        </div>
+                                <div id= "section-medals">
+                                <block metal:use-macro="umedals"></block>
+                        </div> 
+
+                </div>
+</block>
+
+                <block tal:comment=" === User details ==================================================="
+                       tal:omit-tag=""
+                       metal:define-macro="udetails">
+
+                                <h2>Details</h2>
+                                <table summary="Details zum gewählten Siedler: Name, Punkte und Allianz">
+                                        <tr>
+                                                <th>Username</th>
+                                                <td tal:content="string:${user/name} ${user/name_affix}">Username</td>
+                                                <td class="actions">&#187; <a tal:attributes="href string:javascript:window.open('${etsAddress}/msgctr.php?action=write&puser=${user/name}&msgtype=txt','msgctr','fullscreen=no,channelmode=no,toolbar=yes,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,width=810,height=700,top=5,left=5'); onclick string:javascript:window.open('${etsAddress}/msgctr.php?action=write&puser=${user/name}&msgtype=txt','msgctr','fullscreen=no,channelmode=no,toolbar=yes,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,width=810,height=700,top=5,left=5');; return false; title string:Siedler ${user/name} eine Nachricht schreiben">Nachricht schreiben</a></td>
+                                        </tr>
+                                        <tr>
+                                                <th>Punkte</th>
+                                                <td tal:content="user/points">0</td>
+                                                <td class="actions"></td>
+                                        </tr>
+                                        <tr>
+                                                <th>Stärke</th>
+                                                <td tal:content="user/power">0</td>
+                                                <td class="actions"></td>
+                                        </tr>
+                                        <tr>
+                                                <th>Ruhm</th>
+                                                <td tal:content="user/fame">0</td>
+                                                <td class="actions"></td>
+                                        </tr>
+                                        <tr>
+                                                <th>Allianz</th>
+                                                <td>
+                                                        <a tal:condition="user/alliance" tal:attributes="href string:./information.php?type=a&name=${user/alliance}; title string:mehr über die Allianz ${user/alliance} erfahren" tal:content="user/alliance">Allianztag</a>
+                                                        <span tal:condition="not: user/alliance" style="font-style:italic">(keine)</span>
+                                                </td>
+                                                <td class="actions"><span tal:condition="user/alliance" tal:omit-tag="">&#187; <a tal:attributes="href string:./alliancelist.php?action=list&tag=${user/alliance}; title string:Mitgliederliste der Allianz ${user/alliance} anzeigen">Mitgliederliste anzeigen</a></span></td>
+                                        </tr>
+                                </table>
+
+                </block>
+
+                <block tal:comment=" === User Städte ==================================================="
+                       tal:omit-tag=""
+                       metal:define-macro="utowns">
+
+                                <h2>Städte</h2>
+                                <table summary="Liste der Städte des gewählten Siedlers">
+                                        <tr tal:repeat="city user/cities" tal:define="i string:0">
+                                                <th tal:condition="city/isCapital">Hauptstadt</th>
+                                                <th tal:condition="not: city/isCapital">Kolonie <span tal:content="php:++i">0</span></th>
+                                                <td><a tal:content="string: ${city/coords}" tal:attributes="href string:./information.php?type=c&name=${city/coords}">0:0:0</a></td>
+                                                <td tal:content="string: ${city/city_name}">Neue Stadt</td>
+                                                <td class="actions">&#187; <a tal:attributes="href string:./countries.php?continent=${city/continent}&country=${city/country}; title string: Länderübersicht bei Position ${city/coords} anzeigen">Länderübersicht anzeigen</a></td>
+                                        </tr>
+                                </table>
+
+                </block>
+
+                <block tal:comment=" === User Flugstatistik ==================================================="
+                       tal:omit-tag=""
+                       metal:define-macro="ustats">
+
+                                <h2 tal:condition="exists: flightstats2">Flugstatistik</h2>
+                                <span tal:replace="structure flightstats">Flugstatistik</span>
+
+                </block>
+
+                <block tal:comment=" === Medaillen ==================================================="
+                       tal:omit-tag=""
+                       metal:define-macro="umedals">
+                       
+                                <h2>Medaillen</h2>
+				<span tal:replace="structure medals">Hier werden Medaillen zu sehen sein</span>
+				
+				</block>
+
+
+                <block tal:comment=" === Usertext ==================================================="
+                       tal:omit-tag=""
+                       metal:define-macro="utext">
+
+                                <h2 tal:condition="user/text">Usertext</h2>
+                                <div tal:condition="user/text"
+									 tal:content="structure user/text"
+									 id="text">Hier steht der Usertext.</div>
+
+                </block>
+
+
+
+
+
+<block tal:comment=" === Allianz-Information ============================================"
+       tal:omit-tag=""
+       metal:define-macro="module_alliance">
+
+<h1>Allianz-Informationen</h1>
+<p tal:condition="alliance/isKeeper"
+   class="bewahrerInfo">
+<span tal:replace="string:${alliance/name}">Allianzname</span> ist ein Bewahrer von Erde II.
+</p>
+
+<p tal:condition="alliance/image" id="image">
+	<img tal:attributes="src alliance/image; alt string:Bild der Allianz ${alliance/name}"
+	     id="allypic" title="Allianzbild" />
+</p>
+
+<h2>Details</h2>
+<table summary="Details zur gewählten Allianz: Name, Kürzel, Mitgliederzahl, Punkte und -durchschnitt sowie Link zur Webseite">
+	<tr>
+		<th>Allianzname</th>
+		<td tal:content="alliance/name">Allianzname</td>
+		<td class="actions"></td>
+	</tr>
+	<tr>
+		<th>Kürzel</th>
+		<td tal:content="alliance/tag">Allianz-TAG</td>
+		<td class="actions"></td>
+	</tr>
+	<tr>
+		<th>Mitglieder</th>
+		<td tal:content="alliance/members">0</td>
+		<td class="actions">&#187; <a tal:attributes="href string:./alliancelist.php?action=list&tag=${alliance/tag}; title string:Mitgliederliste der Allianz ${alliance/name} anzeigen">Mitgliederliste anzeigen</a></td>
+	</tr>
+	<tr>
+		<th>Grösse (Schnitt)</th>
+		<td>
+			<span tal:replace="php: number_format(alliance['points'],0,',','.')">10.000</span>
+			(<span tal:replace="php: number_format(round(alliance['points']/alliance['members']),0,',','.')">2000</span>)
+		</td>
+		<td class="actions"></td>
+	</tr>
+	<tr>
+		<th>Stärke (Schnitt)</th>
+		<td>
+			<span tal:replace="php: number_format(alliance['power'],0,',','.')">5.000</span>
+			(<span tal:replace="php: number_format(round(alliance['power']/alliance['members']),0,',','.')">1000</span>)
+		</td>
+		<td class="actions"></td>
+	</tr>
+	<tr>
+		<th>Ruhm (Schnitt)</th>
+		<td>
+			<span tal:replace="php: number_format(alliance['fame'],0,',','.')">5.000</span>
+			(<span tal:replace="php: number_format(round(alliance['fame']/alliance['members']),0,',','.')">1000</span>)
+		</td>
+		<td class="actions"></td>
+	</tr>
+	<tr tal:condition="alliance/link">
+		<th>Webseite</th>
+		<td colspan="2">
+			<a tal:attributes="href alliance/link; title string:Link zur Webseite der Allianz ${alliance/name}" target="_blank"
+			   tal:content="alliance/link">Link</a>
+		</td>
+	</tr>
+</table>
+
+<table summary="Details zu den Bündnissen und Feinden, die die gewählte Allianz hat"
+       tal:condition="php: alliance['military_alliances'] || alliance['trade_alliances'] || alliance['naps'] || alliance['enemies']">
+	<tr tal:condition="alliance/military_alliances">
+		<th>Kampf-Bündnis</th>
+		<td tal:content="structure alliance/military_alliances">Bündnisse</td>
+	</tr>
+	<tr tal:condition="alliance/trade_alliances">
+		<th>Handels-Bündnis</th>
+		<td tal:content="structure alliance/trade_alliances">Bündnisse</td>
+	</tr>
+	<tr tal:condition="alliance/naps">
+		<th>Nichtangriffspakt</th>
+		<td tal:content="structure alliance/naps">NAP</td>
+	</tr>
+	<tr tal:condition="alliance/enemies">
+		<th>Erklärter Feind</th>
+		<td tal:content="structure alliance/enemies">Feind</td>
+	</tr>
+</table>
+
+<h2>Kriege</h2>
+<table summary="Details zu den Bündnissen und Feinden, die die gewählte Allianz hat">
+	<tr>
+		<th>Offene Kriege</th>
+		<td>
+			<tal:block tal:repeat="war alliance/open_wars">
+                        <a tal:attributes="href string:${war_status_file}?id=${war/id}" tal:content="string:${war/challenger_string} gegen ${war/opponent_string}" >A vs. B</a>
+			</tal:block>
+			<span tal:condition="not: alliance/open_wars">keine</span>
+		</td>
+	</tr>
+	<tr>
+		<th>Gewonnene Kriege</th>
+		<td>
+			<tal:block tal:repeat="war alliance/won_wars">
+                        <a tal:attributes="href string:${war_status_file}?id=${war/id}" tal:content="string:${war/challenger_string} gegen ${war/opponent_string}" >A vs. B</a><br />
+			</tal:block>
+			<span tal:condition="not: alliance/won_wars">keine</span>
+		</td>
+	</tr>
+	<tr>
+		<th>Verlorene Kriege</th>
+		<td>
+			<tal:block tal:repeat="war alliance/lost_wars">
+                        <a tal:attributes="href string:${war_status_file}?id=${war/id}" tal:content="string:${war/challenger_string} gegen ${war/opponent_string}" >A vs. B</a><br />
+			</tal:block>
+			<span tal:condition="not: alliance/lost_wars">keine</span>
+		</td>
+	</tr>
+</table>
+
+<h2 tal:condition="alliance/text">Allianztext</h2>
+<div tal:condition="alliance/text"
+     tal:content="structure alliance/text"
+     id="text">Hier steht der Allianztext.</div>
+
+</block>

@@ -1,0 +1,228 @@
+<div tal:comment=" === Seitenstruktur ==================================================="
+     id="contentStats"
+     metal:define-macro="content">
+
+    <p
+        tal:comment="error content if there is any"
+        tal:condition="exists: errorMessage"
+        tal:replace="structure errorMessage">
+    </p>
+
+    <div tal:omit-tag="" tal:condition="not: exists: errorMessage">
+
+        <h1>Revision ${revNo} - ${revName}</h1>
+
+          <table id="rangListe">
+          <tr>
+            <td class="titel">Spenden</td>
+            <td class="wert">
+                <a tal:attributes="href string:./stats_ets9S.php?action=donations">Bewahrer</a>
+            </td>
+          </tr>
+          <tr>
+            <td class="titel">Städte</td>
+            <td class="wert">
+             <a tal:attributes="href string:./stats_ets9S.php?action=cities" title="Top 50">Grösse</a>
+            </td>
+          </tr>
+          <tr>
+            <td class="titel">Siedler</td>
+            <td class="wert">
+            <a tal:attributes="href string:./stats_ets9S.php?action=users_score" title="Top 50">Grösse</a> - <a tal:attributes="href string:./stats_ets9S.php?action=users_power" title="Top 50">Stärke</a> - <a tal:attributes="href string:./stats_ets9S.php?action=users_fame">Ruhm</a>
+            </td>
+          </tr>
+          <tr>
+            <td class="titel">Allianzen</td>
+            <td class="wert">
+            <a tal:attributes="href string:./stats_ets9S.php?action=alliances_score" title="Top 50">Grösse</a> - <a tal:attributes="href string:./stats_ets9S.php?action=alliances_power" title="Top 50">Stärke</a> - <a tal:attributes="href string:./stats_ets9S.php?action=alliances_fame" title="Top 50">Ruhm</a>
+            </td>
+          </tr>
+          <tr>
+            <td class="titel">Rundenzahlen</td>
+            <td class="wert">
+             <a tal:attributes="href string:./stats_ets9S.php?action=statistics">Allgemein</a> - <a
+             tal:attributes="href string:./stats_ets9S.php?action=upgradings" title="Top 10">Ausbaustufen</a>
+            </td>
+          </tr>
+          <tr>
+            <td class="titel">Andere Runden</td>
+            <td class="wert">
+             <a href="stats.php">Archiv</a>
+            </td>
+          </tr>
+        </table>
+
+
+    <div tal:condition="exists: statistics" id="blockCommonStats">
+        <h2>Rundenzahlen - Allgemein</h2>
+
+        <table>
+            <tr tal:repeat="statistic statistics_data">
+              <th tal:content="php: utf8_decode(statistic.id)"/>
+              <td>
+                <span tal:omit-tag="" tal:repeat="value statistic/values/value">
+                  <span tal:content="php: utf8_decode(value.amount)"/>
+                  <span tal:omit-tag="" tal:condition="not: repeat/value/end"> -</span>
+                </span>
+              </td>
+            </tr>
+        </table>
+    </div>
+
+    <div tal:condition="exists: upgradings" id="blockExpansionStats">
+        <h3>Rundenzahlen - Ausbaustufen - Top 10</h3>
+        <br />
+
+        <table>
+            <tr tal:repeat="upgrading upgradings_data">
+              <th tal:content="php: utf8_decode(upgrading.id)"/>
+              <td>
+                <span tal:omit-tag="" tal:repeat="value upgrading/values/value">
+                  <span tal:attributes="title php: utf8_decode(value.id)" tal:content="php: utf8_decode(value.amount)"/>
+                  <span tal:omit-tag="" tal:condition="not: repeat/value/end"> -</span>
+                </span>
+              </td>
+            </tr>
+        </table>
+    </div>
+
+
+    <div tal:condition="exists: cities" id="blockCitiesSize">
+    <h3>Städte - Grösse - Top 50</h3>
+
+        <table id="citiesSize">
+        <tr>
+          <th class="rang">Rang</th>
+          <th class="stadt">Stadt</th>
+          <th class="name">Name (Allianz)</th>
+          <th class="groesse">Grösse</th>
+        </tr>
+        <tr tal:repeat="city_points cities_data">
+          <td class="rang" tal:content="repeat/city_points/number"/>
+          <td class="stadt" tal:content="php: utf8_decode(city_points.city_name)"/>
+          <td class="name" tal:content="php: utf8_decode(city_points.user) . ' (' . utf8_decode(city_points.alliance) . ')'"/>
+          <td class="groesse" tal:content="php: utf8_decode(city_points.points)"/>
+        </tr>
+        </table>
+    </div>
+
+    <div tal:condition="exists: users_score" id="blockUserSize">
+    <h2>Siedler - Grösse - Top 50</h2>
+
+        <table>
+        <tr>
+          <th>Rang</th>
+          <th>Name (Allianz)</th>
+          <th>Grösse</th>
+        </tr>
+        <tr tal:repeat="user_points users_score_data">
+          <td tal:content="repeat/user_points/number"/>
+          <td tal:content="php: utf8_decode(user_points.user) . ' (' . utf8_decode(user_points.alliance) . ')'"/>
+          <td tal:content="php: utf8_decode(user_points.points)"/>
+        </tr>
+        </table>
+    </div>
+
+    <div tal:condition="exists: users_power" id="blockUserStrength">
+    <h2>Siedler - Stärke - Top50</h2>
+
+        <table>
+        <tr>
+          <th>Rang</th>
+          <th>Name (Allianz)</th>
+          <th>Stärke</th>
+        </tr>
+        <tr tal:repeat="user_power users_power_data">
+          <td tal:content="repeat/user_power/number"/>
+          <td tal:content="php: utf8_decode(user_power.user) . ' (' . utf8_decode(user_power.alliance) . ')'"/>
+          <td tal:content="php: utf8_decode(user_power.power)"/>
+        </tr>
+        </table>
+    </div>
+
+    <div tal:condition="exists: users_fame" id="blockUserFame">
+    <h2>Siedler - Ruhm - Top 50</h2>
+
+        <table>
+        <tr>
+          <th>Rang</th>
+          <th>Name (Allianz)</th>
+          <th>Ruhm</th>
+        </tr>
+        <tr tal:repeat="user_fame users_fame_data">
+          <td tal:content="repeat/user_fame/number"/>
+          <td tal:content="php: utf8_decode(user_fame.user) . ' (' . utf8_decode(user_fame.alliance) . ')'"/>
+          <td tal:content="php: utf8_decode(user_fame.fame)"/>
+        </tr>
+        </table>
+    </div>
+
+    <div tal:condition="exists: donations" id="blockUserSponsors">
+        <h2>Siedler - Spenden</h2>
+        <p>Die Bewahrer dieser Runde waren nur wenige, aber tapfer.</p>
+        <p>Vielen Dank! Und jetzt wieder alle!</p>
+        <p id="sponsors"><span
+            class="bewahrer" tal:repeat="user_donation donations_data"><span
+            tal:omit-tag="" tal:content="php: utf8_decode(user_donation)">Testmann</span><span
+            tal:omit-tag="" tal:condition="not: repeat/user_donation/end">&nbsp;- </span></span></p>
+    </div>
+
+    <div tal:condition="exists: alliances_score" id="blockAllySize">
+    <h2>Allianzen - Grösse Top 50</h2>
+
+        <table>
+        <tr>
+          <th>Rang</th>
+          <th>Name</th>
+          <th>Mitglieder</th>
+          <th>Grösse</th>
+        </tr>
+        <tr tal:repeat="alliance_points alliances_score_data">
+          <td tal:content="repeat/alliance_points/number"/>
+          <td tal:content="php: utf8_decode(alliance_points.tag)"/>
+          <td tal:content="php: utf8_decode(alliance_points.members)"/>
+          <td tal:content="php: utf8_decode(alliance_points.points)"/>
+        </tr>
+        </table>
+    </div>
+
+    <div tal:condition="exists: alliances_power" id="blockAllyStrength">
+    <h2>Allianzen - Stärke - Top 50</h2>
+
+        <table>
+        <tr>
+          <th>Rang</th>
+          <th>Name</th>
+          <th>Mitglieder</th>
+          <th>Stärke</th>
+        </tr>
+        <tr tal:repeat="alliance_power alliances_power_data">
+          <td tal:content="repeat/alliance_power/number"/>
+          <td tal:content="php: utf8_decode(alliance_power.tag)"/>
+          <td tal:content="php: utf8_decode(alliance_power.members)"/>
+          <td tal:content="php: utf8_decode(alliance_power.power)"/>
+        </tr>
+        </table>
+    </div>
+
+    <div tal:condition="exists: alliances_fame" id="blockAllyFame">
+    <h2>Allianzen - Ruhm - Top 50</h2>
+
+        <table>
+        <tr>
+          <th>Rang</th>
+          <th>Name</th>
+          <th>Mitglieder</th>
+          <th>Ruhm</th>
+        </tr>
+        <tr tal:repeat="alliance_fame alliances_fame_data">
+          <td tal:content="repeat/alliance_fame/number"/>
+          <td tal:content="php: utf8_decode(alliance_fame.tag)"/>
+          <td tal:content="php: utf8_decode(alliance_fame.members)"/>
+          <td tal:content="php: utf8_decode(alliance_fame.fame)"/>
+        </tr>
+        </table>
+    </div>
+
+    </div>
+</div>

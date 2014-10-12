@@ -1,0 +1,636 @@
+<div tal:comment="set structure"
+     id="contentWarAdmin"
+     metal:define-macro="content">
+
+<script type="text/javascript">
+$(function () {
+    jQuery.gui({depends: [
+    // radio buttons
+        { element:"*[@name='config[war][begin][mode]']",   number:0, data: { onSelect:  { hide:[".startDateBlock"] } } },
+        { element:"*[@name='config[war][begin][mode]']",   number:1, data: { onSelect:  { show:[".startDateBlock"] } } },
+        { element:"*[@name='config[war][end][timemode]']", number:0, data: { onSelect:  { show:[".endDateBlock"], hide: [".endDaysBlock"] } } },
+        { element:"*[@name='config[war][end][timemode]']", number:1, data: { onSelect:  { show:[".endDaysBlock"], hide: [".endDateBlock"] } } },
+        { element:"*[@name='config[war][options][nofly][mode]']", number:0, data: { onSelect:  { show:[".dailyTimeBlock"], hide: [".periodeDateBlock"] } } },
+        { element:"*[@name='config[war][options][nofly][mode]']", number:1, data: { onSelect:  { show:[".periodeDateBlock"], hide: [".dailyTimeBlock"] } } },
+    // checkboxes
+        { element:"*[@name='config[war][end][opt_kololost]']", data: { onDeselect:{ hide:[".endKolosBlock"]}, onSelect:{show:[".endKolosBlock"]}} },
+        { element:"*[@name='config[war][end][opt_memberlost]']", data: { onDeselect:{ hide:[".membersBlock"]}, onSelect:{show:[".membersBlock"]}} },
+        { element:"*[@name='config[war][end][opt_time]']", data: {
+            onDeselect:{ hide:[".timeModeBlock",".daysModeBlock",".endDateBlock",".endDaysBlock"]},
+            onSelect:  { show:[".timeModeBlock",".daysModeBlock"], signal:["*[@name='config[war][end][timemode]']"]}
+          }
+        },
+        { element:"*[@name='config[war][options][no_fly]']", data: {
+            onDeselect:{ hide:[".dailyBlock",".periodBlock",".dailyTimeBlock",".periodeDateBlock"]},
+            onSelect:  { show:[".dailyBlock",".periodBlock"], signal:["*[@name='config[war][options][nofly][mode]']"]}
+          }
+        }
+    ]});
+});
+</script>
+
+    <span
+        tal:condition="exists: errorMessage"
+        tal:comment="error content if there is any"
+        tal:replace="structure errorMessage"
+    />
+
+    <block  tal:comment="war admin content"
+            tal:omit-tag=""
+            tal:condition="not: exists: errorMessage">
+
+        <h1 class="headline">Kriegsverhandlung</h1>
+
+        <div id="tabContainer">
+            <ul>
+                <block tal:comment="negotiation x"
+                       tal:repeat="neg negotiations"
+                       tal:condition="not: inWar"
+                       tal:omit-tag="">
+
+                <li>
+                  <a tal:attributes="href string:#section-${repeat/neg/number};
+                                     title php: neg['_opponents'] ? '|Aktive Verhandlung mit: '.neg['_opponents'] : '|Neue Kriegsverhandlung eröffnen' "
+                     class="info2">
+                      <span tal:condition="neg/id"
+                            tal:content="php: substr(neg['_opponents'], 0, 10)">Gegner</span>
+                      <span tal:condition="not: neg/id">Neu</span>
+                  </a>
+                </li>
+                </block>
+
+                <li tal:condition="inWar">
+                    <a href="#section-war">
+                        <span class="inWar info">aktueller Krieg</span>
+                    </a>
+                </li>
+            </ul>
+
+            <div id="warErrorList"
+                 tal:condition="exists: errorList"
+                 tal:content="structure errorList">
+                Liste mit Fehlern
+            </div>
+
+            <block tal:comment="negotiation x"
+                   tal:repeat="neg negotiations"
+                   tal:condition="not: inWar"
+                   tal:omit-tag="">
+
+                <div tal:attributes="id string:section-${repeat/neg/number}">
+                    <block tal:omit-tag="" metal:use-macro="war_form"></block>
+                </div>
+            </block>
+
+            <div id='section-war' tal:condition="inWar">
+                <block tal:omit-tag="" metal:use-macro="war_contract"></block>
+            </div>
+
+        </div>
+
+    </block>
+</div>
+
+
+
+
+<block tal:comment="tabContent: negotation"
+       tal:omit-tag=""
+       metal:define-macro="war_form">
+
+    <noscript>
+        <h1 tal:condition="not: neg/id">Neue Verhandlung beginnen</h1>
+        <h1 tal:content="string: Verhandlung mit ${neg/_opponents}"
+            tal:condition="neg/id">Gegner</h1>
+    </noscript>
+
+    <form action="./war_admin.php"
+          method="post"
+          tal:condition="not: inWar"
+          tal:define="config neg/config/war" >
+
+        <input type="hidden" name="id" tal:attributes="value neg/id" />
+
+<!-- Anfang -->
+
+        <h2>Parteien</h2>
+
+        <div class="formLineBlock opponentsBlock">
+        <label class="info"
+               title="|Wähle einen oder mehrere Kriegsgegner">Gegner*</label>
+        <input class="inputText"
+               name="config[war][opponents]"
+               tal:attributes="value neg/_opponents"
+               size="40"
+               maxlength="255" />
+        </div>
+
+         <div class="formLineBlock alliesBlock">
+        <label class="info"
+               title="|Wähle einen oder mehrere Verbündete">Partner</label>
+        <input class="inputText"
+               name="config[war][allies]"
+               tal:attributes="value neg/_allies"
+               size="40"
+               maxlength="255" />
+        </div>
+
+<!-- Beginn -->
+
+        <h2>Beginn</h2>
+
+        <div class="formLineBlock modeAcceptBlock">
+            <label>Krieg beginnt</label>
+            <input class="inputRadio"
+                   type="radio"
+                   name="config[war][begin][mode]"
+                   value="accept"
+                   tal:attributes="checked php:config['begin']['mode']=='date' ? false : 'checked'" />
+            <span>mit Annahme der Kriegserklärung</span>
+        </div>
+        <div class="formLineBlock modeDateBlock">
+            <label class="invisible">Krieg beginnt</label>
+            <input class="inputRadio"
+                   type="radio"
+                   name="config[war][begin][mode]"
+                   value="date"
+                   tal:attributes="checked php:config['begin']['mode']=='date' ? 'checked' : false" />
+            <span>an einem bestimmten Datum</span>
+        </div>
+        <div tal:attributes="class php: config['begin']['date']=='' ? 'formLineBlock startDateBlock hidden' : 'formLineBlock startDateBlock'">
+            <label>Datum</label>
+            <input class="inputText"
+                   type="text"
+                   name="config[war][begin][date]"
+                   size="10"
+                   maxlength="10"
+                   tal:attributes="value config/begin/date" />
+        </div>
+
+<!-- Ende -->
+
+        <h2>Ende</h2>
+
+        <p>Der Krieg endet, sobald eine der Siegbedingungen erfüllt
+        wurde oder eine festgelegte Zeit verstrichen ist.</p>
+
+        <div class="formLineBlock opt_timeBlock">
+            <label>Der Krieg endet</label>
+            <input class="inputCheck"
+                   type="checkbox"
+                   name="config[war][end][opt_time]"
+                   value="1"
+                   tal:attributes="checked php: config['end']['opt_time'] ? 'checked' : false"/>
+            <span>nach Ablauf einer Frist</span>
+        </div>
+
+        <div tal:attributes="class php: config['end']['opt_time'] ? 'formLineBlock timeModeBlock' : 'formLineBlock timeModeBlock hidden'">
+            <label>Frist endet</label>
+            <input class="inputRadio timeModeRadio"
+                   type="radio"
+                   name="config[war][end][timemode]"
+                   value="date"
+                   tal:attributes="checked php: config['end']['timemode']=='days' ? false : 'checked'" />
+            <span>an einem bestimmten Datum</span>
+        </div>
+
+        <div tal:attributes="class php: config['end']['opt_time'] ? 'formLineBlock daysModeBlock' : 'formLineBlock daysModeBlock hidden'">
+            <label>Frist endet</label>
+            <input class="inputRadio daysModeRadio"
+                   type="radio"
+                   name="config[war][end][timemode]"
+                   value="days"
+                   tal:attributes="checked php: config['end']['timemode']=='days' ? 'checked' : false" />
+            <span>nach vergangenen Tagen</span>
+        </div>
+
+        <div tal:attributes="class php: config['end']['opt_time'] AND config['end']['timemode']=='days' ? 'formLineBlock endDateBlock' : 'formLineBlock endDateBlock hidden'">
+            <label>Datum</label>
+            <input class="inputText"
+                   type="text"
+                   name="config[war][end][date]"
+                   size="10"
+                   maxlength="10"
+                   tal:attributes="value config/end/date" />
+        </div>
+
+        <div tal:attributes="class php: config['end']['opt_time']AND config['end']['timemode']=='days' ? 'formLineBlock endDaysBlock' : 'formLineBlock endDaysBlock hidden'">
+            <label>Tage</label>
+            <input class="inputText"
+                   type="text"
+                   name="config[war][end][days]"
+                   size="3" maxlength="3"
+                   tal:attributes="value config/end/days" />
+        </div>
+
+<!-- Niederlage -->
+
+        <h2>Niederlage</h2>
+
+        <p>Der Krieg gilt als verloren, sobald eine der folgenden Bedingungen eingetreten ist.</p>
+
+        <div class="formLineBlock opt_kololostBlock">
+            <label>Schwächung</label>
+            <input type="checkbox"
+                   class="inputCheck"
+                   name="config[war][end][opt_kololost]"
+                   value="1" tal:attributes="checked config/end/opt_kololost" />
+            <span>durch Verlust von Kolonien</span>
+        </div>
+
+        <div tal:attributes="class php: config['end']['opt_kololost']=='' ? 'formLineBlock endKolosBlock hidden' : 'formLineBlock endKolosBlock'">
+            <label>Anzahl der Kolonien</label>
+            <input type="text"
+                   name="config[war][end][kolos]"
+                   size="3"
+                   maxlength="3"
+                   tal:attributes="value config/end/kolos" />
+        </div>
+
+        <div class="formLineBlock opt_memberlostBlock">
+            <label>Kriegsmüdigkeit</label>
+            <input type="checkbox"
+                   class="inputCheck"
+                   name="config[war][end][opt_memberlost]"
+                   value="1"
+                   tal:attributes="checked config/end/opt_memberlost" />
+            <span>durch den Ausfall von Mitgliedern</span>
+        </div>
+
+        <div tal:attributes="class php: config['end']['opt_memberlost']=='' ? 'formLineBlock membersBlock hidden' : 'formLineBlock membersBlock'">
+            <label>Anzahl der Mitglieder</label>
+            <input type="text"
+                   name="config[war][end][members]"
+                   size="3"
+                   maxlength="3"
+                   tal:attributes="value config/end/members" />
+        </div>
+
+        <div class="formLineBlock no_newBlock">
+            <label>Ungleichgewicht</label>
+            <input type="checkbox"
+                   class="inputCheck"
+                   name="config[war][options][no_new]"
+                   value="1"
+                   tal:attributes="checked config/options/no_new" />
+            <span>durch Aufnahme von Mitgliedern</span>
+        </div>
+        <div class="formLineBlock no_vacationBlock">
+            <label>Reiselust</label>
+            <input type="checkbox"
+                   class="inputCheck"
+                   name="config[war][options][no_vacation]"
+                   value="1"
+                   tal:attributes="checked config/options/no_vacation" />
+            <span>durch Urlaubsantritt von Mitgliedern</span>
+        </div>
+
+        <div class="formLineBlock no_leaveBlock">
+            <label>Desertation</label>
+            <input type="checkbox"
+                   class="inputCheck"
+                   name="config[war][options][no_leave]"
+                   value="1"
+                   tal:attributes="checked config/options/no_leave" />
+            <span>durch Austritt von Mitgliedern</span>
+        </div>
+
+        <div class="formLineBlock no_flyBlock">
+            <label>Ehrlosigkeit</label>
+            <input type="checkbox"
+                   class="inputCheck"
+                   name="config[war][options][no_fly]"
+                   value="1"
+                   tal:attributes="checked config/options/no_fly" />
+            <span>durch Bruch der Waffenruhe</span>
+        </div>
+
+        <div tal:attributes="class php: config['options']['no_fly']=='' ? 'formLineBlock dailyBlock hidden' : 'formLineBlock dailyBlock'">
+            <label>Art der Waffenruhe</label>
+            <input class="inputRadio dailyRadio"
+                   type="radio"
+                   name="config[war][options][nofly][mode]"
+                   value="daily"
+                   tal:attributes="checked php:config['options']['nofly']['mode']=='period' ? false : 'checked'" />
+            <span>Täglich</span>
+        </div>
+
+        <div tal:attributes="class php: config['options']['no_fly']=='' ? 'formLineBlock periodBlock hidden' : 'formLineBlock periodBlock'">
+            <label class="invisible">Art der Waffenruhe</label>
+            <input class="inputRadio periodRadio"
+                   type="radio"
+                   name="config[war][options][nofly][mode]"
+                   value="period"
+                   tal:attributes="checked php:config['options']['nofly']['mode']=='period' ? 'checked' : false" />
+            <span>Zeitraum</span>
+        </div>
+
+        <div tal:attributes="class php: config['options']['no_fly'] AND config['options']['nofly']['mode']=='dayli' ? 'formLineBlock dailyTimeBlock' : 'formLineBlock dailyTimeBlock hidden'">
+            <label>Täglich von</label>
+            <input type="text"
+                   name="config[war][options][nofly][daily_from]"
+                   size="5"
+                   maxlength="5"
+                   tal:attributes="value config/options/nofly/daily_from" />
+            <span>bis</span>
+            <input type="text"
+                   name="config[war][options][nofly][daily_until]"
+                   size="5"
+                   maxlength="5"
+                   tal:attributes="value config/options/nofly/daily_until" />
+            <span>Uhr</span>
+        </div>
+
+        <div tal:attributes="class php: config['options']['no_fly'] AND config['options']['nofly']['mode']=='period' ? 'formLineBlock periodeDateBlock' : 'formLineBlock periodeDateBlock hidden'">
+            <label>Datum von</label>
+            <input type="text"
+                   name="config[war][options][nofly][date_from]"
+                   size="10"
+                   maxlength="10"
+                   tal:attributes="value config/options/nofly/date_from" />
+            <span>bis</span>
+            <input type="text"
+                   name="config[war][options][nofly][date_until]"
+                   size="10"
+                   maxlength="10"
+                   tal:attributes="value config/options/nofly/date_until" />
+        </div>
+
+<!-- Entscheidungen -->
+
+        <h2>Entscheidung</h2>
+
+        <div class="formLineBlock declareBlock">
+            <label class="invisible"
+                   tal:condition="not: neg/id">Anzetteln</label>
+            <input type="submit"
+                   name="action"
+                   value="Krieg anzetteln"
+                   tal:condition="not: neg/id" />
+        </div>
+
+        <div class="formLineBlock modifyBlock">
+            <label class="invisible"
+                   tal:condition="php: neg['id'] && neg['accepted']=='N'">Anbieten</label>
+            <input type="submit"
+                   name="action"
+                   value="Geändertes Angebot absenden"
+                   tal:condition="php: neg['id'] && neg['accepted']=='N'" />
+        </div>
+
+        <div class="formLineBlock acceptBlock">
+            <label class="invisible"
+                   tal:condition="php: neg['id'] && neg['accepted']=='N'">Annehmen</label>
+            <input type="submit"
+                   name="action"
+                   value="Krieg annehmen"
+                   tal:condition="php: neg['id'] && neg['accepted']=='N'" />
+        </div>
+
+        <div class="formLineBlock refuseBlock">
+            <label class="invisible"
+                   tal:condition="php: neg['id'] && neg['accepted']=='N'">Ablehnen</label>
+            <input type="submit"
+                   name="action"
+                   value="Verhandlung ablehnen"
+                   tal:condition="php: neg['id'] && neg['accepted']=='N'" />
+        </div>
+
+        <div class="formLineBlock refuseBlock">
+            <label class="invisible"
+                   tal:condition="php: neg['id'] && neg['accepted']=='Y'">Abbrechen</label>
+            <input type="submit"
+                   name="action"
+                   value="Verhandlung abbrechen"
+                   tal:condition="php: neg['id'] && neg['accepted']=='Y'" />
+        </div>
+
+    </form>
+</block>
+
+
+
+
+
+<block tal:comment="tabContent: negotation"
+       tal:omit-tag=""
+       metal:define-macro="war_contract">
+
+    <block tal:repeat="war wars"
+           tal:omit-tag="">
+
+        <block tal:condition="inWar"
+               tal:omit-tag=""
+               tal:define="config war/config/war">
+
+        <h2 class="headline">Parteien</h2>
+
+        <div class="formLineBlock opponentsBlock">
+        <label class="info"
+               title="|Du und deine Verbündeten">Partei A</label>
+        <span tal:content="war/challenger_string">Partner</span>
+        </div>
+
+        <div class="formLineBlock alliesBlock">
+        <label class="info"
+               title="|Deine Gegner">Partei B</label>
+        <span tal:content="war/opponent_string">Gegner</span>
+        </div>
+
+        <h2 class="headline">Beginn</h2>
+
+        <div class="formLineBlock modeAcceptBlock">
+            <label>Der Krieg beginnt</label>
+            <span tal:condition="php: config['begin']['mode']=='accept'">
+                    mit Annahme der Kriegserklärung</span>
+            <span tal:condition="php: config['begin']['mode']=='date'">
+                    am <span tal:replace="config/begin/date">22.22.2222</span></span>
+        </div>
+
+        <h2 class="headline">Ende</h2>
+
+        <div class="formLineBlock opt_timeBlock">
+            <label>Der Krieg endet</label>
+            <p tal:condition="config/end/opt_time">
+            <span tal:condition="php: config['end']['timemode']=='date'">
+                am <span tal:replace="config/end/date">22.22.2222</span> (*)</span>
+            <span tal:condition="php: config['end']['timemode']=='days'">
+                nach <span tal:replace="config/end/days">7</span> Tagen (*)</span>
+                <span tal:condition="php: config['end']['opt_kololost'] || config['end']['opt_memberlost'] || config['options']['no_fly'] || config['options']['no_new'] || config['options']['no_vacation'] || config['options']['no_leave']">
+                <br />oder sobald eine der Siegbedingungen erfüllt ist</span>
+            </p>
+            <span tal:condition="not: config/end/opt_time">
+                sobald eine der Siegbedingungen erfüllt ist</span>
+        </div>
+
+        <block tal:condition="php: config['end']['opt_kololost'] || config['end']['opt_memberlost'] || config['options']['no_fly'] || config['options']['no_new'] || config['options']['no_vacation'] || config['options']['no_leave']">
+        <h2 class="headline">Niederlage</h2>
+
+        <p>Der Krieg gilt als verloren, sobald eine der folgenden Bedingungen eingetreten ist.</p>
+
+        <div class="formLineBlock opt_kololostBlock" tal:condition="config/end/opt_kololost">
+            <label>Schwächung</label>
+            <span>durch Verlust von <span tal:replace="config/end/kolos">23</span> Kolonien</span>
+        </div>
+
+        <div class="formLineBlock opt_memberlostBlock" tal:condition="config/end/opt_memberlost">
+            <label>Kriegsmüdigkeit</label>
+            <span>durch den Ausfall von <span tal:replace="config/end/members">23</span> Mitgliedern (**,***)</span>
+        </div>
+
+        <div class="formLineBlock no_newBlock" tal:condition="config/options/no_new">
+            <label>Ungleichgewicht</label>
+            <span>durch Aufnahme von Mitgliedern</span>
+        </div>
+
+        <div class="formLineBlock no_vacationBlock" tal:condition="config/options/no_vacation">
+            <label>Reiselust</label>
+            <span>durch Urlaubsantritt von Mitgliedern</span>
+        </div>
+
+        <div class="formLineBlock no_leaveBlock" tal:condition="config/options/no_leave">
+            <label>Desertation</label>
+            <span>durch Austritt von Mitgliedern</span>
+        </div>
+
+        <block tal:condition="config/options/no_fly">
+        <div class="formLineBlock no_flyBlock">
+            <label>Ehrlosigkeit</label>
+            <span>durch Bruch der Waffenruhe</span>
+        </div>
+
+        <div tal:condition="php: config['options']['nofly']['mode']=='daily'">
+            <label class="invisible">Waffenruhe</label>
+            <span>
+                täglich von <span tal:replace="config/options/nofly/daily_from">00:00</span>
+                bis <span tal:replace="config/options/nofly/daily_until">24:00</span>
+            </span>
+        </div>
+        <div tal:condition="php: config['options']['nofly']['mode']=='period'">
+            <label class="invisible">Waffenruhe</label>
+            <span>
+                vom <span tal:replace="config/options/nofly/date_from">01.01.1970</span>
+                bis zum <span tal:replace="config/options/nofly/date_until">15.07.2008</span>
+            </span>
+        </div>
+        </block>
+        </block>
+
+        <block>
+	        <h2 class="headline">Entscheidung</h2>
+			V0.03
+			<div class="formLineBlock">
+				<form action="./war_admin.php" method="post">
+					<input type="hidden" name="id" tal:attributes="value war/id" />
+					<span tal:condition="war/finishable">
+						<label class="invisible">Kapitulieren</label>
+						<input type="submit" name="action" value="Kapitulieren" />
+					</span>
+					<span tal:condition="php: config['remis'] != 1">
+						<label class="invisible">Remis anbieten</label>
+						<input type="submit" name="action" value="Remis anbieten" />
+					</span>
+					<span tal:condition="php: config['remis'] == 1">
+						<label class="invisible">Remis annehmen</label>
+						<input type="submit" name="action" value="Remis annehmen" />
+					</span>
+				</form>
+			</div>
+        </block>
+
+        <h2 class="headline">Erläuterungen</h2>
+
+        <div class="formLineBlock">
+            <label>*</label>
+            <p>Sieger ist derjenige mit mehr eroberten Kolonien oder weniger Austritten</p>
+        </div>
+        <div class="formLineBlock">
+            <label>**</label>
+            <p>Urlaub, Austritt, Löschung</p>
+        </div>
+        <div class="formLineBlock">
+            <label>***</label>
+            <p>impliziert: Aufnahmesperre Ja, Urlaubsperre Nein, Austrittsperre Nein</p>
+        </div>
+
+<!--            Partei A
+            <span tal:content="war/challenger_string">Partner</span>
+            Partei B
+            <span tal:content="war/opponent_string">Gegner</span>
+            Beginn
+            <ul>
+                <li tal:condition="php: config['begin']['mode']=='accept'">
+                    ab Unterzeichnung
+                </li>
+                <li tal:condition="php: config['begin']['mode']=='date'">
+                    ab Datum:
+                    <span tal:content="config/begin/date">22.22.2222</span>
+                </li>
+            </ul>
+            Ende
+            <ul>
+                <li tal:condition="config/end/opt_time">nach abgelaufener Zeit: (*)
+                    <ul>
+                        <li tal:condition="php: config['end']['timemode']=='date'">
+                            Datum <span tal:content="config/end/date">22.22.2222</span>
+                        </li>
+                        <li tal:condition="php: config['end']['timemode']=='days'">
+                            nach Ablauf von <span tal:content="config/end/days">22</span>
+                            Tagen ab Beginn
+                        </li>
+                    </ul>
+                </li>
+                <li tal:condition="config/end/opt_kololost">
+                    nach Verlust von <span tal:content="config/end/kolos">22</span>
+                    Kolonien
+                </li>
+                <li tal:condition="config/end/opt_memberlost">
+                    nach Ausstieg von <span tal:content="config/end/members">22</span>
+                    Mitgliedern (**,***)
+                </li>
+            </ul>
+
+            Kampfbedingungen
+            <ul>
+                <li tal:condition="config/options/no_fly">Waffenruhe:
+                    <ul>
+                        <li tal:condition="php: config['options']['nofly']['mode']=='daily'">
+                            täglich von <span tal:content="config/options/nofly/daily_from">22:22</span>
+                            bis <span tal:content="config/options/nofly/daily_until">22:22</span> Uhr
+                        </li>
+
+                        <li tal:condition="php: config['options']['nofly']['mode']=='period'">
+                            von Datum <span tal:content="config/options/nofly/date_from">22.22.2222</span>
+                            bis <span tal:content="config/options/nofly/date_until">22.22.2222</span>
+                        </li>
+                    </ul>
+                </li>
+
+                <li tal:condition="config/options/no_new">
+                    Aufnahmesperre
+                </li>
+                <li tal:condition="config/options/no_vacation">
+                    Urlaubsperre
+                </li>
+                <li tal:condition="config/options/no_leave">
+                    Austrittsperre
+                </li>
+            </ul>
+
+            <block tal:condition="war/finishable">
+                <br />
+                <form action="./war_admin.php"
+                      method="post"><input
+                      type="hidden"
+                      name="id"
+                      tal:attributes="value war/id" />
+
+                    <input type="submit"
+                           name="action"
+                           value="Kapitulieren" />
+                </form>
+            </block>
+-->
+        </block>
+    </block>
+</block>

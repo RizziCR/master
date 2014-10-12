@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<META HTTP-EQUIV="expires" CONTENT="0" />
+	<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache" />
+	<META HTTP-EQUIV="Pragma" CONTENT="no-cache" />
+	<title tal:content="title">Insert title here</title>
+
+	<link rel="stylesheet" type="text/css" href="css/css.css" />
+</head>
+<body>
+
+<table width="770" border="0" cellpadding="2" cellspacing="0">
+	<tr>
+		<td colspan="2">
+			<div class="headline" style="text-align:center" tal:content="title">Title</div>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="150">
+		<table border="0" cellpadding="0" cellspacing="0">
+			<tr>
+				<td align="center" class="table_head" i18n:translate="string: MESSAGES[MSG_MSGCTR][m013]">Überschrift</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<block tal:omit-tag="" metal:use-macro="index.html/menu" />
+				</td>
+			</tr>
+		</table>
+		</td>
+		<td width="620">
+		<table width="620" border="0" cellspacing="0" cellpadding="0">
+			<tr valign="top" class="table_head">
+				<td align="left" width="150" i18n:translate="string:MESSAGES[MSG_MSGCTR][m046]">{$MESSAGES[MSG_MSGCTR][m046]}</td>
+				<td align="left" width="100" i18n:translate="string:MESSAGES[MSG_MSGCTR][m027]">{$MESSAGES[MSG_MSGCTR][m027]}</td>
+			</tr>
+
+			<tr tal:repeat="f folder" tal:attributes="bgcolor f/color">
+				<td align="left"><a tal:attributes="href string:./msgctr.php?action=index&dir=${f/id}" tal:content="f/name">$directories[name]</a></td>
+				<td align="left"><a tal:attributes="href string:./msgctr.php?action=manageFolder&del=true&dir=${f/id}" i18n:translate="string:MESSAGES[MSG_MSGCTR][m023]">{$MESSAGES[MSG_MSGCTR][m023]}</a>
+				</td>
+			</tr>
+
+			<tr><td colspan="2">
+			<span tal:condition="not: exists: has_folder" tal:omit-tag="" i18n:translate="string:MESSAGES[MSG_MSGCTR][m047]">{$MESSAGES[MSG_MSGCTR][m047]}</span>
+			<br />
+			<br />
+			<form action="?action=manageFolder" method="post">
+			<input type="text" name="new_dir" class="button" />
+			<input type="submit" name="submit" tal:attributes="value string:MESSAGES[MSG_MSGCTR][m048]" i18n:attributes="value" class="button" />
+			</form>
+			</td></tr>
+
+		</table>
+
+		</td>
+	</tr>
+</table>
+</body>
+</html>

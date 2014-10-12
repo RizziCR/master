@@ -1,0 +1,13 @@
+/* main_wide */
+
+body
+{
+    margin: 14px 2em;
+}
+
+#page-container
+{
+    min-width:73em;
+    max-width:105em;
+    width: auto;
+}

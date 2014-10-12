@@ -1,0 +1,118 @@
+<div tal:comment=" chronicle content"
+     id="contentChronicle"
+     metal:define-macro="content">
+
+    <span
+       tal:condition="exists: errorMessage"
+       tal:comment="error content if there is any"
+       tal:replace="structure errorMessage">
+    </span>
+
+    <div tal:omit-tag="" tal:condition="not: exists: errorMessage">
+
+<script type="text/javascript">
+    $(function() {
+        $("#chartimg").cluetip().show();
+    });
+</script>
+<!--script type="text/javascript" src="javascript/chronicle_src.js"></script-->
+<style type="text/css">
+.cluetip-default {
+  opacity: 1;
+}
+</style>
+
+<span tal:condition="exists: admin">
+    <!-- trade info -->
+        <h1 >Zensur</h1>
+
+        <br />
+
+        <h2 >Auswahl der Ansicht</h2>
+
+        <form id="selectChronicleView" name="selectChronicleView" action="./censoring.php" method="post">
+    <!-- bullshit to use a table for layout -->
+          <table>
+            <tr>
+              <td align="right" >
+          <label for="refused" >zensierte Ereignisse</label>
+          <input class="inputCheck" type="checkbox" name="refused" value="1" tal:attributes="checked php: show_refused ? 'checked' : false" /><br />
+          <label for="open" >zu bearbeitende Ereignisse</label>
+          <input class="inputCheck" type="checkbox" name="open" value="1" tal:attributes="checked php: show_open ? 'checked' : false" /><br />
+          <label for="approved" >freigegebene Ereignisse</label>
+          <input class="inputCheck" type="checkbox" name="approved" value="1" tal:attributes="checked php: show_approved ? 'checked' : false" />
+            </td>
+            <td align="center" >
+              <br />
+          <input type="submit" name="show" value="Neu Anzeigen" class="button" />
+            </td>
+            </tr>
+        </table>
+        </form>
+        <br />
+
+        <h2 i18n:translate="string: MESSAGES[MSG_CHRONICLE][events]">Events</h2>
+
+        <form id="censoreChronicle" name="censoreChronicle" action="./censoring.php" method="post">
+        <table>
+          <tr>
+            <td colspan="3" align="center" >
+              <input type="submit" name="action" value="Zensieren" class="button" />
+            </td>
+            <td colspan="3" >
+            </td>
+          </tr>
+          <tr>
+              <th />
+              <th>Ereignis</th>
+              <th>Zeit</th>
+              <th align="right" >Müll</th>
+              <th>?</th>
+              <th>Ok</th>
+          </tr>
+          <tr tal:repeat="entry chronicle_scroll" >
+                <td tal:content="entry/marker">'graphical' event marker</td>
+                <td>
+                  <span tal:content="entry/event_text">Event</span>
+                  <span tal:condition="entry/event_add_text"><br /></span>
+                  <span tal:condition="entry/event_add_text" tal:content="structure entry/event_add_text">Additional text</span>
+                </td>
+                <td tal:content="entry/event_time">Time of event</td>
+                <td align="right">
+                  <input class="inputRadio"
+                   type="radio"
+                   name="censored[${entry/id}]"
+                   value="refused"
+                   tal:attributes="checked php:entry['censored']=='N' ? 'checked' : false" />
+                <td>
+                  <input class="inputRadio"
+                   type="radio"
+                   name="censored[${entry/id}]"
+                   value="open"
+                   tal:attributes="checked php:entry['censored']=='X' ? 'checked' : false" />
+                </td>
+                </td>
+                <td>
+                  <input class="inputRadio"
+                   type="radio"
+                   name="censored[${entry/id}]"
+                   value="approved"
+                   tal:attributes="checked php:entry['censored']=='Y' ? 'checked' : false" />
+                </td>
+            </tr>
+            <tr tal:omit-tag="" tal:condition="exists: show_previous">
+              <td colspan="3" align="center">
+                  <a tal:condition="exists: show_previous" tal:attributes="href string:${self}?show=${previous_entry}" tal:content="string: Zurück">hyper ref to previous page</a>
+                  <a tal:condition="exists: show_first"
+                    tal:attributes="href string:${self}?show=${first_entry}"
+                    tal:content="string: Anfang">hyper ref to first page</a>
+              </td>
+            </tr>
+      </table>
+    </form>
+    </span>
+    <span tal:condition="not: exists: admin">
+      Diese Funktion ist für Dich gesperrt.
+    </span>
+  </div>
+</div>

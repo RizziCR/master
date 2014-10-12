@@ -1,0 +1,304 @@
+<?xml version="1.0"?>
+
+
+<ETS99>
+  <alliances>
+	<tag>SG33K</tag>
+	<members>24</members>
+	<points>664650</points>
+  </alliances>
+
+  <alliances>
+	<tag>hf</tag>
+	<members>24</members>
+	<points>472168</points>
+  </alliances>
+
+  <alliances>
+	<tag>BM</tag>
+	<members>28</members>
+	<points>372080</points>
+  </alliances>
+
+  <alliances>
+	<tag>VisioN</tag>
+	<members>30</members>
+	<points>349505</points>
+  </alliances>
+
+  <alliances>
+	<tag>Wing</tag>
+	<members>20</members>
+	<points>256745</points>
+  </alliances>
+
+  <alliances>
+	<tag>SG69K</tag>
+	<members>20</members>
+	<points>243632</points>
+  </alliances>
+
+  <alliances>
+	<tag>IB</tag>
+	<members>19</members>
+	<points>241237</points>
+  </alliances>
+
+  <alliances>
+	<tag>WuHu</tag>
+	<members>16</members>
+	<points>228578</points>
+  </alliances>
+
+  <alliances>
+	<tag>GdS</tag>
+	<members>15</members>
+	<points>181514</points>
+  </alliances>
+
+  <alliances>
+	<tag>EGAL</tag>
+	<members>12</members>
+	<points>181123</points>
+  </alliances>
+
+  <alliances>
+	<tag>Frauenparkplatz</tag>
+	<members>10</members>
+	<points>129534</points>
+  </alliances>
+
+  <alliances>
+	<tag>KoC</tag>
+	<members>14</members>
+	<points>103019</points>
+  </alliances>
+
+  <alliances>
+	<tag>WuH</tag>
+	<members>6</members>
+	<points>92936</points>
+  </alliances>
+
+  <alliances>
+	<tag>gl</tag>
+	<members>10</members>
+	<points>79735</points>
+  </alliances>
+
+  <alliances>
+	<tag>Medaron</tag>
+	<members>9</members>
+	<points>71760</points>
+  </alliances>
+
+  <alliances>
+	<tag>TGA</tag>
+	<members>8</members>
+	<points>63651</points>
+  </alliances>
+
+  <alliances>
+	<tag>-BU-</tag>
+	<members>7</members>
+	<points>63629</points>
+  </alliances>
+
+  <alliances>
+	<tag>TK</tag>
+	<members>9</members>
+	<points>61578</points>
+  </alliances>
+
+  <alliances>
+	<tag>i-SG33K</tag>
+	<members>8</members>
+	<points>59894</points>
+  </alliances>
+
+  <alliances>
+	<tag>DF</tag>
+	<members>8</members>
+	<points>57932</points>
+  </alliances>
+
+  <alliances>
+	<tag>DKV</tag>
+	<members>6</members>
+	<points>56063</points>
+  </alliances>
+
+  <alliances>
+	<tag>99</tag>
+	<members>5</members>
+	<points>47605</points>
+  </alliances>
+
+  <alliances>
+	<tag>EV</tag>
+	<members>3</members>
+	<points>41923</points>
+  </alliances>
+
+  <alliances>
+	<tag>NP</tag>
+	<members>8</members>
+	<points>41383</points>
+  </alliances>
+
+  <alliances>
+	<tag>-HI-</tag>
+	<members>8</members>
+	<points>35511</points>
+  </alliances>
+
+  <alliances>
+	<tag>R.I.P.</tag>
+	<members>7</members>
+	<points>35369</points>
+  </alliances>
+
+  <alliances>
+	<tag>-WG-</tag>
+	<members>2</members>
+	<points>28592</points>
+  </alliances>
+
+  <alliances>
+	<tag>dWfB</tag>
+	<members>5</members>
+	<points>24627</points>
+  </alliances>
+
+  <alliances>
+	<tag>Federation</tag>
+	<members>5</members>
+	<points>24588</points>
+  </alliances>
+
+  <alliances>
+	<tag>HZ</tag>
+	<members>2</members>
+	<points>21953</points>
+  </alliances>
+
+  <alliances>
+	<tag>uuu</tag>
+	<members>1</members>
+	<points>18423</points>
+  </alliances>
+
+  <alliances>
+	<tag>FOX</tag>
+	<members>2</members>
+	<points>17319</points>
+  </alliances>
+
+  <alliances>
+	<tag>DR</tag>
+	<members>4</members>
+	<points>17169</points>
+  </alliances>
+
+  <alliances>
+	<tag>Bitburger</tag>
+	<members>1</members>
+	<points>16710</points>
+  </alliances>
+
+  <alliances>
+	<tag>-DKG-</tag>
+	<members>2</members>
+	<points>16154</points>
+  </alliances>
+
+  <alliances>
+	<tag>AdA</tag>
+	<members>1</members>
+	<points>15766</points>
+  </alliances>
+
+  <alliances>
+	<tag>nG</tag>
+	<members>3</members>
+	<points>14246</points>
+  </alliances>
+
+  <alliances>
+	<tag>NO</tag>
+	<members>2</members>
+	<points>12698</points>
+  </alliances>
+
+  <alliances>
+	<tag>R-H-E</tag>
+	<members>2</members>
+	<points>10807</points>
+  </alliances>
+
+  <alliances>
+	<tag>-LoEvo-</tag>
+	<members>2</members>
+	<points>10120</points>
+  </alliances>
+
+  <alliances>
+	<tag>-FL-</tag>
+	<members>1</members>
+	<points>9919</points>
+  </alliances>
+
+  <alliances>
+	<tag>BRO</tag>
+	<members>1</members>
+	<points>8674</points>
+  </alliances>
+
+  <alliances>
+	<tag>Fu4ll</tag>
+	<members>1</members>
+	<points>8004</points>
+  </alliances>
+
+  <alliances>
+	<tag>SO</tag>
+	<members>1</members>
+	<points>6742</points>
+  </alliances>
+
+  <alliances>
+	<tag>LoD</tag>
+	<members>1</members>
+	<points>6709</points>
+  </alliances>
+
+  <alliances>
+	<tag>IskA</tag>
+	<members>1</members>
+	<points>6501</points>
+  </alliances>
+
+  <alliances>
+	<tag>BD</tag>
+	<members>3</members>
+	<points>6187</points>
+  </alliances>
+
+  <alliances>
+	<tag>-</tag>
+	<members>1</members>
+	<points>5271</points>
+  </alliances>
+
+  <alliances>
+	<tag>-FC-</tag>
+	<members>1</members>
+	<points>4697</points>
+  </alliances>
+
+  <alliances>
+	<tag>MIB</tag>
+	<members>2</members>
+	<points>4659</points>
+  </alliances>
+</ETS99>

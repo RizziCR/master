@@ -1,0 +1,1333 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ETS10>
+  <expansions>
+
+<expansion>
+<id>Iridium-Mine</id>
+<sql>SELECT user as id, b_iridium_mine as amount FROM city ORDER BY b_iridium_mine DESC LIMIT 0,10</sql>
+<values>
+  <value>
+	<id>chief</id>
+	<amount>255</amount>
+  </value>
+  <value>
+	<id>Chev</id>
+	<amount>250</amount>
+  </value>
+  <value>
+	<id>Chev</id>
+	<amount>250</amount>
+  </value>
+  <value>
+	<id>Chev</id>
+	<amount>250</amount>
+  </value>
+  <value>
+	<id>Morpheus</id>
+	<amount>245</amount>
+  </value>
+  <value>
+	<id>Morpheus</id>
+	<amount>245</amount>
+  </value>
+  <value>
+	<id>Chev</id>
+	<amount>245</amount>
+  </value>
+  <value>
+	<id>chief</id>
+	<amount>243</amount>
+  </value>
+  <value>
+	<id>Valdez</id>
+	<amount>240</amount>
+  </value>
+  <value>
+	<id>chief</id>
+	<amount>240</amount>
+  </value>
+</values>
+</expansion>
+
+<expansion>
+<id>Holzium-Plantage</id>
+<sql>SELECT user as id, b_holzium_plantage as amount FROM city ORDER BY b_holzium_plantage DESC LIMIT 0,10</sql>
+<values>
+  <value>
+	<id>lm</id>
+	<amount>290</amount>
+  </value>
+  <value>
+	<id>lm</id>
+	<amount>290</amount>
+  </value>
+  <value>
+	<id>lm</id>
+	<amount>290</amount>
+  </value>
+  <value>
+	<id>Mikrobiologe</id>
+	<amount>278</amount>
+  </value>
+  <value>
+	<id>fixa</id>
+	<amount>277</amount>
+  </value>
+  <value>
+	<id>fixa</id>
+	<amount>275</amount>
+  </value>
+  <value>
+	<id>lm</id>
+	<amount>275</amount>
+  </value>
+  <value>
+	<id>lm</id>
+	<amount>275</amount>
+  </value>
+  <value>
+	<id>lm</id>
+	<amount>274</amount>
+  </value>
+  <value>
+	<id>KingPott</id>
+	<amount>274</amount>
+  </value>
+</values>
+</expansion>
+
+<expansion>
+<id>Wasser-Bohrturm</id>
+<sql>SELECT user as id, b_water_derrick as amount FROM city ORDER BY b_water_derrick DESC LIMIT 0,10</sql>
+<values>
+  <value>
+	<id>kenny</id>
+	<amount>276</amount>
+  </value>
+  <value>
+	<id>kenny</id>
+	<amount>274</amount>
+  </value>
+  <value>
+	<id>kenny</id>
+	<amount>274</amount>
+  </value>
+  <value>
+	<id>kenny</id>
+	<amount>272</amount>
+  </value>
+  <value>
+	<id>kenny</id>
+	<amount>271</amount>
+  </value>
+  <value>
+	<id>kenny</id>
+	<amount>267</amount>
+  </value>
+  <value>
+	<id>HagbarD</id>
+	<amount>266</amount>
+  </value>
+  <value>
+	<id>HagbarD</id>
+	<amount>262</amount>
+  </value>
+  <value>
+	<id>HagbarD</id>
+	<amount>261</amount>
+  </value>
+  <value>
+	<id>HagbarD</id>
+	<amount>261</amount>
+  </value>
+</values>
+</expansion>
+
+<expansion>
+<id>Sauerstoff-Reaktor</id>
+<sql>SELECT user as id, b_oxygen_reactor as amount FROM city ORDER BY b_oxygen_reactor DESC LIMIT 0,10</sql>
+<values>
+  <value>
+	<id>kenny</id>
+	<amount>277</amount>
+  </value>
+  <value>
+	<id>kenny</id>
+	<amount>275</amount>
+  </value>
+  <value>
+	<id>kenny</id>
+	<amount>274</amount>
+  </value>
+  <value>
+	<id>kenny</id>
+	<amount>272</amount>
+  </value>
+  <value>
+	<id>kenny</id>
+	<amount>271</amount>
+  </value>
+  <value>
+	<id>kenny</id>
+	<amount>267</amount>
+  </value>
+  <value>
+	<id>reacher</id>
+	<amount>260</amount>
+  </value>
+  <value>
+	<id>Chev</id>
+	<amount>251</amount>
+  </value>
+  <value>
+	<id>Chev</id>
+	<amount>250</amount>
+  </value>
+  <value>
+	<id>Chev</id>
+	<amount>250</amount>
+  </value>
+</values>
+</expansion>
+
+<expansion>
+<id>Lager</id>
+<sql>SELECT user as id, b_depot as amount FROM city ORDER BY b_depot DESC LIMIT 0,10</sql>
+<values>
+  <value>
+	<id>bla</id>
+	<amount>182</amount>
+  </value>
+  <value>
+	<id>Sockendieb</id>
+	<amount>181</amount>
+  </value>
+  <value>
+	<id>golgbuch</id>
+	<amount>180</amount>
+  </value>
+  <value>
+	<id>Pikachu</id>
+	<amount>176</amount>
+  </value>
+  <value>
+	<id>bla</id>
+	<amount>175</amount>
+  </value>
+  <value>
+	<id>bla</id>
+	<amount>175</amount>
+  </value>
+  <value>
+	<id>Wessi</id>
+	<amount>173</amount>
+  </value>
+  <value>
+	<id>Rumkugel</id>
+	<amount>165</amount>
+  </value>
+  <value>
+	<id>bla</id>
+	<amount>163</amount>
+  </value>
+  <value>
+	<id>bla</id>
+	<amount>162</amount>
+  </value>
+</values>
+</expansion>
+
+<expansion>
+<id>Tank</id>
+<sql>SELECT user as id, b_oxygen_depot as amount FROM city ORDER BY b_oxygen_depot DESC LIMIT 0,10</sql>
+<values>
+  <value>
+	<id>sbeck</id>
+	<amount>215</amount>
+  </value>
+  <value>
+	<id>MaximKammerer</id>
+	<amount>192</amount>
+  </value>
+  <value>
+	<id>webworker</id>
+	<amount>191</amount>
+  </value>
+  <value>
+	<id>golgbuch</id>
+	<amount>185</amount>
+  </value>
+  <value>
+	<id>Valdez</id>
+	<amount>185</amount>
+  </value>
+  <value>
+	<id>Valdez</id>
+	<amount>183</amount>
+  </value>
+  <value>
+	<id>Zsadist</id>
+	<amount>180</amount>
+  </value>
+  <value>
+	<id>Pikachu</id>
+	<amount>179</amount>
+  </value>
+  <value>
+	<id>Wessi</id>
+	<amount>174</amount>
+  </value>
+  <value>
+	<id>Valdez</id>
+	<amount>174</amount>
+  </value>
+</values>
+</expansion>
+
+<expansion>
+<id>Hangar</id>
+<sql>SELECT user as id, b_hangar as amount FROM city ORDER BY b_hangar DESC LIMIT 0,10</sql>
+<values>
+  <value>
+	<id>ralokt</id>
+	<amount>300</amount>
+  </value>
+  <value>
+	<id>Screm</id>
+	<amount>296</amount>
+  </value>
+  <value>
+	<id>lm</id>
+	<amount>295</amount>
+  </value>
+  <value>
+	<id>ralokt</id>
+	<amount>288</amount>
+  </value>
+  <value>
+	<id>Gotteszorn</id>
+	<amount>276</amount>
+  </value>
+  <value>
+	<id>d0m</id>
+	<amount>276</amount>
+  </value>
+  <value>
+	<id>KingPott</id>
+	<amount>275</amount>
+  </value>
+  <value>
+	<id>KingPott</id>
+	<amount>275</amount>
+  </value>
+  <value>
+	<id>KingPott</id>
+	<amount>275</amount>
+  </value>
+  <value>
+	<id>lm</id>
+	<amount>275</amount>
+  </value>
+</values>
+</expansion>
+
+<expansion>
+<id>Flughafen</id>
+<sql>SELECT user as id, b_airport as amount FROM city ORDER BY b_airport DESC LIMIT 0,10</sql>
+<values>
+  <value>
+	<id>Jason</id>
+	<amount>311</amount>
+  </value>
+  <value>
+	<id>SkrilleX</id>
+	<amount>307</amount>
+  </value>
+  <value>
+	<id>Shr3k</id>
+	<amount>305</amount>
+  </value>
+  <value>
+	<id>ralokt</id>
+	<amount>301</amount>
+  </value>
+  <value>
+	<id>Jamaica</id>
+	<amount>300</amount>
+  </value>
+  <value>
+	<id>Timsl</id>
+	<amount>300</amount>
+  </value>
+  <value>
+	<id>lm</id>
+	<amount>294</amount>
+  </value>
+  <value>
+	<id>Woolf</id>
+	<amount>293</amount>
+  </value>
+  <value>
+	<id>reacher</id>
+	<amount>292</amount>
+  </value>
+  <value>
+	<id>ralokt</id>
+	<amount>291</amount>
+  </value>
+</values>
+</expansion>
+
+<expansion>
+<id>Bauzentrum</id>
+<sql>SELECT user as id, b_work_board as amount FROM city ORDER BY b_work_board DESC LIMIT 0,10</sql>
+<values>
+  <value>
+	<id>DrGonZo</id>
+	<amount>147</amount>
+  </value>
+  <value>
+	<id>Rausragend</id>
+	<amount>147</amount>
+  </value>
+  <value>
+	<id>ShynZo</id>
+	<amount>137</amount>
+  </value>
+  <value>
+	<id>M</id>
+	<amount>137</amount>
+  </value>
+  <value>
+	<id>Timsl</id>
+	<amount>136</amount>
+  </value>
+  <value>
+	<id>Jason</id>
+	<amount>135</amount>
+  </value>
+  <value>
+	<id>LucianoLiggio</id>
+	<amount>135</amount>
+  </value>
+  <value>
+	<id>Shr3k</id>
+	<amount>134</amount>
+  </value>
+  <value>
+	<id>SkrilleX</id>
+	<amount>134</amount>
+  </value>
+  <value>
+	<id>fixa</id>
+	<amount>133</amount>
+  </value>
+</values>
+</expansion>
+
+<expansion>
+<id>Technologiezentrum</id>
+<sql>SELECT user as id, b_technologie_center as amount FROM city ORDER BY b_technologie_center DESC LIMIT 0,10</sql>
+<values>
+  <value>
+	<id>lm</id>
+	<amount>297</amount>
+  </value>
+  <value>
+	<id>lordalkohol</id>
+	<amount>285</amount>
+  </value>
+  <value>
+	<id>KingPott</id>
+	<amount>275</amount>
+  </value>
+  <value>
+	<id>Tax</id>
+	<amount>275</amount>
+  </value>
+  <value>
+	<id>madman</id>
+	<amount>271</amount>
+  </value>
+  <value>
+	<id>volvonist</id>
+	<amount>260</amount>
+  </value>
+  <value>
+	<id>Zodiac</id>
+	<amount>257</amount>
+  </value>
+  <value>
+	<id>Timsl</id>
+	<amount>246</amount>
+  </value>
+  <value>
+	<id>Jason</id>
+	<amount>242</amount>
+  </value>
+  <value>
+	<id>UnsichtBar</id>
+	<amount>237</amount>
+  </value>
+</values>
+</expansion>
+
+<expansion>
+<id>Kommunikationszentrum</id>
+<sql>SELECT user as id, b_communication_center as amount FROM city ORDER BY b_communication_center DESC LIMIT 0,10</sql>
+<values>
+  <value>
+	<id>HagbarD</id>
+	<amount>248</amount>
+  </value>
+  <value>
+	<id>Valdez</id>
+	<amount>231</amount>
+  </value>
+  <value>
+	<id>Jason</id>
+	<amount>231</amount>
+  </value>
+  <value>
+	<id>AxL</id>
+	<amount>210</amount>
+  </value>
+  <value>
+	<id>Morpheus</id>
+	<amount>210</amount>
+  </value>
+  <value>
+	<id>Chev</id>
+	<amount>210</amount>
+  </value>
+  <value>
+	<id>Gotteszorn</id>
+	<amount>210</amount>
+  </value>
+  <value>
+	<id>lordalkohol</id>
+	<amount>198</amount>
+  </value>
+  <value>
+	<id>SpeedFreak</id>
+	<amount>193</amount>
+  </value>
+  <value>
+	<id>tombombadil</id>
+	<amount>190</amount>
+  </value>
+</values>
+</expansion>
+
+<expansion>
+<id>Handelszentrum</id>
+<sql>SELECT user as id, b_trade_center as amount FROM city ORDER BY b_trade_center DESC LIMIT 0,10</sql>
+<values>
+  <value>
+	<id>HagbarD</id>
+	<amount>260</amount>
+  </value>
+  <value>
+	<id>HagbarD</id>
+	<amount>260</amount>
+  </value>
+  <value>
+	<id>HagbarD</id>
+	<amount>260</amount>
+  </value>
+  <value>
+	<id>HagbarD</id>
+	<amount>260</amount>
+  </value>
+  <value>
+	<id>HagbarD</id>
+	<amount>250</amount>
+  </value>
+  <value>
+	<id>HagbarD</id>
+	<amount>247</amount>
+  </value>
+  <value>
+	<id>HagbarD</id>
+	<amount>240</amount>
+  </value>
+  <value>
+	<id>SpeedFreak</id>
+	<amount>186</amount>
+  </value>
+  <value>
+	<id>Pikachu</id>
+	<amount>184</amount>
+  </value>
+  <value>
+	<id>golgbuch</id>
+	<amount>180</amount>
+  </value>
+</values>
+</expansion>
+
+<expansion>
+<id>Verteidigungszentrum</id>
+<sql>SELECT user as id, b_defense_center as amount FROM city ORDER BY b_defense_center DESC LIMIT 0,10</sql>
+<values>
+  <value>
+	<id>lm</id>
+	<amount>294</amount>
+  </value>
+  <value>
+	<id>lm</id>
+	<amount>285</amount>
+  </value>
+  <value>
+	<id>kenny</id>
+	<amount>276</amount>
+  </value>
+  <value>
+	<id>kenny</id>
+	<amount>276</amount>
+  </value>
+  <value>
+	<id>KingPott</id>
+	<amount>275</amount>
+  </value>
+  <value>
+	<id>KingPott</id>
+	<amount>275</amount>
+  </value>
+  <value>
+	<id>golgbuch</id>
+	<amount>273</amount>
+  </value>
+  <value>
+	<id>HagbarD</id>
+	<amount>271</amount>
+  </value>
+  <value>
+	<id>blainemccracken</id>
+	<amount>270</amount>
+  </value>
+  <value>
+	<id>thunder</id>
+	<amount>270</amount>
+  </value>
+</values>
+</expansion>
+
+<expansion>
+<id>Oxidationsantrieb</id>
+<sql>SELECT user as id, t_oxidationsdrive as amount FROM usarios ORDER BY amount DESC LIMIT</sql>
+    0,10
+<values>
+  <value>
+	<id>blubler</id>
+	<amount>299</amount>
+  </value>
+  <value>
+	<id>saite</id>
+	<amount>255</amount>
+  </value>
+  <value>
+	<id>zornigel</id>
+	<amount>206</amount>
+  </value>
+  <value>
+	<id>Woodus</id>
+	<amount>195</amount>
+  </value>
+  <value>
+	<id>Sawascwoolf</id>
+	<amount>189</amount>
+  </value>
+  <value>
+	<id>bk</id>
+	<amount>184</amount>
+  </value>
+  <value>
+	<id>volvonist</id>
+	<amount>175</amount>
+  </value>
+  <value>
+	<id>lm</id>
+	<amount>173</amount>
+  </value>
+  <value>
+	<id>KingPott</id>
+	<amount>162</amount>
+  </value>
+  <value>
+	<id>Tax</id>
+	<amount>144</amount>
+  </value>
+</values>
+</expansion>
+
+<expansion>
+<id>Hoverantrieb</id>
+<sql>SELECT user as id, t_hoverdrive as amount FROM usarios ORDER BY amount DESC LIMIT</sql>
+    0,10
+<values>
+  <value>
+	<id>JayJoe</id>
+	<amount>168</amount>
+  </value>
+  <value>
+	<id>Sockendieb</id>
+	<amount>150</amount>
+  </value>
+  <value>
+	<id>ShynZo</id>
+	<amount>143</amount>
+  </value>
+  <value>
+	<id>Shegoat</id>
+	<amount>132</amount>
+  </value>
+  <value>
+	<id>Parki</id>
+	<amount>124</amount>
+  </value>
+  <value>
+	<id>ralokt</id>
+	<amount>120</amount>
+  </value>
+  <value>
+	<id>Webworky</id>
+	<amount>120</amount>
+  </value>
+  <value>
+	<id>Amun</id>
+	<amount>117</amount>
+  </value>
+  <value>
+	<id>M</id>
+	<amount>115</amount>
+  </value>
+  <value>
+	<id>Icehunter</id>
+	<amount>115</amount>
+  </value>
+</values>
+</expansion>
+
+<expansion>
+<id>Antigravitationsantrieb</id>
+<sql>SELECT user as id, t_antigravitydrive as amount FROM usarios ORDER BY amount DESC LIMIT</sql>
+    0,10
+<values>
+  <value>
+	<id>Morpheus</id>
+	<amount>140</amount>
+  </value>
+  <value>
+	<id>thunder</id>
+	<amount>135</amount>
+  </value>
+  <value>
+	<id>DerDude</id>
+	<amount>121</amount>
+  </value>
+  <value>
+	<id>Balou</id>
+	<amount>120</amount>
+  </value>
+  <value>
+	<id>Shegoat</id>
+	<amount>119</amount>
+  </value>
+  <value>
+	<id>bashdi</id>
+	<amount>111</amount>
+  </value>
+  <value>
+	<id>tombombadil</id>
+	<amount>110</amount>
+  </value>
+  <value>
+	<id>MasterJ</id>
+	<amount>109</amount>
+  </value>
+  <value>
+	<id>abc</id>
+	<amount>108</amount>
+  </value>
+  <value>
+	<id>Mikel</id>
+	<amount>108</amount>
+  </value>
+</values>
+</expansion>
+
+<expansion>
+<id>Elektronensequenzwaffen</id>
+<sql>SELECT user as id, t_electronsequenzweapons as amount FROM usarios ORDER BY amount DESC LIMIT</sql>
+    0,10
+<values>
+  <value>
+	<id>lm</id>
+	<amount>642</amount>
+  </value>
+  <value>
+	<id>Tax</id>
+	<amount>604</amount>
+  </value>
+  <value>
+	<id>madman</id>
+	<amount>598</amount>
+  </value>
+  <value>
+	<id>KingPott</id>
+	<amount>592</amount>
+  </value>
+  <value>
+	<id>volvonist</id>
+	<amount>563</amount>
+  </value>
+  <value>
+	<id>d0m</id>
+	<amount>492</amount>
+  </value>
+  <value>
+	<id>sound</id>
+	<amount>453</amount>
+  </value>
+  <value>
+	<id>Rumkugel</id>
+	<amount>444</amount>
+  </value>
+  <value>
+	<id>redheart</id>
+	<amount>424</amount>
+  </value>
+  <value>
+	<id>Sawascwoolf</id>
+	<amount>400</amount>
+  </value>
+</values>
+</expansion>
+
+<expansion>
+<id>Protonensequenzwaffen</id>
+<sql>SELECT user as id, t_protonsequenzweapons as amount FROM usarios ORDER BY amount DESC LIMIT</sql>
+    0,10
+<values>
+  <value>
+	<id>Timsl</id>
+	<amount>536</amount>
+  </value>
+  <value>
+	<id>Jason</id>
+	<amount>521</amount>
+  </value>
+  <value>
+	<id>lordalkohol</id>
+	<amount>518</amount>
+  </value>
+  <value>
+	<id>Zodiac</id>
+	<amount>481</amount>
+  </value>
+  <value>
+	<id>Valdez</id>
+	<amount>473</amount>
+  </value>
+  <value>
+	<id>ralokt</id>
+	<amount>471</amount>
+  </value>
+  <value>
+	<id>bash0r</id>
+	<amount>456</amount>
+  </value>
+  <value>
+	<id>SkrilleX</id>
+	<amount>450</amount>
+  </value>
+  <value>
+	<id>NoName</id>
+	<amount>433</amount>
+  </value>
+  <value>
+	<id>Icehunter</id>
+	<amount>429</amount>
+  </value>
+</values>
+</expansion>
+
+<expansion>
+<id>Neutronensequenzwaffen</id>
+<sql>SELECT user as id, t_neutronsequenzweapons as amount FROM usarios ORDER BY amount DESC LIMIT</sql>
+    0,10
+<values>
+  <value>
+	<id>kenny</id>
+	<amount>411</amount>
+  </value>
+  <value>
+	<id>stiffler</id>
+	<amount>364</amount>
+  </value>
+  <value>
+	<id>golgbuch</id>
+	<amount>360</amount>
+  </value>
+  <value>
+	<id>reacher</id>
+	<amount>353</amount>
+  </value>
+  <value>
+	<id>birke</id>
+	<amount>324</amount>
+  </value>
+  <value>
+	<id>blainemccracken</id>
+	<amount>320</amount>
+  </value>
+  <value>
+	<id>darwin</id>
+	<amount>312</amount>
+  </value>
+  <value>
+	<id>runner</id>
+	<amount>309</amount>
+  </value>
+  <value>
+	<id>Pikachu</id>
+	<amount>307</amount>
+  </value>
+  <value>
+	<id>XrandomY</id>
+	<amount>298</amount>
+  </value>
+</values>
+</expansion>
+
+<expansion>
+<id>Treibstoffverbrauch-Reduktion</id>
+<sql>SELECT user as id, t_consumption_reduction as amount FROM usarios ORDER BY amount DESC LIMIT</sql>
+    0,10
+<values>
+  <value>
+	<id>HagbarD</id>
+	<amount>285</amount>
+  </value>
+  <value>
+	<id>blume</id>
+	<amount>270</amount>
+  </value>
+  <value>
+	<id>Sin</id>
+	<amount>133</amount>
+  </value>
+  <value>
+	<id>Isis</id>
+	<amount>116</amount>
+  </value>
+  <value>
+	<id>Prummbert</id>
+	<amount>100</amount>
+  </value>
+  <value>
+	<id>spacewolve</id>
+	<amount>97</amount>
+  </value>
+  <value>
+	<id>Pionierchor</id>
+	<amount>95</amount>
+  </value>
+  <value>
+	<id>maccer</id>
+	<amount>89</amount>
+  </value>
+  <value>
+	<id>Tynar</id>
+	<amount>82</amount>
+  </value>
+  <value>
+	<id>Verleihnix</id>
+	<amount>80</amount>
+  </value>
+</values>
+</expansion>
+
+<expansion>
+<id>Flugzeugkapazitätsverwaltung</id>
+<sql>SELECT user as id, t_plane_size as amount FROM usarios ORDER BY amount DESC LIMIT</sql>
+    0,10
+<values>
+  <value>
+	<id>HagbarD</id>
+	<amount>121</amount>
+  </value>
+  <value>
+	<id>CKb4u</id>
+	<amount>94</amount>
+  </value>
+  <value>
+	<id>SpeedFreak</id>
+	<amount>83</amount>
+  </value>
+  <value>
+	<id>Eagle</id>
+	<amount>81</amount>
+  </value>
+  <value>
+	<id>morphium</id>
+	<amount>64</amount>
+  </value>
+  <value>
+	<id>Gotteszorn</id>
+	<amount>63</amount>
+  </value>
+  <value>
+	<id>Schattenkoenig</id>
+	<amount>62</amount>
+  </value>
+  <value>
+	<id>Joschy</id>
+	<amount>62</amount>
+  </value>
+  <value>
+	<id>Rotzi</id>
+	<amount>61</amount>
+  </value>
+  <value>
+	<id>yamahaseca1</id>
+	<amount>61</amount>
+  </value>
+</values>
+</expansion>
+
+<expansion>
+<id>Computermanagement</id>
+<sql>SELECT user as id, t_computer_management as amount FROM usarios ORDER BY amount DESC LIMIT</sql>
+    0,10
+<values>
+  <value>
+	<id>d0m</id>
+	<amount>386</amount>
+  </value>
+  <value>
+	<id>Jamaica</id>
+	<amount>374</amount>
+  </value>
+  <value>
+	<id>Rumkugel</id>
+	<amount>325</amount>
+  </value>
+  <value>
+	<id>deBeukelaer</id>
+	<amount>314</amount>
+  </value>
+  <value>
+	<id>chief</id>
+	<amount>307</amount>
+  </value>
+  <value>
+	<id>DCF</id>
+	<amount>306</amount>
+  </value>
+  <value>
+	<id>webworker</id>
+	<amount>299</amount>
+  </value>
+  <value>
+	<id>UnsichtBar</id>
+	<amount>298</amount>
+  </value>
+  <value>
+	<id>Sunder</id>
+	<amount>278</amount>
+  </value>
+  <value>
+	<id>Asrai88</id>
+	<amount>272</amount>
+  </value>
+</values>
+</expansion>
+
+<expansion>
+<id>Lagerverwaltung</id>
+<sql>SELECT user as id, t_depot_management as amount FROM usarios ORDER BY amount DESC LIMIT</sql>
+    0,10
+<values>
+  <value>
+	<id>HirNBeeRMySLi</id>
+	<amount>216</amount>
+  </value>
+  <value>
+	<id>HagbarD</id>
+	<amount>206</amount>
+  </value>
+  <value>
+	<id>Cadoras</id>
+	<amount>196</amount>
+  </value>
+  <value>
+	<id>54V</id>
+	<amount>190</amount>
+  </value>
+  <value>
+	<id>Clown</id>
+	<amount>167</amount>
+  </value>
+  <value>
+	<id>Leez</id>
+	<amount>163</amount>
+  </value>
+  <value>
+	<id>k3v1n</id>
+	<amount>161</amount>
+  </value>
+  <value>
+	<id>sbeck</id>
+	<amount>136</amount>
+  </value>
+  <value>
+	<id>Isis</id>
+	<amount>135</amount>
+  </value>
+  <value>
+	<id>Pringles</id>
+	<amount>123</amount>
+  </value>
+</values>
+</expansion>
+
+<expansion>
+<id>Wasserkompression</id>
+<sql>SELECT user as id, t_water_compression as amount FROM usarios ORDER BY amount DESC LIMIT</sql>
+    0,10
+<values>
+  <value>
+	<id>HagbarD</id>
+	<amount>100</amount>
+  </value>
+  <value>
+	<id>SpeedFreak</id>
+	<amount>89</amount>
+  </value>
+  <value>
+	<id>Morpheus</id>
+	<amount>80</amount>
+  </value>
+  <value>
+	<id>Schattenkoenig</id>
+	<amount>80</amount>
+  </value>
+  <value>
+	<id>Gotteszorn</id>
+	<amount>79</amount>
+  </value>
+  <value>
+	<id>sbeck</id>
+	<amount>73</amount>
+  </value>
+  <value>
+	<id>Clown</id>
+	<amount>68</amount>
+  </value>
+  <value>
+	<id>yamahaseca1</id>
+	<amount>65</amount>
+  </value>
+  <value>
+	<id>SOPMOD</id>
+	<amount>63</amount>
+  </value>
+  <value>
+	<id>xcussix</id>
+	<amount>63</amount>
+  </value>
+</values>
+</expansion>
+
+<expansion>
+<id>Bergbautechnik</id>
+<sql>SELECT user as id, t_mining as amount FROM usarios ORDER BY amount DESC LIMIT</sql>
+    0,10
+<values>
+  <value>
+	<id>HagbarD</id>
+	<amount>100</amount>
+  </value>
+  <value>
+	<id>SpeedFreak</id>
+	<amount>92</amount>
+  </value>
+  <value>
+	<id>Gotteszorn</id>
+	<amount>89</amount>
+  </value>
+  <value>
+	<id>Morpheus</id>
+	<amount>85</amount>
+  </value>
+  <value>
+	<id>Szies</id>
+	<amount>75</amount>
+  </value>
+  <value>
+	<id>xcussix</id>
+	<amount>75</amount>
+  </value>
+  <value>
+	<id>sbeck</id>
+	<amount>73</amount>
+  </value>
+  <value>
+	<id>birke</id>
+	<amount>73</amount>
+  </value>
+  <value>
+	<id>Phifor</id>
+	<amount>70</amount>
+  </value>
+  <value>
+	<id>LoveWarrior</id>
+	<amount>70</amount>
+  </value>
+</values>
+</expansion>
+
+<expansion>
+<id>Effektiv grösste Flotte</id>
+<sql>SELECT c.user as id, LEAST((c.b_airport*5)+(u.t_computer_management*3),c.b_hangar*10) AS amount FROM city as c, usarios as u WHERE c.user=u.user ORDER BY amount DESC LIMIT 0,10</sql>
+<values>
+  <value>
+	<id>Jamaica</id>
+	<amount>2622</amount>
+  </value>
+  <value>
+	<id>d0m</id>
+	<amount>2508</amount>
+  </value>
+  <value>
+	<id>d0m</id>
+	<amount>2468</amount>
+  </value>
+  <value>
+	<id>deBeukelaer</id>
+	<amount>2332</amount>
+  </value>
+  <value>
+	<id>Shr3k</id>
+	<amount>2224</amount>
+  </value>
+  <value>
+	<id>UnsichtBar</id>
+	<amount>2199</amount>
+  </value>
+  <value>
+	<id>Woolf</id>
+	<amount>2179</amount>
+  </value>
+  <value>
+	<id>Rumkugel</id>
+	<amount>2140</amount>
+  </value>
+  <value>
+	<id>Aristarch</id>
+	<amount>2122</amount>
+  </value>
+  <value>
+	<id>KingPott</id>
+	<amount>2095</amount>
+  </value>
+</values>
+</expansion>
+
+<expansion>
+<id>Theoretisch grösste Flotte</id>
+<sql>SELECT c.user as id, (c.b_airport*5)+(u.t_computer_management*3) AS amount FROM city as c, usarios as u WHERE c.user=u.user ORDER BY amount DESC LIMIT 0,10</sql>
+<values>
+  <value>
+	<id>Jamaica</id>
+	<amount>2622</amount>
+  </value>
+  <value>
+	<id>d0m</id>
+	<amount>2508</amount>
+  </value>
+  <value>
+	<id>d0m</id>
+	<amount>2468</amount>
+  </value>
+  <value>
+	<id>deBeukelaer</id>
+	<amount>2332</amount>
+  </value>
+  <value>
+	<id>Shr3k</id>
+	<amount>2224</amount>
+  </value>
+  <value>
+	<id>UnsichtBar</id>
+	<amount>2199</amount>
+  </value>
+  <value>
+	<id>Woolf</id>
+	<amount>2179</amount>
+  </value>
+  <value>
+	<id>Rumkugel</id>
+	<amount>2140</amount>
+  </value>
+  <value>
+	<id>fixa</id>
+	<amount>2133</amount>
+  </value>
+  <value>
+	<id>Aristarch</id>
+	<amount>2122</amount>
+  </value>
+</values>
+</expansion>
+
+<expansion>
+<id>Hangarplätze</id>
+<sql>SELECT user as id, b_hangar*10 AS amount FROM city ORDER BY amount DESC LIMIT 0,10</sql>
+<values>
+  <value>
+	<id>ralokt</id>
+	<amount>3000</amount>
+  </value>
+  <value>
+	<id>Screm</id>
+	<amount>2960</amount>
+  </value>
+  <value>
+	<id>lm</id>
+	<amount>2950</amount>
+  </value>
+  <value>
+	<id>ralokt</id>
+	<amount>2880</amount>
+  </value>
+  <value>
+	<id>Gotteszorn</id>
+	<amount>2760</amount>
+  </value>
+  <value>
+	<id>d0m</id>
+	<amount>2760</amount>
+  </value>
+  <value>
+	<id>KingPott</id>
+	<amount>2750</amount>
+  </value>
+  <value>
+	<id>KingPott</id>
+	<amount>2750</amount>
+  </value>
+  <value>
+	<id>KingPott</id>
+	<amount>2750</amount>
+  </value>
+  <value>
+	<id>lm</id>
+	<amount>2750</amount>
+  </value>
+</values>
+</expansion>
+  </expansions>
+</ETS10>

@@ -1,0 +1,35 @@
+Siedler %%%NAME%%% !
+Herzlich Willkommen bei uns auf Erde II, deiner neuen Heimat!
+
+Du bist soeben auf diesem schönen Planeten gelandet und wir hoffen, dass Du die Strapazen des langen Fluges gut überstanden hast. Wir haben Dir vorläufig Planquadrat %%%COORDS%%% zugeteilt. Du hast dort die Chance, deine neue Stadt aufzubauen.
+Ob du dabei den Weg eines gefürchteten Flottenadmirals oder den eines handeltreibenden Wirtschaftsmagnaten einschlägst, überlassen wir dabei vollkommen dir.
+Nur nutze deine Möglichkeiten!
+
+[b]Zum Spiel[/b]
+Auf Erde II werden vier verschiedene Rohstoffarten gefördert, mit denen Du den Ausbau deiner Siedlung vorantreiben kannst:
+Iridium, Holzium, Wasser und Sauerstoff.
+Der Stellenwert jeder einzelnen Ressourcen hängt vom aktuellen Ausbau deiner Städte ab. 
+
+Das [b]Bauzentrum[/b] verringert die Bauzeiten deiner Gebäude.
+Nur wenn Du ein großes Bauzentrum besitzt, kannst Du Gebäude hoher Stufen in vertretbarer Zeit errichten.
+
+Der Verwaltungsrat stellt dir eine Grundverteidigung zur Verfügung, solange du noch an den Fundamenten deiner Stadt arbeitest. Sie schützen dich vor Überfällen. Allerdings wird der Schutz mit der Zeit schwächer und erlischt, sobald deine Stadt fünfzig Gebäude umfasst. Du solltest bis dahin genügend Verteidigungsanlagen aufgestellt haben.
+
+Du kannst EINEN anderen Siedler als deinen [b]Stellvertreter[/b] eintragen, der in deiner Abwesenheit ein Auge auf deine Städte werfen kann. Dies ist über den Menüpunkt "Verwaltung" - "Einstellungen" möglich.
+Wähle jemanden, dem du vertraust! Regelunkonforme Stellvertreter (z.B. Einloggen mit Passwort von einem Freund) werden diese Runde wieder aktiv verfolgt und hierfür bestraft, also haltet Euch auch bitte an alle geltenden Regeln.
+
+Kolonien kannst Du erobern oder selbst gründen; hierfür benötigst Du ein ausreichend großes Kommunikationszentrum. Beachte, dass es zudem weitere Einschränkungen gibt, die mit dem Ausbau dieses Gebäudes überwunden werden können.
+
+Bei weiteren Fragen stehen Dir viele Möglichkeiten offen:
+- Über [url=https://www.facebook.com/pages/Escape-to-Space/433241360114681]Facebook[/url] sind wir nun auch erreichbar
+- Du kannst dich direkt an andere Siedler wenden und sie um Hilfe bitten
+- Auch im Forum kannst du dich anmelden und dich mit den anderen Siedlern austauschen.
+- Viele Allianzen und User erreichst Du zudem im IRC (Internet Relay Chat, Network: Gamesurge bzw [url=http://www.escape-to-space.de/page/chat.php]hier[/url])
+- Außerdem sind unter dem Menüpunkt "Spielbetreuung" weitere Kontakt-
+möglichkeiten aufgelistet.
+
+Viel Erfolg beim Erkunden von Erde II.
+Spaß und Abenteuer erwarten Dich!
+
+Mit freundlichen Grüßen,
+die Leitung von Erde II 

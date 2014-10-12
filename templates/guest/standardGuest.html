@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd" -->
+
+<html>
+<!-- html xmlns="http://www.w3.org/1999/xhtml"-->
+<!--  HTML Kopf -->
+    <head tal:comment="html head, requires page title"
+          metal:use-macro="lib/htmlHeadGuest.html/htmlHead">
+    </head>
+<!--  // HTML Kopf -->
+    <body>
+        <div id="page-container">
+            <div id="masthead">
+                <div class="inside">
+<!-- Kopfzeile -->
+                    <span tal:comment="logo"
+                          metal:use-macro="lib/middleColumnGuest.html/logo">
+                    </span>
+<!-- // Kopfzeile -->
+                </div><!-- inside -->
+            </div><!-- masthead -->
+            <div id="outer-column-container">
+                <div id="inner-column-container">
+                    <div id="source-order-container">
+                        <div id="middle-column">
+                            <div class="inside">
+                                <div id="content">
+<!-- mittlere Spalte -->
+                                    <span tal:comment="first some pfusch content"
+                                          tal:replace="structure pfuschOutput">
+                                    </span>
+<!-- // mittlere Spalte -->
+                                </div><!-- content -->
+                            </div><!-- inside -->
+                        </div><!-- middle-column -->
+                        <div id="left-column">
+                            <div class="inside">
+<!-- linke Spalte -->
+                                <span tal:comment="left column template"
+                                      metal:use-macro="lib/leftColumnGuest.html/leftColumn">
+                                </span>
+<!-- // linke Spalte -->
+                            </div><!-- inside -->
+                        </div><!-- left-column -->
+                        <div class="clear-columns"><!-- do not delete --></div>
+                    </div><!-- source-oder-container -->
+                    <div id="right-column">
+                        <div class="inside">
+<!-- rechte Spalte -->
+                            <span tal:comment="right column template"
+                                  metal:use-macro="lib/rightColumnGuest.html/rightColumn">
+                            </span>
+<!-- // rechte Spalte -->
+                        </div><!-- inside -->
+                    </div><!-- right-column -->
+                    <div class="clear-columns"><!-- do not delete --></div>
+                </div><!-- inner-column-container -->
+            </div><!-- inner-column-container -->
+            <div id="footerGuest">
+                <div class="inside">
+<!-- Fusszeile -->
+                        <span tal:comment="footer template"
+                              metal:use-macro="lib/footer.html/footer">
+                        </span>
+<!-- // Fusszeile -->
+                </div><!-- inside -->
+            </div><!-- footer -->
+        </div><!-- inner-column-container -->
+    </body>
+</html>

@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+-
+- phpMyAdmin XML Dump
+- version 2.11.8.1deb5+lenny8
+- http://www.phpmyadmin.net
+-
+- Host: localhost
+- Erstellungszeit: 17. Juli 2011 um 16:52
+- Server Version: 5.0.51
+- PHP-Version: 5.3.5-0.dotdeb.0
+-->
+
+<!--
+- Datenbank: 'ETS9'
+- SELECT city, city_name, user, points, alliance, home, b_hangar FROM `city` Order by points desc limit 0,50
+- vim post script: :%s/database name="[^"]*"/ETS9
+-                  :%s/\/database/\/ETS9
+-                  :%s/table name="\([^"]*\)"/\1
+-                  :%s/\/table/\/city
+-                  :%s/column name="\([^"]*\)"\(>[^<]*<\)\/column/\1\2\/\1
+-->
+    <ETS9>
+        <!-- Tabelle city -->
+        <city>
+            <city>3:97:7</city>
+            <city_name>sheephome</city_name>
+            <user>Blacksheep</user>
+            <points>1421</points>
+            <alliance>Biug</alliance>
+            <home>YES</home>
+            <b_hangar>135</b_hangar>
+        </city>
+        <city>
+            <city>3:42:1</city>
+            <city_name>FSM</city_name>
+            <user>ronsta</user>
+            <points>1365</points>
+            <alliance>MAD</alliance>
+            <home>YES</home>
+            <b_hangar>120</b_hangar>
+        </city>
+        <city>
+            <city>3:97:5</city>
+            <city_name>Schafsweide </city_name>
+            <user>Blacksheep</user>
+            <points>1332</points>
+            <alliance>Biug</alliance>
+            <home>NO</home>
+            <b_hangar>131</b_hangar>
+        </city>
+        <city>
+            <city>2:95:3</city>
+            <city_name>Babylon 5</city_name>
+            <user>Helios</user>
+            <points>1326</points>
+            <alliance>VisioN</alliance>
+            <home>YES</home>
+            <b_hangar>143</b_hangar>
+        </city>
+        <city>
+            <city>3:97:4</city>
+            <city_name>Schafsweide </city_name>
+            <user>Blacksheep</user>
+            <points>1320</points>
+            <alliance>Biug</alliance>
+            <home>NO</home>
+            <b_hangar>131</b_hangar>
+        </city>
+        <city>
+            <city>3:97:3</city>
+            <city_name>Schafsweide </city_name>
+            <user>Blacksheep</user>
+            <points>1320</points>
+            <alliance>Biug</alliance>
+            <home>NO</home>
+            <b_hangar>130</b_hangar>
+        </city>
+        <city>
+            <city>3:97:2</city>
+            <city_name>Schafsweide </city_name>
+            <user>Blacksheep</user>
+            <points>1320</points>
+            <alliance>Biug</alliance>
+            <home>NO</home>
+            <b_hangar>131</b_hangar>
+        </city>
+        <city>
+            <city>1:200:6</city>
+            <city_name>P.U.S.S.Y</city_name>
+            <user>Redpussy</user>
+            <points>1304</points>
+            <alliance>WuH</alliance>
+            <home>YES</home>
+            <b_hangar>129</b_hangar>
+        </city>
+        <city>
+            <city>3:58:4</city>
+            <city_name>Risa</city_name>
+            <user>Nocc</user>
+            <points>1298</points>
+            <alliance>GdS</alliance>
+            <home>YES</home>
+            <b_hangar>114</b_hangar>
+        </city>
+        <city>
+            <city>3:97:1</city>
+            <city_name>Schafsweide </city_name>
+            <user>Blacksheep</user>
+            <points>1295</points>
+            <alliance>Biug</alliance>
+            <home>NO</home>
+            <b_hangar>128</b_hangar>
+        </city>
+        <city>
+            <city>3:97:6</city>
+            <city_name>Schafsweide </city_name>
+            <user>Blacksheep</user>
+            <points>1293</points>
+            <alliance>Biug</alliance>
+            <home>NO</home>
+            <b_hangar>116</b_hangar>
+        </city>
+        <city>
+            <city>1:104:9</city>
+            <city_name>Licht des Horizont</city_name>
+            <user>Schattenwolf</user>
+            <points>1257</points>
+            <alliance></alliance>
+            <home>YES</home>
+            <b_hangar>126</b_hangar>
+        </city>
+        <city>
+            <city>3:159:17</city>
+            <city_name>___1337___</city_name>
+            <user>Jim</user>
+            <points>1228</points>
+            <alliance>BuG</alliance>
+            <home>NO</home>
+            <b_hangar>138</b_hangar>
+        </city>
+        <city>
+            <city>3:159:15</city>
+            <city_name>___1337___</city_name>
+            <user>Jim</user>
+            <points>1223</points>
+            <alliance>BuG</alliance>
+            <home>NO</home>
+            <b_hangar>132</b_hangar>
+        </city>
+        <city>
+            <city>1:192:10</city>
+            <city_name>___1337___</city_name>
+            <user>Jim</user>
+            <points>1222</points>
+            <alliance>BuG</alliance>
+            <home>NO</home>
+            <b_hangar>139</b_hangar>
+        </city>
+        <city>
+            <city>3:159:14</city>
+            <city_name>___1337___</city_name>
+            <user>Jim</user>
+            <points>1220</points>
+            <alliance>BuG</alliance>
+            <home>NO</home>
+            <b_hangar>143</b_hangar>
+        </city>
+        <city>
+            <city>3:58:5</city>
+            <city_name>Neue Stadt</city_name>
+            <user>Nocc</user>
+            <points>1217</points>
+            <alliance>GdS</alliance>
+            <home>NO</home>
+            <b_hangar>142</b_hangar>
+        </city>
+        <city>
+            <city>3:159:18</city>
+            <city_name>___1337___</city_name>
+            <user>Jim</user>
+            <points>1212</points>
+            <alliance>BuG</alliance>
+            <home>NO</home>
+            <b_hangar>147</b_hangar>
+        </city>
+        <city>
+            <city>1:104:8</city>
+            <city_name>Reflektion des Mutes</city_name>
+            <user>Tao</user>
+            <points>1210</points>
+            <alliance>GdS</alliance>
+            <home>NO</home>
+            <b_hangar>151</b_hangar>
+        </city>
+        <city>
+            <city>1:199:8</city>
+            <city_name>speed-city</city_name>
+            <user>ghostdog</user>
+            <points>1209</points>
+            <alliance>WuH</alliance>
+            <home>YES</home>
+            <b_hangar>127</b_hangar>
+        </city>
+        <city>
+            <city>2:49:5</city>
+            <city_name>___1337___</city_name>
+            <user>Jim</user>
+            <points>1206</points>
+            <alliance>BuG</alliance>
+            <home>NO</home>
+            <b_hangar>139</b_hangar>
+        </city>
+        <city>
+            <city>3:58:6</city>
+            <city_name>Neue Stadt</city_name>
+            <user>Nocc</user>
+            <points>1203</points>
+            <alliance>GdS</alliance>
+            <home>NO</home>
+            <b_hangar>142</b_hangar>
+        </city>
+        <city>
+            <city>3:58:8</city>
+            <city_name>Neue Stadt</city_name>
+            <user>Nocc</user>
+            <points>1201</points>
+            <alliance>GdS</alliance>
+            <home>NO</home>
+            <b_hangar>137</b_hangar>
+        </city>
+        <city>
+            <city>3:159:19</city>
+            <city_name>___1337___</city_name>
+            <user>Jim</user>
+            <points>1198</points>
+            <alliance>BuG</alliance>
+            <home>NO</home>
+            <b_hangar>151</b_hangar>
+        </city>
+        <city>
+            <city>3:159:13</city>
+            <city_name>___1337___</city_name>
+            <user>Jim</user>
+            <points>1198</points>
+            <alliance>BuG</alliance>
+            <home>NO</home>
+            <b_hangar>150</b_hangar>
+        </city>
+        <city>
+            <city>1:13:10</city>
+            <city_name>Tiszakécske</city_name>
+            <user>Teutates</user>
+            <points>1196</points>
+            <alliance>Biug</alliance>
+            <home>YES</home>
+            <b_hangar>100</b_hangar>
+        </city>
+        <city>
+            <city>3:58:7</city>
+            <city_name>Neue Stadt</city_name>
+            <user>Nocc</user>
+            <points>1193</points>
+            <alliance>GdS</alliance>
+            <home>NO</home>
+            <b_hangar>139</b_hangar>
+        </city>
+        <city>
+            <city>3:54:5</city>
+            <city_name>Die bewohnte Insel</city_name>
+            <user>MaximKammerer</user>
+            <points>1190</points>
+            <alliance>SG33K</alliance>
+            <home>YES</home>
+            <b_hangar>132</b_hangar>
+        </city>
+        <city>
+            <city>3:58:9</city>
+            <city_name>Neue Stadt</city_name>
+            <user>Nocc</user>
+            <points>1189</points>
+            <alliance>GdS</alliance>
+            <home>NO</home>
+            <b_hangar>138</b_hangar>
+        </city>
+        <city>
+            <city>1:104:7</city>
+            <city_name>Phantasia des Windes</city_name>
+            <user>Tao</user>
+            <points>1187</points>
+            <alliance>GdS</alliance>
+            <home>NO</home>
+            <b_hangar>151</b_hangar>
+        </city>
+        <city>
+            <city>1:79:7</city>
+            <city_name>___1337___</city_name>
+            <user>Jim</user>
+            <points>1178</points>
+            <alliance>BuG</alliance>
+            <home>NO</home>
+            <b_hangar>140</b_hangar>
+        </city>
+        <city>
+            <city>3:35:2</city>
+            <city_name>1.1</city_name>
+            <user>AxL</user>
+            <points>1177</points>
+            <alliance>GdS</alliance>
+            <home>NO</home>
+            <b_hangar>136</b_hangar>
+        </city>
+        <city>
+            <city>1:104:3</city>
+            <city_name>Mystik des Moments</city_name>
+            <user>Tao</user>
+            <points>1175</points>
+            <alliance>GdS</alliance>
+            <home>NO</home>
+            <b_hangar>147</b_hangar>
+        </city>
+        <city>
+            <city>1:154:5</city>
+            <city_name>Innovationen</city_name>
+            <user>Detonator</user>
+            <points>1174</points>
+            <alliance>TK</alliance>
+            <home>YES</home>
+            <b_hangar>121</b_hangar>
+        </city>
+        <city>
+            <city>2:172:8</city>
+            <city_name>Totomsk</city_name>
+            <user>Hasta</user>
+            <points>1169</points>
+            <alliance></alliance>
+            <home>YES</home>
+            <b_hangar>108</b_hangar>
+        </city>
+        <city>
+            <city>1:104:4</city>
+            <city_name>Tempel des Tapferen</city_name>
+            <user>Tao</user>
+            <points>1169</points>
+            <alliance>GdS</alliance>
+            <home>NO</home>
+            <b_hangar>154</b_hangar>
+        </city>
+        <city>
+            <city>3:35:3</city>
+            <city_name>1.0</city_name>
+            <user>AxL</user>
+            <points>1164</points>
+            <alliance>GdS</alliance>
+            <home>NO</home>
+            <b_hangar>137</b_hangar>
+        </city>
+        <city>
+            <city>3:58:10</city>
+            <city_name>Neue Stadt</city_name>
+            <user>Nocc</user>
+            <points>1164</points>
+            <alliance>GdS</alliance>
+            <home>NO</home>
+            <b_hangar>138</b_hangar>
+        </city>
+        <city>
+            <city>3:172:5</city>
+            <city_name>___1337___</city_name>
+            <user>Olumbatschu</user>
+            <points>1161</points>
+            <alliance>BuG</alliance>
+            <home>NO</home>
+            <b_hangar>140</b_hangar>
+        </city>
+        <city>
+            <city>1:180:1</city>
+            <city_name>Neue Stadt</city_name>
+            <user>Tao</user>
+            <points>1158</points>
+            <alliance>GdS</alliance>
+            <home>NO</home>
+            <b_hangar>147</b_hangar>
+        </city>
+        <city>
+            <city>3:58:1</city>
+            <city_name>Neue Stadt</city_name>
+            <user>Nocc</user>
+            <points>1156</points>
+            <alliance>GdS</alliance>
+            <home>NO</home>
+            <b_hangar>128</b_hangar>
+        </city>
+        <city>
+            <city>3:35:1</city>
+            <city_name>1.2</city_name>
+            <user>AxL</user>
+            <points>1153</points>
+            <alliance>GdS</alliance>
+            <home>NO</home>
+            <b_hangar>133</b_hangar>
+        </city>
+        <city>
+            <city>3:113:12</city>
+            <city_name>Neue Stadt</city_name>
+            <user>Cadoras</user>
+            <points>1150</points>
+            <alliance>VisioN</alliance>
+            <home>NO</home>
+            <b_hangar>120</b_hangar>
+        </city>
+        <city>
+            <city>3:90:6</city>
+            <city_name>Neue Stadt</city_name>
+            <user>Cadoras</user>
+            <points>1149</points>
+            <alliance>VisioN</alliance>
+            <home>NO</home>
+            <b_hangar>120</b_hangar>
+        </city>
+        <city>
+            <city>3:113:10</city>
+            <city_name>Neue Stadt</city_name>
+            <user>Cadoras</user>
+            <points>1149</points>
+            <alliance>VisioN</alliance>
+            <home>NO</home>
+            <b_hangar>121</b_hangar>
+        </city>
+        <city>
+            <city>3:113:13</city>
+            <city_name>Neue Stadt</city_name>
+            <user>Cadoras</user>
+            <points>1149</points>
+            <alliance>VisioN</alliance>
+            <home>NO</home>
+            <b_hangar>122</b_hangar>
+        </city>
+        <city>
+            <city>3:113:9</city>
+            <city_name>Neue Stadt</city_name>
+            <user>Cadoras</user>
+            <points>1149</points>
+            <alliance>VisioN</alliance>
+            <home>NO</home>
+            <b_hangar>121</b_hangar>
+        </city>
+        <city>
+            <city>3:113:14</city>
+            <city_name>Neue Stadt</city_name>
+            <user>Cadoras</user>
+            <points>1149</points>
+            <alliance>VisioN</alliance>
+            <home>NO</home>
+            <b_hangar>120</b_hangar>
+        </city>
+        <city>
+            <city>1:128:8</city>
+            <city_name>Forza SVW!!!!</city_name>
+            <user>mho</user>
+            <points>1148</points>
+            <alliance>BuG</alliance>
+            <home>YES</home>
+            <b_hangar>135</b_hangar>
+        </city>
+        <city>
+            <city>3:35:7</city>
+            <city_name>1.5</city_name>
+            <user>AxL</user>
+            <points>1148</points>
+            <alliance>GdS</alliance>
+            <home>NO</home>
+            <b_hangar>133</b_hangar>
+        </city>
+    </ETS9>
+
+

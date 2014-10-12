@@ -1,0 +1,104 @@
+<div tal:comment=" === Seitenstruktur ==================================================="
+     id="contentCityAdmin"
+     metal:define-macro="content">
+
+<!-- mittlere Spalte -->
+    <span
+        tal:condition="exists: errorMessage"
+        tal:comment="error content if there is any"
+        tal:replace="structure errorMessage">
+    </span>
+
+    <div tal:omit-tag="" tal:condition="not: exists: errorMessage">
+
+        <script type="text/javascript" src="javascript/jquery.ui/ui.sortable.js"></script>
+        <script type="text/javascript" src="javascript/tiny_mce/tiny_mce_gzip.js"></script>
+        <script type="text/javascript" src="javascript/tinymce_init.js"></script>
+        <script type="text/javascript">
+            <!--
+            function open(e) {
+                city = $(e.target).attr('alt');
+                $(e.target).parents('li').find('.edit').load('./administration.php?xedit&city='+city,null,
+                function (responseText, textStatus, XMLHttpRequest) {
+                    var id = $(this).find('textarea').attr('id');
+                    if (tinyMCE.getInstanceById(id) == null)
+                        tinyMCE.execCommand('mceAddControl', false, id);
+                }).show();
+                $(e.target).parents('li').find('.open').hide();
+                $(e.target).parents('li').find('.close').show();
+            }
+            $(document).ready(function(){
+                $(".data-table").hide();
+                $(".nojs_handle").hide();
+                $(".js_handle").show();
+                $(".table_head").css('cursor','move').bind("dblclick", open);
+                $(".open").show().bind("click", open);
+                $(".close").bind("click", function(e) {
+                    $(e.target).parents('li').find('.edit').hide();
+                    $(e.target).parents('li').find('.close').hide();
+                    $(e.target).parents('li').find('.open').show();
+                });
+                $("#orderlist").sortable({ zIndex: 99 });
+                $("#sorthelp").show();
+            });
+            -->
+        </script>
+
+        <h1 i18n:translate="string: MESSAGES[MSG_ADMINISTRATION][m000]"></h1>
+        <div tal:content="structure ERR_MSG" tal:condition="ERR_MSG"></div>
+
+        <form action="./administration.php" method="post">
+            <ul id="orderlist">
+               <block tal:omit-tag="" metal:use-macro="city"  tal:repeat="city cities"/>
+            </ul>
+            <input type="hidden" name="action" value="save" /> <input type="submit"
+                  class="button" tal:attributes="value string:MESSAGES[MSG_ADMINISTRATION][m006]" i18n:attributes="value" />
+        </form>
+        <div id="sorthelp" style="display:none">Beachte: Du kannst die Städte per Drag'n'Drop nach deinen Wünschen sortieren.</div>
+    </div> <!-- omit -->
+</div><!-- contentCityAdmin -->
+
+<block tal:omit-tag="" metal:define-macro="city">
+    <li tal:attributes="class city/home">
+        <div class="table_head" tal:attributes="alt city/city" >
+            <div class="title" tal:content="city/city" tal:attributes="alt city/city" >City-Name</div>
+            <div class="js_handle">
+                <a href="#" tal:attributes="alt city/city" class="open">Bearbeiten</a>
+                <a href="#" class="close">Schliessen</a>
+            </div>
+            <div class="nojs_handle">
+                <a tal:attributes="href string:?edit&city=${city/city}">Bearbeiten</a>
+                <a tal:attributes="href string:?up&city=${city/city}">Hoch</a>
+                <a tal:attributes="href string:?down&city=${city/city}">Runter</a></div>
+            <div style="clear: both;"></div>
+        </div>
+        <input type="hidden" tal:attributes="name string:city[${city/city}]" value="1" />
+        <div class="edit"></div>
+        <block metal:use-macro="city_edit" tal:omit-tag="" />
+    </li>
+</block>
+
+<block tal:omit-tag="" metal:define-macro="city_edit">
+    <table class="data-table" tal:condition="city/set_open">
+        <tr>
+            <td i18n:translate="string: MESSAGES[MSG_ADMINISTRATION][m003]"></td>
+        </tr>
+        <tr>
+            <td><input type="text" class="button" maxlength="20"
+                tal:attributes="name string:name[${city/city}]; value city/city_name" /></td>
+        </tr>
+        <tr valign="top">
+            <td i18n:translate="string: MESSAGES[MSG_ADMINISTRATION][m004]"></td>
+        </tr>
+        <tr>
+            <td><textarea class="button" style="width: 100%" tal:attributes="name string:city_text[${city/city}]; id string:city_text[${city/city}]" cols="50" rows="20"
+                tal:content="city/city_text">City Text</textarea></td>
+        </tr>
+        <tr valign="top">
+            <td i18n:translate="string: MESSAGES[MSG_ADMINISTRATION][m005]"></td>
+        </tr>
+        <tr>
+            <td><input type="text" class="button" size="50" tal:attributes="name string:city_pic[${city/city}]; value city/city_pic" /></td>
+        </tr>
+    </table>
+</block>

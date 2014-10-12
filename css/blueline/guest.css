@@ -1,0 +1,195 @@
+/*******************************************************************************
+ * STYLES FOR EXTERNAL SITES (GUESTS)
+ ******************************************************************************/
+
+/***************************************
+ *   masthead for guests
+ **************************************/
+#mastheadGuest
+{
+    background: #000 url(/pics/oben.jpg) no-repeat top right;
+}
+
+/***************************************
+ *   footer
+ **************************************/
+#footerGuest
+{
+    background: #000 url(/pics/unten.jpg) no-repeat bottom right;
+}
+
+/***************************************
+ *   register forms
+ **************************************/
+/* Fielsets mit Hintergrundfarbe und
+   leicht plastischen Rahmen*/
+#registerForm #fieldSetEarth1,
+#registerForm #fieldSetEarth2
+{
+    background-color: #111;
+    border: 1px solid #444;
+    color: #999;
+    margin: 2em 0em 1em 0em;
+    padding: 1em 1em 0em 1em;
+}
+#fieldSetSend1 {border:none;}
+#fieldSetSend2 {border:none;}
+#fieldSetSend3 {border:none;}
+#fieldSetSend4 {border:none;}
+
+/* Legende ausgeblendet,
+   erzeugt im ie Fehler bei aktiver Hintergrundfarbe */
+#registerForm legend
+{
+    display: none;
+}
+
+/* Alle Elemente sind auf display:block gesetzt,
+   um Groessenangaben festlegen zu koennen und
+   fliessen links. Ein Zeilenumbruch hebt die
+   Flussumgebung auf. */
+#registerForm label
+{
+    display:block;
+    float:left;
+    width:8em;
+    padding-right:0.5em;
+}
+#fieldsetEarth1 input,
+#fieldsetEarth2 input
+{
+    display:block;
+    float:left;
+}
+#registerForm span.info
+{
+    display:block;
+    float:left;
+    width:27em;
+}
+#registerForm span.confirm
+{
+vertical-align:top;
+}
+#registerForm span.legend
+{
+display:block;
+font-size:80%;
+color:#444;
+text-align:right;
+padding:2em 0 0.5em 0;
+}
+#registerForm br
+{
+    clear:both;
+}
+
+/* leicht abgedunkelte Eingabe */
+#mailInput,
+#mailRepeatInput,
+#passInput,
+#passRepeatInput,
+#nickInput,
+#cityInput,
+#precode
+{
+    background-color:#ccc;
+}
+
+/* Abstand um naechsten Bereich */
+#newsLetterInfoContent,
+#passInfoContent,
+#agbInfoContent,
+#privacyInfoContent,
+#precodeInfoContent,
+#cityInfoContent
+
+{
+    margin-top:2em;
+}
+
+/* Abstand innerhalb eines Bereiches
+   und zwar zur naechsten Zeile */
+#mailInfoContent,
+#mailInput,
+#newsLetterInfoContent,
+#passInfoContent,
+#passInput,
+#precodeInfoContent,
+#agbInfoContent,
+#privacyInfoContent,
+#cityInfoContent,
+#nickInfoContent
+{
+    margin-bottom: 0.5em;
+}
+
+#fieldSetSend #buttonSend
+{
+}
+
+/* Beschriftung ist rechtsbündig*/
+#mailLabel,
+#mailRepeatLabel,
+#newsLetterCheckLabel,
+#passLabel,
+#passRepeatLabel,
+#agbLabel,
+#nickLabel,
+#cityLabel,
+#privacyCheckLabel,
+#precodeLabel
+{
+    text-align:right;
+}
+
+/* Beschriftung fuer den Hinweistext ausgeblendet */
+#mailInfoLabel,
+#newsLetterInfoLabel,
+#passInfoLabel,
+#agbInfoLabel,
+#cityInfoLabel,
+#nickInfoLabel,
+#privacyInfoLabel,
+#precodeInfoLabel
+{
+    color:white;
+    visibility:hidden;
+}
+#toPersonData, #toFlight, #toStart, #submit, #buttonSend  {float:right;padding: 0 1em;}
+#earthOne, #earthTwo {text-align:center;border:solid #444 1px;width:38em;margin:1em auto 2em auto;}
+#registerForm .tab-page p:first-letter {font-size:150%;color:#ccc;padding:0 0.1em 0 0;font-weight:bold;}
+#registerErrorList {border:solid 1px #999; padding:0.5em 0em 0.5em 0em; background-color:#222;margin:1em 0 1em 0em;color:white;}
+#registerErrorList li {padding-bottom:0.2em; color: orange}
+
+/***************************************
+ *   login errors
+ **************************************/
+#loginErrorContainer dt {color:#ddd;padding: 0 3em 0.2em 3em;}
+#loginErrorContainer dd {color:#999;padding: 0 3em 0.5em 0;}
+#loginErrorContainer dt.errorList {color:#999;padding: 0 0 0.2em 0;}
+#loginErrorContainer dd.errorList {color:#eee;padding: 0 0 0.5em 0;}
+#loginErrorContainer #errorMessage {color:red;}
+
+/***************************************
+ *   AGB / terms of use
+ **************************************/
+#agbContainer {color:#999;}
+#agbContainer dl {padding: 0 0em 0em 0em;}
+#agbContainer dt {padding: 0em 0em 0em 1.5em;color:#ccc;}
+#agbContainer dd {padding: 0 0em 0.5em 0em;color:#999;}
+#agbContainer h2 {padding: 1em 0em 0em 0em;color:#ddd;text-align:left;}
+#agbContainer li {padding: 0em 1.5em 0.5em 0em;}
+#agbContainer #contactSign {margin-top:1em;border:solid 1px #444; padding:0.5em;background-color:#222;}
+#agbContainer #contactSign th {text-align:right; font-weight:normal;color:#ccc;padding: 0 1em 0 0;}
+#agbContainer #dateSign {text-align:right;}
+
+#dataSecurityContainer {color:#999;}
+#dataSecurityContainer dl {padding: 0 0em 0em 0em;}
+#dataSecurityContainer dt {padding: 0em 0em 0em 1.5em;color:#ccc;}
+#dataSecurityContainer dd {padding: 0 0em 0.5em 0em;color:#999;}
+#dataSecurityContainer h2 {padding: 1em 0em 0em 0em;color:#ddd;text-align:left;}
+#dataSecurityContainer li {padding: 0em 1.5em 0.5em 0em;}
+#dataSecurityContainer #contactSign {margin-top:1em;border:solid 1px #444; padding:0.5em;background-color:#222;}
+#dataSecurityContainer #contactSign th {text-align:right; font-weight:normal;color:#ccc;padding: 0 1em 0 0;}
+#dataSecurityContainer #dateSign {text-align:right;}

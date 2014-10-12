@@ -1,0 +1,127 @@
+<project name="ETS9" default="dist" basedir=".">
+    <description>
+        Compresses the css and javascript files used by Escape to Space 8.
+    </description>
+  <!-- set global properties for this build -->
+  <property name="css" location="css"/>
+  <property name="js"  location="javascript"/>
+  <property name="blueline"  location="css/blueline"/>
+
+  <!-- set global properties for this build -->
+  <property name="build" location="build"/>
+  <property name="yui"   location="include/yuicompressor/yuicompressor-2.3.5.jar"/>
+
+  <target name="init">
+    <tstamp/>
+    <mkdir dir="${build}"/>
+
+    <exec executable="svn">
+      <arg line="update"/>
+    </exec>
+  </target>
+
+  <target name="compile" depends="init" description="compile the source " >
+    <!-- build the main css file -->
+    <concat destfile="${build}/main_tmp.css">
+      <file file="${css}/skidoo_visual_consistencies.css" />
+      <file file="${css}/tab.webfx.css" />
+      <file file="${css}/style.css" />
+      <file file="${css}/jquery.cluetip.css" />
+      <file file="${css}/skidoo_redux.css" />
+      <file file="${css}/skidoo_theme_blue_line.css" />
+    </concat>
+    <!-- build the main_blueline css file -->
+    <concat destfile="${build}/main_blueline_tmp.css">
+      <file file="${blueline}/base.css" />
+      <file file="${css}/tab.webfx.css" />
+      <file file="${css}/style.css" />
+      <file file="${css}/jquery.cluetip.css" />
+      <file file="${blueline}/structure.css" />
+      <file file="${blueline}/hack.css" />
+      <file file="${blueline}/guest.css" />
+      <file file="${blueline}/logged.css" />
+      <file file="${blueline}/additional.css" />
+    </concat>
+    <!-- compress the main css file -->
+    <java jar="${yui}" fork="true">
+      <arg value="-o"/>
+      <arg file="${build}/main.css"/>
+      <arg file="${build}/main_tmp.css"/>
+    </java>
+    <!-- compress the main css file -->
+    <java jar="${yui}" fork="true">
+      <arg value="-o"/>
+      <arg file="${build}/main_blueline.css"/>
+      <arg file="${build}/main_blueline_tmp.css"/>
+    </java>
+    <!-- build the wide screen css file from main.css and overrides -->
+    <concat destfile="${build}/main_wide.css">
+        <file file="${build}/main.css" />
+        <file file="${css}/main_wide_append.css" />
+    </concat>
+    <!-- build the short workboard css file from main.css and overrides -->
+    <concat destfile="${build}/main_disabled.css">
+        <file file="${build}/main.css" />
+        <file file="${css}/main_disabled_append.css" />
+    </concat>
+
+
+    <!-- -->
+    <concat destfile="${build}/jquery_tmp.js">
+      <file file="${js}/jquery.js" />
+      <file file="${js}/jquery.ui/jquery.dimensions.js" />
+      <file file="${js}/jquery.ui/ui.core.js" />
+      <file file="${js}/jquery.ui/ui.tabs.js" />
+      <file file="${js}/jquery.ui/ui.accordion.js" />
+      <file file="${js}/jquery.hoverIntent.minified.js" />
+      <file file="${js}/jquery.cluetip.js" />
+    </concat>
+    <!-- compress the jquery javascript file -->
+    <java jar="${yui}" fork="true">
+      <arg value="-o"/>
+      <arg file="${build}/jquery_base.js"/>
+      <arg file="${build}/jquery_tmp.js"/>
+    </java>
+
+
+    <!-- build the main javascript file -->
+    <concat destfile="${build}/main_tmp.js">
+      <file file="${js}/jquery.gui.js" />
+      <file file="${js}/jquery.cookie.js" />
+      <file file="${js}/resources.js" />
+      <file file="${js}/main_src.js" />
+      <file file="${js}/timer_src.js" />
+      <file file="${js}/trade_src.js" />
+      <file file="${js}/tinymce_init.js" />
+    </concat>
+    <!-- compress the main javascript file -->
+    <java jar="${yui}" fork="true">
+      <arg value="-o"/>
+      <arg file="${build}/main.js"/>
+      <arg file="${build}/main_tmp.js"/>
+    </java>
+  </target>
+
+  <target name="dist" depends="compile" description="generate the distribution" >
+    <copy file="${build}/main.css" todir="${css}" overwrite="true"/>
+    <copy file="${build}/main_wide.css" todir="${css}" overwrite="true"/>
+    <copy file="${build}/main_disabled.css" todir="${css}" overwrite="true"/>
+    <copy file="${build}/main_blueline.css" todir="${css}" overwrite="true"/>
+    <copy file="${build}/main.js" todir="${js}" overwrite="true"/>
+    <copy file="${build}/jquery_base.js" todir="${js}" overwrite="true"/>
+    <chmod file="cr_calc.php" perm="755"/>
+    <chmod file="cr_wars.php" perm="755"/>
+    <chmod file="optimize.php" perm="755"/>
+    <chmod file="optimize24.php" perm="755"/>
+    <delete dir="${build}"/>
+  </target>
+
+  <target name="clean" description="clean up" >
+    <delete dir="${build}"/>
+    <delete file="${css}/main.css"/>
+    <delete file="${js}/main.js"/>
+    <delete file="${css}/main_wide.css"/>
+    <delete file="${css}/main_disabled.css"/>
+    <delete file="${css}/main_blueline.css"/>
+  </target>
+</project>

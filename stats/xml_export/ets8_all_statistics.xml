@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ETS8>
+    <statistics>
+
+        <stat>
+            <id>Flugzeuge gesamt</id>
+            <sql>SELECT SUM(p_gesamt_flugzeuge) FROM city</sql>
+            <values>
+              <value>
+                <id>dummy</id>
+                <amount>4.520.223</amount>
+              </value>
+            </values>
+        </stat>
+
+
+        <stat>
+            <id>Defensivanlagen gesamt</id>
+            <sql>SELECT SUM(d_electronwoofer+d_protonwoofer+d_neutronwoofer+d_electronsequenzer+d_protonsequenzer+d_neutronsequenzer) AS towers FROM city</sql>
+            <values>
+              <value>
+                <id>dummy</id>
+                <amount>5.822.032</amount>
+              </value>
+            </values>
+        </stat>
+
+
+        <stat>
+            <id>Bauaufträge Flugzeuge gesamt</id>
+            <sql>SELECT max(id) FROM jobs_planes</sql>
+            <values>
+              <value>
+                <id>dummy</id>
+                <amount>27.188.072</amount>
+              </value>
+            </values>
+        </stat>
+
+
+        <stat>
+            <id>Bauaufträge Defensive gesamt</id>
+            <sql>SELECT max(id) FROM jobs_defense</sql>
+            <values>
+              <value>
+                <id>dummy</id>
+                <amount>20.096.131</amount>
+              </value>
+            </values>
+        </stat>
+
+
+        <stat>
+            <id>Ingame Nachrichten gesamt</id>
+            <sql>SELECT max(id) FROM news_igm_umid</sql>
+            <values>
+              <value>
+                <id>dummy</id>
+                <amount>2.013.161</amount>
+              </value>
+            </values>
+        </stat>
+
+
+        <stat>
+            <id>Ereignisnachrichten gesamt</id>
+            <sql>SELECT max(id) FROM news_er</sql>
+            <values>
+              <value>
+                <id>dummy</id>
+                <amount>51.665.570</amount>
+              </value>
+            </values>
+        </stat>
+
+
+        <stat>
+            <id>Berichte gesamt</id>
+            <sql>SELECT max(id) FROM `news_ber`</sql>
+            <values>
+              <value>
+                <id>dummy</id>
+                <amount>7.451.457</amount>
+              </value>
+            </values>
+        </stat>
+
+
+        <stat>
+            <id>Siedler am Rundenende</id>
+            <sql>SELECT count(*) FROM `userdata`</sql>
+            <values>
+              <value>
+                <id>dummy</id>
+                <amount>2.023</amount>
+              </value>
+            </values>
+        </stat>
+
+
+    </statistics>
+</ETS8>

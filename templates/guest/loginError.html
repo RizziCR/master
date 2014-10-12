@@ -1,0 +1,239 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd" -->
+
+<html>
+
+    <head
+          tal:comment="html head requires page title"
+          metal:use-macro="lib/htmlHeadGuest.html/htmlHead"
+    />
+
+    <body>
+        <div id="page-container">
+            <div id="masthead">
+                <div class="inside">
+
+                    <span
+                          tal:comment="logo template"
+                          metal:use-macro="lib/middleColumnGuest.html/logo"
+                    />
+
+                </div>
+            </div>
+
+            <div id="outer-column-container">
+                <div id="inner-column-container">
+                    <div id="source-order-container">
+                        <div id="middle-column">
+                            <div class="inside">
+                                <div id="content">
+
+    <div id="loginErrorContainer"
+         tal:comment="Es gab einen Fehler bei der Anmeldung?"
+         tal:condition="exists: loginError">
+
+        <h1>Fehler bei der Anmeldung</h1>
+
+        <dl>
+            <dt class="errorList">Was ist passiert?</dt>
+            <dd class="errorList">Du konntest nicht angemeldet werden.</dd>
+
+            <dt class="errorList">Warum denn das?</dt>
+            <dd class="errorList" id="errorMessage" tal:condition="exists: captchaMessage"><span tal:replace="captchaMessage">Captcha Fehlernachricht</span></dd>
+            <dd class="errorList" id="errorMessage" tal:condition="exists: loginMessage"><span tal:replace="loginMessage">Login Fehlernachricht</span></dd>
+
+            <dt class="errorList">Und was nun?</dt>
+            <dd class="errorList"  tal:condition="exists: captchaMessage">Versuche dich zunächst noch einmal <a
+            tal:attributes="href string:$etsAddress/page/login.php">anzumelden</a>. Sollte
+            auch ein wiederholter Versuch scheitern, melde dich bitte im Forum oder bei der
+            Spielerbetreuung.</dd>
+            <dd class="errorList"  tal:condition="exists: loginMessage">Versuche dich zunächst noch einmal <a
+            tal:attributes="href string:$etsAddress/page/login.php">anzumelden</a>. Sollte
+            auch ein wiederholter Versuch scheitern, überprüfe nachfolgende Möglichkeiten.
+            Bleiben auch diese erfolglos, melde dich bitte im Forum oder bei der Spielerbetreuung.</dd>
+        </dl>
+        
+        <!--
+		 <br /><br />
+         <table border="0" cellpadding="0" cellspacing="0">
+         	<tr>
+         		<td colspan="2">
+         			Manchmal hilft auch einfach ein erneutes Einloggen. Probier dies zuerst :)
+         		</td>
+         	</tr>
+         	<tr>
+            	<td align="right">
+              		E-Mail-Adresse:&nbsp;
+           		</td>
+            	<td align="right">
+              		<input type="email" name="email" class="button" />
+            	</td>
+          	</tr>
+          	<tr>
+            	<td align="right">
+              		Kennwort:&nbsp;
+            	</td>
+            	<td align="right">
+              		<input type="password" name="spwd" class="button" />
+            	</td>
+          	</tr>
+
+          	<tr>
+            	<td align="right" valign="top">
+            		<br/>
+                	Klicke in den geschlossenen Kreis:&nbsp;
+            	</td>
+            	<td align="right">
+            		<br/>
+					<input type="submit" name="submit" value="submit" style="width;0px;height:0px;border:0px;position:absolute;top:-1000px;left:-1000px;" />
+            		<input onclick="submitLoginForm(true);" type="image" name="captcha" id="captchacode" src="$etsAddress/page/captcha.php" />
+           		</td>
+          	</tr>
+          </table> -->
+
+
+        <h2 tal:condition="exists: loginMessage">Weitere mögliche Ursachen:</h2>
+        <dl tal:condition="exists: loginMessage">
+            <dt>E-Mail-Adresse benutzt?</dt>
+            <dd>
+                Neuerdings musst du deine E-Mail-Adresse anstelle deines Benutzernamens eingeben.
+                <!--  Prüfe daher noch einmal mit welchen Angaben du Dich versuchst anzumelden. -->
+            </dd>
+
+            <dt>Kennwort korrekt eingegeben?</dt>
+            <dd>
+                Hast du beachtet, dass bei der Prüfung des Kennwortes zwischen
+                großen und kleinen Buchstaben unterschieden wird? <!-- Solltest du auch nach
+                einer Überprüfung Probleme haben, kannst du dir ein
+                <a tal:attributes="href string: $etsAddress/page/password.php">neues Kennwort
+                schicken</a> lassen. Der Knopf [neues Kennwort anfordern] erzeugt - im
+                Gegensatz zu der "sicheren" Variante - ein Kennwort, dass dir in jedem
+                Fall korrekt zugesendet wird.--></dd>
+
+            <dt>Kürzlich das Kennwort geändert?</dt>
+            <dd>
+                Manchmal hilft es die temporären Dateien deines Browsers zu löschen (Cache).
+                <!-- und erneut eine Anmeldung zu versuchen. -->
+            </dd>
+
+            <dt>Einstellungen richtig?</dt>
+            <dd>
+                Stelle sicher, dass dein Browser Cookies akzeptiert. Zudem kann eine falsche
+                Systemzeit dazu führen, dass das Cookie sofort wieder verfällt.
+            </dd>
+
+            <!-- funktioniert aktuell nicht! -->
+            <!--  dt>Providerprobleme?</dt>
+            <dd>
+                Abhängig vom Provider (z.B. AOL) kann es durch die Verwendung von Proxy-Servern
+                zu Problemen kommen. Schalte dir in diesem Fall ein <a tal:attributes="href string:$etsAddress/page/alt_login.php?user=$currentUser"
+                >alternatives Login</a> frei.
+            </dd -->
+
+            <dt>Keine Idee mehr?</dt>
+            <dd>
+                Versuche deinen Browser auf den neuesten Stand zu bringen oder probiere einen
+                anderen aus, z.B. <a href="http://www.mozilla.org/de/firefox/" target="_blank">Firefox</a>.
+                <!--  Manchmal trat ein Fehler im Internet Explorer auf, der das Login  einiger Benutzer verhinderte. -->
+            </dd>
+        </dl>
+    </div>
+
+    <div id="loginErrorContainer"
+         tal:comment="Es gab einen Fehler der die Session unerwartet beendet hat"
+         tal:condition="exists: sessionError">
+
+        <h1>Unerwartete Abmeldung</h1>
+
+        <dl>
+            <dt class="errorList">Was ist passiert?</dt>
+            <dd class="errorList">Du wurdest automatisch abgemeldet.</dd>
+            <dt class="errorList">Warum denn das?</dt>
+            <dd class="errorList" id="errorMessage" ><span tal:replace="structure sessionError">Fehlernachricht</span></dd>
+            <dt class="errorList">Und was nun?</dt>
+            <dd class="errorList">Falls die Fehlermeldung dazu keinen Hinweis bietet, benutze das Forum oder
+            wende dich an die Spielerbetreuung von Escape to Space.</dd>
+        </dl>
+    </div>
+    
+    <!-- 
+		 <br /><br />
+         <table border="0" cellpadding="0" cellspacing="0">
+         	<tr>
+         		<td colspan="2">
+         			Manchmal hilft auch einfach ein erneutes Einloggen. Probier dies zuerst :)
+         		</td>
+         	</tr>
+         	<tr>
+            	<td align="right">
+              		E-Mail-Adresse:&nbsp;
+           		</td>
+            	<td align="right">
+              		<input type="email" name="email" class="button" />
+            	</td>
+          	</tr>
+          	<tr>
+            	<td align="right">
+              		Kennwort:&nbsp;
+            	</td>
+            	<td align="right">
+              		<input type="password" name="spwd" class="button" />
+            	</td>
+          	</tr>
+
+          	<tr>
+            	<td align="right" valign="top">
+            		<br/>
+                	Klicke in den geschlossenen Kreis:&nbsp;
+            	</td>
+            	<td align="right">
+            		<br/>
+					<input type="submit" name="submit" value="submit" style="width;0px;height:0px;border:0px;position:absolute;top:-1000px;left:-1000px;" />
+            		<input onclick="submitLoginForm(true);" type="image" name="captcha" id="captchacode" src="$etsAddress/page/captcha.php" />
+            	</td>
+          	</tr>
+          </table> -->
+    
+    
+                                </div><!-- #content -->
+                            </div><!-- .inside -->
+                        </div><!-- #middle-column -->
+                        <div id="left-column">
+                            <div class="inside">
+
+
+
+            <span
+                  tal:comment="left column template"
+                  metal:use-macro="lib/leftColumnGuest.html/leftColumn"
+            />
+
+
+                            </div>
+                        </div>
+                        <div class="clear-columns"><!-- do not delete --></div>
+                    </div>
+                    <div id="right-column">
+                        <div class="inside">
+
+            <span
+                  tal:comment="right column template"
+                  metal:use-macro="lib/rightColumnGuest.html/rightColumn"
+            />
+
+                        </div>
+                    </div>
+                    <div class="clear-columns"><!-- do not delete --></div>
+                </div>
+            </div>
+            <div id="footer">
+                <div class="inside">
+            <span
+                  tal:comment="footer template"
+                  metal:use-macro="lib/footer.html/footer"
+            />
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

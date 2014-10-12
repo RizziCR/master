@@ -1,0 +1,226 @@
+/*******************************************************************************
+ * BASE THEME
+ ******************************************************************************/
+.clear-columns
+{
+    clear: both;
+}
+#page-container
+{
+    background-color: #111;
+    border: 1px solid #333;
+    margin: 0 auto;
+    min-width: 73em;
+    width: 73em;
+}
+#masthead, #mastheadGuest
+{
+    border-bottom: 1px solid #000;
+    height: 4em;
+    padding-top: 1px;
+}
+#outer-column-container
+{
+    border-left: 13em solid #222;
+    border-right: 13em solid #222;
+}
+#inner-column-container
+{
+    border: 1px solid #000;
+    border-width: 0 1px;
+    margin: 0 -1px;
+    width: 100%;
+}
+#source-order-container
+{
+    float: left;
+    width: 100%;
+    margin-right: -1px;
+}
+#left-column
+{
+    float: left;
+    margin-left: -13em;
+    width: 13em;
+    margin-right: 1px;
+}
+#middle-column
+{
+    float: right;
+    width: 100%;
+    margin-left: -1px;
+    overflow: auto;
+}
+#content
+{
+    padding: 1em;
+}
+#right-column
+{
+    float: right;
+    margin-right: -13em;
+    width: 13em;
+    margin-left: 1px;
+    padding: 1em 0;
+    text-align: center;
+}
+#footer, #footerGuest
+{
+    background: #000;
+    border-top: 1px solid #222;
+    height: 3em;
+    padding-bottom: 1px;
+}
+.clear
+{
+    clear: both;
+}
+
+
+/***************************************
+ *   Navigation
+ **************************************/
+#menu, #menuGuest
+{
+    color: #999;
+    padding: 1em;
+    width: 11em;
+}
+#menu ul, #menuGuest ul
+{
+    padding: 0.2em 0em 0.7em 0.5em;
+}
+#activeEntry
+{
+    color: white;
+}
+.newMessage,
+#newMessage
+{
+    color: #0f0; /* neon green */
+}
+#sessiontimeout
+{
+    color: #0f0; /* neon green */
+}
+#cityList TABLE {
+    width: 100%;
+}
+#cityList TD {
+    font-size: 80%;
+}
+#cityList DIV {
+    padding: 5px 0;
+}
+
+/***************************************
+ *   footer
+ **************************************/
+#versionTitle
+{
+    color: #ccc;
+    float: right;
+    margin: 1em;
+}
+#subMenu
+{
+    float: left;
+    margin: 1em;
+}
+
+/***************************************
+ *   general classes
+ **************************************/
+.error { color: red; }
+.warning { color: orange; }
+.important { color: red; }
+.invisible { visibility: hidden; }
+.hidden { display: none; }
+
+/* subcolumns */
+.subcol { width: 100%; overflow: hidden; }
+.subcl { padding: 0 1em 0 0; }
+.subc { padding: 0 0.5em 0 0.5em; }
+.subcr { padding: 0 0 0 1em; }
+.c33l, .c50l { float: left; }
+.c33r, .c50r { float: right; margin-left: -5px; }
+.c33l, .c33r { width: 33.333%; }
+.c50l, .c50r { width: 50%; }
+
+
+/* ##### obsolet? ##### */
+#middle-column div.rMenu-center
+{
+    border-bottom: 1px solid #000;
+}
+
+
+/*******************************************************************************
+ * HACKS
+ ******************************************************************************/
+.clear-columns
+{
+    /* hide from IE/Mac \*/
+    padding-bottom: 1px;
+    margin-bottom: -1px;
+}
+* html #page-container
+{
+    /* \*/ height: 0.1%;
+    position: relative;
+}
+* html #middle-column,
+* html #left-column,
+* html #right-column,
+* html #source-order-container
+{
+    /* hide from IE/Mac \*/
+    overflow: visible;
+    /* hide from IE/Mac \*/
+    position: relative;
+}
+* html #middle-column
+{
+    margin-right: -4px;
+    margin-right/* */: 0;
+}
+* html #middle-column .inside
+{
+    margin-right: 14px;
+    margin-right:0px;
+    /*margin/* *//*: 10px;*/
+    margin-right/* */: 0px;
+}
+* html #masthead, * html #footer, * html #footerGuest
+{
+    /* hide from IE/Mac \*/
+    height: 0.1%;
+    height/**/: auto;
+}
+* html #masthead .inside, * html #footer .inside, * html #footerGuest .inside
+{
+    margin-top: 0;
+    margin-bottom: 0;
+    /*margin/* *//*: 10px;*/   /* reset for IE 5.5 and later */
+    margin/* */: 0px;
+}
+* html .inside
+{
+    /* margin: 10px 0.75em;*/
+    margin: 0 0;
+    /*margin/* *//*: 10px;*/
+    margin/* */: 0px;
+}
+* html #inner-column-container
+{
+    display: block;
+}
+* html #source-order-container
+{
+    margin-right: -100%;
+    /* \*/ margin-right: -1px;
+}
+#left-column, #right-column
+{
+    position: relative;
+}

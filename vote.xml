@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<charts date="1334695602">
+
+    <portal>
+        <name>mmofacts</name>
+        <homepageurl title="Zur Homepage">http://de.mmofacts.com</homepageurl>
+        <votelinkurl title="Jetzt abstimmen">http://de.mmofacts.com/escape-to-space-19#track</votelinkurl>
+        <toplisturl title="Zur Rangliste">http://de.mmofacts.com/charts</toplisturl>
+        <toparseurl title="Zur Quelldatei">http://de.mmofacts.com/charts?page=2</toparseurl>
+        <votebutton alt="Abstimmknopf">vote_mmofacts.png</votebutton>
+        <rang>81</rang>
+        <oldrang>81</oldrang>
+        <updated>1295302034</updated>
+    </portal>
+
+    <portal>
+        <name>Games Sphere</name>
+        <homepageurl title="Zur Homepage">http://www.gamessphere.de</homepageurl>
+        <votelinkurl title="Jetzt abstimmen">http://www.gamessphere.de/vote/vote_609.html</votelinkurl>
+        <toplisturl title="Zur Rangliste">http://www.gamessphere.de/charts.html</toplisturl>
+        <toparseurl title="Zur Quelldatei">http://www.gamessphere.de/charts.html</toparseurl>
+        <votebutton alt="Abstimmknopf">vote_gamessphere.gif</votebutton>
+        <rang></rang>
+        <oldrang></oldrang>
+        <updated>1295376307</updated>
+    </portal>
+
+    <portal>
+        <name>Game Toplist</name>
+        <homepageurl title="Zur Homepage">http://game-toplist.de</homepageurl>
+        <votelinkurl title="Jetzt abstimmen">http://game-toplist.de/vote/ETSGame.php</votelinkurl>
+        <toplisturl title="Zur Rangliste">http://game-toplist.de/index.php</toplisturl>
+        <toparseurl title="Zur Quelldatei">http://game-toplist.de/index.php</toparseurl>
+        <votebutton alt="Abstimmknopf">vote_gametoplist.png</votebutton>
+        <rang></rang>
+        <oldrang></oldrang>
+        <updated>1295376308</updated>
+    </portal>
+
+    <error>Fehlermeldungen seit dem: 22:41 - 16.04.
+22:41 - 16.04. - Rang von Portal Galaxy News nicht erkannt.
+22:41 - 16.04. - Rang von Portal Games Sphere nicht erkannt.
+22:41 - 16.04. - Rang von Portal Games Dynamite nicht erkannt.
+22:41 - 16.04. - Rang von Portal Gaming Facts nicht erkannt.
+22:41 - 16.04. - Rang von Portal Browser Games nicht erkannt.
+22:46 - 17.04. - Rang von Portal Galaxy News nicht erkannt.
+22:46 - 17.04. - Rang von Portal Games Sphere nicht erkannt.
+22:46 - 17.04. - Rang von Portal Games Dynamite nicht erkannt.
+22:46 - 17.04. - Rang von Portal Gaming Facts nicht erkannt.
+22:46 - 17.04. - Rang von Portal Browser Games nicht erkannt.
+</error>
+
+    <history>1334608862</history>
+</charts>

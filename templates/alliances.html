@@ -1,0 +1,615 @@
+<div tal:comment=" === Seitenstruktur ==================================================="
+     id="contentAlliances"
+     metal:define-macro="content">
+
+    <span
+        tal:comment="error content if there is any"
+        tal:condition="exists: errorMessage"
+        tal:replace="structure errorMessage"
+    />
+
+    <div tal:comment="alliances content"
+         tal:condition="not: exists: errorMessage">
+
+        <script type="text/javascript" src="javascript/tiny_mce/tiny_mce_gzip.js"></script>
+        <script type="text/javascript" src="javascript/tinymce_init.js"></script>
+        <script type="text/javascript" src="javascript/jquery.tablesorter.pack.js"></script>
+
+        <script type="text/javascript">
+            <!--
+            function set_checkboxes(check)
+            {
+                var boxes = document.kill_form.elements['id[]'];
+                var set_boxes  = boxes.length;
+                 if (boxes.length > 1)
+                     for (i=0;i<set_boxes;i++)
+                         
+                     boxes[i].checked = check;
+                else
+                   boxes.checked = check;
+                return true;
+            }
+            function quote(id) {
+		var quoteString = "[b]" + document.getElementsByName(id)[0].firstChild.data + "[/b] schrieb:\n";
+		quoteString += "[quote][b]" + document.getElementsByName(id)[1].firstChild.data + "[/b]\n";
+		quoteString += document.getElementsByName(id)[2].data + "[/quote]";
+		alert(quoteString);
+		alert(document.getElementsByName(id));
+		quoteString = quoteString.replace("<","[");
+		quoteString = quoteString.replace(">","]");
+		document.getElementsByID("a_msg").value += quoteString;
+            }
+            //-->
+        </script>
+
+        <h1 class="headline">Allianz</h1>
+
+        <div id="tabContainer">
+            <ul>
+                <li tal:condition="php: !has_alliance AND !has_applied"><a href="#section-no-alliance">Allianz</a></li>
+                <li tal:condition="php: !has_alliance AND has_applied"><a href="#section-revoke">Allianz</a></li>
+                <li tal:condition="has_alliance"><a href="#section-overview">Details</a></li>
+                <li tal:condition="has_alliance"><a href="#section-news">Meldungen</a></li>
+                <li tal:condition="php: has_alliance AND isset(has_voting)"><a href="#section-voting">Umfrage</a></li>
+                <li tal:condition="has_alliance"><a href="#section-member">Mitglieder</a></li>
+                <li tal:condition="has_alliance"><a href="#section-war">Kriege</a></li>
+            </ul>
+
+            <div id= "section-no-alliance" tal:condition="php: !has_alliance AND !has_applied">
+                <block metal:use-macro="no_alliance"></block>
+            </div>
+
+            <div id="section-revoke" tal:condition="php: !has_alliance AND has_applied">
+                <block metal:use-macro="revoke"></block>
+            </div>
+
+            <div id="section-overview" tal:condition="has_alliance">
+                <block metal:use-macro="overview"></block>
+            </div>
+
+            <div id="section-news" tal:condition="has_alliance">
+                <block metal:use-macro="news"></block>
+            </div>
+
+            <div id="section-voting" tal:condition="php: has_alliance AND isset(has_voting)">
+                <block metal:use-macro="voting"></block>
+            </div>
+
+            <div id="section-member" tal:condition="has_alliance">
+                <block metal:use-macro="show_list"></block>
+            </div>
+
+            <div id="section-war" tal:condition="has_alliance">
+                <block metal:use-macro="kriege"></block>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            <!--
+            $(document).ready(function() {
+                $("#show_list").tablesorter();
+            });
+            //-->
+        </script>
+    </div>
+</div>
+
+<block tal:comment=" === Seite: Allianzlos ==================================================="
+       tal:omit-tag=""
+       metal:define-macro="no_alliance">
+
+<form action="./alliances.php" method="post" onSubmit="tinyMCE.execCommand('mceToggleEditor',false,'atext');">
+
+<table width="100%">
+    <tr>
+        <td align="center">Allianz beitreten</td>
+    </tr>
+    <tr>
+        <td>TAG</td>
+    </tr>
+    <tr>
+        <td>
+            <input class="button" style="width: 100%" type="text" name="send_tag" />
+        </td>
+    </tr>
+    <tr>
+        <td>Nachricht</td>
+    </tr>
+    <tr>
+        <td>
+            <textarea class="button" cols="40" rows="10" style="margin-bottom:1em;width:100%; overflow: auto" name="atext" id="atext"></textarea>
+                <br />
+                <a href="#" onclick="tinyMCE.execCommand('mceToggleEditor',false,'atext');">
+                    [Ansicht umschalten]
+                </a>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <input type="hidden" name="action" value="application" /><input type="submit" class="button" value="Bewerben" />
+        </td>
+    </tr>
+</table>
+</form>
+<form action="./alliances.php" method="post">
+<table width="100%">
+    <tr>
+        <td colspan="2" align="center" class="table_head">Allianz gründen</td>
+    </tr>
+    <tr>
+        <td>TAG</td>
+        <td align="right"><input type="text" name="send_tag" class="button" maxlength="25" /></td>
+    </tr>
+    <tr>
+        <td>Name</td>
+        <td align="right"><input type="text" name="name" class="button" /></td>
+    </tr>
+    <tr>
+        <td colspan="2" align="right"><input type="hidden" name="action" value="establishment" /> <input
+            type="submit" value="Gründen" class="button" /></td>
+    </tr>
+</table>
+</form>
+</block>
+
+<block  tal:comment=" === Seite: Aufnahme beantragt ================================================"
+tal:omit-tag="" metal:define-macro="revoke">
+<form action="./alliances.php" method="post">
+<table width="100%">
+    <tr>
+        <td>Anmeldung zurückziehen (<span tal:content="has_applied">Alli-Tag</span>)</td>
+        <td>
+            <input type="hidden" name="action" value="kill_apply" />
+            <input type="submit" value="Ja" class="button" />
+        </td>
+    </tr>
+</table>
+</form>
+</block>
+
+<block tal:comment=" === Seite: Übersicht ==================================================="
+       tal:omit-tag=""
+       metal:define-macro="overview">
+
+    <p tal:condition="information/pic" id="image">
+        <img tal:attributes="src information/pic" />
+    </p>
+
+    <h2 id="dataHead" class="headline">Details</h2>
+    <table id="dataSheet">
+        <tr>
+            <th>Name</th>
+            <td tal:content="information/name">Name</td>
+        </tr>
+        <tr>
+            <th>Kürzel</th>
+            <td tal:content="user_infos/alliance">TAG</td>
+        </tr>
+        <tr>
+            <th>Mitglieder (Maximal)</th>
+            <td>
+                <span tal:content="information/members">999</span>
+                (<span tal:content="user_percent">999</span>)
+            </td>
+        </tr>
+        <tr>
+            <th>Punkte (Schnitt)</th>
+            <td>
+                <span tal:replace="information/points">10.000</span>
+                (<span tal:content="php: round(information['points']/information['members'])">2000</span>)
+            </td>
+        </tr>
+        <tr valign="top" tal:condition="information/link">
+            <th >Webseite</th>
+            <td >
+                <a tal:attributes="href information/link" target="_blank"
+                   tal:content="information/link">Link</a>
+            </td>
+        </tr>
+    </table>
+
+    <table id="yourStatus">
+        <tr>
+            <th>Dein Rang</th>
+            <td tal:content="structure user_infos/alliance_rank">Dein Rang</td>
+        </tr>
+        <tr>
+            <th>Dein Status</th>
+            <td tal:content="php: status(user_infos['alliance_status'])">Dein Status</td>
+        </tr>
+        <tr tal:condition="war_warning_noleave">
+            <th>Warnung</th>
+            <td class="important">Deine Allianz befindet sich im Kriegszustand.
+            Dein Austritt würde die Niederlage in diesem Kampf verursachen.</td>
+        </tr>
+        <tr tal:condition="php: user_infos['alliance_status'] != 'founder'">
+            <th>Austritt</th>
+            <td>
+                <form id="leaveForm"
+                      action="./alliances.php"
+                      method="post">
+                    <input type="hidden"
+                           name="action"
+                           value="exit_alliance" />
+                    <input onclick="if (!confirm('Möchtest du wirklich aus der Allianz austreten?')) return false;"
+                           type="submit"
+                           value="Ja" />
+                </form>
+            </td>
+        </tr>
+    </table>
+
+    <table id="connections"
+           tal:condition="php: information['bb_military_alliances'] || information['bb_trade_alliances'] || information['bb_naps'] || information['bb_enemies']">
+
+        <tr tal:condition="information/bb_military_alliances">
+            <th>Kampf-Bündnis</th>
+            <td  tal:content="structure information/bb_military_alliances">Bündnisse</td>
+        </tr>
+        <tr tal:condition="information/bb_trade_alliances">
+            <th>Handels-Bündnis</th>
+            <td  tal:content="structure information/bb_trade_alliances">Bündnisse</td>
+        </tr>
+        <tr tal:condition="information/bb_naps">
+            <th>Nichtangriffspakt</th>
+            <td  tal:content="structure information/bb_naps">NAP</td>
+        </tr>
+        <tr tal:condition="information/bb_enemies">
+            <th>Erklärter Feind</th>
+            <td tal:content="structure information/bb_enemies">Feind</td>
+        </tr>
+    </table>
+
+    <h2 id="textHead"
+        class="headline"
+        tal:condition="information/bb_text">Text</h2>
+    <div id="text"
+         tal:condition="information/bb_text"
+         tal:content="structure information/bb_text">Text</div>
+</block>
+
+<block tal:comment=" === Seite: Mitgliederliste ==================================================="
+       tal:omit-tag=""
+       metal:define-macro="show_list">
+
+    <table id="show_list"
+           class="tablesorter">
+
+        <thead>
+            <tr class="table_head">
+                <th class="activity info" title="|Position">P</th>
+                <th class="online info" title="|Status">S</th>
+                <th class="name info" title="|Name und Titel">Name</th>
+                <th class="rank info" title="|Rangbezeichnung">Rang</th>
+                <th class="points info" title="|Punkte">P</th>
+
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr tal:repeat="member get_members">
+                <td tal:condition="php: member['isKeeper']" class="activity keeper" tal:content="repeat/member/number">xxx</td>
+                <td tal:condition="php: member['isPlayer']" class="activity player" tal:content="repeat/member/number">xxx</td>
+                <td tal:condition="php: !member['isKeeper'] && !member['isPlayer']" class="activity" tal:content="repeat/member/number">xxx</td>
+
+                <td class="online">
+
+                    <block tal:comment="activity icon for member"
+                           tal:omit-tag=""
+                           tal:condition="php: status(member['alliance_status']) == 'Mitglied'">
+                        <img tal:attributes="src string:$imgAddress/active_white.gif"
+                             alt="Das Mitglied ist anwesend."
+                             class="info"
+                             title="|Das Mitglied ist anwesend."
+                             tal:condition="php: member['logged_in'] == 'YES'" />
+                        <img tal:attributes="src string:$imgAddress/active_green.gif"
+                             alt="Das Mitglied war innerhalb der letzten 48 Stunden da."
+                             class="info"
+                             title="|Das Mitglied war innerhalb der letzten 48 Stunden da."
+                             tal:condition="php: !member['holiday'] && member['last_action'] GT time()-48*3600 && member['logged_in'] !== 'YES'" />
+                        <img tal:attributes="src string:$imgAddress/active_yellow.gif"
+                             alt="Das Mitglied ist seit zwei bis sieben Tagen weg."
+                             class="info"
+                             title="|Das Mitglied ist seit zwei bis sieben Tagen weg."
+                             tal:condition="php: !member['holiday'] && member['last_action'] LT time()-48*3600 AND member['last_action'] GT time()-168*3600  && member['logged_in'] !== 'YES'" />
+                        <img tal:attributes="src string:$imgAddress/active_red.gif"
+                             alt="Das Mitglied wird seit ber sieben Tagen vermisst."
+                             class="info"
+                             title="|Das Mitglied wird seit über sieben Tagen vermisst."
+                             tal:condition="php: !member['holiday'] && member['last_action'] LT time()-168*3600  && member['logged_in'] !== 'YES'" />
+                        <img tal:attributes="src string:$imgAddress/active_holiday.gif"
+                             alt="Das Mitglied ist im Urlaub."
+                             class="info"
+                             title="|Das Mitglied ist im Urlaub.."
+                             tal:condition="php: member['holiday']" />
+                    </block>
+                    <block tal:comment="activity icon for admin"
+                           tal:omit-tag=""
+                           tal:condition="php: status(member['alliance_status']) == 'Administrator'">
+                        <img tal:attributes="src string:$imgAddress/active_white_admin.gif"
+                             alt="Der Administrator ist anwesend."
+                             class="info"
+                             title="|Der Administrator ist anwesend."
+                             tal:condition="php: member['logged_in'] == 'YES'" />
+                        <img tal:attributes="src string:$imgAddress/active_green_admin.gif"
+                             alt="Der Administrator war innerhalb der letzten 48 Stunden da."
+                             class="info"
+                             title="|Der Administrator war innerhalb der letzten 48 Stunden da."
+                             tal:condition="php: !member['holiday'] && member['last_action'] GT time()-48*3600 && member['logged_in'] !== 'YES'" />
+                        <img tal:attributes="src string:$imgAddress/active_yellow_admin.gif"
+                             alt="Der Administrator ist seit zwei bis sieben Tagen weg."
+                             class="info"
+                             title="|Der Administrator ist seit zwei bis sieben Tagen weg."
+                             tal:condition="php: !member['holiday'] && member['last_action'] LT time()-48*3600 AND member['last_action'] GT time()-168*3600  && member['logged_in'] !== 'YES'" />
+                        <img tal:attributes="src string:$imgAddress/active_red_admin.gif"
+                             alt="Der Administrator wird seit ber sieben Tagen vermisst."
+                             class="info"
+                             title="|Der Administrator wird seit über sieben Tagen vermisst."
+                             tal:condition="php: !member['holiday'] && member['last_action'] LT time()-168*3600  && member['logged_in'] !== 'YES'" />
+                        <img tal:attributes="src string:$imgAddress/active_holiday_admin.gif"
+                             alt="Der Administrator ist im Urlaub."
+                             class="info"
+                             title="|Der Administrator ist im Urlaub.."
+                             tal:condition="php: member['holiday']" />
+                    </block>
+                    <block tal:comment="activity icon for founder"
+                           tal:omit-tag=""
+                           tal:condition="php: status(member['alliance_status']) == 'Gründer'">
+                        <img tal:attributes="src string:$imgAddress/active_white_founder.gif"
+                             alt="Der Gründer ist anwesend."
+                             class="info"
+                             title="|Der Gründer ist anwesend."
+                             tal:condition="php: member['logged_in'] == 'YES'" />
+                        <img tal:attributes="src string:$imgAddress/active_green_founder.gif"
+                             alt="Der Gründer war innerhalb der letzten 48 Stunden da."
+                             class="info"
+                             title="|Der Gründer war innerhalb der letzten 48 Stunden da."
+                             tal:condition="php: !member['holiday'] && member['last_action'] GT time()-48*3600 && member['logged_in'] !== 'YES'" />
+                        <img tal:attributes="src string:$imgAddress/active_yellow_founder.gif"
+                             alt="Der Gründer ist seit zwei bis sieben Tagen weg."
+                             class="info"
+                             title="|Der Gründer ist seit zwei bis sieben Tagen weg."
+                             tal:condition="php: !member['holiday'] && member['last_action'] LT time()-48*3600 AND member['last_action'] GT time()-168*3600  && member['logged_in'] !== 'YES'" />
+                        <img tal:attributes="src string:$imgAddress/active_red_founder.gif"
+                             alt="Der Gründer wird seit ber sieben Tagen vermisst."
+                             class="info"
+                             title="|Der Gründer wird seit über sieben Tagen vermisst."
+                             tal:condition="php: !member['holiday'] && member['last_action'] LT time()-168*3600  && member['logged_in'] !== 'YES'" />
+                        <img tal:attributes="src string:$imgAddress/active_holiday_founder.gif"
+                             alt="Der Gründer ist im Urlaub."
+                             class="info"
+                             title="|Der Gründer ist im Urlaub."
+                             tal:condition="php: member['holiday']" />
+                    </block>
+
+                </td>
+
+                <td tal:condition="php: member['isKeeper']" class="name keeper"><a tal:attributes="href string:./information.php?type=u&name=${member/user}"
+                       tal:content="member/username">Username</a></td>
+                <td tal:condition="php: member['isPlayer']" class="name player"><a tal:attributes="href string:./information.php?type=u&name=${member/user}"
+                       tal:content="member/username">Username</a></td>
+                <td tal:condition="php: !member['isKeeper'] && !member['isPlayer']" class="name"><a tal:attributes="href string:./information.php?type=u&name=${member/user}"
+                       tal:content="member/username">Username</a></td>
+
+                <td class="info rank keeper"
+                    tal:condition="php: member['isKeeper'] && status(member['alliance_status']) !== 'Mitglied' &&  status(member['alliance_status']) !== 'Gründer' && status(member['alliance_status']) !== 'Administrator'"
+                    tal:attributes="title string:|unbekannt">?</td>
+                <td class="info rank player"
+                    tal:condition="php: member['isPlayer'] && status(member['alliance_status']) !== 'Mitglied' &&  status(member['alliance_status']) !== 'Gründer' && status(member['alliance_status']) !== 'Administrator'"
+                    tal:attributes="title string:|unbekannt">?</td>
+                <td class="info rank"
+                    tal:condition="php: !member['isKeeper'] && !member['isPlayer'] && status(member['alliance_status']) !== 'Mitglied' &&  status(member['alliance_status']) !== 'Gründer' && status(member['alliance_status']) !== 'Administrator'"
+                    tal:attributes="title string:|unbekannt">?</td>
+
+                <td class="info rank keeper"
+                    tal:content="member/alliance_rank_short"
+                    tal:condition="php: member['isKeeper'] && member['alliance_rank_short']"
+                    tal:attributes="title string:|${member/alliance_rank}">Rang kurz falls vorhanden</td>
+                <td class="info rank player"
+                    tal:content="member/alliance_rank_short"
+                    tal:condition="php: member['isPlayer'] && member['alliance_rank_short']"
+                    tal:attributes="title string:|${member/alliance_rank}">Rang kurz falls vorhanden</td>
+                <td class="info rank"
+                    tal:content="member/alliance_rank_short"
+                    tal:condition="php: !member['isKeeper'] && !member['isPlayer'] && member['alliance_rank_short']"
+                    tal:attributes="title string:|${member/alliance_rank}">Rang kurz falls vorhanden</td>
+
+                <td class="info rank keeper"
+                    tal:content="member/alliance_rank"
+                    tal:condition="php: member['isKeeper'] && !member['alliance_rank_short']"
+                    tal:attributes="title string:|${member/alliance_rank}">ansonsten den vollständigen Rang</td>
+                <td class="info rank player"
+                    tal:content="member/alliance_rank"
+                    tal:condition="php: member['isPlayer'] && !member['alliance_rank_short']"
+                    tal:attributes="title string:|${member/alliance_rank}">ansonsten den vollständigen Rang</td>
+                <td class="info rank"
+                    tal:content="member/alliance_rank"
+                    tal:condition="php: !member['isKeeper'] && !member['isPlayer'] && !member['alliance_rank_short']"
+                    tal:attributes="title string:|${member/alliance_rank}">ansonsten den vollständigen Rang</td>
+
+                <td tal:condition="php: member['isKeeper']" class="points keeper" tal:content="member/points">Punkte</td>
+                <td tal:condition="php: member['isPlayer']" class="points player" tal:content="member/points">Punkte</td>
+                <td tal:condition="php: !member['isKeeper'] && !member['isPlayer']" class="points" tal:content="member/points">Punkte</td>
+
+            </tr>
+        </tbody>
+    </table>
+
+</block>
+
+
+<block tal:comment=" === Seite: Meldungen ==================================================="
+       tal:omit-tag=""
+       metal:define-macro="news">
+
+    <form id="writeForm"
+          action="./alliances.php"
+          method="post"
+          onSubmit="tinyMCE.execCommand('mceToggleEditor',false,'a_msg');"
+          tal:condition="php: information['admin_msgs'] != 'Y' OR is_admin'">
+
+        <h2 class="headline">verfassen</h2>
+        <div id="writeMessage">
+            <input type="hidden" name="action" value="send_msg" />
+            <input id="subjectInput" type="text" name="topic" value="Betreff"/>
+            <textarea id="a_msg" name="a_msg" cols="40" rows="10">Meldung</textarea><br />
+            <input type="button" class="button" value="Ansicht umschalten" onclick="tinyMCE.execCommand('mceToggleEditor',false,'a_msg');"/>
+            <input type="submit" class="button" value="Abschicken" />
+        </div>
+    </form>
+
+    <form id="killform"
+          action="./alliances.php"
+          method="post"
+          name="kill_form"
+          tal:condition="exists: get_news">
+
+        <h2 class="headline">lesen</h2>
+        <div class="message"
+             tal:repeat="news get_news">
+            <input type="checkbox" name="id[]" tal:attributes="value news/id" tal:condition="is_admin" />
+            <!--<input type="button" name="qute" value="Zitieren" onclick="quote(${news/id})" />-->
+            <span class="author" tal:attributes="name news/id" tal:content="news/type"></span><br />
+            <span class="headline" tal:attributes="name news/id" tal:content="news/topic">Topic</span>
+            <div class="content" tal:attributes="name news/id" tal:content="structure news/msg">Text</div>
+            <span class="date" tal:attributes="name news/id" tal:content="php: date('H:i d.m.Y',news['time'])"></span>
+        </div>
+        <div id="hideLineHack" />
+
+        <h2 class="headline"
+            tal:condition="is_admin">verwalten</h2>
+        <div id="administration"
+             tal:condition="is_admin">
+            <input type="hidden" name="action" />
+            <input type="hidden" name="kill" value="YES" />
+            <input type="button" class="button" value="Alle" onclick="set_checkboxes(true); return false;" />
+            <input type="button" class="button" value="Keine" onclick="set_checkboxes(false); return false;" />
+            <input type="submit" class="button" value="Löschen" />
+        </div>
+    </form>
+</block>
+
+<block tal:comment=" === Seite: Abstimmung ==================================================="
+tal:omit-tag="" metal:define-macro="voting">
+
+<table width="100%" tal:condition="exists: has_voting">
+    <tr>
+        <td colspan="2" tal:content="whole_voting/question">Question</td>
+    </tr>
+    <block tal:omit-tag="" tal:condition="not: user_infos/voting">
+    <tr>
+        <td>
+        <form action="./alliances.php" method="post">
+        <table>
+            <block tal:omit-tag="" tal:repeat="i votes">
+            <tr tal:condition="php: !empty(whole_voting['answer'.i])">
+                <td colspan="2">
+                    <input type="radio" name="choose" tal:attributes="value i" />&nbsp; <span tal:replace="php: whole_voting['answer'.i]">Frage</span>
+                </td>
+            </tr>
+            </block>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="hidden" name="action" value="vote" />
+                    <input type="submit" class="button" value="Abstimmen" />
+                </td>
+            </tr>
+        </table>
+        </form>
+        </td>
+    </tr>
+    </block>
+
+    <block tal:omit-tag="" tal:condition="user_infos/voting">
+    <block tal:omit-tag="" tal:repeat="i votes">
+    <tr tal:condition="php: !empty(whole_voting['answer'.i])">
+        <td colspan="2"><br />
+        <img
+            tal:attributes="src string:$imgAddress/vote.gif; width php: 80/summe_voting*whole_voting['answer'. i .'_count']"
+            height="10" />&nbsp; <span
+            tal:replace="php: round(100/summe_voting*whole_voting['answer'. i .'_count'],2)">88</span>% (<span
+            tal:replace="php: whole_voting['answer'. i .'_count']">99</span>)<br />
+        <span tal:replace="php: whole_voting['answer'.i]">Antwort</span></td>
+    </tr>
+    </block>
+    </block>
+</table>
+
+</block>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<block tal:comment=" === Seite: Kriege ==================================================="
+tal:omit-tag="" metal:define-macro="kriege">
+<table width="100%">
+    <tr valign="top">
+        <td>Offene Kriege</td>
+        <td><ol>
+             <li tal:repeat="w open_wars" tal:content="string: ${w/challenger_string} vs. ${w/opponent_string}">Foo vs. Bar</li>
+        </ol></td>
+    </tr>
+    <tr valign="top">
+        <td>Gewonnene Kriege</td>
+        <td><ol>
+             <li tal:repeat="w won_wars" tal:content="string: ${w/challenger_string} vs. ${w/opponent_string}">Foo vs. Bar </li>
+        </ol></td>
+    </tr>
+    <tr valign="top">
+        <td>Verlorene Kriege</td>
+        <td><ol>
+             <li tal:repeat="w lost_wars" tal:content="string: ${w/challenger_string} vs. ${w/opponent_string}">Foo vs. Bar </li>
+        </ol></td>
+    </tr>
+    <tr valign="top">
+        <td>Aktueller Krieg</td>
+        <td>
+             <block metal:use-macro="war_admin.html/war_contract"></block>
+        </td>
+    </tr>
+</table>
+</block>

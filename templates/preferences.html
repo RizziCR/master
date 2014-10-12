@@ -1,0 +1,515 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd" -->
+
+<html>
+
+<!--  HTML Kopf -->
+    <head
+          tal:comment="html head requires page title"
+          metal:use-macro="lib/htmlHead.html/htmlHead"
+    />
+<!--  // HTML Kopf -->
+
+    <body>
+        <div id="page-container">
+            <div id="header">
+                <div class="inside">
+                    <span tal:comment="header template"
+                          metal:use-macro="lib/header.html/header">
+                    </span>
+                </div><!-- inside -->
+            </div><!-- header -->
+            <div id="outer-column-container">
+                <div id="inner-column-container">
+                    <div id="source-order-container">
+                        <div id="middle-column">
+                            <div class="inside">
+
+<!-- mittlere Spalte -->
+                                <span
+                                    tal:condition="exists: errorMessage"
+                                    tal:comment="error content if there is any"
+                                    tal:replace="structure errorMessage"
+                                />
+
+<div tal:condition="not: exists: errorMessage">
+<script type="text/javascript" src="javascript/tiny_mce/tiny_mce_gzip.js"></script>
+<script type="text/javascript" src="javascript/tinymce_init.js"></script>
+
+        <h1 class="headline">Einstellungen</h1>
+
+        <div id="tabContainer">
+            <ul>
+                <li><a href="#section-data">Daten</a></li>
+                <li><a href="#section-info">Infotext</a></li>
+                <li><a href="#section-layout">Layout</a></li>
+                <li><a href="#section-password">Kennwort</a></li>
+                <li><a href="#section-holiday">Urlaubsmodus</a></li>
+                <li><a href="#section-sitting">Stellvertretung</a></li>
+                <li><a href="#section-multi">Multi-Schutz</a></li>
+                <li><a href="#section-drop">L&ouml;schung</a></li>
+            </ul>
+
+            <div id="section-data">
+                <form action="./preferences.php" method="post">
+                <input type="hidden" name="action" value="save" />
+                <table>
+                    <tr>
+                        <td colspan="2"><font class="error" tal:content="structure err_msg1">ERR_MSG</font><span tal:content="structure suc_msg1">SUC_MSG</span></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="center">&middot; Bitte beachte <a href="./page/agb.php">AGB §2 Abs.3 und die Datenschutzerkl&auml;rung</a> &middot;</td>
+                    </tr>
+                    <tr>
+                        <td>Spielername</td>
+                        <td tal:content="user_prefs/user">Spielername</td>
+                    </tr>                        
+                    <tr>
+                                <td>Username &auml;ndern</td>
+								<td><input class="button" name="nick_change" /></td>
+					</tr>
+                    <tr>
+                        <td>E-Mail-Adresse</td>
+                        <td tal:content="user_prefs/email">Benutzer-E-Mail</td>
+                    </tr>
+                    <tr valign="top">
+                        <td>Neue E-Mail-Adresse</td>
+                        <td><input class="button" style="width: 350" type="text" name="new_email" /></td>
+                    </tr>
+                    <tr valign="top">
+                        <td colspan="2">
+                        Bitte beachte: Zuerst wird an die alte E-Mail-Adresse ein Link geschickt, den du best&auml;tigen musst. Wenn dies
+                        erfolgt ist, erh&auml;ltst du einen weiteren Link auf die neue Adresse, den du auch best&auml;tigen
+                        musst, so dass die &Auml;nderung vollzogen werden kann. Solltest du Probleme beim Abrufen der E-Mails
+                        der alten Adresse haben, wende dich bitte an
+                        <span tal:replace="structure php: getEmailLink(supportEmail)">support-Adresse</span></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="right"><input class="button" type="submit" value="Speichern" /></td>
+                    </tr>
+                </table>
+                </form>
+            </div>
+
+            <div id="section-info">
+                <form action="./preferences.php" method="post"  onSubmit="tinyMCE.execCommand('mceToggleEditor',false,'utext');">
+                <input type="hidden" name="action" value="misc" />
+                <table>
+                    <tr>
+                        <td colspan="2"><font class="error" tal:content="structure err_msg5">ERR_MSG</font><span tal:content="structure suc_msg5">SUC_MSG</span></td>
+                    </tr>
+                    <tr valign="top">
+                        <td align="left">Namenszusatz:</td>
+                        <td align="left"><input name="affix" class="button" size="15" maxlength="15" tal:attributes="value user_prefs/name_affix" /></td>
+                    </tr>
+                    <tr valign="top">
+                        <td colspan="2">
+                            <br />
+                            <textarea name="utext" id="utext" class="button" style="margin-bottom:1em;width:100%" cols="40" rows="20" tal:content="user_prefs/text"></textarea>
+                            <br />
+                            <a href="#" onclick="tinyMCE.execCommand('mceToggleEditor',false,'utext');">
+                                [Ansicht umschalten]
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                    	<td>
+                    		Flugzeugstatistik anzeigen
+                    	</td>
+                    	<td>
+                    		<input name="flightstats" type="radio" value="1" checked="checked" tal:condition="flightstats" />
+                    		<input name="flightstats" type="radio" value="1" tal:condition="not: flightstats" />
+                    		ja
+                    		<input name="flightstats" type="radio" value="0" checked="checked" tal:condition="php: !flightstats AND !flightstats_alliance" />
+                    		<input name="flightstats" type="radio" value="0" tal:condition="php: flightstats OR flightstats_alliance" />
+                    		nein
+                    		<input name="flightstats" type="radio" value="2" checked="checked" tal:condition="flightstats_alliance" />
+                    		<input name="flightstats" type="radio" value="2" tal:condition="not: flightstats_alliance" />
+                    		Nur in der Allianz
+                    	</td>
+                    </tr>
+                    <tr>
+                    	<td>
+                    		Medaillen anzeigen
+                    	</td>
+                    	<td>
+                    		<input name="medals" type="radio" value="1" checked="checked" tal:condition="medals" />
+                    		<input name="medals" type="radio" value="1" tal:condition="not: medals" />
+                    		ja
+                    		<input name="medals" type="radio" value="0" checked="checked" tal:condition="php: !medals AND !medals_alliance" />
+                    		<input name="medals" type="radio" value="0" tal:condition="php: medals OR medals_alliance" />
+                    		nein
+                    		<input name="medals" type="radio" value="2" checked="checked" tal:condition="medals_alliance" />
+                    		<input name="medals" type="radio" value="2" tal:condition="not: medals_alliance" />
+                    		Nur in der Allianz
+                    	</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="right"><input class="button" type="submit" value="Speichern" /></td>
+                    </tr>
+                </table>
+                </form>
+            </div>
+
+            <div id="section-layout">
+                <form action="./preferences.php" method="post">
+                <input type="hidden" name="action" value="design" />
+                <table>
+                    <tr>
+                        <td colspan="2">Bitte lade die Dateien herunter, um deinen Spielspa&szlig; durch
+                        k&uuml;rzere Ladezeiten zu vergr&ouml;&szlig;ern und um den Server zu entlasten. <a
+                            href="./ets.zip">Download</a> (nach dem Download entpacken z.B. nach d:\ets)</td>
+                    </tr>
+                    <tr valign="top">
+                        <td>Pfad - z.B.: d:\ets<br />
+                        Bei anderen Browsern als Internet Explorer file://d:/ets</td>
+                        <td><input class="button" style="width: 350" type="text" name="n_user_path"
+                            tal:attributes="value user_path" /></td>
+                    </tr>
+                    <tr valign="top">
+                        <td>CSS-Pfad (Achtung: Experten-Einstellung)<br />
+                        Wenn du dir nicht sicher bist, lasse die Voreinstellung</td>
+                        <td><input class="button" style="width: 350" type="text" name="n_user_path_css"
+                            id="n_user_path_css" tal:attributes="value user_path_css" /></td>
+                    </tr>
+                    <tr valign="top">
+                        <td>Fertige Layouts</td>
+                        <td><select onchange="$('#n_user_path_css').val($(this).val())">
+			    <option tal:repeat="layout layouts" tal:attributes="value layout/value; selected layout/selected" tal:content="layout/name">NAME</option>
+			</select></td>
+                    </tr>
+                    <tr>
+                        <td>Angriffsanzeige auf der Startseite</td>
+                        <td colspan="2">
+                            <input type="checkbox" name="show_attacks" value="1" checked="checked" tal:condition="show_attacks" />
+                            <input type="checkbox" name="show_attacks" value="1" tal:condition="not: show_attacks" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top">Anzeigemodus f&uuml;r Werbung</td>
+                        <td colspan="2">
+                            <input type="radio" name="ad_mode" value="A" tal:attributes="checked php:ad_mode=='A'?'checked':false" /> Alle Werbung<br />
+                            <input type="radio" name="ad_mode" value="I" tal:attributes="checked php:ad_mode=='I'?'checked':false" /> Nur ETS-Interne Werbung (z.B. von Allianzen)<br />
+                            <input type="radio" name="ad_mode" value="N" tal:attributes="checked php:ad_mode=='N'?'checked':false" /> keine Werbung
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="right"><input class="button" type="submit" value="Speichern" /></td>
+                    </tr>
+                </table>
+                </form>
+            </div>
+
+            <div id="section-password">
+                <form action="./preferences.php" method="post">
+                <input type="hidden" name="action" value="password" />
+                <table>
+                    <tr>
+                        <td colspan="2"><font class="error" tal:content="structure err_msg2">ERR_MSG</font><span tal:content="structure suc_msg2">SUC_MSG</span></td>
+                    </tr>
+                    <tr>
+                        <td>Altes Kennwort</td>
+                        <td><input class="button" style="width: 350" type="password" name="old_pwd" /></td>
+                    </tr>
+                    <tr>
+                        <td>Neues Kennwort (bitte keine &quot; verwenden)</td>
+                        <td><input class="button" style="width: 350" type="password" name="new_pwd" /></td>
+                    </tr>
+                    <tr>
+                        <td>Wiederholung</td>
+                        <td><input class="button" style="width: 350" type="password" name="new_pwd2" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="right"><input class="button" type="submit" value="Speichern" /></td>
+                    </tr>
+                </table>
+                </form>
+            </div>
+
+            <div id="section-holiday">
+                <table>
+                    <tr>
+                        <td colspan="2">Normalerweise wird der Account gel&ouml;scht, falls man sich 21 Tage am St&uuml;ck nicht einloggt. Durch
+                        Aktivierung des Urlaubsmodus wird diese Zeitspanne auf 70 Tage erweitert. 24 Stunden nach Anklicken des
+                        Urlaubsmodus wird dieser aktiviert, eine Reaktivierung (durch Einloggen in den Account) ist fr&uuml;hestens
+                        nach 72 Stunden m&ouml;glich. Wenn der Urlaubsmodus aktiv ist, ist kein Einloggen m&ouml;glich (dies beendet den
+                        Urlaubsmodus), au&szlig;erdem werden keine Rohstoffe mehr gutgeschrieben und es k&ouml;nnen keine Angriffe auf den
+                        Account mehr gestartet werden.</td>
+                    </tr>
+                    <tr tal:condition="war_warning_novacation">
+                        <td colspan="2" class="important">Deine Allianz befindet sich in einem Krieg,
+                        in dem es Mitgliedern nicht gestattet ist, in den Urlaub zu gehen. Solltest du trotzdem
+                        in den Urlaubsmodus wechseln, f&uuml;hrt das f&uuml;r Deine Partei zum Verlust des Krieges.</td>
+                    </tr>
+                    <tr>
+                        <td align="center" colspan="2">
+                        <form action="./preferences.php" method="post">
+                            <input tal:condition="isholiday" type="hidden" name="action" value="de_holiday" />
+                            <input tal:condition="isholiday" class="button" type="submit" value="Deaktivieren" />
+                            <input tal:condition="not: isholiday" type="hidden" name="action" value="holiday" />
+                            <input tal:condition="not: isholiday" class="button" type="submit" value="Aktivieren" />
+                        </form>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div id="section-sitting">
+                <table>
+                    <tr>
+                        <td colspan="2">
+                            <span class="error"
+                                  tal:content="structure err_msg3"
+                                  tal:condition="err_msg3">ERR_MSG</span>
+                            <span tal:content="structure suc_msg3"
+                                  tal:condition="err_msg3">SUC_MSG</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Es besteht die M&ouml;glichkeit, einen Benutzer zu bestimmen, der von seinem Konto aus in
+                        dein Konto wechseln darf. Er kann dann f&uuml;r dich Geb&auml;ude, Flugzeuge und Verteidigungsanlagen
+                        bauen bzw. abrei&szlig;en, Technologien forschen sowie Flotten innerhalb deines Kontos starten sowie
+                        zur&uuml;ckbeordern. Der Benutzer wird &uuml;ber deinen Wunsch, durch ihn vertreten zu werden, informiert. Akzeptiert er
+                        dies, kann er auf deine St&auml;dte zugreifen. Du kannst deinen Stellvertreter minimal alle 48h wechseln. Eine
+                        Beendigung der Vertretung ist beiderseits m&ouml;glich. Die andere Partei wird davon informiert. Du darfst dich
+                        durch maximal einen anderen Benutzer vertreten lassen und maximal einen anderen Benutzer vertreten. Diese Benutzer m&uuml;ssen
+                        nicht identisch sein.<br />
+                        </td>
+                    </tr>
+                    <tr valign="top" tal:condition="php: !user_prefs['sitter'] AND (user_prefs['sitter_time'] LT time())">
+                        <td>Dein Stellvertreter:</td>
+                        <td>
+                            <form action="./preferences.php" method="post">
+                                <input type="hidden" name="action" value="sitter" />
+                                <input class="button" style="width: 350px" type="text" name="sitter" /><br />
+                                <input class="button" type="submit" name="submit_sittaccount" value="Anfragen" />
+                            </form>
+                        </td>
+                    </tr>
+                    <tr valign="top" tal:condition="php: !user_prefs['sitter'] AND !(user_prefs['sitter_time'] LT time())">
+                        <td>Dein Stellvertreter:</td>
+                        <td>
+                            <span class="warning">
+                                Du kannst ab
+                                <span tal:content="php:date('d.m.Y',user_prefs['sitter_time'])"></span> um
+                                <span tal:content="php:date('H:i:s',user_prefs['sitter_time'])"></span> einen neuen Stellvertreter festlegen.
+                            </span>
+                        </td>
+                    </tr>
+                    <tr valign="top" tal:condition="user_prefs/sitter">
+                        <td>Dein Stellvertreter:</td>
+                        <td>
+                            <form action="./preferences.php" method="post">
+                                <span tal:content="user_prefs/sitter">Name des Stellvertreters</span>
+                                <input type="hidden" name="action" value="sitter" />
+                                <input tal:condition="php: user_prefs['sitter_confirmation'] == 'YES'" class="button" type="submit" name="submit_sittaccount" value="Beenden" />
+                                <input tal:condition="php: user_prefs['sitter_confirmation'] == 'NO'" class="button" type="submit" name="submit_sittaccount" value="Zurueckziehen" />
+                            </form>
+                        </td>
+                    </tr>
+                    <tr tal:condition="user_prefs/sitter">
+                        <td>Vom Stellvertreter akzeptiert:</td>
+                        <td>
+                            <font tal:condition="php: user_prefs['sitter_confirmation'] == 'YES'" color="#00FF00">Ja</font>
+                            <font tal:condition="php: user_prefs['sitter_confirmation'] == 'NO'" color="#FF0000">Nein</font>
+                        </td>
+                    </tr>
+                    <tr valign="top" tal:condition="php: count(acc_to_sit)">
+                        <td>Du verwaltest:</td>
+                        <td>
+                        <span tal:condition="php: !(user_prefs['sitting_time'] LT time())"
+                              class="warning">
+                            Du kannst ab
+                            <span tal:content="php:date('d.m.Y',user_prefs['sitting_time'])"></span> um
+                            <span tal:content="php:date('H:i:s',user_prefs['sitting_time'])"></span> eine neue Verwaltung &uuml;bernehmen.
+                        </span>
+                        <table border="0" cellpadding="0" cellspacing="2">
+                            <tr tal:repeat="ats acc_to_sit">
+                                <td><font tal:condition="php: ats['sitter_confirmation'] == 'YES'" color="#00FF00"
+                                    tal:content="ats/user">Account to Sit</font> <font
+                                    tal:condition="php: ats['sitter_confirmation'] == 'NO'" color="#FF0000" tal:content="ats/user">Account
+                                to Sit</font></td>
+                                <td>&nbsp;
+                                <form action="./preferences.php" method="post" style="display: inline">
+                                    <input type="hidden" name="action" value="sitter" />
+                                    <input tal:condition="php: ats['sitter_confirmation'] == 'YES'" class="button" name="submit" type="submit" value="Beenden" />
+                                    <input tal:condition="php: ats['sitter_confirmation'] == 'NO'" class="button" name="submit" type="submit" value="Akzeptieren" />
+                                    <input tal:condition="php: ats['sitter_confirmation'] == 'NO'" class="button" name="submit" type="submit" value="Ablehnen" />
+                                    <input type="hidden" name="sitt_requester" tal:attributes="value ats/user" />
+                                </form>
+                                </td>
+                            </tr>
+                        </table>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div id='section-multi'>
+                <table>
+                    <tr>
+                        <td colspan="2">Solltest du zwangsweise deine IP-Adresse mit einem anderen ETS-Spieler teilen, solltest
+                        du dich gem&auml;&szlig; AGB §2 Abs.3 in folgendem Formular registrieren. Dies kann z.B. der Fall sein, wenn ihr euch
+                        &uuml;ber den selben Computer in eure Benutzerkonten einloggt oder euch in einem Netzwerk mit anderen ETS-Spielern
+                        befinden (z.B. &uuml;ber einen Router).<br />
+                        <br />
+                        <center><a href="./ipregister.php">Zum Formular</a></center>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div id="section-drop">
+                <form action="./preferences.php" method="post">
+                <input type="hidden" name="action" value="delete" />
+                <table>
+                    <tr>
+                        <td colspan="2"><font class="error" tal:content="structure err_msg4">ERR_MSG</font><span tal:content="structure suc_msg4">SUC_MSG</span></td>
+                    </tr>
+                    <tr tal:condition="war_warning_noleave">
+                        <td colspan="2" class="important">Deine Allianz befindet sich in einem Krieg,
+                        in dem es Mitgliedern nicht gestattet ist, die Allianz zu verlassen. Solltest du trotzdem
+                        Dein Benutzerkonto l&ouml;schen, f&uuml;hrt das f&uuml;r deine Partei zum Verlust des Krieges.</td>
+                    </tr>
+                    <!--  Neues Loeschen ab ETS12 - userdata behalten, usarios l&ouml;schen, behält E-Mail Adresse dadurch -->
+                    <tr>
+                    	<td colspan="2">
+                    		Seit dieser Runde gibt es die M&ouml;glichkeit lediglich seinen Account f&uuml;r <b>diese</b> Runde zu l&ouml;schen. 
+                    		Dadurch werden vorallem die Registrationszeit und die E-Mail Adresse in Verbindung mit dem Nicknamen nicht mit gel&ouml;scht.
+                    		Dadurch k&ouml;nnen Spielernamen nicht erneut benutzt werden, Informationen &uuml;ber neue Runden effektiver verbreitet und
+                    		f&uuml;r sp&auml;tere Features wie z.B. Medaillen f&uuml;r die Dauer eines existierenden Spieleraccounts wird eine maximale Stufe erm&ouml;glicht.
+                    		<br /><br />
+                    		M&ouml;chtest du deinen Account f&uuml;r DIESE Runde l&ouml;schen oder f&uuml;r immer?
+                    		<br />
+                    		<input name="just_now" type="radio" value="just_now" />Nur f&uuml;r diese Runde<br />
+                    		<input name="just_now" type="radio" value="forever" />F&uuml;r immer
+                    	</td>
+                    </tr>
+                    <tr>
+                        <td>Kennwort<br />
+                        ACHTUNG: Die L&ouml;schung des Benutzerkontos ist <font color="#FF0000">irreversibel</font>!</td>
+                        <td>
+                            <input class="button" style="width: 150" type="password" name="pwd_for_delete" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>L&ouml;schfrist<br />
+                        (Zeit bis das Benutzerkonto tats&auml;chlich gel&ouml;scht wird; bis dahin ist eine Wiederherstellung
+                        m&ouml;glich)</td>
+                        <td>
+                            <input name="lfrist" type="radio" value="1" "checked"="checked" /> 24 Stunden<br />
+                            <input name="lfrist" type="radio" value="2" /> 36 Stunden<br />
+                            <input name="lfrist" type="radio" value="3" /> 48 Stunden
+                        </td>
+                    </tr>
+                    <tr>
+                    	<td>
+                    		L&ouml;schgrund
+                    	</td>
+                    	<td>
+                    		<select name="reason1" size="1" width="63">
+                    			<option>Enthaltung</option>
+                    			<option>ETS ben&ouml;tigt zuviel Zeit</option>
+                    			<option>ETS ist in letzter Zeit zu langweilig</option>
+                    			<option>ETS ist allgemein zu langweilig</option>
+                    			<option>Ich f&uuml;hle mich als Anf&auml;nger nicht gut aufgenommen und unwohl</option>
+                    			<option>ETS ist nicht das Onlinespiel, das ich suche</option>
+                    			<option>Sonstige</option>
+                    		</select>
+                    	</td>
+                    </tr>
+                    <tr>
+                    	<td>
+                    		Wie lange hast du gespielt?
+                    	</td>
+                    	<td>
+                    		<select name="reason2" size="1" width="63">
+                    			<option>Enthaltung</option>
+                    			<option>Weniger als 4 Wochen</option>
+                    			<option>Dies war meine erste Runde</option>
+                    			<option>Ich habe letzte Runde begonnen</option>
+                    			<option>Seit mehr als 2 Runden</option>
+                    			<option>Seit Ewigkeiten</option>
+                    		</select>
+                    	</td>
+                    </tr>
+                    <tr>
+                    	<td>
+                    		Bemerkung:
+                    	</td>
+                    	<td>
+                    		<input type="text" name="reason3" size="50" maxlength="255" width="63" />
+                    	</td>
+                    </tr>
+                    <tr>
+                        <td>Best&auml;tigung</td>
+                        <td>
+                            <input class="button" type="submit" value="OK" />
+                        </td>
+                    </tr>
+                    <tr>
+                    	<td colspan="2">
+                    		<br />Schade, dass Du Dich entschieden hast, Escape To Space zu verlassen.
+							<br />Zum Abschluss w&auml;ren wir sehr dankbar, wenn Du uns noch ganz Feedback gibst, warum Du Dich entschieden hast, Escape To Space den R&uuml;cken zu kehren.
+							<br />Es sind nur 3 Fragen, wir w&auml;ren sehr dankbar, wenn Du uns hilfst, uns zu verbessern. 
+						</td>
+					</tr>
+                </table>
+                </form>
+            </div>
+        </div>
+
+    </div>
+<!-- // mittlere Spalte -->
+
+                            </div>
+                        </div>
+                        <div id="left-column">
+                            <div class="inside">
+
+<!-- linke Spalte -->
+                                <span
+                                      tal:comment="left column template"
+                                      metal:use-macro="lib/leftColumn.html/leftColumn"
+                                />
+<!-- // linke Spalte -->
+
+                            </div>
+                        </div>
+                        <div class="clear-columns"><!-- do not delete --></div>
+                    </div>
+                    <div id="right-column">
+                        <div class="inside">
+
+<!-- rechte Spalte -->
+                            <span
+                                  tal:comment="right column template"
+                                  metal:use-macro="lib/rightColumn.html/rightColumn"
+                            />
+<!-- // rechte Spalte -->
+
+                        </div>
+                    </div>
+                    <div class="clear-columns"><!-- do not delete --></div>
+                </div>
+            </div>
+            <div id="footer">
+                <div class="inside">
+
+<!-- Fusszeile -->
+                    <span
+                          tal:comment="footer template"
+                          metal:use-macro="lib/footer.html/footer"
+                    />
+<!-- // Fusszeile -->
+
+                </div>
+            </div>
+        </div>
+
+      <span tal:replace="structure clockJSCode"></span>
+      <span tal:replace="structure resourceCounter"></span>
+      <span tal:condition="exists: sessionTimeout" tal:replace="structure sessionTimeoutCode"></span>
+
+    </body>
+</html>

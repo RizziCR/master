@@ -1,0 +1,50 @@
+
+
+<!-- sponsor info -->
+<div id="sponsor" metal:define-macro="sponsorInfo">
+    <span tal:condition="not: exists: keeperName">
+        Erde II muss wegen mangelnder Unterstützung mit Notstrom versorgt werden.<br />
+        <a tal:attributes="href string:$etsAddress/intern.php">Spende jetzt</a>, denn niemand
+        weiss genau, wie lange es Hastator noch im Laufrad aushält.
+    </span>
+    <span tal:condition="exists: keeperName">
+        Bewahrer <a href="${etsAddress}/information.php?type=${keeperType}&amp;name=${keeperName}" class="bewahrer"
+        tal:content="keeperScreenName">Doc_Snyder</a> finanziert den Strom auf Erde II noch für:<br />
+        <span tal:replace="structure toShow">4 Tage, 2:02</span> Stundenen.
+        Die Energieversorgung ist bis zum <span tal:replace="endTime">4. April</span> gesichert.
+    </span>
+</div>
+
+<!-- resources and depots -->
+<div id="status" metal:define-macro="resourcesDepots">
+<div style="margin:0 auto;">
+    <!-- resources left column -->
+    <div id="resourcesA">
+        <div id="iridium">
+            <span id="count_iridium" tal:content="string:$iridiumValue">xxx</span><span id="iridiumLabel">Iridium</span>
+        </div>
+        <div id="holzium" class="clear">
+            <span id="count_holzium" tal:content="string:$holziumValue">xxx</span><span id="holziumLabel">Holzium</span>
+        </div>
+    </div>
+    <!-- resources middle column -->
+    <div id="resourcesB">
+        <div id="water">
+            <span id="count_water" tal:content="string:$waterValue">xxx</span><span id="waterLabel">Wasser</span>
+        </div>
+        <div id="oxygen"  class="clear">
+            <span id="count_oxygen" tal:content="string:$oxygenValue">xxx</span><span id="oxygenLabel">Sauerstoff</span>
+        </div>
+    </div>
+    <!-- resources right column -->
+    <div id="depots">
+        <div id="depotCommon">
+            <span id="count_depot" tal:content="string:$depotValue %">xxx</span><span id="depotCommonLabel">Lager</span>
+        </div>
+        <div id="depotOxygen"  class="clear">
+            <span id="count_oxygen_depot" tal:content="string:$oxygenDepotValue %">xxx</span><span id="depotOxygenLabel">Tank</span>
+        </div>
+    </div><!-- depots -->
+</div>
+</div><!-- status -->
+

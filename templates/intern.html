@@ -1,0 +1,97 @@
+<div tal:comment=" === Seitenstruktur ==================================================="
+     id="contentDonator"
+     metal:define-macro="content">
+
+    <span
+        tal:comment="error content if there is any"
+        tal:condition="exists: errorMessage"
+        tal:replace="structure errorMessage"
+    />
+
+    <div tal:comment="donator content"
+         tal:condition="not: exists: errorMessage">
+
+        <script type="text/javascript" src="javascript/jquery.tablesorter.pack.js"></script>
+
+        <h1 class="headline">Spenden für ETS</h1>
+
+        <div id="tabContainer">
+            <ul>
+                <li><a href="#section-transfer">Spenden</a></li>
+                <li><a href="#section-donator">Spender</a></li>
+            </ul>
+
+            <div id="section-transfer">
+
+			Die Spendenfunktion existiert nicht mehr. Trotzdem vielen Dank für dein Interesse am Erhalt von ETS!
+			
+            </div>
+
+            <div id="section-donator">
+
+                <block tal:omit-tag="" tal:condition="spender">
+                    <table id="show_list" class="tablesorter">
+                        <thead>
+                            <tr class="table_head">
+                                <th class="position info" title="|Position in der Bewahrerliste">Rang</th>
+                                <th class="type info" title="|Siedler oder Allianz">Art</th>
+                                <th class="donator info" title="|Name des Bewahrers">Bewahrer</th>
+                                <th class="date info" name="date" title="|Datum der letzten Spende">Datum</th>
+                                <th class="points info" title="|Spende in Cent">Punkte</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <block tal:omit-tag="" tal:repeat="s spender">
+                                <tr>
+                                    <td tal:content="s/rank" class="keeper">Platzierung</td>
+                                    <td tal:condition="php: s['type'] == 'u'" class="position keeper"><img
+                                        src="${etsAddress}/pics/donator_type_u.gif" alt="S" /></td>
+                                    <td tal:condition="php: s['type'] == 'a'" class="type keeper"><img
+                                        src="${etsAddress}/pics/donator_type_a.gif" alt="A" /></td>
+                                    <td class="donator keeper">
+                                        <a href="information.php?type=${s/type}&name=${s/user}" tal:content="s/fullName">Spender Name</a>
+                                    </td>
+                                    <td tal:condition="s/isnew" tal:content="s/date_short" class="aktuell info" title="|Neueingang">Neues Datum</td>
+                                    <td tal:condition="not: s/isnew" tal:content="s/date_short" class="keeper">Datum</td>
+                                    <td class="type keeper"><block tal:omit-tag="" tal:content="php: s['amount'] * 100">Betrag</block></td>
+                                </tr>
+                            </block>
+                        </tbody>
+                    </table>
+                </block>
+
+
+                <block tal:omit-tag="" tal:condition="spender_anonymous">
+                    <h2>Ungenannte Wohltäter</h2>
+                    <p>Einige Spender möchten ihren Namen nicht preisgeben und Tabellen mit Längenvergleich
+                    sind ihnen unangenehm. Sie erscheinen daher unerkannt, außer Konkurrenz und unter einem
+                    Sammelnamen vereint.</p>
+
+                     <table id="showAnoNymous">
+                         <block tal:omit-tag="" tal:repeat="sa spender_anonymous">
+                             <tr>
+                                 <th class="donator info" title="|Name des Bewahrers">Bewahrer</th>
+                                 <td class="donator keeper" tal:content="sa/fullName">Anonyme spender</td>
+                             </tr>
+                             <tr>
+                                 <th class="type info" title="|Siedler oder Allianz">Art</th>
+                                 <td class="type keeper"><img src="${etsAddress}/pics/donator_type_a.gif" alt="A" /></td>
+                             </tr>
+                             <tr>
+                                 <th calss="date info" title="|Datum der letzten Spende">Datum</th>
+                                 <td tal:condition="sa/isnew" tal:content="sa/date_short" class="aktuell info" title="|Neueingang">Neues Datum</td>
+                                 <td tal:condition="not: sa/isnew" tal:content="sa/date_short" class="keeper">Datum</td>
+                             </tr>
+                             <tr>
+                                 <th class="points info" title="|Spende in Cent">Punkte</th>
+                                 <td class="type keeper"><block tal:omit-tag="" tal:content="php: sa['amount'] * 100">Betrag</block></td>
+                             </tr>
+                         </block>
+                    </table>
+                </block>
+            </div>
+        </div>
+    </div>
+
+</div>
+

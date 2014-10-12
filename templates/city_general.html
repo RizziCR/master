@@ -1,0 +1,146 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+
+	<head
+  		tal:comment="html head requires page title"
+  		metal:use-macro="lib/htmlHead.html/htmlHead"
+	/>	
+
+	<body>
+	
+	<!-- main container ============================================= -->
+		<div id="columnBasis">
+		
+			
+		<!-- left column ============================================ -->
+			<span
+  				tal:comment="left column template"
+  				metal:use-macro="lib/leftColumn.html/leftColumn"
+			/>		
+		
+		<!-- middle column ========================================== -->
+			<div id="columnCenter">
+
+			<!-- sponsor info -->
+				<span
+  					tal:comment="sponsor info template"
+  					metal:use-macro="lib/middleColumn.html/sponsorInfo"
+				/>					
+
+			<!-- resources and depots -->
+				<span
+  					tal:comment="resources and depots template"
+  					metal:use-macro="lib/middleColumn.html/resourcesDepots"
+				/>			
+				
+			<!-- main content area -->
+				<div id="content">
+				
+					<span
+  						tal:comment="first some pfusch content"
+  						tal:replace="structure pfuschOutput"
+					/>
+					
+					<!-- h1>Übersicht</h1>
+
+					<h2>Achtung</h2>
+					<ul id="danger">
+						<li>Deine Stadt »Porto Haben« (1:109:19) wird angegriffen!</li>
+					</ul>
+
+					<h2>Präsidium um 11:55:45</h2>
+					<img id="cityThumb" src="http://harbe-steben.net/bilder/behoerde/pr%E4sidium01.jpg" />
+					<table id="currentCity">
+						<tr>
+							<td class="label">Name</td>
+							<td class="value">Präsidium</td>
+						</tr>
+						<tr>
+							<td class="label">Kontinent:Land:Stadt</td>
+							<td class="value">5:37:6</td>
+						</tr>
+						<tr>
+							<td class="label">Punkte</td>
+							<td class="value">12</td>
+						</tr>
+					</table>
+					<div class="clear"></div>
+
+					<h2>Nachrichten</h2>
+					<ul>
+						<li><span class="time">19:26:14 10.02.2008</span><br /><span class="message">Eine Flotte (1:109:17) kehrte von 1:109:19 (Steben) zurück.</span></li>
+					</ul>
+					<h2>Auftr&auml;ge</h2>
+					<ul>
+						<li>Zur Zeit keine Auftr&auml;ge</li>
+					</ul>
+
+					<h2>Kampfwert</h2>
+					<table id="forcePower">
+						<tr>
+							<td class="label">Defensivanlagen</td>
+							<td class="value">0</td>
+						</tr>
+						<tr>
+							<td class="label">Flugzeuge</td>
+							<td class="value">0</td>
+						</tr>
+						<tr>
+							<td class="label">Schutzschild (max.)</td>
+							<td class="value">0 (0)</td>
+						</tr>
+						<tr>
+							<td class="label">Grundwert</td>
+							<td class="value">3.640.000</td>
+						</tr>
+						<tr>
+							<td class="label">Gesamt</td>
+							<td class="value">3.640.000</td>
+						</tr>
+					</table>
+
+					<h2>Account</h2>
+					<table id="account">
+						<tr>
+							<td class="label">Inhaber</td>
+							<td class="value">Steben</td>
+						</tr>
+						<tr>
+							<td class="label">Geb&auml;ude</td>
+							<td class="value">3.003</td>
+						</tr>
+						<tr>
+							<td class="label">Technologien</td>
+							<td class="value">0</td>
+						</tr>
+						<tr>
+							<td class="label">Punkte</td>
+							<td class="value">3.003</td>
+						</tr>
+					</table -->
+					
+				</div><!-- main content area -->
+			</div><!-- middle column -->
+
+		<!-- right column =========================================== -->
+			<span
+  				tal:comment="right column template"
+  				metal:use-macro="lib/rightColumn.html/rightColumn"
+			/>
+
+		
+		<!-- footer ================================================= -->
+			<span
+  				tal:comment="footer template"
+  				metal:use-macro="lib/footer.html/footer"
+			/>
+						
+		</div><!-- main container -->
+
+      <span tal:replace="structure clockJSCode"></span>
+      <span tal:replace="structure resourceCounter"></span>
+      <span tal:condition="exists: sessionTimeout" tal:replace="structure sessionTimeoutCode"></span>															
+      
+	</body>
+</html>

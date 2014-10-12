@@ -1,0 +1,83 @@
+                <!-- main menu -->
+                <div id="menuGuest" metal:define-macro="leftColumn">
+
+                    <h3>Willkommen</h3>
+                    <ul>
+                        <li>
+                            <a tal:attributes="href
+                               string:$etsAddress/index.php">Startseite</a>
+                        </li>
+                        <li>
+                            <a tal:attributes="href
+                               string:$etsAddress/page/tour.php">Warum dieses Spiel?</a>
+                        </li>
+                        <li>
+                            <a tal:attributes="href
+                               string:$etsAddress/page/ets.php">Spielgeschichte</a>
+                        </li>
+                        <li>
+                            <a tal:attributes="href
+                               string:$etsAddress/page/stats.php">Statistik</a>
+                        </li>
+                        <li>
+                            <a tal:attributes="href
+                               string:$etsAddress/page/register.php">Registrieren</a>
+                        </li>
+                    </ul>
+
+                    <h3>Konsole</h3>
+                    <ul>
+                        <li tal:condition="exists: notLoggedIn">
+                            <a tal:attributes="href
+                               string:$etsAddress/page/login.php">Erde II betreten</a>
+                        </li>
+                        <li tal:condition="not: exists: notLoggedIn">
+                            <a tal:attributes="href
+                               string:$etsAddress/start.php">Zurück zu Erde II</a>
+                        </li>
+                        <li tal:condition="not: exists: notLoggedIn">
+                            <a tal:attributes="href string:$etsAddress/page/login.php">Erde II verlassen</a>
+                        </li>
+                    </ul>
+
+                    <h3>Hilfe</h3>
+                    <ul>
+                        <li>
+                            <a tal:attributes="href
+                               string:$etsAddress/page/rules.php">Spielregeln</a>
+                        </li>
+                        <li>
+                            <a tal:attributes="href
+                               string:$etsAddress/page/chat.php" target="_blank">Chat (IRC)</a>
+                        </li>
+                        <li>
+                            <a tal:attributes="href
+                               string:$forumAddress" target="_blank">Forum</a>
+                        </li>
+                        <li>
+                            <a tal:attributes="href
+                               string:$wikiAddress" target="_blank">Wiki</a>
+                        </li>
+                        <li>
+                        	<a tal:attributes="href
+                        	string:$blogAddress" target="_blank">Blog</a>
+                        </li>
+                        <li>
+                        	<a tal:attributes="href
+                        	string:$youtubeAddress" target="_blank">Youtube-Kanal</a>
+                        </li>
+                        <li>
+                            <a tal:attributes="href
+                               string:$etsAddress/page/faqs.php">Fragen zu ETS</a>
+                        </li>
+                        <li>
+                        	<a tal:attributes="href
+                        	string:$etsAddress/page/partner.php">Partner und Presse</a>
+                        </li>
+                        <li>
+                            <a tal:attributes="href
+                               string:$etsAddress/page/support.php">Spielbetreuung</a>
+                        </li>
+                    </ul>
+
+                </div><!-- main menu -->

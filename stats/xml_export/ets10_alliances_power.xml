@@ -1,0 +1,304 @@
+<?xml version="1.0"?>
+
+
+<ETS10>
+  <alliances>
+	<tag>-SPE-</tag>
+	<members>24</members>
+	<power>81548</power>
+  </alliances>
+
+  <alliances>
+	<tag>BM</tag>
+	<members>28</members>
+	<power>78051</power>
+  </alliances>
+
+  <alliances>
+	<tag>VisioN</tag>
+	<members>34</members>
+	<power>62080</power>
+  </alliances>
+
+  <alliances>
+	<tag>i--M.B.C--</tag>
+	<members>19</members>
+	<power>40933</power>
+  </alliances>
+
+  <alliances>
+	<tag>Mehandor</tag>
+	<members>14</members>
+	<power>39620</power>
+  </alliances>
+
+  <alliances>
+	<tag>-GR-</tag>
+	<members>12</members>
+	<power>37487</power>
+  </alliances>
+
+  <alliances>
+	<tag>EGAL</tag>
+	<members>13</members>
+	<power>37482</power>
+  </alliances>
+
+  <alliances>
+	<tag>Medaron</tag>
+	<members>16</members>
+	<power>36096</power>
+  </alliances>
+
+  <alliances>
+	<tag>GdS</tag>
+	<members>16</members>
+	<power>35879</power>
+  </alliances>
+
+  <alliances>
+	<tag>Frauenparkplatz</tag>
+	<members>11</members>
+	<power>34573</power>
+  </alliances>
+
+  <alliances>
+	<tag>W13</tag>
+	<members>12</members>
+	<power>34431</power>
+  </alliances>
+
+  <alliances>
+	<tag>--M.B.C--</tag>
+	<members>14</members>
+	<power>32974</power>
+  </alliances>
+
+  <alliances>
+	<tag>99Weiber</tag>
+	<members>9</members>
+	<power>15998</power>
+  </alliances>
+
+  <alliances>
+	<tag>FZT</tag>
+	<members>5</members>
+	<power>15064</power>
+  </alliances>
+
+  <alliances>
+	<tag>SG33K</tag>
+	<members>6</members>
+	<power>13293</power>
+  </alliances>
+
+  <alliances>
+	<tag>EV</tag>
+	<members>5</members>
+	<power>12364</power>
+  </alliances>
+
+  <alliances>
+	<tag>Resurrection</tag>
+	<members>8</members>
+	<power>12178</power>
+  </alliances>
+
+  <alliances>
+	<tag>KoC</tag>
+	<members>5</members>
+	<power>11091</power>
+  </alliances>
+
+  <alliances>
+	<tag>LiuN</tag>
+	<members>6</members>
+	<power>10890</power>
+  </alliances>
+
+  <alliances>
+	<tag>Akademie</tag>
+	<members>8</members>
+	<power>9050</power>
+  </alliances>
+
+  <alliances>
+	<tag>LMS</tag>
+	<members>8</members>
+	<power>6189</power>
+  </alliances>
+
+  <alliances>
+	<tag>DF</tag>
+	<members>3</members>
+	<power>5830</power>
+  </alliances>
+
+  <alliances>
+	<tag>DT</tag>
+	<members>2</members>
+	<power>5007</power>
+  </alliances>
+
+  <alliances>
+	<tag>-WG-</tag>
+	<members>1</members>
+	<power>3733</power>
+  </alliances>
+
+  <alliances>
+	<tag>CCK</tag>
+	<members>5</members>
+	<power>3384</power>
+  </alliances>
+
+  <alliances>
+	<tag>XE</tag>
+	<members>1</members>
+	<power>3271</power>
+  </alliances>
+
+  <alliances>
+	<tag>___1337___</tag>
+	<members>3</members>
+	<power>3132</power>
+  </alliances>
+
+  <alliances>
+	<tag>BuG</tag>
+	<members>2</members>
+	<power>3009</power>
+  </alliances>
+
+  <alliances>
+	<tag>CMB</tag>
+	<members>3</members>
+	<power>2973</power>
+  </alliances>
+
+  <alliances>
+	<tag>hf</tag>
+	<members>2</members>
+	<power>2900</power>
+  </alliances>
+
+  <alliances>
+	<tag>NfK</tag>
+	<members>1</members>
+	<power>2058</power>
+  </alliances>
+
+  <alliances>
+	<tag>IskA</tag>
+	<members>1</members>
+	<power>1894</power>
+  </alliances>
+
+  <alliances>
+	<tag>-</tag>
+	<members>1</members>
+	<power>1873</power>
+  </alliances>
+
+  <alliances>
+	<tag>ROFL</tag>
+	<members>3</members>
+	<power>1734</power>
+  </alliances>
+
+  <alliances>
+	<tag>_FU_</tag>
+	<members>1</members>
+	<power>1733</power>
+  </alliances>
+
+  <alliances>
+	<tag>E.T</tag>
+	<members>3</members>
+	<power>1693</power>
+  </alliances>
+
+  <alliances>
+	<tag>GTM</tag>
+	<members>4</members>
+	<power>1574</power>
+  </alliances>
+
+  <alliances>
+	<tag>FdN</tag>
+	<members>1</members>
+	<power>1570</power>
+  </alliances>
+
+  <alliances>
+	<tag>Dings</tag>
+	<members>1</members>
+	<power>1565</power>
+  </alliances>
+
+  <alliances>
+	<tag>o</tag>
+	<members>1</members>
+	<power>1554</power>
+  </alliances>
+
+  <alliances>
+	<tag>DoN</tag>
+	<members>2</members>
+	<power>1520</power>
+  </alliances>
+
+  <alliances>
+	<tag>TOD</tag>
+	<members>1</members>
+	<power>1211</power>
+  </alliances>
+
+  <alliances>
+	<tag>SoL</tag>
+	<members>1</members>
+	<power>1197</power>
+  </alliances>
+
+  <alliances>
+	<tag>ausLoenneberga</tag>
+	<members>1</members>
+	<power>1165</power>
+  </alliances>
+
+  <alliances>
+	<tag>SIN</tag>
+	<members>1</members>
+	<power>1019</power>
+  </alliances>
+
+  <alliances>
+	<tag>-FC-</tag>
+	<members>3</members>
+	<power>930</power>
+  </alliances>
+
+  <alliances>
+	<tag>-pFC-</tag>
+	<members>1</members>
+	<power>860</power>
+  </alliances>
+
+  <alliances>
+	<tag>BLUNA</tag>
+	<members>1</members>
+	<power>775</power>
+  </alliances>
+
+  <alliances>
+	<tag>Ethhh</tag>
+	<members>2</members>
+	<power>754</power>
+  </alliances>
+
+  <alliances>
+	<tag>Piraten</tag>
+	<members>1</members>
+	<power>707</power>
+  </alliances>
+</ETS10>

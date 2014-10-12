@@ -1,0 +1,504 @@
+<?xml version="1.0"?>
+
+
+<ETS10>
+  <city>
+	<city>1:97:12</city>
+	<city_name>Berlin</city_name>
+	<user>golgbuch</user>
+	<points>2350</points>
+	<alliance>EGAL</alliance>
+	<home>YES</home>
+	<b_hangar>202</b_hangar>
+  </city>
+
+  <city>
+	<city>2:91:6</city>
+	<city_name>Pika/Berlin</city_name>
+	<user>Pikachu</user>
+	<points>2306</points>
+	<alliance>EGAL</alliance>
+	<home>YES</home>
+	<b_hangar>194</b_hangar>
+  </city>
+
+  <city>
+	<city>2:69:12</city>
+	<city_name>Terrania</city_name>
+	<user>sbeck</user>
+	<points>2188</points>
+	<alliance>Mehandor</alliance>
+	<home>YES</home>
+	<b_hangar>216</b_hangar>
+  </city>
+
+  <city>
+	<city>1:78:9</city>
+	<city_name>Halut</city_name>
+	<user>webworker</user>
+	<points>2176</points>
+	<alliance>Mehandor</alliance>
+	<home>YES</home>
+	<b_hangar>205</b_hangar>
+  </city>
+
+  <city>
+	<city>2:163:15</city>
+	<city_name>Korn</city_name>
+	<user>Wessi</user>
+	<points>2164</points>
+	<alliance>Mehandor</alliance>
+	<home>YES</home>
+	<b_hangar>175</b_hangar>
+  </city>
+
+  <city>
+	<city>2:136:1</city>
+	<city_name>blubb</city_name>
+	<user>DCF</user>
+	<points>2108</points>
+	<alliance></alliance>
+	<home>YES</home>
+	<b_hangar>222</b_hangar>
+  </city>
+
+  <city>
+	<city>3:142:9</city>
+	<city_name>[RENT A FLEET]</city_name>
+	<user>Rumkugel</user>
+	<points>2078</points>
+	<alliance>Mehandor</alliance>
+	<home>YES</home>
+	<b_hangar>170</b_hangar>
+  </city>
+
+  <city>
+	<city>1:129:14</city>
+	<city_name>Die bewohnte Insel</city_name>
+	<user>MaximKammerer</user>
+	<points>2051</points>
+	<alliance>SG33K</alliance>
+	<home>YES</home>
+	<b_hangar>206</b_hangar>
+  </city>
+
+  <city>
+	<city>1:12:11</city>
+	<city_name>Caldwell  </city_name>
+	<user>Zsadist</user>
+	<points>2035</points>
+	<alliance>Mehandor</alliance>
+	<home>YES</home>
+	<b_hangar>189</b_hangar>
+  </city>
+
+  <city>
+	<city>2:188:2</city>
+	<city_name></city_name>
+	<user>chief</user>
+	<points>2020</points>
+	<alliance>-SPE-</alliance>
+	<home>NO</home>
+	<b_hangar>237</b_hangar>
+  </city>
+
+  <city>
+	<city>2:188:4</city>
+	<city_name></city_name>
+	<user>chief</user>
+	<points>2020</points>
+	<alliance>-SPE-</alliance>
+	<home>NO</home>
+	<b_hangar>237</b_hangar>
+  </city>
+
+  <city>
+	<city>2:188:1</city>
+	<city_name></city_name>
+	<user>chief</user>
+	<points>2020</points>
+	<alliance>-SPE-</alliance>
+	<home>NO</home>
+	<b_hangar>237</b_hangar>
+  </city>
+
+  <city>
+	<city>2:188:6</city>
+	<city_name></city_name>
+	<user>chief</user>
+	<points>2020</points>
+	<alliance>-SPE-</alliance>
+	<home>NO</home>
+	<b_hangar>237</b_hangar>
+  </city>
+
+  <city>
+	<city>2:188:5</city>
+	<city_name></city_name>
+	<user>chief</user>
+	<points>2020</points>
+	<alliance>-SPE-</alliance>
+	<home>NO</home>
+	<b_hangar>237</b_hangar>
+  </city>
+
+  <city>
+	<city>2:188:7</city>
+	<city_name></city_name>
+	<user>chief</user>
+	<points>2020</points>
+	<alliance>-SPE-</alliance>
+	<home>NO</home>
+	<b_hangar>237</b_hangar>
+  </city>
+
+  <city>
+	<city>2:180:3</city>
+	<city_name>-</city_name>
+	<user>chief</user>
+	<points>2012</points>
+	<alliance>-SPE-</alliance>
+	<home>NO</home>
+	<b_hangar>242</b_hangar>
+  </city>
+
+  <city>
+	<city>2:35:6</city>
+	<city_name>bye bye Rino ;)</city_name>
+	<user>Valdez</user>
+	<points>2009</points>
+	<alliance>-SPE-</alliance>
+	<home>NO</home>
+	<b_hangar>222</b_hangar>
+  </city>
+
+  <city>
+	<city>2:18:10</city>
+	<city_name></city_name>
+	<user>Valdez</user>
+	<points>1986</points>
+	<alliance>-SPE-</alliance>
+	<home>NO</home>
+	<b_hangar>220</b_hangar>
+  </city>
+
+  <city>
+	<city>2:163:5</city>
+	<city_name></city_name>
+	<user>Wessi</user>
+	<points>1986</points>
+	<alliance>Mehandor</alliance>
+	<home>NO</home>
+	<b_hangar>233</b_hangar>
+  </city>
+
+  <city>
+	<city>2:163:4</city>
+	<city_name></city_name>
+	<user>Wessi</user>
+	<points>1986</points>
+	<alliance>Mehandor</alliance>
+	<home>NO</home>
+	<b_hangar>233</b_hangar>
+  </city>
+
+  <city>
+	<city>2:163:3</city>
+	<city_name></city_name>
+	<user>Wessi</user>
+	<points>1986</points>
+	<alliance>Mehandor</alliance>
+	<home>NO</home>
+	<b_hangar>233</b_hangar>
+  </city>
+
+  <city>
+	<city>1:33:5</city>
+	<city_name>Hey, Bunny! *pfeif*</city_name>
+	<user>chief</user>
+	<points>1980</points>
+	<alliance>-SPE-</alliance>
+	<home>NO</home>
+	<b_hangar>228</b_hangar>
+  </city>
+
+  <city>
+	<city>2:187:16</city>
+	<city_name></city_name>
+	<user>chief</user>
+	<points>1980</points>
+	<alliance>-SPE-</alliance>
+	<home>NO</home>
+	<b_hangar>230</b_hangar>
+  </city>
+
+  <city>
+	<city>2:71:11</city>
+	<city_name>Neue Stadt</city_name>
+	<user>AxL</user>
+	<points>1971</points>
+	<alliance>BM</alliance>
+	<home>NO</home>
+	<b_hangar>220</b_hangar>
+  </city>
+
+  <city>
+	<city>2:3:9</city>
+	<city_name>-PRN-</city_name>
+	<user>Valdez</user>
+	<points>1970</points>
+	<alliance>-SPE-</alliance>
+	<home>NO</home>
+	<b_hangar>220</b_hangar>
+  </city>
+
+  <city>
+	<city>2:59:5</city>
+	<city_name>2097</city_name>
+	<user>SpeedFreak</user>
+	<points>1967</points>
+	<alliance>i--M.B.C--</alliance>
+	<home>YES</home>
+	<b_hangar>194</b_hangar>
+  </city>
+
+  <city>
+	<city>2:20:4</city>
+	<city_name>Wiesbaden</city_name>
+	<user>Morpheus</user>
+	<points>1960</points>
+	<alliance>VisioN</alliance>
+	<home>NO</home>
+	<b_hangar>230</b_hangar>
+  </city>
+
+  <city>
+	<city>2:20:3</city>
+	<city_name>Braunschweig</city_name>
+	<user>Morpheus</user>
+	<points>1960</points>
+	<alliance>VisioN</alliance>
+	<home>NO</home>
+	<b_hangar>230</b_hangar>
+  </city>
+
+  <city>
+	<city>2:20:1</city>
+	<city_name>Wilsum</city_name>
+	<user>Morpheus</user>
+	<points>1960</points>
+	<alliance>VisioN</alliance>
+	<home>NO</home>
+	<b_hangar>230</b_hangar>
+  </city>
+
+  <city>
+	<city>2:20:6</city>
+	<city_name>Hannover</city_name>
+	<user>Morpheus</user>
+	<points>1960</points>
+	<alliance>VisioN</alliance>
+	<home>NO</home>
+	<b_hangar>230</b_hangar>
+  </city>
+
+  <city>
+	<city>2:20:7</city>
+	<city_name>Essen</city_name>
+	<user>Morpheus</user>
+	<points>1960</points>
+	<alliance>VisioN</alliance>
+	<home>NO</home>
+	<b_hangar>230</b_hangar>
+  </city>
+
+  <city>
+	<city>2:20:2</city>
+	<city_name>Gladbach</city_name>
+	<user>Morpheus</user>
+	<points>1955</points>
+	<alliance>VisioN</alliance>
+	<home>NO</home>
+	<b_hangar>230</b_hangar>
+  </city>
+
+  <city>
+	<city>2:3:4</city>
+	<city_name>-AS-</city_name>
+	<user>Valdez</user>
+	<points>1952</points>
+	<alliance>-SPE-</alliance>
+	<home>NO</home>
+	<b_hangar>224</b_hangar>
+  </city>
+
+  <city>
+	<city>2:191:11</city>
+	<city_name>thx UnsichtBar!</city_name>
+	<user>Valdez</user>
+	<points>1952</points>
+	<alliance>-SPE-</alliance>
+	<home>NO</home>
+	<b_hangar>229</b_hangar>
+  </city>
+
+  <city>
+	<city>1:66:8</city>
+	<city_name>Neue Stadt</city_name>
+	<user>chief</user>
+	<points>1951</points>
+	<alliance>-SPE-</alliance>
+	<home>NO</home>
+	<b_hangar>239</b_hangar>
+  </city>
+
+  <city>
+	<city>1:44:11</city>
+	<city_name>Neue Stadt</city_name>
+	<user>chief</user>
+	<points>1945</points>
+	<alliance>-SPE-</alliance>
+	<home>NO</home>
+	<b_hangar>239</b_hangar>
+  </city>
+
+  <city>
+	<city>1:95:16</city>
+	<city_name>schwaben grüßt swiss</city_name>
+	<user>kottan</user>
+	<points>1939</points>
+	<alliance>BM</alliance>
+	<home>NO</home>
+	<b_hangar>241</b_hangar>
+  </city>
+
+  <city>
+	<city>2:3:3</city>
+	<city_name>BuG-2G</city_name>
+	<user>Valdez</user>
+	<points>1934</points>
+	<alliance>-SPE-</alliance>
+	<home>NO</home>
+	<b_hangar>226</b_hangar>
+  </city>
+
+  <city>
+	<city>3:24:9</city>
+	<city_name>Neue Stadt</city_name>
+	<user>chief</user>
+	<points>1926</points>
+	<alliance>-SPE-</alliance>
+	<home>NO</home>
+	<b_hangar>237</b_hangar>
+  </city>
+
+  <city>
+	<city>2:191:16</city>
+	<city_name>thx Sugat!! </city_name>
+	<user>Valdez</user>
+	<points>1918</points>
+	<alliance>-SPE-</alliance>
+	<home>NO</home>
+	<b_hangar>239</b_hangar>
+  </city>
+
+  <city>
+	<city>3:83:10</city>
+	<city_name>Z</city_name>
+	<user>Valdez</user>
+	<points>1911</points>
+	<alliance>-SPE-</alliance>
+	<home>NO</home>
+	<b_hangar>238</b_hangar>
+  </city>
+
+  <city>
+	<city>2:3:2</city>
+	<city_name>UEA</city_name>
+	<user>Valdez</user>
+	<points>1908</points>
+	<alliance>-SPE-</alliance>
+	<home>NO</home>
+	<b_hangar>228</b_hangar>
+  </city>
+
+  <city>
+	<city>2:184:15</city>
+	<city_name>Neue Stadt</city_name>
+	<user>chief</user>
+	<points>1906</points>
+	<alliance>-SPE-</alliance>
+	<home>NO</home>
+	<b_hangar>237</b_hangar>
+  </city>
+
+  <city>
+	<city>1:44:6</city>
+	<city_name>Neue Stadt</city_name>
+	<user>Valdez</user>
+	<points>1901</points>
+	<alliance>-SPE-</alliance>
+	<home>NO</home>
+	<b_hangar>227</b_hangar>
+  </city>
+
+  <city>
+	<city>1:12:13</city>
+	<city_name>Wrath</city_name>
+	<user>Zsadist</user>
+	<points>1891</points>
+	<alliance>Mehandor</alliance>
+	<home>NO</home>
+	<b_hangar>220</b_hangar>
+  </city>
+
+  <city>
+	<city>2:187:12</city>
+	<city_name>sweet</city_name>
+	<user>AxL</user>
+	<points>1889</points>
+	<alliance>BM</alliance>
+	<home>NO</home>
+	<b_hangar>231</b_hangar>
+  </city>
+
+  <city>
+	<city>3:159:14</city>
+	<city_name>( . Y . )</city_name>
+	<user>Valdez</user>
+	<points>1888</points>
+	<alliance>-SPE-</alliance>
+	<home>NO</home>
+	<b_hangar>232</b_hangar>
+  </city>
+
+  <city>
+	<city>2:3:8</city>
+	<city_name>-Rdk-</city_name>
+	<user>Valdez</user>
+	<points>1882</points>
+	<alliance>-SPE-</alliance>
+	<home>NO</home>
+	<b_hangar>235</b_hangar>
+  </city>
+
+  <city>
+	<city>1:66:4</city>
+	<city_name>Neue Stadt</city_name>
+	<user>chief</user>
+	<points>1878</points>
+	<alliance>-SPE-</alliance>
+	<home>NO</home>
+	<b_hangar>218</b_hangar>
+  </city>
+
+  <city>
+	<city>2:10:9</city>
+	<city_name></city_name>
+	<user>chief</user>
+	<points>1877</points>
+	<alliance>-SPE-</alliance>
+	<home>NO</home>
+	<b_hangar>221</b_hangar>
+  </city>
+</ETS10>
