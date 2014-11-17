@@ -514,6 +514,10 @@ function BBCode($input) {
 
 function maketime($sekunden) {
     $sekunden = round ( $sekunden );
+		$stunden = 0;
+		$minuten = 0;
+		$tage = 0;
+		$retval = "";
     if ($sekunden < 0)
         return "0:00:00";
 
@@ -529,27 +533,10 @@ function maketime($sekunden) {
         $tage = floor ( $stunden / 24 );
         $stunden -= 24 * $tage;
     }
-
-    if (strlen ( $sekunden ) == 1)
-        $sekunden = "0$sekunden";
-
-    if (strlen ( $minuten ) == 1)
-        $minuten = "0$minuten";
-
     if ($tage)
-        if ($tage > 1)
-            $retval = "$tage Tage "; else
-            $retval = "$tage Tag ";
+        $retval = ($tage > 1) ? $retval = "$tage Tage " : "$tage Tag ";
 
-    if ($stunden)
-        $retval .= "$stunden"; else
-        $retval .= "0";
-
-    if ($minuten)
-        $retval .= ":$minuten"; else
-        $retval .= ":00";
-
-    $retval .= ":$sekunden";
+    $retval .= sprintf("%02d",$stunden).":".sprintf("%02d",$minuten).":".sprintf("%02d",$sekunden);
 
     return $retval;
 }
