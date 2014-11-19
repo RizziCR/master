@@ -4,10 +4,7 @@
 
   function now()
   {
-    $str_zeit = microtime();
-    $zeit = split(" ",$str_zeit);
-    $mzeit = split("\.",$zeit[0]);
-    return "$zeit[1].$mzeit[1]";
+    return microtime(TRUE);
   }
 
   class Bench
