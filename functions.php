@@ -349,10 +349,10 @@ function status($var) {
 }
 
 function AddSlash($array) {
-    foreach ( $array as $key => $value )
-        $new_array [$key] = addslashes ( $value );
+    foreach ( $array as &$value )
+        $value = addslashes ( $value );
 
-    return $new_array;
+    return $array;
 }
 
 function sonderz_messages_fwd($var) {
