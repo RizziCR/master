@@ -356,8 +356,9 @@ function AddSlash($array) {
 }
 
 function sonderz_messages_fwd($var) {
-    $var = str_replace ( "\"", "&quot", $var );
-    $var = str_replace ( "<br>", "\n", $var );
+		$search = array ("\"","<br>");
+		$replace = array ("&quot;","\n");
+    $var = str_replace ( $search, $replace, $var );
 
     return $var;
 }
