@@ -68,11 +68,7 @@ function transcodeIp($ip) {
  * @return string
  */
 function anonIp($ip) {
-    $tmp = explode('.', $ip);
-    array_pop($tmp);
-    $tmp[] = 'xxx';
-    $tmp = implode('.', $tmp);
-    return $tmp;
+    return substr($ip,0,strrpos($ip,".")).".xxx";
 }
 
 // Gebäude-Preise
