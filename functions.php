@@ -203,13 +203,13 @@ function Foerderung($resource, $building, $tech, $lagerWater = 0, $buildingWater
     switch ( $resource) {
         case IRIDIUM :
             {
-                $erg = $tore * (15 * pow ( $building, 1.8 ) + 2000) * pow ( $t_increase [MINING], $tech );
+                $erg = (15 * pow ( $building, 1.8 ) + 2000) * pow ( $t_increase [MINING], $tech );
                 # * $alliance_give * ($produktionshalle * PRODUKTIONSHALLE_BONUS);
                 break;
             }
         case HOLZIUM :
             {
-                $erg = $tore * (15 * pow ( $building, 1.7 ) + 2000) * pow ( $t_increase [MINING], $tech );
+                $erg = (15 * pow ( $building, 1.7 ) + 2000) * pow ( $t_increase [MINING], $tech );
                 # * $alliance_give * ($produktionshalle * PRODUKTIONSHALLE_BONUS);
                 break;
             }
@@ -221,17 +221,17 @@ function Foerderung($resource, $building, $tech, $lagerWater = 0, $buildingWater
         case OXYGEN :
             {
                 if ($lagerWater > 0) {
-                     $erg = $tore * ((20 / 7) * pow ( $building, 2 ) + 200) * pow ( $t_increase [COMPRESSION], $tech );
+                     $erg = ((20 / 7) * pow ( $building, 2 ) + 200) * pow ( $t_increase [COMPRESSION], $tech );
                      # * $alliance_give * ($produktionshalle * PRODUKTIONSHALLE_BONUS);
                 }else{
               /* (Foerderung(WATER,$buildingWater,0)/3.5) => Verbrauch des Reaktors */
-              		$erg = $tore * ((Foerderung ( WATER, $buildingWater, 0 ) / 3.5) + 200) * pow ( $t_increase [COMPRESSION], $tech );
+              		$erg = ((Foerderung ( WATER, $buildingWater, 0 ) / 3.5) + 200) * pow ( $t_increase [COMPRESSION], $tech );
               		# * $alliance_give * ($produktionshalle * PRODUKTIONSHALLE_BONUS);
                 }
               	break;
             }
     }
-    return $erg;
+    return $tore * $erg;
 }
 
 // Verbrauch der Rohstoffgebäude pro Stunde
