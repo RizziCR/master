@@ -728,7 +728,7 @@ function LoginError() {
     @session_destroy();
 
     $use_lib = 20; // MSG_LOGIN_ERROR
-    require ("msgs.php");
+    require_once ("msgs.php");
 
     // define phptal template
     require_once ("PHPTAL.php");
@@ -738,7 +738,7 @@ function LoginError() {
     $template->setEncoding ( 'ISO-8859-1' );
 
     // common setting
-    require ("config_general.php");
+    require_once ("config_general.php");
     require_once ("include/TemplateSettingsCommonGuest.php");
 
     if (func_num_args () == 0 || (func_num_args () == 1 && func_get_arg ( 0 ) == 'captcha')) {
