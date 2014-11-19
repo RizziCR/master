@@ -676,7 +676,7 @@ function translate($var) {
 function translate_technologies($var) {
     global $t_db_name, $t_name;
 
-    for($i = 0; $i < ANZAHL_TECHNOLOGIEN; $i ++)
+    for($i = 0; $i < count($t_db_name); $i ++)
         if ($var == "t_" . $t_db_name [$i])
             return $t_name [$i];
 }
@@ -684,7 +684,7 @@ function translate_technologies($var) {
 function translate_buildings($var) {
     global $b_db_name, $b_name;
 
-    for($i = 0; $i < ANZAHL_GEBAEUDE; $i ++)
+    for($i = 0; $i < count($b_db_name); $i ++)
         if ($var == "b_" . $b_db_name [$i])
             return $b_name [$i];
 }
@@ -692,7 +692,7 @@ function translate_buildings($var) {
 function translate_defense($var) {
     global $d_db_name, $d_name;
 
-    for($i = 0; $i < ANZAHL_DEFENSIVE; $i ++)
+    for($i = 0; $i < count($d_db_name); $i ++)
         if ($var == "d_" . $d_db_name [$i])
             return $d_name [$i];
 }
@@ -700,7 +700,7 @@ function translate_defense($var) {
 function translate_planes($var) {
     global $p_db_name_wus, $p_name;
 
-    for($i = 0; $i < ANZAHL_FLUGZEUGE; $i ++)
+    for($i = 0; $i < count($p_db_name_wus); $i ++)
         if ($var == "p_" . $p_db_name_wus [$i])
             return $p_name [$i];
 }
