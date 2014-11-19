@@ -17,7 +17,7 @@ require_once("functions.php");
 require_once 'include/class_Party.php';
 require_once 'include/class_Kampf.php';
 require_once 'include/class_Krieg.php';
-include("tutorial.php");
+//include("tutorial.php");
 
 $email = "";
 
