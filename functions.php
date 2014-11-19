@@ -640,22 +640,7 @@ function maketime($sekunden) {
  * @param array value array
  */
 function merge_arrays(&$a, $b) {
-    $keys = array_keys ( $a );
-    foreach ( $keys as $key ) {
-        if (isset ( $b [$key] )) {
-            if (is_array ( $a [$key] ) and is_array ( $b [$key] )) {
-                merge_arrays ( $a [$key], $b [$key] );
-            } else {
-                $a [$key] = $b [$key];
-            }
-        }
-    }
-    $keys = array_keys ( $b );
-    foreach ( $keys as $key ) {
-        if (! isset ( $a [$key] )) {
-            $a [$key] = $b [$key];
-        }
-    }
+    $a = $b+$a;
 }
 
 function translate($var) {
