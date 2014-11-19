@@ -1088,6 +1088,9 @@ function markCaptchaWrongForUser($email, $password) {
         //nach zehn min darf man wieder ;)
         if (time () - $login_detail ['user_captcha_last_try'] > 10 * 60) {
             resetCaptchaBlock ( $email );
+						/*Unnötiges QUERY? Captcha Daten kann man auch manuell im Array abspeichern.
+						$login_detail['user_captcha_wrong_counter'] = 0;
+						$login_detail ['user_captcha_blocked'] = "no";*/
             $login_info = sql_query ( "SELECT * FROM userdata WHERE email='" . addslashes(htmlspecialchars ( $email, ENT_QUOTES )) . "' && password='$md5_password'" );
             $login_detail = sql_fetch_array ( $login_info );
         }
