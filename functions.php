@@ -68,11 +68,7 @@ function transcodeIp($ip) {
  * @return string
  */
 function anonIp($ip) {
-    $tmp = explode('.', $ip);
-    array_pop($tmp);
-    $tmp[] = 'xxx';
-    $tmp = implode('.', $tmp);
-    return $tmp;
+    return substr($ip,0,strrpos($ip,".")).".xxx";
 }
 
 // Gebäude-Preise
@@ -207,13 +203,13 @@ function Foerderung($resource, $building, $tech, $lagerWater = 0, $buildingWater
     switch ( $resource) {
         case IRIDIUM :
             {
-                $erg = $tore * (15 * pow ( $building, 1.8 ) + 2000) * pow ( $t_increase [MINING], $tech );
+                $erg = (15 * pow ( $building, 1.8 ) + 2000) * pow ( $t_increase [MINING], $tech );
                 # * $alliance_give * ($produktionshalle * PRODUKTIONSHALLE_BONUS);
                 break;
             }
         case HOLZIUM :
             {
-                $erg = $tore * (15 * pow ( $building, 1.7 ) + 2000) * pow ( $t_increase [MINING], $tech );
+                $erg = (15 * pow ( $building, 1.7 ) + 2000) * pow ( $t_increase [MINING], $tech );
                 # * $alliance_give * ($produktionshalle * PRODUKTIONSHALLE_BONUS);
                 break;
             }
@@ -225,17 +221,17 @@ function Foerderung($resource, $building, $tech, $lagerWater = 0, $buildingWater
         case OXYGEN :
             {
                 if ($lagerWater > 0) {
-                     $erg = $tore * ((20 / 7) * pow ( $building, 2 ) + 200) * pow ( $t_increase [COMPRESSION], $tech );
+                     $erg = ((20 / 7) * pow ( $building, 2 ) + 200) * pow ( $t_increase [COMPRESSION], $tech );
                      # * $alliance_give * ($produktionshalle * PRODUKTIONSHALLE_BONUS);
                 }else{
               /* (Foerderung(WATER,$buildingWater,0)/3.5) => Verbrauch des Reaktors */
-              		$erg = $tore * ((Foerderung ( WATER, $buildingWater, 0 ) / 3.5) + 200) * pow ( $t_increase [COMPRESSION], $tech );
+              		$erg = ((Foerderung ( WATER, $buildingWater, 0 ) / 3.5) + 200) * pow ( $t_increase [COMPRESSION], $tech );
               		# * $alliance_give * ($produktionshalle * PRODUKTIONSHALLE_BONUS);
                 }
               	break;
             }
     }
-    return $erg;
+    return $tore * $erg;
 }
 
 // Verbrauch der Rohstoffgebäude pro Stunde
@@ -353,15 +349,16 @@ function status($var) {
 }
 
 function AddSlash($array) {
-    foreach ( $array as $key => $value )
-        $new_array [$key] = addslashes ( $value );
+    foreach ( $array as &$value )
+        $value = addslashes ( $value );
 
-    return $new_array;
+    return $array;
 }
 
 function sonderz_messages_fwd($var) {
-    $var = str_replace ( "\"", "&quot", $var );
-    $var = str_replace ( "<br>", "\n", $var );
+		$search = array ("\"","<br>");
+		$replace = array ("&quot;","\n");
+    $var = str_replace ( $search, $replace, $var );
 
     return $var;
 }
@@ -474,7 +471,99 @@ function sonderz($var) {
 
     return $var;
 }
+/*function sonderz($var) {
+    $array = array(
+			"â‚¬" => "&euro;", 
+			"€" => "&euro;",
+			"\\'" => "'",
+			"\\\"" => "\\\"",
+			"\\'" => "'",
+			"Â´" => "´",
+			"`" => "&acute;",
+			"^" => "&circ;",
+			"Ã¤" => "&auml;",
+			"Ã„" => "&Auml;",
+			"Ã¶" => "&ouml;",
+			"Ã–" => "&Ouml;",
+			"Ã¼" => "&uuml;",
+			"Ãœ" => "&Uuml;",
+			"ÃŸ" => "&szlig;",
+			"ä" => "&auml;",
+			"Ä" => "&Auml;",
+			"ö" => "&ouml;",
+			"Ö" => "&Ouml;",
+			"ü" => "&uuml;",
+			"Ü" => "&Uuml;",
+			"ß" => "&szlig;",
+			"Ã¡" => "&agrave;",
+			"Ã " => "&aacute;",
+			"Ã¢" => "&acirc;",
+			"Ã" => "&Agrave;",
+			"Ã€" => "&Aacute;",
+			"Ã‚" => "&Acirc;",
+			"á" => "&agrave;",
+			"à" => "&aacute;",
+			"â" => "&acirc;",
+			"Á" => "&Agrave;",
+			"À" => "&Aacute;",
+			"Â" => "&Acirc;",
+			"Ã©" => "&egrave;",
+			"Ã¨" => "&eacute;",
+			"Ãª" => "&ecirc;",
+			"Ã‰" => "&Egrave;",
+			"Ãˆ" => "&Eacute;",
+			"ÃŠ" => "&Ecirc;",
+			"é" => "&egrave;",
+			"è" => "&eacute;",
+			"ê" => "&ecirc;",
+			"É" => "&Egrave;",
+			"È" => "&Eacute;",
+			"Ê" => "&Ecirc;",
+			"Ã­" => "&igrave;",
+			"Ã¬" => "&iacute;",
+			"Ã®" => "&icirc;",
+			"Ã" => "&Igrave;",
+			"ÃŒ" => "&Iacute;",
+			"ÃŽ" => "&Icirc;",
+			"í" => "&igrave;",
+			"ì" => "&iacute;",
+			"î" => "&icirc;",
+			"Í" => "&Igrave;",
+			"Ì" => "&Iacute;",
+			"Î" => "&Icirc;",
+			"Ã³" => "&ograve;",
+			"Ã²" => "&oacute;",
+			"Ã´" => "&ocirc;",
+			"Ã“" => "&Ograve;",
+			"Ã’" => "&Oacute;",
+			"Ã”" => "&Ocirc;",
+			"ó" => "&ograve;",
+			"ò" => "&oacute;",
+			"ô" => "&ocirc;",
+			"Ó" => "&Ograve;",
+			"Ò" => "&Oacute;",
+			"Ô" => "&Ocirc;",
+			"Ãº" => "&ugrave;",
+			"Ã¹" => "&uacute;",
+			"Ã»" => "&ucirc;",
+			"Ã" => "&Ugrave;",
+			"Ã™" => "&Uacute;",
+			"Ã›" => "&Ucirc;",
+			"ú" => "&ugrave;",
+			"ù" => "&uacute;",
+			"û" => "&ucirc;",
+			"Ú" => "&Ugrave;",
+			"Ù" => "&Uacute;",
+			"Û" => "&Ucirc;",
+			">" => "&gt;",
+			"<" => "&lt;",
+			"\n" => "<br>",
+			"\\n" => "<br>",
+			"&lt;br&gt;" => "<br>",
+		);
 
+    return str_replace(array_keys($array),$array,$var);
+}*/
 function BBCode($input) {
     $input = stripslashes ( $input );
     $input = rtrim ( $input );
@@ -514,6 +603,10 @@ function BBCode($input) {
 
 function maketime($sekunden) {
     $sekunden = round ( $sekunden );
+		$stunden = 0;
+		$minuten = 0;
+		$tage = 0;
+		$retval = "";
     if ($sekunden < 0)
         return "0:00:00";
 
@@ -529,27 +622,10 @@ function maketime($sekunden) {
         $tage = floor ( $stunden / 24 );
         $stunden -= 24 * $tage;
     }
-
-    if (strlen ( $sekunden ) == 1)
-        $sekunden = "0$sekunden";
-
-    if (strlen ( $minuten ) == 1)
-        $minuten = "0$minuten";
-
     if ($tage)
-        if ($tage > 1)
-            $retval = "$tage Tage "; else
-            $retval = "$tage Tag ";
+        $retval = ($tage > 1) ? $retval = "$tage Tage " : "$tage Tag ";
 
-    if ($stunden)
-        $retval .= "$stunden"; else
-        $retval .= "0";
-
-    if ($minuten)
-        $retval .= ":$minuten"; else
-        $retval .= ":00";
-
-    $retval .= ":$sekunden";
+    $retval .= sprintf("%02d",$stunden).":".sprintf("%02d",$minuten).":".sprintf("%02d",$sekunden);
 
     return $retval;
 }
@@ -564,22 +640,7 @@ function maketime($sekunden) {
  * @param array value array
  */
 function merge_arrays(&$a, $b) {
-    $keys = array_keys ( $a );
-    foreach ( $keys as $key ) {
-        if (isset ( $b [$key] )) {
-            if (is_array ( $a [$key] ) and is_array ( $b [$key] )) {
-                merge_arrays ( $a [$key], $b [$key] );
-            } else {
-                $a [$key] = $b [$key];
-            }
-        }
-    }
-    $keys = array_keys ( $b );
-    foreach ( $keys as $key ) {
-        if (! isset ( $a [$key] )) {
-            $a [$key] = $b [$key];
-        }
-    }
+    $a = $b+$a;
 }
 
 function translate($var) {
@@ -615,7 +676,7 @@ function translate($var) {
 function translate_technologies($var) {
     global $t_db_name, $t_name;
 
-    for($i = 0; $i < ANZAHL_TECHNOLOGIEN; $i ++)
+    for($i = 0; $i < count($t_db_name); $i ++)
         if ($var == "t_" . $t_db_name [$i])
             return $t_name [$i];
 }
@@ -623,7 +684,7 @@ function translate_technologies($var) {
 function translate_buildings($var) {
     global $b_db_name, $b_name;
 
-    for($i = 0; $i < ANZAHL_GEBAEUDE; $i ++)
+    for($i = 0; $i < count($b_db_name); $i ++)
         if ($var == "b_" . $b_db_name [$i])
             return $b_name [$i];
 }
@@ -631,7 +692,7 @@ function translate_buildings($var) {
 function translate_defense($var) {
     global $d_db_name, $d_name;
 
-    for($i = 0; $i < ANZAHL_DEFENSIVE; $i ++)
+    for($i = 0; $i < count($d_db_name); $i ++)
         if ($var == "d_" . $d_db_name [$i])
             return $d_name [$i];
 }
@@ -639,7 +700,7 @@ function translate_defense($var) {
 function translate_planes($var) {
     global $p_db_name_wus, $p_name;
 
-    for($i = 0; $i < ANZAHL_FLUGZEUGE; $i ++)
+    for($i = 0; $i < count($p_db_name_wus); $i ++)
         if ($var == "p_" . $p_db_name_wus [$i])
             return $p_name [$i];
 }
@@ -667,7 +728,7 @@ function LoginError() {
     @session_destroy();
 
     $use_lib = 20; // MSG_LOGIN_ERROR
-    require ("msgs.php");
+    require_once ("msgs.php");
 
     // define phptal template
     require_once ("PHPTAL.php");
@@ -677,7 +738,7 @@ function LoginError() {
     $template->setEncoding ( 'ISO-8859-1' );
 
     // common setting
-    require ("config_general.php");
+    require_once ("config_general.php");
     require_once ("include/TemplateSettingsCommonGuest.php");
 
     if (func_num_args () == 0 || (func_num_args () == 1 && func_get_arg ( 0 ) == 'captcha')) {
@@ -1027,6 +1088,9 @@ function markCaptchaWrongForUser($email, $password) {
         //nach zehn min darf man wieder ;)
         if (time () - $login_detail ['user_captcha_last_try'] > 10 * 60) {
             resetCaptchaBlock ( $email );
+						/*Unnötiges QUERY? Captcha Daten kann man auch manuell im Array abspeichern.
+						$login_detail['user_captcha_wrong_counter'] = 0;
+						$login_detail ['user_captcha_blocked'] = "no";*/
             $login_info = sql_query ( "SELECT * FROM userdata WHERE email='" . addslashes(htmlspecialchars ( $email, ENT_QUOTES )) . "' && password='$md5_password'" );
             $login_detail = sql_fetch_array ( $login_info );
         }

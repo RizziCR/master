@@ -17,7 +17,7 @@ require_once("functions.php");
 require_once 'include/class_Party.php';
 require_once 'include/class_Kampf.php';
 require_once 'include/class_Krieg.php';
-include("tutorial.php");
+//include("tutorial.php");
 
 $email = "";
 
@@ -68,24 +68,7 @@ try {
             p_medium_transporter_gesamt=p_medium_transporter,
             p_big_transporter_gesamt=p_big_transporter");
 
-        $f_db_name = array();
-        $f_db_name[] = "f_sparrow";
-        $f_db_name[] = "f_blackbird";
-        $f_db_name[] = "f_raven";
-        $f_db_name[] = "f_eagle";
-        $f_db_name[] = "f_falcon";
-        $f_db_name[] = "f_nightingale";
-        $f_db_name[] = "f_settler";
-        $f_db_name[] = "f_scarecrow";
-        $f_db_name[] = "f_ravager";
-        $f_db_name[] = "f_destroyer";
-        $f_db_name[] = "f_espionage_probe";
-        $f_db_name[] = "f_small_transporter";
-        $f_db_name[] = "f_medium_transporter";
-        $f_db_name[] = "f_big_transporter";
-        $f_db_name[] = "f_bomber";
-        
-        
+             
         // count only back flights of trading planes or resources, and of transportations;
         // in addition count planes given away
         for ($i=0;$i<count($p_db_name);$i++)
